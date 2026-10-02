@@ -1,0 +1,2097 @@
+[
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000014",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://data.crow.nl/thesaurus/term/48FA2203-699F-48A2-B82F-A0C4F6CA181C"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Verkeer dat noch een herkomst, noch een bestemming heeft binnen het beschouwde gebied."
+      },
+      {
+        "@language": "en",
+        "@value": "Traffic that has neither an origin nor a destination within the area under consideration."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Through traffic"
+      },
+      {
+        "@language": "nl",
+        "@value": "Doorgaand verkeer"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Term conform de CROW-thesaurus. Het weren van doorgaand verkeer uit verblijfsgebieden is een kerndoel van veel verkeerscirculatieplannen."
+      },
+      {
+        "@language": "en",
+        "@value": "Term in line with the CROW thesaurus. Keeping through traffic out of residential areas is a core objective of many traffic circulation plans."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000004",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://www.polisnetwork.eu/wp-content/uploads/2024/11/RTTI-Report.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een bestuurlijk geformuleerd doel - zoals bereikbaarheid, leefbaarheid, verkeersveiligheid of luchtkwaliteit - dat de gewenste verkeersstromen binnen een verkeerscirculatieplan stuurt."
+      },
+      {
+        "@language": "en",
+        "@value": "An objective formulated at policy level - such as accessibility, liveability, road safety or air quality - that guides the desired traffic flows within a traffic circulation plan."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Policy objective"
+      },
+      {
+        "@language": "nl",
+        "@value": "Beleidsdoel"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000015"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000001"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000014"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000017"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000028"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Conform de POLIS/CROW-positiepaper vormen beleidsdoelen de aanleiding voor de keuze van maatregelen en voorkeursroutes in een verkeerscirculatieplan."
+      },
+      {
+        "@language": "en",
+        "@value": "In line with the POLIS/CROW position paper, policy objectives are the reason for the choice of measures and preferred routes in a traffic circulation plan."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000025",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://www.polisnetwork.eu/wp-content/uploads/2024/11/RTTI-Report.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een straat die autovrij is gedurende de begin- en eindtijden van de schooldag."
+      },
+      {
+        "@language": "en",
+        "@value": "A street that is car-free during the start and end times of the school day."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "School street"
+      },
+      {
+        "@language": "nl",
+        "@value": "Schoolstraat"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202276603"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Als concrete maatregel genoemd in de POLIS/CROW-positiepaper; in NL doorgaans gerealiseerd via een tijdgebonden geslotenverklaring."
+      },
+      {
+        "@language": "en",
+        "@value": "Mentioned as a concrete measure in the POLIS/CROW position paper; in the Netherlands usually realised through a time-bound closure declaration."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000018",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://data.crow.nl/thesaurus/term/264DF64F-903B-49CD-A4E4-D3E235A20FF2"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Niet-motorvoertuigen, fietsers, voetgangers en geleiders of berijders van een dier, alsmede motorvoertuigen die slechts een lage snelheid kunnen of mogen rijden."
+      },
+      {
+        "@language": "en",
+        "@value": "Non-motorised vehicles, cyclists, pedestrians and persons leading or riding an animal, as well as motor vehicles that can or may travel only at a low speed."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Slow traffic"
+      },
+      {
+        "@language": "nl",
+        "@value": "Langzaam verkeer"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000017"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Term conform de CROW-thesaurus. Relevant omdat circulatiemaatregelen langzaam verkeer doorgaans uitzonderen (bijv. een knip die wel passeerbaar is voor fietsers)."
+      },
+      {
+        "@language": "en",
+        "@value": "Term in line with the CROW thesaurus. Relevant because circulation measures usually exempt slow traffic (e.g. a traffic filter that cyclists can still pass)."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000008",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://www.crow.nl/Onderwerpen/wegontwerp-en-weginrichting/duurzaam-veilig-wegontwerp/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De fysiek-functionele indeling van een weg volgens de Nederlandse wegontwerpsystematiek, bepalend voor inrichting en gewenst gebruik."
+      },
+      {
+        "@language": "en",
+        "@value": "The physical-functional classification of a road according to the Dutch road design system, determining its layout and intended use."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000010"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000012"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000009"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Road category"
+      },
+      {
+        "@language": "nl",
+        "@value": "Wegcategorie"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000006"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Gebaseerd op de Duurzaam Veilig-categorisering (CROW). De Nederlandse wegcategorieen corresponderen functioneel met de Europese functionele wegclassificatie, maar vormen daarmee geen een-op-een-hierarchie; daarom een skos:related-relatie in plaats van broader/narrower."
+      },
+      {
+        "@language": "en",
+        "@value": "Based on the Sustainable Safety (Duurzaam Veilig) categorisation (CROW). The Dutch road categories correspond functionally to the European functional road classification, but do not form a one-to-one hierarchy with it; hence a skos:related relation instead of broader/narrower."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000006",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://inspire.ec.europa.eu/enumeration/FunctionalRoadClassValue"
+      },
+      {
+        "@value": "https://www.polisnetwork.eu/wp-content/uploads/2024/11/RTTI-Report.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een classificatie van wegen op basis van het belang van hun functie binnen het wegennet, onafhankelijk van de fysieke wegcategorie."
+      },
+      {
+        "@language": "en",
+        "@value": "A classification of roads based on the importance of their function within the road network, independent of the physical road category."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#editorialNote": [
+      {
+        "@language": "nl",
+        "@value": "Funcitonele wegclassificatie => mapping -> https://docs.datex2.eu/recommended-profiles/rrp/rtti/rtti-670/1-i-b-road-classification/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://docs.datex2.eu/recommended-profiles/rrp/rtti/rtti-670/1-i-b-road-classification/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000007"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "_Functionele wegclassificatie"
+      },
+      {
+        "@language": "en",
+        "@value": "Functional road class"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000001"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Gebaseerd op de INSPIRE Transport Networks FunctionalRoadClass. In de POLIS/CROW-positiepaper wordt de functionele wegclassificatie voorgesteld als basis (datatype 2b) voor het digitaal verkeerscirculatieplan, met de kanttekening dat voor beleidsdoeleinden vaak meer functies nodig zijn dan de Europese FRC biedt en dat multimodaliteit nog ontbreekt."
+      },
+      {
+        "@language": "en",
+        "@value": "Based on the INSPIRE Transport Networks FunctionalRoadClass. The POLIS/CROW position paper proposes the functional road classification as the basis (data type 2b) for the digital traffic circulation plan, with the caveat that policy purposes often require more functions than the European FRC offers and that multimodality is still lacking."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000033",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/a9b7026e-0a81-4813-93bd-ba49e6f28502"
+      },
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      },
+      {
+        "@value": "https://docs.geostandaarden.nl/imgeo/catalogus/imgeo/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een onderdeel van het wegennet tussen twee opeenvolgende posities, dat als kleinste eenheid dient voor de registratie van wegkenmerken en maatregelen."
+      },
+      {
+        "@language": "en",
+        "@value": "A part of the road network between two consecutive positions, serving as the smallest unit for recording road characteristics and measures."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Road link"
+      },
+      {
+        "@language": "nl",
+        "@value": "Wegvak"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "In Nederland geregistreerd in het Nationaal Wegenbestand (NWB) en als Wegdeel in de BGT/IMGeo. Deze registraties dienen hier uitsluitend als referentiebron (dct:source), niet als koppeldoel."
+      },
+      {
+        "@language": "en",
+        "@value": "Recorded in the Netherlands in the National Road Database (NWB) and as Wegdeel in the BGT/IMGeo. These registers serve here solely as a reference source (dct:source), not as a linking target."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000031",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Regelingen voor het laden en lossen van goederen, zoals de aanwijzing van wegvakken of gebieden en tijdgebonden beperkingen."
+      },
+      {
+        "@language": "en",
+        "@value": "Regulations for the loading and unloading of goods, such as the designation of road links or areas and time-bound restrictions."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Freight delivery regulation"
+      },
+      {
+        "@language": "nl",
+        "@value": "Bevoorradingsregeling"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000024"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Valt onder de RTTI-datacategorie freight delivery regulations (NAPCORE data dictionary); nauw verbonden met venstertijden."
+      },
+      {
+        "@language": "en",
+        "@value": "Falls under the RTTI data category freight delivery regulations (NAPCORE data dictionary); closely linked to time windows."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/collections/verkeersstromen-en-routering",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000014"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000015"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000017"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000018"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Traffic flows & routing"
+      },
+      {
+        "@language": "nl",
+        "@value": "Verkeersstromen & routering"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000007",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://inspire.ec.europa.eu/enumeration/FunctionalRoadClassValue"
+      },
+      {
+        "@value": "https://www.polisnetwork.eu/wp-content/uploads/2024/11/RTTI-Report.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000006"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De negen niveaus van de functionele wegclassificatie, oplopend van niveau 0 (hoofdweg/autosnelweg) tot niveau 8 (lokale wegen van minder belang en paden)."
+      },
+      {
+        "@language": "en",
+        "@value": "The nine levels of the functional road classification, ranging from level 0 (main road/motorway) up to level 8 (local roads of minor importance and paths)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "FRC levels 0 to 8"
+      },
+      {
+        "@language": "nl",
+        "@value": "FRC-niveaus 0 tot 8"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Waardenlijst conform de INSPIRE FunctionalRoadClassValue-enumeratie, zoals weergegeven in de POLIS/CROW-positiepaper. De afzonderlijke niveau-URI's volgen het patroon van het INSPIRE-codelijstregister."
+      },
+      {
+        "@language": "en",
+        "@value": "Value list in line with the INSPIRE FunctionalRoadClassValue enumeration, as presented in the POLIS/CROW position paper. The individual level URIs follow the pattern of the INSPIRE code list register."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000005",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://www.crow.nl/kennisproducten/richtlijn-en-leidraad-voor-multimodale-netwerkkaders/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een eenduidige weergave van het beleidsmatig gewenste multimodale gebruik van het wegennet, met een prioritering tussen modaliteiten per netwerkonderdeel."
+      },
+      {
+        "@language": "en",
+        "@value": "An unambiguous representation of the multimodal use of the road network desired as a matter of policy, with a prioritisation between modes per network element."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Multimodal network framework"
+      },
+      {
+        "@language": "nl",
+        "@value": "Multimodaal netwerkkader"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000006"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Gestandaardiseerd via de CROW/LVMB-richtlijn en -leidraad voor multimodale netwerkkaders. Vormt de modaliteitslaag waarop voorkeursroutes en wegcategorisering kunnen aansluiten."
+      },
+      {
+        "@language": "en",
+        "@value": "Standardised through the CROW/LVMB guideline and manual for multimodal network frameworks. Forms the modality layer to which preferred routes and road categorisation can connect."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000023",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004825"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een gebied met bewust beperkt gemotoriseerd verkeer, doorgaans gerealiseerd via ontheffingen en kentekenhandhaving."
+      },
+      {
+        "@language": "en",
+        "@value": "An area with deliberately limited motorised traffic, usually realised through exemptions and licence plate enforcement."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Low-car zone"
+      },
+      {
+        "@language": "nl",
+        "@value": "Autoluw gebied"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202276603"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Niet als zodanig in het RVV gedefinieerd; in de praktijk een combinatie van geslotenverklaringen, venstertijden en ontheffingen."
+      },
+      {
+        "@language": "en",
+        "@value": "Not defined as such in the RVV; in practice a combination of closure declarations, time windows and exemptions."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000009",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://www.crow.nl/Onderwerpen/wegontwerp-en-weginrichting/duurzaam-veilig-wegontwerp/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000008"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een wegcategorie gericht op de doorstroming van verkeer met een constante, doorgaans hoge snelheid, met ongelijkvloerse kruisingen."
+      },
+      {
+        "@language": "en",
+        "@value": "A road category aimed at the through-flow of traffic at a constant, generally high speed, with grade-separated intersections."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Flow road"
+      },
+      {
+        "@language": "nl",
+        "@value": "Stroomweg"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Duurzaam Veilig-categorie; komt vooral buiten de bebouwde kom voor."
+      },
+      {
+        "@language": "en",
+        "@value": "Sustainable Safety (Duurzaam Veilig) category; occurs mainly outside built-up areas."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000022",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004825"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een gebied waarin in beginsel uitsluitend voetgangers zich mogen bevinden en voorrang hebben op overig verkeer."
+      },
+      {
+        "@language": "en",
+        "@value": "An area in which, in principle, only pedestrians may be present and where they have priority over other traffic."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Pedestrian zone"
+      },
+      {
+        "@language": "nl",
+        "@value": "Voetgangerszone"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Ook wel voetgangersgebied genoemd; aangeduid met de borden G7/G8 (RVV 1990)."
+      },
+      {
+        "@language": "en",
+        "@value": "Also referred to as a pedestrian area; indicated by signs G7/G8 (RVV 1990)."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000030",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004825"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000028"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een fysieke afsluiting - bijvoorbeeld door beweegbare palen - die doorgaand gemotoriseerd verkeer onmogelijk maakt, terwijl fietsers, voetgangers en ontheffinghouders kunnen passeren."
+      },
+      {
+        "@language": "en",
+        "@value": "A physical closure - for example by means of retractable bollards - that makes through motorised traffic impossible, while cyclists, pedestrians and exemption holders can pass."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Traffic filter"
+      },
+      {
+        "@language": "nl",
+        "@value": "Knip"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "De knip is de fysieke realisatie van een geslotenverklaring en een kernmaatregel tegen sluipverkeer in verkeerscirculatieplannen."
+      },
+      {
+        "@language": "en",
+        "@value": "The traffic filter is the physical realisation of a closure declaration and a core measure against rat-running traffic in traffic circulation plans."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000032",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De ruimtelijke begrenzing van een gebied waarbinnen een zonale verkeersregel geldt."
+      },
+      {
+        "@language": "en",
+        "@value": "The spatial delimitation of an area within which a zonal traffic rule applies."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Zone boundary"
+      },
+      {
+        "@language": "nl",
+        "@value": "Zonegrens"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Valt onder de RTTI-datacategorie grenzen van zonale beperkingen, verboden of geboden (NAPCORE data dictionary)."
+      },
+      {
+        "@language": "en",
+        "@value": "Falls under the RTTI data category boundaries of zonal restrictions, prohibitions or obligations (NAPCORE data dictionary)."
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1787733042482",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "t.b.d."
+      },
+      {
+        "@language": "en",
+        "@value": "t.b.d"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#editorialNote": [
+      {
+        "@language": "nl",
+        "@value": "Definities graag aanleveren. Indien er op basis van andere standaarden (bijv. DATEXII) een beschrijving wordt toegevoegd, graag URL meegeven."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "_Bewegwijzering"
+      },
+      {
+        "@language": "en",
+        "@value": "Signage"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000010",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://www.crow.nl/Onderwerpen/wegontwerp-en-weginrichting/duurzaam-veilig-wegontwerp/"
+      },
+      {
+        "@value": "https://data.crow.nl/thesaurus/term/8504D234-DD69-4A8D-BA4E-E207E57ECEAD"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000008"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een wegcategorie die landelijk of stedelijk gebied ontsluit: doorstroming op de wegvakken, uitwisseling op de kruispunten."
+      },
+      {
+        "@language": "en",
+        "@value": "A road category that provides access to rural or urban areas: through-flow on the links, exchange at the intersections."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Distributor road"
+      },
+      {
+        "@language": "nl",
+        "@value": "Gebiedsontsluitingsweg"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Duurzaam Veilig-categorie (CROW-thesaurus). Afgekort GOW."
+      },
+      {
+        "@language": "en",
+        "@value": "Sustainable Safety (Duurzaam Veilig) category (CROW thesaurus). Abbreviated GOW."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000013",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004825"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000012"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een als erf aangeduid verblijfsgebied, begrensd door de borden G5 (begin) en G6 (einde), waar voetgangers de gehele breedte van de weg mogen gebruiken en stapvoets (15 km/u) wordt gereden."
+      },
+      {
+        "@language": "en",
+        "@value": "A residential area designated as a yard (Dutch: erf), bounded by signs G5 (start) and G6 (end), where pedestrians may use the full width of the road and vehicles travel at walking pace (15 km/h)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Residential yard"
+      },
+      {
+        "@language": "nl",
+        "@value": "Woonerf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "RVV 1990 (borden G5/G6). Een woonerf is de meest verblijfsgerichte uitwerking van een erftoegangsweg."
+      },
+      {
+        "@language": "en",
+        "@value": "RVV 1990 (signs G5/G6). A woonerf is the most residential-oriented elaboration of an access road."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/collections/geometrie-en-locatiereferentie",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000032"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000033"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000034"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Geometry & location referencing"
+      },
+      {
+        "@language": "nl",
+        "@value": "Geometrie & locatiereferentie"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000012",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://www.crow.nl/Onderwerpen/wegontwerp-en-weginrichting/duurzaam-veilig-wegontwerp/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000008"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een wegcategorie gericht op het toegankelijk maken van erven en bestemmingen, met een verblijfsfunctie en een lage snelheid."
+      },
+      {
+        "@language": "en",
+        "@value": "A road category aimed at providing access to premises and destinations, with a residential function and a low speed."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000013"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Access road"
+      },
+      {
+        "@language": "nl",
+        "@value": "Erftoegangsweg"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Duurzaam Veilig-categorie (CROW). Afgekort ETW."
+      },
+      {
+        "@language": "en",
+        "@value": "Sustainable Safety (Duurzaam Veilig) category (CROW). Abbreviated ETW."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/collections/punt-en-wegvakmaatregelen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000027"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000028"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000029"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000030"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000031"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Link & node measures"
+      },
+      {
+        "@language": "nl",
+        "@value": "Punt- en wegvakmaatregelen"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/collections/zonale-toegangsregimes",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000020"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000021"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000022"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000023"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000024"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000025"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000026"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Urban vehicle access regulations"
+      },
+      {
+        "@language": "nl",
+        "@value": "Zonale toegangsregimes"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000001",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://www.polisnetwork.eu/wp-content/uploads/2024/11/RTTI-Report.pdf"
+      },
+      {
+        "@value": "https://eur-lex.europa.eu/eli/reg_del/2022/670/oj"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een samenhangende set van permanente of terugkerende verkeersmanagementmaatregelen die door een wegbeheerder wordt ontworpen om de verkeersstromen binnen een gebied te sturen, rekening houdend met bekende en terugkerende verkeerssituaties, seizoensinvloeden en bestaande beperkingen (bijv. schoolzones)."
+      },
+      {
+        "@language": "en",
+        "@value": "A coherent set of permanent or recurring traffic management measures designed by a road authority to guide traffic flows within an area, taking into account known and recurring traffic situations, seasonal influences and existing restrictions (e.g. school zones)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Verkeerscirculatieplan"
+      },
+      {
+        "@language": "en",
+        "@value": "Traffic circulation plan"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Definitie gebaseerd op art. 2(21) van de Gedelegeerde Verordening RTTI (EU) 2022/670. In de POLIS/CROW-positiepaper (2024) wordt voorgesteld een digitaal verkeerscirculatieplan te modelleren als RTTI-datatype 2b: de functionele wegclassificatie aangevuld met use cases. De ITS-richtlijn verplicht digitalisering van nieuw ontwikkelde verkeerscirculatieplannen vanaf 2028."
+      },
+      {
+        "@language": "en",
+        "@value": "A traffic circulation plan does not itself introduce restrictions."
+      },
+      {
+        "@language": "nl",
+        "@value": "Een verkeerscirculatieplan introduceert geen beperkingen."
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784621302158",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Willen we iets met digitale actuatoren (zie andere RTTI modellen)?"
+      },
+      {
+        "@language": "en",
+        "@value": "Digital indicators?"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "AANTEKENINGEN"
+      },
+      {
+        "@language": "en",
+        "@value": "AANTEKENINGEN"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000026",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://datex2.eu/user-domains/uvars/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een afgebakend gebied waarbinnen het verkeer voor bepaalde voertuigcategorieen of doelgroepen is beperkt; internationaal bekend als ZTL (zona a traffico limitato)."
+      },
+      {
+        "@language": "en",
+        "@value": "A delimited area within which traffic is restricted for certain vehicle categories or target groups; known internationally as ZTL (zona a traffico limitato)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Limited traffic zone"
+      },
+      {
+        "@language": "nl",
+        "@value": "Zone met beperkt verkeer"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202276603"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Generiek zonaal regime dat de internationale UVAR-praktijk dekt en in NL via geslotenverklaring met uitzonderingen wordt vormgegeven."
+      },
+      {
+        "@language": "en",
+        "@value": "Generic zonal regime covering international UVAR practice, shaped in the Netherlands through a closure declaration with exemptions."
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.org/dc/terms/created": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-03-19T11:14:20.285419+00:00"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@language": "nl",
+        "@value": "Dit conceptschema beschrijft de samenhangende set van permanente of terugkerende verkeersmaatregelen die door een wegbeheerder wordt ontworpen om de multimodale verkeersstromen binnen een gebied te sturen, rekening houdend met bekende en terugkerende verkeerssituaties, seizoensinvloeden en bestaande beperkingen (bijv. schoolzones)."
+      }
+    ],
+    "http://purl.org/dc/terms/modified": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-09-07T10:38:18.575175+00:00"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "nl",
+        "@value": "RTTI — Verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+        "@value": "0.5.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202276603",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "to be decided later"
+      },
+      {
+        "@language": "nl",
+        "@value": "nader te bepalen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Bedrijfsregels"
+      },
+      {
+        "@language": "en",
+        "@value": "Business rules"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000027",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.datex2.eu/levels/mastering/trafficregulation/"
+      },
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004825"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een wegvak waar verkeer slechts in een rijrichting is toegestaan."
+      },
+      {
+        "@language": "en",
+        "@value": "A road link where traffic is permitted in one direction of travel only."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "One-way street"
+      },
+      {
+        "@language": "nl",
+        "@value": "Eenrichtingsverkeer"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000033"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Aangeduid met de borden C2/C3/C4 (RVV 1990); in DATEX II te modelleren als een TrafficRegulation. Eenrichtingsverkeer is een veelgebruikte circulatiemaatregel."
+      },
+      {
+        "@language": "en",
+        "@value": "Indicated by signs C2/C3/C4 (RVV 1990); to be modelled in DATEX II as a TrafficRegulation. One-way traffic is a widely used circulation measure."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000017",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://www.polisnetwork.eu/wp-content/uploads/2024/11/RTTI-Report.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een door de wegbeheerder beleidsmatig gewenste route per modaliteit of doelgroep, bedoeld om met serviceproviders te worden gedeeld zodat navigatiediensten erop kunnen sturen."
+      },
+      {
+        "@language": "en",
+        "@value": "A route desired by the road authority as a matter of policy, per mode or target group, intended to be shared with service providers so that navigation services can guide traffic along it."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Preferred route"
+      },
+      {
+        "@language": "nl",
+        "@value": "Voorkeursroute"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1787733042482"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000006"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Een van de in de POLIS/CROW-positiepaper genoemde use cases van een digitaal verkeerscirculatieplan (naast te mijden gebieden en het gebruik van hoofdroutes)."
+      },
+      {
+        "@language": "en",
+        "@value": "One of the use cases of a digital traffic circulation plan mentioned in the POLIS/CROW position paper (alongside areas to be avoided and the use of main routes)."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000021",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004825"
+      },
+      {
+        "@value": "https://zoek.officielebekendmakingen.nl/stb-2025-265.html"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een zone waar voor bedrijfs- en vrachtauto's uitsluitend emissieloze voertuigen zijn toegestaan."
+      },
+      {
+        "@language": "en",
+        "@value": "A zone where only zero-emission vehicles are permitted for vans and lorries."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Zero-emission zone"
+      },
+      {
+        "@language": "nl",
+        "@value": "Nul-emissiezone"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202276603"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Sinds 1 januari 2025 voeren gemeenten nul-emissiezones voor stadslogistiek in. Aangeduid met bord C22c, dat opgaat in het geunificeerde bord C22e (Stb. 2025, 265)."
+      },
+      {
+        "@language": "en",
+        "@value": "Since 1 January 2025 municipalities have been introducing zero-emission zones for urban logistics. Indicated by sign C22c, which is being merged into the unified sign C22e (Stb. 2025, 265)."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000024",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004826"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een gebied dat alleen op door de gemeente bepaalde tijdstippen toegankelijk is voor (bevoorradend) gemotoriseerd verkeer."
+      },
+      {
+        "@language": "en",
+        "@value": "An area accessible to (delivery) motorised traffic only at times determined by the municipality."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Time-window zone"
+      },
+      {
+        "@language": "nl",
+        "@value": "Venstertijdengebied"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Venstertijden worden kenbaar gemaakt via onderborden bij een geslotenverklaring (BABW). Veelgebruikt voor stadslogistiek."
+      },
+      {
+        "@language": "en",
+        "@value": "Time windows are made known by means of supplementary panels accompanying a closure declaration (BABW). Widely used for urban logistics."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/collections/functionele-wegclassificatie",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000006"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000007"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000008"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000009"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000010"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000012"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000013"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Functional road classification"
+      },
+      {
+        "@language": "nl",
+        "@value": "Functionele wegclassificatie"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://napcore.eu/quality/"
+      },
+      {
+        "@value": "https://datex2.eu/user-domains/uvars/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een begrenzing of beperking van het gebruik van het wegennet op basis van voertuigtype, reizigerstype of tijd, die geldt voor een afgebakend gebied."
+      },
+      {
+        "@language": "en",
+        "@value": "A limitation or restriction on the use of the road network on the basis of vehicle type, traveller type or time, applying to a delimited area."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#editorialNote": [
+      {
+        "@language": "nl",
+        "@value": "Graag reviewcommentaar toelichten @Nuno:\n\nOok onder RTTI : he crucial types of data on regulations and restrictions:\nstatic and dynamic traffic regulations, where applicable; boundaries of restrictions, prohibitions or obligations with zonal validity, current access status and conditions for circulation in regulated traffic zones;"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000025"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000023"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000026"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000013"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000022"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000021"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000020"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000024"
+      },
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202761035"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Urban vehicle access regulation"
+      },
+      {
+        "@language": "nl",
+        "@value": "_Zonaal toegangsregime"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000001"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Bekend onder de Europese term UVAR (Urban Vehicle Access Regulation). In DATEX II ondergebracht in de namespaces TrafficRegulation en ControlledZone; het NAPCORE Quality Framework for UVAR Data beschrijft de bijbehorende datakwaliteitseisen."
+      },
+      {
+        "@language": "en",
+        "@value": "Known by the European term UVAR (Urban Vehicle Access Regulation). Placed in DATEX II in the TrafficRegulation and ControlledZone namespaces; the NAPCORE Quality Framework for UVAR Data describes the associated data quality requirements."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000015",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004825"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Bestuurders wier reisdoel een of meer percelen betreft die aan of nabij een weg met een geslotenverklaring liggen en die daartoe uitsluitend via die weg bereikbaar zijn, alsmede bestuurders van lijnbussen."
+      },
+      {
+        "@language": "en",
+        "@value": "Drivers whose journey destination concerns one or more plots situated on or near a road subject to a closure declaration and reachable for that purpose solely via that road, as well as drivers of scheduled buses."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Destination traffic"
+      },
+      {
+        "@language": "nl",
+        "@value": "Bestemmingsverkeer"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000014"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Definitie ontleend aan art. 1 RVV 1990. Bestemmingsverkeer wordt veelal via een onderbord uitgezonderd van een geslotenverklaring."
+      },
+      {
+        "@language": "en",
+        "@value": "Definition derived from art. 1 RVV 1990. Destination traffic is usually exempted from a closure declaration by means of a supplementary panel."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000034",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.geostandaarden.nl/ibro/scope/"
+      },
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      },
+      {
+        "@value": "https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/a9b7026e-0a81-4813-93bd-ba49e6f28502"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een locatie waar verkeer naar een andere route kan worden geleid."
+      },
+      {
+        "@language": "en",
+        "@value": "A location where traffic can be directed onto another route."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Junction"
+      },
+      {
+        "@language": "nl",
+        "@value": "Knooppunt"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000033"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Valt onder de RTTI-datacategorie junctions (NAPCORE data dictionary). Voor de geometrische realisatie gelden NWB, BGT/IMGeo en het Rotterdamse Mercator/IBRO-model als referentiebron (dct:source)."
+      },
+      {
+        "@language": "en",
+        "@value": "Falls under the RTTI data category junctions (NAPCORE data dictionary). For the geometric realisation, NWB, BGT/IMGeo and the Rotterdam Mercator/IBRO model serve as reference sources (dct:source)."
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202761035",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "nader te bepalen"
+      },
+      {
+        "@language": "en",
+        "@value": "to be decided later"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Schoolzone"
+      },
+      {
+        "@language": "en",
+        "@value": "School zone"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202276603"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000020",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004825"
+      },
+      {
+        "@value": "https://zoek.officielebekendmakingen.nl/stb-2025-265.html"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een zone binnen een woonplaats waar motorvoertuigen die niet aan een bepaalde emissieklasse voldoen, worden geweerd."
+      },
+      {
+        "@language": "en",
+        "@value": "A zone from which motor vehicles that do not meet a given emission class are barred, in order to improve air quality; known across Europe as a low emission zone (LEZ)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Low emission zone"
+      },
+      {
+        "@language": "nl",
+        "@value": "Milieuzone"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000021"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Aangeduid met bord C22a, dat samen met de overige C22-borden wordt vervangen door het geunificeerde bord C22e (Stb. 2025, 265)."
+      },
+      {
+        "@language": "en",
+        "@value": "Indicated by sign C22a, which together with the other C22 signs is being replaced by the unified sign C22e (Stb. 2025, 265)."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/collections/plankader-en-juridische-basis",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000001"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000004"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000005"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Plan framework & legal basis"
+      },
+      {
+        "@language": "nl",
+        "@value": "Plankader & juridische basis"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000028",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004825"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een verbod om de betrokken weg of het betrokken weggedeelte in te rijden of in te gaan en te gebruiken."
+      },
+      {
+        "@language": "en",
+        "@value": "A prohibition on entering and using the road or road section concerned."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000030"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000029"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Closure declaration"
+      },
+      {
+        "@language": "nl",
+        "@value": "Geslotenverklaring"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000015"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Definitie ontleend aan art. 1 RVV 1990; gerealiseerd via de C-bordenreeks. Vormt de juridische basis voor veel circulatiemaatregelen."
+      },
+      {
+        "@language": "en",
+        "@value": "Definition derived from art. 1 RVV 1990; realised through the C series of signs. Forms the legal basis for many circulation measures."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000029",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000028"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een permanente toegangsbeperking voor een of meer voertuigcategorieen op een specifiek wegvak."
+      },
+      {
+        "@language": "en",
+        "@value": "A permanent access restriction for one or more vehicle categories on a specific road link."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "No-entry restriction"
+      },
+      {
+        "@language": "nl",
+        "@value": "Inrijverbod"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Valt onder de RTTI-datacategorie permanente toegangsbeperkingen (NAPCORE data dictionary)."
+      },
+      {
+        "@language": "en",
+        "@value": "Falls under the RTTI data category permanent access restrictions (NAPCORE data dictionary)."
+      }
+    ]
+  }
+]
