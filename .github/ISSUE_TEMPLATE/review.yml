@@ -1,0 +1,74 @@
+name: Review comment
+description: Comment on a published model or specification
+title: "[Review] "
+labels: ["review", "status: new", "source: respec"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your review. The fields below are mostly pre-filled from the specification.
+        Add your comment and click **Submit new issue**.
+
+  - type: input
+    id: model
+    attributes:
+      label: Model
+    validations:
+      required: true
+
+  - type: input
+    id: versie
+    attributes:
+      label: Version
+      description: Version of the model the comment applies to.
+    validations:
+      required: true
+
+  - type: input
+    id: sectie
+    attributes:
+      label: Section / concept
+
+  - type: textarea
+    id: citaat
+    attributes:
+      label: Quoted text
+      render: text
+
+  - type: input
+    id: locatie
+    attributes:
+      label: Direct link to the passage
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type of comment
+      options:
+        - Editorial (spelling, phrasing)
+        - Substantive (definition, meaning)
+        - Structural (relations, hierarchy, missing concept)
+        - Breaking change (impacts implementations)
+        - Question / clarification
+    validations:
+      required: true
+
+  - type: textarea
+    id: commentaar
+    attributes:
+      label: Comment
+      description: What is the problem?
+    validations:
+      required: true
+
+  - type: textarea
+    id: voorstel
+    attributes:
+      label: Proposal
+      description: Optional — how do you think it should read?
+
+  - type: input
+    id: organisatie
+    attributes:
+      label: Organisation
+      description: Optional
