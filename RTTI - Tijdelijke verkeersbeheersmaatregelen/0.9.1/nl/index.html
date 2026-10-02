@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <title>RTTI — Tijdelijke verkeersbeheersmaatregelen</title>
+  
+  <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+  <script class="remove">
+    var respecConfig = {"specStatus": "unofficial", "title": "RTTI — Tijdelijke verkeersbeheersmaatregelen", "shortName": "RTTI - Tijdelijke verkeersbeheersmaatregelen", "editors": [{"name": "Nationaal Toegangspunt Mobiliteit"}], "lint": false, "edDraftURI": "", "additionalCopyrightHolders": "Nationaal Toegangspunt Mobiliteit"};
+  </script>
+  
+  
+  <script src="https://ndwnu.github.io/its-gegevenscatalogus/review.js" defer
+          data-repo="ndwnu/its-gegevenscatalogus"
+          data-model="RTTI - Tijdelijke verkeersbeheersmaatregelen"
+          data-version="0.9.1"></script>
+  
+  <style>
+    /* Opmaak afgeleid van de PDF (docpublish/pdf/styles/_base.css): dezelfde
+       huisstijl-kleuren en tabelstijl, zodat de ReSpec-pagina en de PDF op
+       elkaar aansluiten. Staat NA ReSpec's basis-stylesheet, dus dit wint. */
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: #303c54;
+      line-height: 1.5;
+    }
+    h1, h2, h3, h4, h5, h6 { color: #1e40af; font-weight: 600; }
+    p.prose { text-align: justify; }
+    p.disclaimer {
+      background: rgba(30, 64, 175, 0.06);
+      border-left: 3px solid #1e40af;
+      padding: 6px 10px;
+      font-style: italic;
+      color: #636f83;
+      margin: 8px 0;
+    }
+    table.data-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px 0 18px;
+      font-size: 0.95rem;
+    }
+    table.data-table caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 600;
+      color: #1e40af;
+      padding-bottom: 4px;
+    }
+    table.data-table th {
+      background: rgba(30, 64, 175, 0.08);
+      border-bottom: 1px solid #1e40af;
+      color: #1e40af;
+      font-weight: 600;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    table.data-table td {
+      border-bottom: 1px solid #dfe4ee;
+      padding: 6px 8px;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+    table.data-table tr:nth-child(even) td { background: rgba(30, 64, 175, 0.025); }
+
+    /* Modeloverzicht-diagram: de server-side force-directed layout geeft een
+       compacte, normaal-geproportioneerde SVG (net als de visuele editor). Schaal
+       hem responsive binnen de paginabreedte. Voor het zeldzame extreem brede
+       geval blijft het kader horizontaal scrollbaar. */
+    figure.model-figure { margin: 12px 0; width: 100%; }
+    figure.model-figure > div {
+      overflow-x: auto;
+      border: 1px solid #dfe4ee;
+      border-radius: 6px;
+      padding: 8px;
+      background: #fff;
+    }
+    figure.model-figure svg {
+      display: block;
+      /* Vaste breedte 100% van het kader; de hoogte volgt uit de viewBox-
+         verhouding. Alleen height:auto laten renderen faalt als de container
+         nog geen breedte heeft (chicken-egg): dan wordt de SVG 0×0. De inline
+         width/height-attributen op de root-<svg> worden hierdoor overruled. */
+      width: 100%;
+      height: auto;
+    }
+    figure.model-figure figcaption {
+      font-size: 0.85rem;
+      color: #636f83;
+      margin-top: 4px;
+    }
+  </style>
+  
+  
+  <style>
+    .status-banner {
+      border-left: 8px solid var(--status-color, #6b7280);
+      background: var(--status-bg, #f3f4f6);
+      padding: 0.6rem 1rem;
+      margin: 0 0 1.5rem;
+      font-family: sans-serif;
+    }
+    .status-banner .status-badge {
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--status-color, #374151);
+    }
+    .status-banner .status-version { color: #4b5563; }
+    .status-draft       { --status-color: #d97706; --status-bg: #fffbeb; }
+    .status-under_review{ --status-color: #2563eb; --status-bg: #eff6ff; }
+    .status-published   { --status-color: #16a34a; --status-bg: #f0fdf4; }
+    .status-deprecated  { --status-color: #dc2626; --status-bg: #fef2f2; }
+    .status-withdrawn   { --status-color: #991b1b; --status-bg: #fef2f2; }
+  </style>
+  
+</head>
+<body>
+  
+  <h1 id="title">RTTI — Tijdelijke verkeersbeheersmaatregelen</h1>
+
+  
+  <section id="abstract">
+    <p>Dit conceptschema beschrijft de door of namens de wegbeheerder genomen set van tijdelijke verkeersmanagementmaatregels (voor een begrensde geldigheidsperiode), die wordt geactiveerd voor en gedeactiveerd na een of meerdere specifieke aanleidingen of scenario&#x27;s.</p>
+  </section>
+
+  
+  
+  <div id="beschikbare-talen" class="language-switch">
+    <table class="data-table">
+      <caption>Beschikbare talen</caption>
+      <thead>
+        <tr><th>Taal</th><th>Document</th></tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td><strong>NL</strong></td>
+          <td><strong>RTTI — Tijdelijke verkeersbeheersmaatregelen</strong></td>
+        </tr>
+        
+        <tr>
+          <td>EN</td>
+          <td><a href="../en/index.html">RTTI — Temporary traffic control measures</a></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
+
+  
+  <div class="status-banner status-under_review">
+    <span class="status-badge">In review</span><span class="status-version"> — versie 0.9.1</span>
+  </div>
+  
+
+  
+    
+<section>
+  <h2>Introductie op semantisch modelleren</h2>
+  
+    
+      <p class="prose"><p>Een <strong>begrippenkader</strong> (in SKOS: <em>ConceptScheme</em>) is een gestructureerde verzameling van begrippen die binnen een bepaald domein een vaste, gedeelde betekenis hebben. Het doel is dat iedereen die met het model werkt — mensen én systemen — dezelfde woorden gebruikt voor dezelfde dingen. Dat klinkt vanzelfsprekend, maar in de praktijk blijkt taal verrassend vaak voor verwarring te zorgen: wat de ene organisatie een <em>meetpunt</em> noemt, heet bij de ander een <em>sensor</em>, een <em>locatie</em>, of een <em>observatiepost</em>.</p>
+<p>Een begrippenkader lost dat op door per begrip vast te leggen:</p>
+<ul>
+<li>een <strong>voorkeursnaam</strong> (prefLabel) waaronder het begrip bekend is,</li>
+<li>een <strong>definitie</strong> die onomstotelijk beschrijft waar het begrip wel én niet op slaat,</li>
+<li>en eventueel een <strong>toelichting</strong> of <strong>voorbeeld</strong> om grensgevallen te verduidelijken.</li>
+</ul>
+<p>Begrippen staan zelden op zichzelf. Ze zijn <strong>hiërarchisch</strong> (een voertuig is breder dan een vrachtwagen) of <strong>associatief</strong> (een weggebruiker hangt samen met een wegsegment) aan elkaar gerelateerd. Die relaties maken het mogelijk om in queries en analyses te navigeren tussen algemene en specifieke concepten, en om verbanden tussen begrippen expliciet te maken. Binnen SKOS gebruiken we daarvoor <code>broader</code>, <code>narrower</code> en <code>related</code>.</p>
+<p>Wanneer een begrip ook ergens anders bestaat — bijvoorbeeld in een nationale of Europese standaard — leggen we dat vast als een <strong>mapping-relatie</strong>. Dat voorkomt dat iedereen het wiel opnieuw uitvindt: we linken naar de bron zodat interoperabiliteit met externe systemen mogelijk blijft.</p>
+<p>Dit document beschrijft het begrippenkader zoals het op dit moment is vastgelegd. De eerstvolgende secties geven de metadata, alle begrippen, hun relaties onderling en — als het model gekoppeld is aan een databron — hoe dat aan de brondata is gekoppeld.</p></p>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>RTTI — Tijdelijke verkeersbeheersmaatregelen</h2>
+  
+    
+      <h3>Beschrijving</h3>
+    
+  
+    
+      <p class="prose">Dit conceptschema beschrijft de door of namens de wegbeheerder genomen set van tijdelijke verkeersmanagementmaatregels (voor een begrensde geldigheidsperiode), die wordt geactiveerd voor en gedeactiveerd na een of meerdere specifieke aanleidingen of scenario&#x27;s.</p>
+    
+  
+    
+      
+<table class="data-table">
+  <caption>Metadata</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>URI</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen</td>
+      </tr>
+    
+      <tr>
+        <td>Versie</td><td>0.9.1</td>
+      </tr>
+    
+      <tr>
+        <td>Publicatiestatus</td><td>In review</td>
+      </tr>
+    
+      <tr>
+        <td>Beheerstatus</td><td>Actief</td>
+      </tr>
+    
+      <tr>
+        <td>Organisatie</td><td>Nationaal Toegangspunt Mobiliteit</td>
+      </tr>
+    
+      <tr>
+        <td>Aangemaakt op</td><td>2026-03-19</td>
+      </tr>
+    
+      <tr>
+        <td>Laatst gewijzigd op</td><td>2026-10-01</td>
+      </tr>
+    
+      <tr>
+        <td>Laatst gewijzigd door</td><td>arthur.keesen@ndw.nu</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Modeloverzicht</h2>
+  
+    
+      <p class="prose">Visueel overzicht van de concepten en hun relaties. Hiërarchische relaties zijn getekend met doorgetrokken pijlen; associatieve relaties met stippellijnen.</p>
+    
+  
+    
+      {# Een <figure> zonder <figcaption> laat de ReSpec core/figures-plugin een
+         waarschuwing tonen op de gepubliceerde pagina. Val daarom terug op de
+         sectie-kop als er geen expliciete caption is (anders dan de PDF, waar
+         een captionloze figuur op een eigen pagina bewust is). #}
+      <figure class="model-figure">
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="320.2 -423.0 2011.2 1437.0" width="2011" height="1437"><defs><marker id="arrow-hierarchy" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#475569" /></marker><marker id="arrow-related" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#8b5cf6" /></marker></defs><g class="edges"><line x1="899.0" y1="90.1" x2="537.1" y2="363.5" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="678.4" y1="-136.5" x2="468.6" y2="31.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="907.3" y1="96.5" x2="728.2" y2="525.2" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="902.7" y1="93.8" x2="612.8" y2="466.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1110.1" y1="421.0" x2="1110.8" y2="540.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="895.1" y1="76.0" x2="632.9" y2="49.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1282.7" y1="-196.6" x2="1846.4" y2="-99.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1273.9" y1="-183.2" x2="1536.2" y2="220.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1247.4" y1="-187.5" x2="937.7" y2="59.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="896.3" y1="85.0" x2="607.1" y2="193.8" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="916.9" y1="97.9" x2="944.2" y2="380.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="932.1" y1="88.3" x2="1196.1" y2="247.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1882.5" y1="349.5" x2="2004.1" y2="399.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="562.0" y1="212.6" x2="439.2" y2="271.5" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="674.0" y1="-149.6" x2="406.0" y2="-158.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="944.4" y1="557.0" x2="946.5" y2="438.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1859.9" y1="361.6" x2="1841.0" y2="451.6" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="439.7" y1="31.0" x2="386.1" y2="-131.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="951.8" y1="820.0" x2="951.3" y2="759.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1122.5" y1="385.4" x2="1202.9" y2="284.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1867.8" y1="602.7" x2="1842.5" y2="508.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1762.2" y1="587.4" x2="1818.7" y2="504.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1280.5" y1="-209.7" x2="1442.6" y2="-299.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1282.0" y1="-193.7" x2="1885.5" y2="4.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1243.1" y1="-198.2" x2="722.9" y2="-151.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1280.8" y1="-190.8" x2="1608.2" y2="-22.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1282.8" y1="-202.5" x2="1660.2" y2="-250.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1707.6" y1="291.7" x2="1554.0" y2="486.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1738.2" y1="284.3" x2="1837.6" y2="329.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1700.3" y1="272.4" x2="1580.5" y2="250.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="2048.1" y1="420.4" x2="2234.2" y2="533.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="2032.5" y1="429.9" x2="2042.9" y2="571.1" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1550.8" y1="265.0" x2="1537.8" y2="480.1" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1938.2" y1="588.5" x2="1855.0" y2="501.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="944.9" y1="597.0" x2="949.7" y2="701.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1234.3" y1="276.9" x2="1322.7" y2="376.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /></g><g class="nodes"><circle cx="413.0" cy="284.0" r="20" fill="#edc17d" stroke="white" stroke-width="2" /><rect x="329.0" y="308.0" width="168.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="413.0" y="322.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Volledige afsluiting</text><circle cx="514.0" cy="381.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="406.6" y="405.0" width="214.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="514.0" y="419.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Tijdelijke verkeerslichten</text><circle cx="1835.0" cy="480.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1782.2" y="504.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1835.0" y="518.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Niet gepland</text><circle cx="717.0" cy="552.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="636.9" y="576.0" width="160.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="717.0" y="590.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Rijstrookafsluiting</text><circle cx="952.0" cy="840.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="821.2" y="864.0" width="261.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="952.0" y="878.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Bevoegdheid tijdelijke maatregel</text><circle cx="1221.0" cy="262.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="1176.0" y="286.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1221.0" y="300.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">_Omleiding</text><circle cx="1873.0" cy="622.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1828.0" y="646.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1873.0" y="660.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Calamiteit</text><circle cx="1111.0" cy="569.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1058.2" y="593.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1111.0" y="607.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Uitwijkroute</text><circle cx="1864.0" cy="342.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1815.1" y="366.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1864.0" y="380.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Verstoring</text><circle cx="604.0" cy="47.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="543.4" y="71.0" width="121.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="604.0" y="85.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Wegversmalling</text><circle cx="915.0" cy="78.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="819.3" y="102.0" width="191.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="915.0" y="116.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Tijdelijk maatregeltype</text><circle cx="2259.0" cy="548.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="2190.6" y="572.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2259.0" y="586.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Wegwerkzaamheden</text><circle cx="1263.0" cy="-200.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1116.6" y="-176.0" width="292.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1263.0" y="-161.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Tijdelijke verkeersbeheersmaatregel</text><circle cx="377.0" cy="-159.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="324.2" y="-135.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="377.0" y="-120.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Deactivering</text><circle cx="694.0" cy="-149.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="617.8" y="-125.0" width="152.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="694.0" y="-110.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Geldigheidsperiode</text><circle cx="580.0" cy="204.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="527.2" y="228.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="580.0" y="242.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Wegafzetting</text><circle cx="951.0" cy="730.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="843.6" y="754.0" width="214.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="951.0" y="768.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Tijdelijk verkeersbesluit</text><circle cx="595.0" cy="489.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="475.9" y="513.0" width="238.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="595.0" y="527.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Tijdelijke snelheidsbeperking</text><circle cx="944.0" cy="577.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="848.3" y="601.0" width="191.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="944.0" y="615.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Tijdelijk verkeersteken</text><circle cx="1110.0" cy="401.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1045.5" y="425.0" width="129.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1110.0" y="439.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Omleidingsroute</text><circle cx="1751.0" cy="604.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1694.3" y="628.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1751.0" y="642.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Extreem weer</text><circle cx="446.0" cy="50.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="401.0" y="74.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="446.0" y="88.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Activering</text><circle cx="2045.0" cy="600.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="2003.9" y="624.0" width="82.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2045.0" y="638.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Evenement</text><circle cx="1720.0" cy="276.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1675.0" y="300.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1720.0" y="314.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Maatregel</text><circle cx="1552.0" cy="245.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1456.3" y="269.0" width="191.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1552.0" y="283.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Verkeersmanagementplan</text><circle cx="1952.0" cy="603.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1914.8" y="627.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1952.0" y="641.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Incident</text><circle cx="1536.0" cy="509.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1491.0" y="533.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1536.0" y="547.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Strategie</text><circle cx="1342.0" cy="398.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1238.5" y="422.0" width="207.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1342.0" y="436.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Tijdelijke bewegwijzering</text><circle cx="947.0" cy="409.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="859.1" y="433.0" width="175.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="947.0" y="447.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Tijdelijke markering</text><circle cx="1468.0" cy="-313.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1434.7" y="-289.0" width="66.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1468.0" y="-274.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Wegvak</text><circle cx="1017.0" cy="-363.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="929.1" y="-339.0" width="175.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1017.0" y="-324.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Aantekening bij model</text><circle cx="1875.0" cy="-95.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1709.1" y="-71.0" width="331.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1875.0" y="-56.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Tijdelijke Functionele Weg Classificatie</text><circle cx="1689.0" cy="-254.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1663.0" y="-230.0" width="52.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1689.0" y="-215.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Zone</text><circle cx="1913.0" cy="14.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1852.4" y="38.0" width="121.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1913.0" y="52.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Bedrijfsregel</text><circle cx="1634.0" cy="-9.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1565.6" y="15.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1634.0" y="29.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">+Service verzoek</text><circle cx="2031.0" cy="410.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1997.7" y="434.0" width="66.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2031.0" y="448.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Gepland</text></g><g class="legend"><line x1="320.2" y1="954.0" x2="360.2" y2="954.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" /><text x="370.2" y="957.9" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">broader / narrower (hiërarchisch / Associatief)</text><line x1="320.2" y1="978.0" x2="360.2" y2="978.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" stroke-dasharray="6,4" /><text x="370.2" y="981.9" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">related (gerelateerd)</text></g><text x="320.2" y="1010.0" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#94a3b8">Bron: Ontologica — RTTI — Tijdelijke verkeersbeheersmaatregelen</text></svg></div>
+        <figcaption>Modeloverzicht</figcaption>
+      </figure>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Concepten</h2>
+  
+    
+      
+<table class="data-table">
+  <caption>Overzicht van concepten</caption>
+  <thead>
+    <tr>
+      <th>Concept</th><th>Definitie</th><th>Scope</th><th>Voorbeeld</th><th>Alternatieve labels</th><th>Bron</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>+Tijdelijke verkeersbeheersmaatregel</td><td>Een door of namens de wegbeheerder genomen set van tijdelijke verkeersmanagementmaatregels (voor een begrensde geldigheidsperiode), die wordt geactiveerd voor en gedeactiveerd na een of meerdere specifieke verstoringen.</td><td>Onderscheidt zich van een permanent verkeerscirculatieplan door het activerings- en deactiveringskenmerk: een tijdelijke maatregel wordt gedeactiveerd zodra het getriggerde scenario is opgelost (NAPCORE data dictionary).</td><td></td><td>TVM</td><td>https://eur-lex.europa.eu/eli/reg_del/2022/670/oj, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf, https://wetten.overheid.nl/BWBR0004826</td>
+      </tr>
+    
+      <tr>
+        <td>+Tijdelijk verkeersbesluit</td><td>Een verkeersbesluit dat ten grondslag ligt aan een tijdelijke plaatsing of tijdelijke maatregel, vereist wanneer de omstandigheden voor enkele maanden of zich regelmatig voordoen.</td><td>WVW 1994 jo. BABW art. 37: in afwijking van de hoofdregel geschieden de tijdelijke plaatsing en de tijdelijke maatregel krachtens een verkeersbesluit indien de omstandigheden van langere duur zijn dan vier maanden dan wel zich regelmatig voordoen. De jurisprudentie (o.a. RvS) staat afzien van een verkeersbesluit toe bij dringende omstandigheden van voorbijgaande aard.</td><td></td><td></td><td>https://wetten.overheid.nl/BWBR0004826, https://wetten.overheid.nl/BWBR0006622</td>
+      </tr>
+    
+      <tr>
+        <td>Bevoegdheid tijdelijke maatregel</td><td>De bevoegdheid van de wegbeheerder om bij een dringende omstandigheid van voorbijgaande aard tijdelijke verkeerstekens te plaatsen of tijdelijke maatregelen te treffen zonder een daaraan ten grondslag liggend verkeersbesluit.</td><td>BABW art. 34 (dringende omstandigheid van voorbijgaande aard voor de duur van die omstandigheid) en art. 35 (plaatsing/maatregel kunnen geschieden zonder verkeersbesluit).</td><td></td><td></td><td>https://wetten.overheid.nl/BWBR0004826</td>
+      </tr>
+    
+      <tr>
+        <td>Tijdelijk verkeersteken</td><td>Een verkeersteken dat tijdelijk wordt geplaatst of toegepast en na afloop van de aanleiding weer wordt verwijderd of gedeactiveerd.</td><td>RVV 1990: tijdelijk geplaatste of toegepaste verkeerstekens op het wegdek gaan boven andere ter plekke aangebrachte wegdektekens voor zover deze onverenigbaar zijn (art. 63a).</td><td></td><td></td><td>https://wetten.overheid.nl/BWBR0004825, https://wetten.overheid.nl/BWBR0004826</td>
+      </tr>
+    
+      <tr>
+        <td>Wegwerkzaamheden</td><td>Onderhouds-, aanleg- of reparatiewerkzaamheden op of langs een wegvak die het gebruik van de weg geheel of gedeeltelijk beinvloeden.</td><td>NAPCORE data dictionary: wegwerkzaamheden treffen doorgaans afzonderlijke rijstroken; treffen zij alle rijstroken, dan vallen zij samen met wegafsluitingen. In NL ondersteund door het NDW DATEX II v3-profiel wegwerkzaamheden.</td><td>Zoals werk in uitvoering, onderhoudswerkzaamheden en aanlegwerkzaamheden</td><td></td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf, https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/</td>
+      </tr>
+    
+      <tr>
+        <td>Tijdelijk maatregeltype</td><td>Een categorie van fysieke of regulatoire ingreep waarmee een verkeersmaatregel wordt uitgevoerd met een duidelijke begin- en eindtijd.</td><td>Verzamelconcept voor afzettingen, rijstrookmaatregelen, snelheidsmaatregelen en tijdelijke verkeerslichten, conform de deelmaatregelen in het NDW DATEX II v3-profiel.</td><td></td><td></td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/</td>
+      </tr>
+    
+      <tr>
+        <td>Wegafzetting</td><td>Het fysiek afzetten van een werkvak of weggedeelte met bebakening, afzetmateriaal en markering.</td><td>Uitgewerkt in de CROW-richtlijnen werk in uitvoering (96a/96b); termen herbruikbaar uit de CROW-thesaurus.</td><td></td><td></td><td>https://data.crow.nl/thesaurus/, https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/</td>
+      </tr>
+    
+      <tr>
+        <td>Volledige afsluiting</td><td>Het afsluiten van een wegvak voor al het verkeer, eventueel met uitzondering van hulpdiensten.</td><td>In het NDW DATEX II v3-profiel gemodelleerd via RoadOrCarriagewayOrLaneManagement; treft de afsluiting alle rijstroken dan valt deze samen met een wegafsluiting (NAPCORE).</td><td></td><td></td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Rijstrookafsluiting</td><td>Het tijdelijk afsluiten van een of meer rijstroken terwijl de overige rijstroken beschikbaar blijven.</td><td>RTTI-datacategorie lane closures (gepland/ongepland); in het NDW-profiel via RoadOrCarriagewayOrLaneManagement.</td><td></td><td></td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Wegversmalling</td><td>Het tijdelijk versmallen of verleggen van de rijbaan of rijstrook ten behoeve van werkzaamheden of een ander scenario.</td><td>In het NDW DATEX II v3-profiel onderdeel van het rijstrook- en rijbaanbeheer bij werkzaamheden.</td><td></td><td></td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/</td>
+      </tr>
+    
+      <tr>
+        <td>Tijdelijke snelheidsbeperking</td><td>Een tijdelijk verlaagde maximumsnelheid die bij wegwerkzaamheden of een ander scenario wordt ingesteld en na afloop wordt opgeheven.</td><td>In DATEX II vastgelegd als SpeedManagement met speedManagementType speedRestrictionInOperation, een temporarySpeedLimit en complianceOption mandatory (NDW-profiel). Verwijst naar het snelheidsbeperkingen-model zonder dit te dupliceren.</td><td></td><td></td><td>https://docs.datex2.eu/, https://docs.ndw.nu/dataformaten/datex2-v3/wwz/</td>
+      </tr>
+    
+      <tr>
+        <td>Tijdelijke verkeerslichten</td><td>Een tijdelijk geplaatste verkeersregelinstallatie, bijvoorbeeld om verkeer langs een werkvak te regelen.</td><td>In het NDW DATEX II v3-profiel via GeneralNetworkManagement met generalNetworkManagementType temporaryTrafficLights.</td><td></td><td></td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/</td>
+      </tr>
+    
+      <tr>
+        <td>+Tijdelijke markering</td><td>Een tijdelijk op het wegdek aangebrachte markering die voorrang heeft op de permanente witte markering.</td><td>RVV 1990 art. 63a regelt de voorrang van tijdelijke wegdektekens; de kleureis (een andere kleur dan wit, in de praktijk geel) volgt uit de Uitvoeringsvoorschriften BABW, Hoofdstuk IV, paragraaf 1. Verwijst naar het verkeersborden-model zonder duplicatie.</td><td></td><td></td><td>https://wetten.overheid.nl/BWBR0004825, https://wetten.overheid.nl/BWBR0004826</td>
+      </tr>
+    
+      <tr>
+        <td>_Omleiding</td><td>Het tijdelijk leiden van verkeer langs een alternatieve route wegens een afsluiting of beperking op de gebruikelijke route.</td><td>In DATEX II gemodelleerd via ReroutingManagement; in NL uitgewerkt in de CROW-richtlijnen werk in uitvoering.</td><td></td><td></td><td>https://docs.datex2.eu/, https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/</td>
+      </tr>
+    
+      <tr>
+        <td>Omleidingsroute</td><td>De alternatieve route die verkeer volgt zolang de gebruikelijke route is afgesloten of beperkt.</td><td>Onderdeel van het omleidingsontwerp volgens de CROW-richtlijnen werk in uitvoering.</td><td></td><td></td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/, https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/</td>
+      </tr>
+    
+      <tr>
+        <td>Tijdelijke bewegwijzering</td><td>Tijdelijke aanduidingen op of bij de bestaande bewegwijzering die de omleidingsroute aangeven.</td><td>Vormgegeven met gele omleidingsborden conform de CROW-richtlijnen werk in uitvoering.</td><td></td><td></td><td>https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/</td>
+      </tr>
+    
+      <tr>
+        <td>Uitwijkroute</td><td>Een vooraf gedefinieerde en genummerde omleidingsroute (U-route) die bij afsluiting van een autosnelweg wordt opengesteld.</td><td>De Nederlandse U-routesystematiek wordt beheerd door Rijkswaterstaat en aangeduid met U-borden.</td><td></td><td></td><td>https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/, https://www.rijkswaterstaat.nl/</td>
+      </tr>
+    
+      <tr>
+        <td>+Verstoring</td><td>De gebeurtenis of conditie die de activering van een set van tijdelijke verkeersmaatregelen of een strategie veroorzaakt.</td><td>Verzamelconcept voor de situaties die een verkeersmanagementplan of tijdelijke maatregel triggeren (NAPCORE data dictionary).</td><td></td><td></td><td>https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Evenement</td><td>Een geplande gebeurtenis, zoals een wedstrijd, markt of festival, die de het regulier gebruik van het netwerk verstoren en daardoor tijdelijke verkeersmaatregelen vergt.</td><td>In het NDW DATEX II v3-profiel ondergebracht bij werkzaamheden en evenementen.</td><td></td><td></td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Calamiteit</td><td>Een onverwachte gebeurtenis met grote impact, zoals een natuurramp of technische ramp, die tijdelijke verkeersmaatregelen vergt.</td><td>Valt onder de scenario-gedreven maatregelen die via een verkeersmanagementplan worden geactiveerd (NAPCORE data dictionary).</td><td></td><td></td><td>https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Incident</td><td>Een onverwachte verstoring van de verkeersstroom, zoals een ongeval of een gestrand voertuig.</td><td>RTTI state-of-network-categorie; triggert tijdelijke maatregelen en informatievoorziening.</td><td></td><td></td><td>https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>+Extreem weer</td><td>Weersomstandigheden, zoals storm, ijzel of sneeuw, die de activering van een set van tijdelijke verkeersmaatregelen vergen.</td><td>Een van de condities die een verkeersmanagementplan kunnen triggeren (NAPCORE data dictionary).</td><td></td><td></td><td>https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>+Verkeersmanagementplan</td><td>De verzameling van strategieën, maatregelen en acties die als geheel het plan vormen.</td><td>Het verkeersmanagementplan is een gedefinieerd DATEX II-datatype (TrafficManagementPlan-namespace, CEN/TS 16157-8) met de klassen Strategy en Measure met activeringscondities; anders dan het verkeerscirculatieplan, dat geen eigen DATEX II-namespace kent.</td><td></td><td></td><td>https://docs.datex2.eu/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>+Strategie</td><td>Een samenhangende set van maatregelen binnen een verkeersmanagementplan met een gemeenschappelijke activeringsconditie.</td><td>In DATEX II gemodelleerd als Strategy binnen de TrafficManagementPlan-namespace; activeringscondities mogen samengesteld zijn (v3.6).</td><td></td><td></td><td>https://docs.datex2.eu/</td>
+      </tr>
+    
+      <tr>
+        <td>+Maatregel</td><td>Een individuele verkeersbeheersmaatregel binnen een verkeersmanagementplan, met een eigen activeringsconditie.</td><td>In DATEX II gemodelleerd als Measure binnen de TrafficManagementPlan-namespace.</td><td></td><td></td><td>https://docs.datex2.eu/</td>
+      </tr>
+    
+      <tr>
+        <td>Geldigheidsperiode</td><td>De begin- en eindtijd waarbinnen een tijdelijke verkeersmaatregel van kracht is.</td><td>Het kenmerk dat tijdelijke maatregelen onderscheidt van permanente; in DATEX II en het NDW-profiel vastgelegd als geldigheidsperiode.</td><td></td><td></td><td>https://docs.datex2.eu/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Activering</td><td>Het van kracht worden van een tijdelijke verkeersmaatregel bij het optreden van de aanleiding.</td><td>In de NDW-keten gekoppeld aan het actief melden van een maatregel.</td><td></td><td></td><td>https://docs.datex2.eu/, https://docs.ndw.nu/dataformaten/datex2-v3/wwz/</td>
+      </tr>
+    
+      <tr>
+        <td>Deactivering</td><td>Het beeindigen van een tijdelijke verkeersmaatregel zodra het scenario dat de maatregel triggerde is opgelost.</td><td>Kernonderscheid tussen verkeersmanagementplan en verkeerscirculatieplan volgens de NAPCORE data dictionary; in de NDW-keten de overgang van actieve naar ruststatus waarbij de bijbehorende maatregelen worden gedeactiveerd.</td><td></td><td></td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>+Tijdelijke Functionele Weg Classificatie</td><td>Een tijdelijk toegekende functionele wegklasse die de normale classificatie van een wegvak overschrijft zolang een tijdelijke verkeersbeheersmaatregel van kracht is.</td><td></td><td></td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>+Zone</td><td>Een aaneengesloten geografisch gebied waarbinnen een tijdelijke verkeersbeheersmaatregel of verkeersmanagementplan van toepassing is. Anders dan een wegvak, dat een lijnvormig weggedeelte aanduidt, bakent een zone een vlakvormig gebied af waarop de betreffende maatregelen, regels of condities gelden.</td><td>Geïnspireerd op het DATEX II-concept ControlledZone (namespace ControlledZone, v3.4), dat een gebied modelleert waarbinnen verkeersregelgeving geldt. Zie https://docs.datex2.eu/levels/mastering/controlledzones/</td><td></td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>+Bedrijfsregel</td><td>An explicitly defined rule that determines the conditions under which a temporary traffic management measure is activated, modified or deactivated.</td><td></td><td></td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>Aantekening bij model</td><td>Deze (waarschijnlijk werkzaamheden) hoort eigenlijk ook onder verstoringen en dan is er misschien ook nog onderscheid nodig tussen gepland en concreet in uitvoering?
+
+Graag kijken hoe we hier tegenaan kijken</td><td></td><td></td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>+Wegvak</td><td>Gedeelte van een weg tussen twee opeenvolgende knooppunten of kruispunten, of – indien geen zijweg aanwezig is – tussen twee punten waarop een verkeersmaatregel betrekking heeft. 
+
+In het Nationaal Wegenbestand (NWB) is een wegvak de kleinste eenheid waarvoor wegkenmerken worden geregistreerd.</td><td></td><td></td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>+Service verzoek</td><td>n.t.b.</td><td></td><td></td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>Gepland</td><td>Een verstoring die vooraf bekend en ingepland is.</td><td></td><td></td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>Niet gepland</td><td>Een verstoring die niet vooraf is ingepland en zich onverwacht voordoet.</td><td></td><td></td><td></td><td></td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Relaties per concept</h2>
+  
+    
+      <p class="prose">Alleen uitgaande relaties. Semantische relaties blijven binnen het model; mapping-relaties verwijzen naar concepten daarbuiten.</p>
+    
+  
+    
+      
+<section>
+  <h3>+Tijdelijke verkeersbeheersmaatregel</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>+Tijdelijke Functionele Weg Classificatie</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920015950</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Tijdelijk maatregeltype</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>+Verkeersmanagementplan</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000601</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>+Zone</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920171026</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>+Bedrijfsregel</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920279579</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>+Wegvak</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920438369</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>+Service verzoek</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920547796</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Geldigheidsperiode</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000701</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Bevoegdheid tijdelijke maatregel</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>+Tijdelijk verkeersbesluit</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000101</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Tijdelijk verkeersteken</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>+Tijdelijke markering</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000308</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>+Tijdelijk verkeersbesluit</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000101</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Tijdelijk maatregeltype</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>+Tijdelijke verkeersbeheersmaatregel</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000001</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>+Tijdelijke markering</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000308</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Wegafzetting</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000302</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Rijstrookafsluiting</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000304</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Wegversmalling</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000305</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Tijdelijke snelheidsbeperking</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000306</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Tijdelijke verkeerslichten</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000307</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>_Omleiding</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000401</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Wegafzetting</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Tijdelijk maatregeltype</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Volledige afsluiting</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000303</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Volledige afsluiting</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Wegafzetting</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000302</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Rijstrookafsluiting</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Tijdelijk maatregeltype</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Wegversmalling</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Tijdelijk maatregeltype</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Tijdelijke snelheidsbeperking</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Tijdelijk maatregeltype</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Tijdelijke verkeerslichten</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Tijdelijk maatregeltype</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>+Tijdelijke markering</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Tijdelijk verkeersteken</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000103</td>
+      </tr>
+    
+      <tr>
+        <td>broader</td><td>Tijdelijk maatregeltype</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>_Omleiding</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Tijdelijk maatregeltype</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Omleidingsroute</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000402</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Tijdelijke bewegwijzering</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000403</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Omleidingsroute</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Uitwijkroute</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000404</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>_Omleiding</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000401</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Uitwijkroute</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Omleidingsroute</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000402</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>+Verstoring</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Gepland</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511855955</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Niet gepland</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>+Maatregel</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Calamiteit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Niet gepland</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Incident</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Niet gepland</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>+Extreem weer</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Niet gepland</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>+Verkeersmanagementplan</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>+Tijdelijke verkeersbeheersmaatregel</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000001</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>+Maatregel</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>+Strategie</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000602</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>+Strategie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>+Maatregel</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>+Maatregel</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>+Verstoring</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000501</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>+Verkeersmanagementplan</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000601</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>+Strategie</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000602</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Geldigheidsperiode</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Deactivering</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000703</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Activering</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000702</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Activering</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Geldigheidsperiode</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000701</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Deactivering</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000703</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Deactivering</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Geldigheidsperiode</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000701</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>+Tijdelijke Functionele Weg Classificatie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>+Tijdelijke verkeersbeheersmaatregel</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000001</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Gepland</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>+Verstoring</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000501</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Evenement</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000502</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Wegwerkzaamheden</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000201</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Niet gepland</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>+Verstoring</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000501</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Introductie op RML-mappings</h2>
+  
+    
+      <p class="prose"><p>Een <strong>informatiebeschrijving</strong> (technisch: een RML-mapping) beschrijft hoe concrete data — records in een databestand, rijen in een tabel, velden in een XML-bericht — overeenkomt met de begrippen uit het begrippenkader hierboven. Zonder zo'n beschrijving staat data op zichzelf; mét wordt elk stukje data verbonden aan een eenduidig begrip.</p>
+<p>Het principe is eenvoudig: per databron definiëren we één of meer <strong>TriplesMaps</strong>. Elke TriplesMap is een recept dat zegt <em>"elk record in deze databron representeert een instantie van dat begrip, en deze velden zijn de eigenschappen ervan"</em>. Per veld wordt vervolgens aangegeven welk begrip de eigenschap beschrijft (bijvoorbeeld <code>heeftStatus</code>, <code>ligtOpWegsegment</code>) en hoe het veld uit de bron gelezen moet worden.</p>
+<p>Voor de lezer van dit document is de essentie:</p>
+<ul>
+<li>de <strong>TriplesMap-tabel</strong> hieronder laat zien welke databronnen aan dit model zijn gekoppeld,</li>
+<li>de <strong>subject-template</strong> geeft weer hoe voor elk record een unieke URI wordt gevormd,</li>
+<li>het <strong>aantal predikaten</strong> geeft een grove indruk van hoe rijk de koppeling per bron is.</li>
+</ul>
+<p>De daadwerkelijke mappingregels (veld → begrip) worden beheerd in de Ontologica-applicatie zelf en zijn te raadplegen en te bewerken via de mapping-wizard.</p></p>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Informatiebeschrijving</h2>
+  
+    
+      
+<table class="data-table">
+  <caption>TriplesMaps</caption>
+  <thead>
+    <tr>
+      <th>Naam</th><th>Databron</th><th>Subject-template</th><th>rdf:type</th><th># predicaten</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>carriageway</td><td>tijdelijke verkeersmaatregelen afsluitingen xml</td><td>https://example.org/carriageway/{carriageway}</td><td>—</td><td>2</td>
+      </tr>
+    
+      <tr>
+        <td>carriageway</td><td>tijdelijke verkeersmaatregelen maximum snelheden xml</td><td>https://example.org/carriageway/{carriageway}</td><td>—</td><td>1</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+</body>
+</html>
