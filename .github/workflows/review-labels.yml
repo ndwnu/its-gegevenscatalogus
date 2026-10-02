@@ -1,0 +1,46 @@
+# Label a new review issue based on the chosen "Type of comment".
+# Issue forms can only set labels statically; this workflow sets them dynamically.
+name: Review labels
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  label:
+    # recognise by the form; labels that don't exist yet are created by addLabels
+    if: contains(github.event.issue.body, '### Type of comment')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || "";
+            const map = {
+              "Editorial": "type: editorial",
+              "Substantive": "type: substantive",
+              "Structural": "type: structural",
+              "Breaking change": "type: breaking",
+              "Question": "type: question",
+            };
+            const typeMatch = body.match(/### Type of comment\s+([^\n]+)/);
+            // 'source: respec' marks a comment that arrived via the ReSpec review button.
+            const labels = ["review", "source: respec"];
+            if (typeMatch) {
+              for (const [k, v] of Object.entries(map)) if (typeMatch[1].startsWith(k)) labels.push(v);
+            }
+            const model = body.match(/### Model\s+([^\n]+)/)?.[1]?.trim();
+            const version = body.match(/### Version\s+([^\n]+)/)?.[1]?.trim();
+            if (model && model !== "_No response_") labels.push(`model: ${model}`.slice(0, 50));
+            if (version && version !== "_No response_") labels.push(`versie: ${version}`.slice(0, 50));
+            if (context.payload.action === "opened") labels.push("status: new");
+            {
+              await github.rest.issues.addLabels({
+                ...context.repo,
+                issue_number: context.issue.number,
+                labels,
+              });
+            }
