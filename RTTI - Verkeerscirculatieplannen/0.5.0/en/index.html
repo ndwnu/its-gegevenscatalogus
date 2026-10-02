@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Untitled model</title>
+  
+  <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+  <script class="remove">
+    var respecConfig = {"specStatus": "unofficial", "title": "Untitled model", "shortName": "Untitled model", "editors": [{"name": "Nationaal Toegangspunt Mobiliteit"}], "lint": false, "edDraftURI": "", "additionalCopyrightHolders": "Nationaal Toegangspunt Mobiliteit"};
+  </script>
+  
+  
+  <script src="https://ndwnu.github.io/its-gegevenscatalogus/review.js" defer
+          data-repo="ndwnu/its-gegevenscatalogus"
+          data-model="RTTI - Verkeerscirculatieplannen"
+          data-version="0.5.0"></script>
+  
+  <style>
+    /* Opmaak afgeleid van de PDF (docpublish/pdf/styles/_base.css): dezelfde
+       huisstijl-kleuren en tabelstijl, zodat de ReSpec-pagina en de PDF op
+       elkaar aansluiten. Staat NA ReSpec's basis-stylesheet, dus dit wint. */
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: #303c54;
+      line-height: 1.5;
+    }
+    h1, h2, h3, h4, h5, h6 { color: #1e40af; font-weight: 600; }
+    p.prose { text-align: justify; }
+    p.disclaimer {
+      background: rgba(30, 64, 175, 0.06);
+      border-left: 3px solid #1e40af;
+      padding: 6px 10px;
+      font-style: italic;
+      color: #636f83;
+      margin: 8px 0;
+    }
+    table.data-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px 0 18px;
+      font-size: 0.95rem;
+    }
+    table.data-table caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 600;
+      color: #1e40af;
+      padding-bottom: 4px;
+    }
+    table.data-table th {
+      background: rgba(30, 64, 175, 0.08);
+      border-bottom: 1px solid #1e40af;
+      color: #1e40af;
+      font-weight: 600;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    table.data-table td {
+      border-bottom: 1px solid #dfe4ee;
+      padding: 6px 8px;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+    table.data-table tr:nth-child(even) td { background: rgba(30, 64, 175, 0.025); }
+
+    /* Modeloverzicht-diagram: de server-side force-directed layout geeft een
+       compacte, normaal-geproportioneerde SVG (net als de visuele editor). Schaal
+       hem responsive binnen de paginabreedte. Voor het zeldzame extreem brede
+       geval blijft het kader horizontaal scrollbaar. */
+    figure.model-figure { margin: 12px 0; width: 100%; }
+    figure.model-figure > div {
+      overflow-x: auto;
+      border: 1px solid #dfe4ee;
+      border-radius: 6px;
+      padding: 8px;
+      background: #fff;
+    }
+    figure.model-figure svg {
+      display: block;
+      /* Vaste breedte 100% van het kader; de hoogte volgt uit de viewBox-
+         verhouding. Alleen height:auto laten renderen faalt als de container
+         nog geen breedte heeft (chicken-egg): dan wordt de SVG 0×0. De inline
+         width/height-attributen op de root-<svg> worden hierdoor overruled. */
+      width: 100%;
+      height: auto;
+    }
+    figure.model-figure figcaption {
+      font-size: 0.85rem;
+      color: #636f83;
+      margin-top: 4px;
+    }
+  </style>
+  
+  
+  <style>
+    .status-banner {
+      border-left: 8px solid var(--status-color, #6b7280);
+      background: var(--status-bg, #f3f4f6);
+      padding: 0.6rem 1rem;
+      margin: 0 0 1.5rem;
+      font-family: sans-serif;
+    }
+    .status-banner .status-badge {
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--status-color, #374151);
+    }
+    .status-banner .status-version { color: #4b5563; }
+    .status-draft       { --status-color: #d97706; --status-bg: #fffbeb; }
+    .status-under_review{ --status-color: #2563eb; --status-bg: #eff6ff; }
+    .status-published   { --status-color: #16a34a; --status-bg: #f0fdf4; }
+    .status-deprecated  { --status-color: #dc2626; --status-bg: #fef2f2; }
+    .status-withdrawn   { --status-color: #991b1b; --status-bg: #fef2f2; }
+  </style>
+  
+</head>
+<body>
+  
+  <h1 id="title">Untitled model</h1>
+
+  
+  <section id="abstract">
+    <p>Visual overview of the concepts and their relations. Hierarchical relations are drawn with solid arrows; associative relations are drawn with dashed arrows.</p>
+  </section>
+
+  
+  
+  <div id="beschikbare-talen" class="language-switch">
+    <table class="data-table">
+      <caption>Beschikbare talen</caption>
+      <thead>
+        <tr><th>Taal</th><th>Document</th></tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>NL</td>
+          <td><a href="../nl/index.html">RTTI — Verkeerscirculatieplannen</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>EN</strong></td>
+          <td><strong>RTTI — Verkeerscirculatieplannen</strong></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
+
+  
+  <div class="status-banner status-draft">
+    <span class="status-badge">Draft</span><span class="status-version"> — versie 0.5.0</span>
+  </div>
+  
+
+  
+    
+<section>
+  <h2>Introduction to semantic modelling</h2>
+  
+    
+      <p class="prose"><p>A <strong>concept scheme</strong> (in SKOS: <em>ConceptScheme</em>) is a structured collection of concepts that carry a fixed, shared meaning within a particular domain. The goal is for everyone working with the model — people and systems alike — to use the same words for the same things. That sounds obvious, but in practice language causes a surprising amount of confusion: what one organisation calls a <em>measurement point</em>, another calls a <em>sensor</em>, a <em>location</em>, or an <em>observation station</em>.</p>
+<p>A concept scheme solves this by recording, for each concept:</p>
+<ul>
+<li>a <strong>preferred label</strong> (prefLabel) it is known by,</li>
+<li>a <strong>definition</strong> that unambiguously describes what the concept does and does not cover,</li>
+<li>and optionally a <strong>scope note</strong> or <strong>example</strong> to clarify borderline cases.</li>
+</ul>
+<p>Concepts rarely stand on their own. They are related <strong>hierarchically</strong> (a vehicle is broader than a truck) or <strong>associatively</strong> (a road user relates to a road segment). These relationships make it possible for queries and analyses to navigate between general and specific concepts, and to make connections between concepts explicit. Within SKOS we use <code>broader</code>, <code>narrower</code>, and <code>related</code> for that.</p>
+<p>When a concept also exists elsewhere — in a national or European standard, for instance — we record that as a <strong>mapping relation</strong>. This prevents reinventing the wheel: we link to the source so interoperability with external systems remains possible.</p>
+<p>This document describes the concept scheme as it is currently recorded. The following sections list the metadata, every concept, the relationships between them, and — where the model is connected to a data source — how it is linked to that source data.</p></p>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Naamloos model</h2>
+  
+    
+      
+<table class="data-table">
+  <caption>Metadata</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>URI</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen</td>
+      </tr>
+    
+      <tr>
+        <td>Version</td><td>0.5.0</td>
+      </tr>
+    
+      <tr>
+        <td>Publication status</td><td>Draft</td>
+      </tr>
+    
+      <tr>
+        <td>Management status</td><td>Active</td>
+      </tr>
+    
+      <tr>
+        <td>Organization</td><td>Nationaal Toegangspunt Mobiliteit</td>
+      </tr>
+    
+      <tr>
+        <td>Created on</td><td>2026-03-19</td>
+      </tr>
+    
+      <tr>
+        <td>Last modified on</td><td>2026-09-07</td>
+      </tr>
+    
+      <tr>
+        <td>Last modified by</td><td>arthur.keesen@ndw.nu</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Model overview</h2>
+  
+    
+      <p class="prose">Visual overview of the concepts and their relations. Hierarchical relations are drawn with solid arrows; associative relations are drawn with dashed arrows.</p>
+    
+  
+    
+      {# Een <figure> zonder <figcaption> laat de ReSpec core/figures-plugin een
+         waarschuwing tonen op de gepubliceerde pagina. Val daarom terug op de
+         sectie-kop als er geen expliciete caption is (anders dan de PDF, waar
+         een captionloze figuur op een eigen pagina bewust is). #}
+      <figure class="model-figure">
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="-487.7 -436.0 1951.3 1366.0" width="1951" height="1366"><defs><marker id="arrow-hierarchy" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#475569" /></marker><marker id="arrow-related" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#8b5cf6" /></marker></defs><g class="edges"><line x1="111.4" y1="199.7" x2="-334.8" y2="617.2" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1109.0" y1="128.0" x2="1109.0" y2="378.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="477.8" y1="-50.2" x2="363.5" y2="32.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="133.5" y1="204.5" x2="270.1" y2="543.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="514.5" y1="115.4" x2="701.7" y2="157.6" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="510.8" y1="123.3" x2="659.1" y2="239.2" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1123.0" y1="122.2" x2="1378.6" y2="381.4" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="108.5" y1="195.7" x2="-364.7" y2="459.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="106.8" y1="191.5" x2="-371.1" y2="327.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="496.5" y1="130.9" x2="505.8" y2="256.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="138.8" y1="201.3" x2="291.4" y2="383.8" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="119.3" y1="204.8" x2="2.8" y2="529.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="508.9" y1="305.0" x2="514.6" y2="426.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="126.8" y1="206.0" x2="140.8" y2="542.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="142.5" y1="197.4" x2="492.1" y2="438.5" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="114.3" y1="202.2" x2="-124.1" y2="534.4" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="-336.8" y1="642.4" x2="38.1" y2="748.1" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="265.9" y1="583.1" x2="87.9" y2="737.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="601.2" y1="21.7" x2="516.9" y2="-44.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-126.5" y1="571.8" x2="45.0" y2="736.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1123.1" y1="93.9" x2="1199.5" y2="17.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1220.8" y1="-23.0" x2="1223.9" y2="-102.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="494.2" y1="-82.0" x2="495.7" y2="-202.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-385.9" y1="493.6" x2="-361.9" y2="608.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-194.1" y1="-96.6" x2="-7.4" y2="-161.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="494.9" y1="91.0" x2="494.2" y2="-33.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="410.8" y1="554.5" x2="326.3" y2="430.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-0.1" y1="575.8" x2="56.0" y2="728.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="761.9" y1="71.1" x2="849.8" y2="190.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="731.8" y1="46.7" x2="520.4" y2="-49.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-143.2" y1="-0.5" x2="-0.0" y2="-150.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="139.3" y1="171.0" x2="476.8" y2="-209.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="888.6" y1="89.2" x2="778.2" y2="61.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="907.7" y1="-59.4" x2="1191.5" y2="-8.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="869.6" y1="-70.9" x2="522.7" y2="-219.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="907.6" y1="-67.0" x2="1196.6" y2="-125.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="872.8" y1="-50.0" x2="772.0" y2="36.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="903.8" y1="-50.8" x2="1086.1" y2="90.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="134.4" y1="589.5" x2="77.0" y2="729.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="25.9" y1="122.7" x2="101.5" y2="170.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /></g><g class="nodes"><circle cx="494.0" cy="-62.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="406.1" y="-38.0" width="175.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="494.0" y="-23.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Functional road class</text><circle cx="617.0" cy="34.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="501.8" y="58.0" width="230.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="617.0" y="72.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Multimodal network framework</text><circle cx="-7.0" cy="557.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-59.8" y="581.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-7.0" y="595.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Low-car zone</text><circle cx="142.0" cy="571.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="58.0" y="595.0" width="168.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="142.0" y="609.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Limited traffic zone</text><circle cx="281.0" cy="570.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="224.3" y="594.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="281.0" y="608.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">School street</text><circle cx="730.0" cy="164.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="688.9" y="188.0" width="82.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="730.0" y="202.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Flow road</text><circle cx="340.0" cy="50.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="267.7" y="74.0" width="144.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="340.0" y="88.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">FRC levels 0 to 8</text><circle cx="516.0" cy="455.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="447.6" y="479.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="516.0" y="493.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Residential yard</text><circle cx="1109.0" cy="407.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1025.0" y="431.0" width="168.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1109.0" y="445.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">No-entry restriction</text><circle cx="496.0" cy="-231.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="396.4" y="-207.0" width="199.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="496.0" y="-192.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Traffic circulation plan</text><circle cx="-399.0" cy="335.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-463.5" y="359.0" width="129.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-399.0" y="373.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Pedestrian zone</text><circle cx="126.0" cy="186.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-0.9" y="210.0" width="253.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="126.0" y="224.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Urban vehicle access regulation</text><circle cx="888.0" cy="-63.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="819.6" y="-39.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="888.0" y="-24.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Policy objective</text><circle cx="-213.0" cy="-90.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-273.6" y="-66.0" width="121.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-213.0" y="-51.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">One-way street</text><circle cx="-356.0" cy="637.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-432.2" y="661.0" width="152.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-356.0" y="675.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Zero-emission zone</text><circle cx="1220.0" cy="-3.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1139.9" y="21.0" width="160.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1220.0" y="35.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Destination traffic</text><circle cx="-390.0" cy="474.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-462.3" y="498.0" width="144.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-390.0" y="512.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Low emission zone</text><circle cx="-157.0" cy="14.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-194.2" y="38.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-157.0" y="52.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Junction</text><circle cx="9.0" cy="112.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-47.7" y="136.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="9.0" y="150.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Zone boundary</text><circle cx="310.0" cy="406.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="241.6" y="430.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="310.0" y="444.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Time-window zone</text><circle cx="422.0" cy="571.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="310.7" y="595.0" width="222.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="422.0" y="609.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Freight delivery regulation</text><circle cx="682.0" cy="257.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="613.6" y="281.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="682.0" y="295.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Distributor road</text><circle cx="1109.0" cy="108.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1028.9" y="132.0" width="160.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1109.0" y="146.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Closure declaration</text><circle cx="508.0" cy="285.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="459.1" y="309.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="508.0" y="323.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Access road</text><circle cx="1399.0" cy="402.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1338.4" y="426.0" width="121.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1399.0" y="440.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Traffic filter</text><circle cx="1225.0" cy="-131.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1160.5" y="-107.0" width="129.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1225.0" y="-92.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Through traffic</text><circle cx="495.0" cy="111.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="438.3" y="135.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="495.0" y="149.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Road category</text><circle cx="20.0" cy="-171.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-21.1" y="-147.0" width="82.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="20.0" y="-132.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Road link</text><circle cx="750.0" cy="55.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="685.5" y="79.0" width="129.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="750.0" y="93.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Preferred route</text><circle cx="-427.0" cy="-376.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-483.7" y="-352.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-427.0" y="-337.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">AANTEKENINGEN</text><circle cx="-141.0" cy="558.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-189.9" y="582.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-141.0" y="596.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">School zone</text><circle cx="908.0" cy="94.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="855.2" y="118.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="908.0" y="132.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Slow traffic</text><circle cx="66.0" cy="756.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="5.4" y="780.0" width="121.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="66.0" y="794.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Business rules</text><circle cx="867.0" cy="214.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="833.7" y="238.0" width="66.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="867.0" y="252.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Signage</text></g><g class="legend"><line x1="-487.7" y1="870.0" x2="-447.7" y2="870.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" /><text x="-437.7" y="873.9" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">broader / narrower (hiërarchisch / Associatief)</text><line x1="-487.7" y1="894.0" x2="-447.7" y2="894.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" stroke-dasharray="6,4" /><text x="-437.7" y="897.9" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">related (gerelateerd)</text></g><text x="-487.7" y="926.0" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#94a3b8">Bron: Ontologica — RTTI — Verkeerscirculatieplannen</text></svg></div>
+        <figcaption>Model overview</figcaption>
+      </figure>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Concepts</h2>
+  
+    
+      
+<table class="data-table">
+  <caption>Concepts overview</caption>
+  <thead>
+    <tr>
+      <th>Concept</th><th>Definition</th><th>Scope</th><th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Traffic circulation plan</td><td>A coherent set of permanent or recurring traffic management measures designed by a road authority to guide traffic flows within an area, taking into account known and recurring traffic situations, seasonal influences and existing restrictions (e.g. school zones).</td><td>A traffic circulation plan does not itself introduce restrictions.</td><td>https://eur-lex.europa.eu/eli/reg_del/2022/670/oj, https://www.polisnetwork.eu/wp-content/uploads/2024/11/RTTI-Report.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Policy objective</td><td>An objective formulated at policy level - such as accessibility, liveability, road safety or air quality - that guides the desired traffic flows within a traffic circulation plan.</td><td>In line with the POLIS/CROW position paper, policy objectives are the reason for the choice of measures and preferred routes in a traffic circulation plan.</td><td>https://www.polisnetwork.eu/wp-content/uploads/2024/11/RTTI-Report.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Multimodal network framework</td><td>An unambiguous representation of the multimodal use of the road network desired as a matter of policy, with a prioritisation between modes per network element.</td><td>Standardised through the CROW/LVMB guideline and manual for multimodal network frameworks. Forms the modality layer to which preferred routes and road categorisation can connect.</td><td>https://www.crow.nl/kennisproducten/richtlijn-en-leidraad-voor-multimodale-netwerkkaders/</td>
+      </tr>
+    
+      <tr>
+        <td>Functional road class</td><td>A classification of roads based on the importance of their function within the road network, independent of the physical road category.</td><td>Based on the INSPIRE Transport Networks FunctionalRoadClass. The POLIS/CROW position paper proposes the functional road classification as the basis (data type 2b) for the digital traffic circulation plan, with the caveat that policy purposes often require more functions than the European FRC offers and that multimodality is still lacking.</td><td>https://inspire.ec.europa.eu/enumeration/FunctionalRoadClassValue, https://www.polisnetwork.eu/wp-content/uploads/2024/11/RTTI-Report.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>FRC levels 0 to 8</td><td>The nine levels of the functional road classification, ranging from level 0 (main road/motorway) up to level 8 (local roads of minor importance and paths).</td><td>Value list in line with the INSPIRE FunctionalRoadClassValue enumeration, as presented in the POLIS/CROW position paper. The individual level URIs follow the pattern of the INSPIRE code list register.</td><td>https://inspire.ec.europa.eu/enumeration/FunctionalRoadClassValue, https://www.polisnetwork.eu/wp-content/uploads/2024/11/RTTI-Report.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Road category</td><td>The physical-functional classification of a road according to the Dutch road design system, determining its layout and intended use.</td><td>Based on the Sustainable Safety (Duurzaam Veilig) categorisation (CROW). The Dutch road categories correspond functionally to the European functional road classification, but do not form a one-to-one hierarchy with it; hence a skos:related relation instead of broader/narrower.</td><td>https://www.crow.nl/Onderwerpen/wegontwerp-en-weginrichting/duurzaam-veilig-wegontwerp/</td>
+      </tr>
+    
+      <tr>
+        <td>Flow road</td><td>A road category aimed at the through-flow of traffic at a constant, generally high speed, with grade-separated intersections.</td><td>Sustainable Safety (Duurzaam Veilig) category; occurs mainly outside built-up areas.</td><td>https://www.crow.nl/Onderwerpen/wegontwerp-en-weginrichting/duurzaam-veilig-wegontwerp/</td>
+      </tr>
+    
+      <tr>
+        <td>Distributor road</td><td>A road category that provides access to rural or urban areas: through-flow on the links, exchange at the intersections.</td><td>Sustainable Safety (Duurzaam Veilig) category (CROW thesaurus). Abbreviated GOW.</td><td>https://data.crow.nl/thesaurus/term/8504D234-DD69-4A8D-BA4E-E207E57ECEAD, https://www.crow.nl/Onderwerpen/wegontwerp-en-weginrichting/duurzaam-veilig-wegontwerp/</td>
+      </tr>
+    
+      <tr>
+        <td>Access road</td><td>A road category aimed at providing access to premises and destinations, with a residential function and a low speed.</td><td>Sustainable Safety (Duurzaam Veilig) category (CROW). Abbreviated ETW.</td><td>https://www.crow.nl/Onderwerpen/wegontwerp-en-weginrichting/duurzaam-veilig-wegontwerp/</td>
+      </tr>
+    
+      <tr>
+        <td>Residential yard</td><td>A residential area designated as a yard (Dutch: erf), bounded by signs G5 (start) and G6 (end), where pedestrians may use the full width of the road and vehicles travel at walking pace (15 km/h).</td><td>RVV 1990 (signs G5/G6). A woonerf is the most residential-oriented elaboration of an access road.</td><td>https://wetten.overheid.nl/BWBR0004825</td>
+      </tr>
+    
+      <tr>
+        <td>Through traffic</td><td>Traffic that has neither an origin nor a destination within the area under consideration.</td><td>Term in line with the CROW thesaurus. Keeping through traffic out of residential areas is a core objective of many traffic circulation plans.</td><td>https://data.crow.nl/thesaurus/term/48FA2203-699F-48A2-B82F-A0C4F6CA181C</td>
+      </tr>
+    
+      <tr>
+        <td>Destination traffic</td><td>Drivers whose journey destination concerns one or more plots situated on or near a road subject to a closure declaration and reachable for that purpose solely via that road, as well as drivers of scheduled buses.</td><td>Definition derived from art. 1 RVV 1990. Destination traffic is usually exempted from a closure declaration by means of a supplementary panel.</td><td>https://wetten.overheid.nl/BWBR0004825</td>
+      </tr>
+    
+      <tr>
+        <td>Preferred route</td><td>A route desired by the road authority as a matter of policy, per mode or target group, intended to be shared with service providers so that navigation services can guide traffic along it.</td><td>One of the use cases of a digital traffic circulation plan mentioned in the POLIS/CROW position paper (alongside areas to be avoided and the use of main routes).</td><td>https://www.polisnetwork.eu/wp-content/uploads/2024/11/RTTI-Report.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Slow traffic</td><td>Non-motorised vehicles, cyclists, pedestrians and persons leading or riding an animal, as well as motor vehicles that can or may travel only at a low speed.</td><td>Term in line with the CROW thesaurus. Relevant because circulation measures usually exempt slow traffic (e.g. a traffic filter that cyclists can still pass).</td><td>https://data.crow.nl/thesaurus/term/264DF64F-903B-49CD-A4E4-D3E235A20FF2</td>
+      </tr>
+    
+      <tr>
+        <td>Urban vehicle access regulation</td><td>A limitation or restriction on the use of the road network on the basis of vehicle type, traveller type or time, applying to a delimited area.</td><td>Known by the European term UVAR (Urban Vehicle Access Regulation). Placed in DATEX II in the TrafficRegulation and ControlledZone namespaces; the NAPCORE Quality Framework for UVAR Data describes the associated data quality requirements.</td><td>https://datex2.eu/user-domains/uvars/, https://napcore.eu/quality/</td>
+      </tr>
+    
+      <tr>
+        <td>Low emission zone</td><td>A zone from which motor vehicles that do not meet a given emission class are barred, in order to improve air quality; known across Europe as a low emission zone (LEZ).</td><td>Indicated by sign C22a, which together with the other C22 signs is being replaced by the unified sign C22e (Stb. 2025, 265).</td><td>https://wetten.overheid.nl/BWBR0004825, https://zoek.officielebekendmakingen.nl/stb-2025-265.html</td>
+      </tr>
+    
+      <tr>
+        <td>Zero-emission zone</td><td>A zone where only zero-emission vehicles are permitted for vans and lorries.</td><td>Since 1 January 2025 municipalities have been introducing zero-emission zones for urban logistics. Indicated by sign C22c, which is being merged into the unified sign C22e (Stb. 2025, 265).</td><td>https://wetten.overheid.nl/BWBR0004825, https://zoek.officielebekendmakingen.nl/stb-2025-265.html</td>
+      </tr>
+    
+      <tr>
+        <td>Pedestrian zone</td><td>An area in which, in principle, only pedestrians may be present and where they have priority over other traffic.</td><td>Also referred to as a pedestrian area; indicated by signs G7/G8 (RVV 1990).</td><td>https://wetten.overheid.nl/BWBR0004825</td>
+      </tr>
+    
+      <tr>
+        <td>Low-car zone</td><td>An area with deliberately limited motorised traffic, usually realised through exemptions and licence plate enforcement.</td><td>Not defined as such in the RVV; in practice a combination of closure declarations, time windows and exemptions.</td><td>https://wetten.overheid.nl/BWBR0004825</td>
+      </tr>
+    
+      <tr>
+        <td>Time-window zone</td><td>An area accessible to (delivery) motorised traffic only at times determined by the municipality.</td><td>Time windows are made known by means of supplementary panels accompanying a closure declaration (BABW). Widely used for urban logistics.</td><td>https://wetten.overheid.nl/BWBR0004826</td>
+      </tr>
+    
+      <tr>
+        <td>School street</td><td>A street that is car-free during the start and end times of the school day.</td><td>Mentioned as a concrete measure in the POLIS/CROW position paper; in the Netherlands usually realised through a time-bound closure declaration.</td><td>https://www.polisnetwork.eu/wp-content/uploads/2024/11/RTTI-Report.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Limited traffic zone</td><td>A delimited area within which traffic is restricted for certain vehicle categories or target groups; known internationally as ZTL (zona a traffico limitato).</td><td>Generic zonal regime covering international UVAR practice, shaped in the Netherlands through a closure declaration with exemptions.</td><td>https://datex2.eu/user-domains/uvars/</td>
+      </tr>
+    
+      <tr>
+        <td>One-way street</td><td>A road link where traffic is permitted in one direction of travel only.</td><td>Indicated by signs C2/C3/C4 (RVV 1990); to be modelled in DATEX II as a TrafficRegulation. One-way traffic is a widely used circulation measure.</td><td>https://docs.datex2.eu/levels/mastering/trafficregulation/, https://wetten.overheid.nl/BWBR0004825</td>
+      </tr>
+    
+      <tr>
+        <td>Closure declaration</td><td>A prohibition on entering and using the road or road section concerned.</td><td>Definition derived from art. 1 RVV 1990; realised through the C series of signs. Forms the legal basis for many circulation measures.</td><td>https://wetten.overheid.nl/BWBR0004825</td>
+      </tr>
+    
+      <tr>
+        <td>No-entry restriction</td><td>A permanent access restriction for one or more vehicle categories on a specific road link.</td><td>Falls under the RTTI data category permanent access restrictions (NAPCORE data dictionary).</td><td>https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Traffic filter</td><td>A physical closure - for example by means of retractable bollards - that makes through motorised traffic impossible, while cyclists, pedestrians and exemption holders can pass.</td><td>The traffic filter is the physical realisation of a closure declaration and a core measure against rat-running traffic in traffic circulation plans.</td><td>https://wetten.overheid.nl/BWBR0004825</td>
+      </tr>
+    
+      <tr>
+        <td>Freight delivery regulation</td><td>Regulations for the loading and unloading of goods, such as the designation of road links or areas and time-bound restrictions.</td><td>Falls under the RTTI data category freight delivery regulations (NAPCORE data dictionary); closely linked to time windows.</td><td>https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Zone boundary</td><td>The spatial delimitation of an area within which a zonal traffic rule applies.</td><td>Falls under the RTTI data category boundaries of zonal restrictions, prohibitions or obligations (NAPCORE data dictionary).</td><td>https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Road link</td><td>A part of the road network between two consecutive positions, serving as the smallest unit for recording road characteristics and measures.</td><td>Recorded in the Netherlands in the National Road Database (NWB) and as Wegdeel in the BGT/IMGeo. These registers serve here solely as a reference source (dct:source), not as a linking target.</td><td>https://docs.geostandaarden.nl/imgeo/catalogus/imgeo/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf, https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/a9b7026e-0a81-4813-93bd-ba49e6f28502</td>
+      </tr>
+    
+      <tr>
+        <td>Junction</td><td>A location where traffic can be directed onto another route.</td><td>Falls under the RTTI data category junctions (NAPCORE data dictionary). For the geometric realisation, NWB, BGT/IMGeo and the Rotterdam Mercator/IBRO model serve as reference sources (dct:source).</td><td>https://docs.geostandaarden.nl/ibro/scope/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf, https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/a9b7026e-0a81-4813-93bd-ba49e6f28502</td>
+      </tr>
+    
+      <tr>
+        <td>Business rules</td><td>to be decided later</td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>School zone</td><td>to be decided later</td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>AANTEKENINGEN</td><td>Digital indicators?</td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>Signage</td><td>t.b.d</td><td></td><td></td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Relations per concept</h2>
+  
+    
+      <p class="prose">Outgoing relations only. Semantic relations stay inside the model; mapping relations link to concepts elsewhere.</p>
+    
+  
+    
+      
+<section>
+  <h3>Policy objective</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Destination traffic</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000015</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Traffic circulation plan</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000001</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Closure declaration</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000028</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Through traffic</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000014</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Preferred route</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000017</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Multimodal network framework</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Functional road class</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000006</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Functional road class</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>FRC levels 0 to 8</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000007</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Traffic circulation plan</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000001</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+    
+      
+<table class="data-table">
+  <caption>Mapping relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target URI</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>exactMatch</td><td>https://docs.datex2.eu/recommended-profiles/rrp/rtti/rtti-670/1-i-b-road-classification/</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>FRC levels 0 to 8</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Functional road class</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000006</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Road category</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Flow road</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000009</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Distributor road</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000010</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Access road</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000012</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Functional road class</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000006</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Flow road</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Road category</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000008</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Distributor road</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Road category</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000008</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Access road</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Road category</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000008</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Residential yard</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000013</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Residential yard</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Urban vehicle access regulation</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019</td>
+      </tr>
+    
+      <tr>
+        <td>broader</td><td>Access road</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000012</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Destination traffic</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Through traffic</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000014</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Preferred route</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Signage</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1787733042482</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Functional road class</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000006</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Slow traffic</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Preferred route</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000017</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Urban vehicle access regulation</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Residential yard</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000013</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Limited traffic zone</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000026</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>School street</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000025</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Time-window zone</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000024</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Low-car zone</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000023</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Pedestrian zone</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000022</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Zero-emission zone</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000021</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Low emission zone</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000020</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>School zone</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202761035</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Traffic circulation plan</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000001</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Low emission zone</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Urban vehicle access regulation</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Zero-emission zone</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000021</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Zero-emission zone</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Urban vehicle access regulation</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Business rules</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202276603</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Pedestrian zone</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Urban vehicle access regulation</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Low-car zone</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Urban vehicle access regulation</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Business rules</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202276603</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Time-window zone</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Urban vehicle access regulation</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>School street</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Urban vehicle access regulation</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Business rules</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202276603</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Limited traffic zone</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Urban vehicle access regulation</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Business rules</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202276603</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>One-way street</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Road link</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000033</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Closure declaration</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Traffic filter</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000030</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>No-entry restriction</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000029</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Destination traffic</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000015</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>No-entry restriction</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Closure declaration</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000028</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Traffic filter</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Closure declaration</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000028</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Freight delivery regulation</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Time-window zone</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000024</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Zone boundary</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Urban vehicle access regulation</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000019</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Junction</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Road link</td><td>https://gegevenscatalogus.gov/rtti-verkeerscirculatieplannen/concept-1773240000033</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>School zone</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Business rules</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-verkeerscirculatieplannen/concept-1784202276603</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Introduction to RML mappings</h2>
+  
+    
+      <p class="prose"><p>An <strong>information description</strong> (technically: an RML mapping) describes how concrete data — records in a file, rows in a table, fields in an XML message — corresponds to the concepts in the concept scheme above. Without such a description data stands on its own; with it, every piece of data is connected to an unambiguous concept.</p>
+<p>The principle is simple: for each data source we define one or more <strong>TriplesMaps</strong>. Each TriplesMap is a recipe that says <em>"each record in this data source represents an instance of that concept, and these fields are its properties"</em>. For each field we then specify which concept describes the property (for example <code>hasStatus</code>, <code>liesOnRoadSegment</code>) and how the field should be read from the source.</p>
+<p>The essence for the reader of this document:</p>
+<ul>
+<li>the <strong>TriplesMap table</strong> below shows which data sources are linked to this model,</li>
+<li>the <strong>subject template</strong> shows how a unique URI is constructed for each record,</li>
+<li>the <strong>number of predicates</strong> gives a rough indication of how rich the mapping per source is.</li>
+</ul>
+<p>The actual mapping rules (field → concept) are managed inside the Ontologica application itself and can be inspected and edited through the mapping wizard.</p></p>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Information description</h2>
+  
+    
+      
+<table class="data-table">
+  <caption>TriplesMaps</caption>
+  <thead>
+    <tr>
+      <th>Name</th><th>Datasource</th><th>Subject template</th><th>rdf:type</th><th># predicates</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>values</td><td>trafficspeed xml</td><td>https://example.org/values/{value/@lang}</td><td>—</td><td>1</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+</body>
+</html>
