@@ -1,0 +1,2433 @@
+[
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/beschrevenIn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "describedIn"
+      },
+      {
+        "@language": "nl",
+        "@value": "beschrevenIn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#related"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000404",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/"
+      },
+      {
+        "@value": "https://www.rijkswaterstaat.nl/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000402"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een vooraf gedefinieerde en genummerde omleidingsroute (U-route) die bij afsluiting van een autosnelweg wordt opengesteld."
+      },
+      {
+        "@language": "en",
+        "@value": "A predefined and numbered diversion route (Dutch: U-route) that is opened when a motorway is closed."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Emergency diversion route"
+      },
+      {
+        "@language": "nl",
+        "@value": "Uitwijkroute"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "De Nederlandse U-routesystematiek wordt beheerd door Rijkswaterstaat en aangeduid met U-borden."
+      },
+      {
+        "@language": "en",
+        "@value": "The Dutch U-route system is managed by Rijkswaterstaat and indicated by U-signs."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000501",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De gebeurtenis of conditie die de activering van een set van tijdelijke verkeersmaatregelen of een strategie veroorzaakt."
+      },
+      {
+        "@language": "en",
+        "@value": "The event or condition that causes the activation of a set off temporary traffic measures or a strategy."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511855955"
+      },
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Verstoring"
+      },
+      {
+        "@language": "en",
+        "@value": "Disturbance"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Verzamelconcept voor de situaties die een verkeersmanagementplan of tijdelijke maatregel triggeren (NAPCORE data dictionary)."
+      },
+      {
+        "@language": "en",
+        "@value": "Collective concept for the situations that trigger a traffic management plan or a temporary measure (NAPCORE data dictionary)."
+      }
+    ],
+    "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/triggert": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603"
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/leidtTot",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "canLeadTo"
+      },
+      {
+        "@language": "nl",
+        "@value": "kanLeidenTot"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#related"
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/heeft",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has"
+      },
+      {
+        "@language": "nl",
+        "@value": "heeft"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#related"
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000501"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A disruption that is not scheduled in advance and occurs unexpectedly."
+      },
+      {
+        "@language": "nl",
+        "@value": "Een verstoring die niet vooraf is ingepland en zich onverwacht voordoet."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#editorialNote": [
+      {
+        "@language": "nl",
+        "@value": "Definitie toegevoegd:\n\nEen verstoring die niet vooraf is ingepland en zich onverwacht voordoet."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Niet gepland"
+      },
+      {
+        "@language": "en",
+        "@value": "Unplanned"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000401",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.datex2.eu/"
+      },
+      {
+        "@value": "https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Het tijdelijk leiden van verkeer langs een alternatieve route wegens een afsluiting of beperking op de gebruikelijke route."
+      },
+      {
+        "@language": "en",
+        "@value": "The temporary guidance of traffic along an alternative route because of a closure or restriction on the usual route."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Omleiding"
+      },
+      {
+        "@language": "en",
+        "@value": "Diversion"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000403"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000402"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "In DATEX II gemodelleerd via ReroutingManagement; in NL uitgewerkt in de CROW-richtlijnen werk in uitvoering."
+      },
+      {
+        "@language": "en",
+        "@value": "Modelled in DATEX II via ReroutingManagement; in the Netherlands elaborated in the CROW work in progress guidelines."
+      }
+    ],
+    "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/geffectueerdIn": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000402"
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920015950",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000001"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een tijdelijk toegekende functionele wegklasse die de normale classificatie van een wegvak overschrijft zolang een tijdelijke verkeersbeheersmaatregel van kracht is."
+      },
+      {
+        "@language": "en",
+        "@value": "A temporarily assigned functional road class that overrides the normal classification of a road section for as long as a temporary traffic management measure is in force."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#editorialNote": [
+      {
+        "@language": "nl",
+        "@value": "Definitie toegevoegd:\n\nEen tijdelijk toegekende functionele wegklasse die de normale classificatie van een wegvak overschrijft zolang een tijdelijke verkeersbeheersmaatregel van kracht is."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Temprorary Functional Road Class"
+      },
+      {
+        "@language": "nl",
+        "@value": "Tijdelijke Functionele Weg Classificatie"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.datex2.eu/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een individuele verkeersbeheersmaatregel binnen een verkeersmanagementplan, met een eigen activeringsconditie."
+      },
+      {
+        "@language": "en",
+        "@value": "An individual traffic control measure within a traffic management plan, with its own activation condition."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Maatregel"
+      },
+      {
+        "@language": "en",
+        "@value": "Measure"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000602"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000601"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000501"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "In DATEX II gemodelleerd als Measure binnen de TrafficManagementPlan-namespace."
+      },
+      {
+        "@language": "en",
+        "@value": "Modelled in DATEX II as Measure within the TrafficManagementPlan namespace."
+      }
+    ],
+    "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/beschrevenIn": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000601"
+      }
+    ],
+    "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/leidtTot": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000602"
+      }
+    ],
+    "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/wordtgetriggerdDoor": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000501"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000103",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004825"
+      },
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004826"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een verkeersteken dat tijdelijk wordt geplaatst of toegepast en na afloop van de aanleiding weer wordt verwijderd of gedeactiveerd."
+      },
+      {
+        "@language": "en",
+        "@value": "A traffic sign that is placed or applied on a temporary basis and is removed or deactivated once the trigger has ended."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000308"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Temporary traffic sign"
+      },
+      {
+        "@language": "nl",
+        "@value": "Tijdelijk verkeersteken"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000101"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "RVV 1990: tijdelijk geplaatste of toegepaste verkeerstekens op het wegdek gaan boven andere ter plekke aangebrachte wegdektekens voor zover deze onverenigbaar zijn (art. 63a)."
+      },
+      {
+        "@language": "en",
+        "@value": "RVV 1990: temporarily placed or applied road surface traffic signs take precedence over other road surface markings applied at that location in so far as these are incompatible (art. 63a)."
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/bevat",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "contains"
+      },
+      {
+        "@language": "nl",
+        "@value": "bevat"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#related"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000201",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.ndw.nu/dataformaten/datex2-v3/wwz/"
+      },
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      },
+      {
+        "@value": "https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Onderhouds-, aanleg- of reparatiewerkzaamheden op of langs een wegvak die het gebruik van de weg geheel of gedeeltelijk beinvloeden."
+      },
+      {
+        "@language": "en",
+        "@value": "Maintenance, construction or repair works on or alongside a road section that wholly or partly affect the use of the road."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Zoals werk in uitvoering, onderhoudswerkzaamheden en aanlegwerkzaamheden"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Road works"
+      },
+      {
+        "@language": "nl",
+        "@value": "Wegwerkzaamheden"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "NAPCORE data dictionary: road works generally affect individual lanes; where they affect all lanes, they coincide with road closures. In the Netherlands supported by the NDW DATEX II v3 road works profile."
+      },
+      {
+        "@language": "nl",
+        "@value": "NAPCORE data dictionary: wegwerkzaamheden treffen doorgaans afzonderlijke rijstroken; treffen zij alle rijstroken, dan vallen zij samen met wegafsluitingen. In NL ondersteund door het NDW DATEX II v3-profiel wegwerkzaamheden."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000503",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een onverwachte gebeurtenis met grote impact, zoals een natuurramp of technische ramp, die tijdelijke verkeersmaatregelen vergt."
+      },
+      {
+        "@language": "en",
+        "@value": "An unexpected high-impact event, such as a natural or technological disaster, that requires temporary measures."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Calamity"
+      },
+      {
+        "@language": "nl",
+        "@value": "Calamiteit"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Valt onder de scenario-gedreven maatregelen die via een verkeersmanagementplan worden geactiveerd (NAPCORE data dictionary)."
+      },
+      {
+        "@language": "en",
+        "@value": "Falls under the scenario-driven measures activated through a traffic management plan (NAPCORE data dictionary)."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000304",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      },
+      {
+        "@value": "https://docs.ndw.nu/dataformaten/datex2-v3/wwz/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Het tijdelijk afsluiten van een of meer rijstroken terwijl de overige rijstroken beschikbaar blijven."
+      },
+      {
+        "@language": "en",
+        "@value": "The temporary closure of one or more lanes while the remaining lanes stay available."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Lane closure"
+      },
+      {
+        "@language": "nl",
+        "@value": "Rijstrookafsluiting"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "RTTI-datacategorie lane closures (gepland/ongepland); in het NDW-profiel via RoadOrCarriagewayOrLaneManagement."
+      },
+      {
+        "@language": "en",
+        "@value": "RTTI data category lane closures (planned/unplanned); in the NDW profile via RoadOrCarriagewayOrLaneManagement."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000703",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.ndw.nu/dataformaten/datex2-v3/wwz/"
+      },
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000701"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Het beeindigen van een tijdelijke verkeersmaatregel zodra het scenario dat de maatregel triggerde is opgelost."
+      },
+      {
+        "@language": "en",
+        "@value": "The termination of a temporary traffic measure once the scenario that triggered the measure has been resolved."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Deactivering"
+      },
+      {
+        "@language": "en",
+        "@value": "Deactivation"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Kernonderscheid tussen verkeersmanagementplan en verkeerscirculatieplan volgens de NAPCORE data dictionary; in de NDW-keten de overgang van actieve naar ruststatus waarbij de bijbehorende maatregelen worden gedeactiveerd."
+      },
+      {
+        "@language": "en",
+        "@value": "Core distinction between the traffic management plan and the traffic circulation plan according to the NAPCORE data dictionary; in the NDW chain the transition from active to idle status, whereby the associated measures are deactivated."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000305",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.ndw.nu/dataformaten/datex2-v3/wwz/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Het tijdelijk versmallen of verleggen van de rijbaan of rijstrook ten behoeve van werkzaamheden of een ander scenario."
+      },
+      {
+        "@language": "en",
+        "@value": "The temporary narrowing or shifting of the carriageway or lane for the purpose of works or another scenario."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Road narrowing"
+      },
+      {
+        "@language": "nl",
+        "@value": "Wegversmalling"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "In het NDW DATEX II v3-profiel onderdeel van het rijstrook- en rijbaanbeheer bij werkzaamheden."
+      },
+      {
+        "@language": "en",
+        "@value": "Part of lane and carriageway management for road works in the NDW DATEX II v3 profile."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000308",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004825"
+      },
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004826"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000103"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een tijdelijk op het wegdek aangebrachte markering die voorrang heeft op de permanente witte markering."
+      },
+      {
+        "@language": "en",
+        "@value": "A marking applied temporarily to the road surface that takes precedence over the permanent white marking."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Tijdelijke markering"
+      },
+      {
+        "@language": "en",
+        "@value": "Temporary yellow marking"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "RVV 1990 art. 63a regelt de voorrang van tijdelijke wegdektekens; de kleureis (een andere kleur dan wit, in de praktijk geel) volgt uit de Uitvoeringsvoorschriften BABW, Hoofdstuk IV, paragraaf 1. Verwijst naar het verkeersborden-model zonder duplicatie."
+      },
+      {
+        "@language": "en",
+        "@value": "RVV 1990 art. 63a governs the precedence of temporary road surface signs; the colour requirement (a colour other than white, in practice yellow) follows from the BABW implementing regulations, Chapter IV, section 1. References the traffic signs model without duplication."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000306",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.ndw.nu/dataformaten/datex2-v3/wwz/"
+      },
+      {
+        "@value": "https://docs.datex2.eu/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een tijdelijk verlaagde maximumsnelheid die bij wegwerkzaamheden of een ander scenario wordt ingesteld en na afloop wordt opgeheven."
+      },
+      {
+        "@language": "en",
+        "@value": "A temporarily reduced speed limit imposed during road works or another scenario and lifted once these have ended."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Temporary speed limit"
+      },
+      {
+        "@language": "nl",
+        "@value": "Tijdelijke snelheidsbeperking"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "In DATEX II vastgelegd als SpeedManagement met speedManagementType speedRestrictionInOperation, een temporarySpeedLimit en complianceOption mandatory (NDW-profiel). Verwijst naar het snelheidsbeperkingen-model zonder dit te dupliceren."
+      },
+      {
+        "@language": "en",
+        "@value": "Recorded in DATEX II as SpeedManagement with speedManagementType speedRestrictionInOperation, a temporarySpeedLimit and complianceOption mandatory (NDW profile). References the speed restrictions model without duplicating it."
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/wordtgetriggerdDoor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "isBeingTriggerdBy"
+      },
+      {
+        "@language": "nl",
+        "@value": "wordtgetriggerdDoor"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#related"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000504",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een onverwachte verstoring van de verkeersstroom, zoals een ongeval of een gestrand voertuig."
+      },
+      {
+        "@language": "en",
+        "@value": "An unexpected disruption of the traffic flow, such as an accident or a broken-down vehicle."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Incident"
+      },
+      {
+        "@language": "nl",
+        "@value": "Incident"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "RTTI state-of-network-categorie; triggert tijdelijke maatregelen en informatievoorziening."
+      },
+      {
+        "@language": "en",
+        "@value": "RTTI state-of-the-network category; triggers temporary measures and the provision of information."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000001",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://eur-lex.europa.eu/eli/reg_del/2022/670/oj"
+      },
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      },
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004826"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "nl",
+        "@value": "TVM"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A set of temporary traffic management measures adopted by or on behalf of the road authority (for a limited period of validity), which is activated before and deactivated after one or more specific disruptions."
+      },
+      {
+        "@language": "nl",
+        "@value": "Een door of namens de wegbeheerder genomen set van tijdelijke verkeersmanagementmaatregels (voor een begrensde geldigheidsperiode), die wordt geactiveerd voor en gedeactiveerd na een of meerdere specifieke verstoringen."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#editorialNote": [
+      {
+        "@language": "nl",
+        "@value": "Tijdelijke verkeersmaatregel gewijzigd naar Tijdelijke verkeersbeheersmaatregel"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000601"
+      },
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920015950"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Tijdelijke verkeersbeheersmaatregel"
+      },
+      {
+        "@language": "en",
+        "@value": "Temporary traffic management measure"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000701"
+      },
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920279579"
+      },
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920171026"
+      },
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920438369"
+      },
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920547796"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Onderscheidt zich van een permanent verkeerscirculatieplan door het activerings- en deactiveringskenmerk: een tijdelijke maatregel wordt gedeactiveerd zodra het getriggerde scenario is opgelost (NAPCORE data dictionary)."
+      },
+      {
+        "@language": "en",
+        "@value": "Distinguished from a permanent traffic circulation plan by the activation and deactivation characteristic: a temporary measure is deactivated as soon as the triggered scenario has been resolved (NAPCORE data dictionary)."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.ndw.nu/dataformaten/datex2-v3/wwz/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000001"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een categorie van fysieke of regulatoire ingreep waarmee een verkeersmaatregel wordt uitgevoerd met een duidelijke begin- en eindtijd."
+      },
+      {
+        "@language": "en",
+        "@value": "A category of physical or regulatory intervention by which a traffic measure is implemented with a clear start time and end time."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000401"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000307"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000304"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000305"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000302"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000306"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000308"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Temporary measure type"
+      },
+      {
+        "@language": "nl",
+        "@value": "Tijdelijk maatregeltype"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Verzamelconcept voor afzettingen, rijstrookmaatregelen, snelheidsmaatregelen en tijdelijke verkeerslichten, conform de deelmaatregelen in het NDW DATEX II v3-profiel."
+      },
+      {
+        "@language": "en",
+        "@value": "Collective concept for closures, lane measures, speed measures and temporary traffic signals, in line with the sub-measures in the NDW DATEX II v3 profile."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000702",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.datex2.eu/"
+      },
+      {
+        "@value": "https://docs.ndw.nu/dataformaten/datex2-v3/wwz/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000701"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Het van kracht worden van een tijdelijke verkeersmaatregel bij het optreden van de aanleiding."
+      },
+      {
+        "@language": "en",
+        "@value": "The entry into force of a temporary traffic measure upon occurrence of the trigger."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Activering"
+      },
+      {
+        "@language": "en",
+        "@value": "Activation"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000703"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "In de NDW-keten gekoppeld aan het actief melden van een maatregel."
+      },
+      {
+        "@language": "en",
+        "@value": "In the NDW chain linked to the active reporting of a measure."
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920171026",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A contiguous geographic area within which a temporary traffic management measure or traffic management plan applies. Unlike a road section, which denotes a linear stretch of road, a zone delimits an areal region to which the relevant measures, rules or conditions apply."
+      },
+      {
+        "@language": "nl",
+        "@value": "Een aaneengesloten geografisch gebied waarbinnen een tijdelijke verkeersbeheersmaatregel of verkeersmanagementplan van toepassing is. Anders dan een wegvak, dat een lijnvormig weggedeelte aanduidt, bakent een zone een vlakvormig gebied af waarop de betreffende maatregelen, regels of condities gelden."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#editorialNote": [
+      {
+        "@language": "nl",
+        "@value": "Definitie bedacht op basis van wat er in DATEXII staat. Omdat DATEXII nog geen formeel semantisch model online heeft staan, kan ik niet direct verwijzen naar wat DATEXII bedacht heeft."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Zone"
+      },
+      {
+        "@language": "nl",
+        "@value": "Zone"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Geïnspireerd op het DATEX II-concept ControlledZone (namespace ControlledZone, v3.4), dat een gebied modelleert waarbinnen verkeersregelgeving geldt. Zie https://docs.datex2.eu/levels/mastering/controlledzones/"
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920438369",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Gedeelte van een weg tussen twee opeenvolgende knooppunten of kruispunten, of – indien geen zijweg aanwezig is – tussen twee punten waarop een verkeersmaatregel betrekking heeft. \n\nIn het Nationaal Wegenbestand (NWB) is een wegvak de kleinste eenheid waarvoor wegkenmerken worden geregistreerd."
+      },
+      {
+        "@language": "en",
+        "@value": "T.b.d."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#editorialNote": [
+      {
+        "@language": "nl",
+        "@value": "Definitie toegevoegd:\n\nGedeelte van een weg tussen twee opeenvolgende knooppunten of kruispunten, of – indien geen zijweg aanwezig is – tussen twee punten waarop een verkeersmaatregel betrekking heeft. \n\nIn het Nationaal Wegenbestand (NWB) is een wegvak de kleinste eenheid waarvoor wegkenmerken worden geregistreerd."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Wegvak"
+      },
+      {
+        "@language": "en",
+        "@value": "Roadsegment"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/collections/juridisch-kader",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000101"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000102"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000103"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Legal framework & competence"
+      },
+      {
+        "@language": "nl",
+        "@value": "Juridisch kader & bevoegdheid"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/collections/aanleiding-scenario",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000501"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000502"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000503"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000504"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000505"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Aanleidingen & scenario's"
+      },
+      {
+        "@language": "en",
+        "@value": "Triggers & scenarios"
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.org/dc/terms/created": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-03-19T11:14:21.685697+00:00"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@language": "en",
+        "@value": "This concept scheme describes the set of temporary traffic management measures taken by or on behalf of the road authority (for a bounded validity period), which is activated for and deactivated after one or more specific triggers or scenarios."
+      },
+      {
+        "@language": "nl",
+        "@value": "Dit conceptschema beschrijft de door of namens de wegbeheerder genomen set van tijdelijke verkeersmanagementmaatregels (voor een begrensde geldigheidsperiode), die wordt geactiveerd voor en gedeactiveerd na een of meerdere specifieke aanleidingen of scenario's."
+      }
+    ],
+    "http://purl.org/dc/terms/modified": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-10-01T13:46:44.163012+00:00"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "RTTI — Temporary traffic control measures"
+      },
+      {
+        "@language": "nl",
+        "@value": "RTTI — Tijdelijke verkeersbeheersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+        "@value": "0.9.1"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000502",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      },
+      {
+        "@value": "https://docs.ndw.nu/dataformaten/datex2-v3/wwz/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een geplande gebeurtenis, zoals een wedstrijd, markt of festival, die de het regulier gebruik van het netwerk verstoren en daardoor tijdelijke verkeersmaatregelen vergt."
+      },
+      {
+        "@language": "en",
+        "@value": "A planned occurrence, such as a sports fixture, market or festival, that requires temporary traffic measures."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Evenement"
+      },
+      {
+        "@language": "en",
+        "@value": "Event"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "In het NDW DATEX II v3-profiel ondergebracht bij werkzaamheden en evenementen."
+      },
+      {
+        "@language": "en",
+        "@value": "Placed under road works and events in the NDW DATEX II v3 profile."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000505",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Weather conditions, such as storm, black ice or snow, that require the activation of a set of temporary traffic measures."
+      },
+      {
+        "@language": "nl",
+        "@value": "Weersomstandigheden, zoals storm, ijzel of sneeuw, die de activering van een set van tijdelijke verkeersmaatregelen vergen."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Extreem weer"
+      },
+      {
+        "@language": "en",
+        "@value": "Extreme weather"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Een van de condities die een verkeersmanagementplan kunnen triggeren (NAPCORE data dictionary)."
+      },
+      {
+        "@language": "en",
+        "@value": "One of the conditions that can trigger a traffic management plan (NAPCORE data dictionary)."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000601",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      },
+      {
+        "@value": "https://docs.datex2.eu/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000001"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The collection of strategies, measures and actions that together constitute the plan."
+      },
+      {
+        "@language": "nl",
+        "@value": "De verzameling van strategieën, maatregelen en acties die als geheel het plan vormen."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Verkeersmanagementplan"
+      },
+      {
+        "@language": "en",
+        "@value": "Traffic management plan"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000602"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Het verkeersmanagementplan is een gedefinieerd DATEX II-datatype (TrafficManagementPlan-namespace, CEN/TS 16157-8) met de klassen Strategy en Measure met activeringscondities; anders dan het verkeerscirculatieplan, dat geen eigen DATEX II-namespace kent."
+      },
+      {
+        "@language": "en",
+        "@value": "The traffic management plan is a defined DATEX II data type (TrafficManagementPlan namespace, CEN/TS 16157-8) with the classes Strategy and Measure carrying activation conditions; unlike the traffic circulation plan, which has no DATEX II namespace of its own."
+      }
+    ],
+    "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/bevat": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000403",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Tijdelijke aanduidingen op of bij de bestaande bewegwijzering die de omleidingsroute aangeven."
+      },
+      {
+        "@language": "en",
+        "@value": "Temporary indications on or next to the existing signposting that indicate the diversion route."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Temporary signposting"
+      },
+      {
+        "@language": "nl",
+        "@value": "Tijdelijke bewegwijzering"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Vormgegeven met gele omleidingsborden conform de CROW-richtlijnen werk in uitvoering."
+      },
+      {
+        "@language": "en",
+        "@value": "Designed using yellow diversion signs in accordance with the CROW work in progress guidelines."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/collections/tijdelijke-maatregeltypen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000302"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000303"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000304"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000305"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000306"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000307"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000308"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Temporary measure types"
+      },
+      {
+        "@language": "nl",
+        "@value": "Tijdelijke maatregeltypen"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/collections/verkeersmanagementplan",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000601"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000602"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Verkeersmanagementplan & activering"
+      },
+      {
+        "@language": "en",
+        "@value": "Traffic management plan & activation"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000303",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.ndw.nu/dataformaten/datex2-v3/wwz/"
+      },
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000302"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Het afsluiten van een wegvak voor al het verkeer, eventueel met uitzondering van hulpdiensten."
+      },
+      {
+        "@language": "en",
+        "@value": "The closure of a road section to all traffic, possibly with the exception of emergency services."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Full closure"
+      },
+      {
+        "@language": "nl",
+        "@value": "Volledige afsluiting"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "In het NDW DATEX II v3-profiel gemodelleerd via RoadOrCarriagewayOrLaneManagement; treft de afsluiting alle rijstroken dan valt deze samen met een wegafsluiting (NAPCORE)."
+      },
+      {
+        "@language": "en",
+        "@value": "Modelled in the NDW DATEX II v3 profile via RoadOrCarriagewayOrLaneManagement; where the closure affects all lanes it coincides with a road closure (NAPCORE)."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000302",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://data.crow.nl/thesaurus/"
+      },
+      {
+        "@value": "https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Het fysiek afzetten van een werkvak of weggedeelte met bebakening, afzetmateriaal en markering."
+      },
+      {
+        "@language": "en",
+        "@value": "The physical closing off of a work zone or road section using delineation, barrier equipment and markings."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000303"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Road closure setup"
+      },
+      {
+        "@language": "nl",
+        "@value": "Wegafzetting"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Uitgewerkt in de CROW-richtlijnen werk in uitvoering (96a/96b); termen herbruikbaar uit de CROW-thesaurus."
+      },
+      {
+        "@language": "en",
+        "@value": "Elaborated in the CROW work in progress guidelines (96a/96b); terms reusable from the CROW thesaurus."
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920547796",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "n.t.b."
+      },
+      {
+        "@language": "en",
+        "@value": "t.b.d."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Service request"
+      },
+      {
+        "@language": "nl",
+        "@value": "Service verzoek"
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511855955",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000501"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een verstoring die vooraf bekend en ingepland is."
+      },
+      {
+        "@language": "en",
+        "@value": "A disruption that is known and scheduled in advance."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#editorialNote": [
+      {
+        "@language": "nl",
+        "@value": "Definitie toegevoegd:\n\nEen verstoring die vooraf bekend en ingepland is."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Gepland"
+      },
+      {
+        "@language": "en",
+        "@value": "Planned"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000502"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000201"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/collections/geldigheid-en-status",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000701"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000702"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000703"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Validity & status"
+      },
+      {
+        "@language": "nl",
+        "@value": "Geldigheid & status"
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920372665",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Deze (waarschijnlijk werkzaamheden) hoort eigenlijk ook onder verstoringen en dan is er misschien ook nog onderscheid nodig tussen gepland en concreet in uitvoering?\n\nGraag kijken hoe we hier tegenaan kijken"
+      },
+      {
+        "@language": "nl",
+        "@value": "Concepten zouden in enkelvoud moeten staan"
+      },
+      {
+        "@language": "nl",
+        "@value": "Zijn deze items waarden die bij het service request horen?\n\n2.1 \"Avoid gebied/wegsegment\"\n2.2 \"Promote gebied/wegsegment\"\n2.3 \"Reroute\""
+      },
+      {
+        "@language": "nl",
+        "@value": "Check of er zaken uit moeten gaan die teveel gaan over de NL context!\nDit model heeft scope EU"
+      },
+      {
+        "@language": "en",
+        "@value": "Voor validatie doeleinden"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Notes for the model"
+      },
+      {
+        "@language": "nl",
+        "@value": "Aantekening bij model"
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/triggert",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "triggers"
+      },
+      {
+        "@language": "nl",
+        "@value": "triggert"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#related"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000602",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.datex2.eu/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een samenhangende set van maatregelen binnen een verkeersmanagementplan met een gemeenschappelijke activeringsconditie."
+      },
+      {
+        "@language": "en",
+        "@value": "A coherent set of measures within a traffic management plan sharing a common activation condition."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Strategie"
+      },
+      {
+        "@language": "en",
+        "@value": "Strategy"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "In DATEX II gemodelleerd als Strategy binnen de TrafficManagementPlan-namespace; activeringscondities mogen samengesteld zijn (v3.6)."
+      },
+      {
+        "@language": "en",
+        "@value": "Modelled in DATEX II as Strategy within the TrafficManagementPlan namespace; activation conditions may be composite (v3.6)."
+      }
+    ],
+    "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/heeft": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603"
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/geffectueerdIn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Effectuated in"
+      },
+      {
+        "@language": "nl",
+        "@value": "Geëffectueerd in"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#related"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/collections/omleiding",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000401"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000402"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000403"
+          },
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000404"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Diversion & temporary signposting"
+      },
+      {
+        "@language": "nl",
+        "@value": "Omleiding & tijdelijke bewegwijzering"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000102",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004826"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De bevoegdheid van de wegbeheerder om bij een dringende omstandigheid van voorbijgaande aard tijdelijke verkeerstekens te plaatsen of tijdelijke maatregelen te treffen zonder een daaraan ten grondslag liggend verkeersbesluit."
+      },
+      {
+        "@language": "en",
+        "@value": "The competence of the road authority to place temporary traffic signs or take temporary measures in the case of an urgent circumstance of a passing nature, without an underlying traffic decision."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Temporary measure competence"
+      },
+      {
+        "@language": "nl",
+        "@value": "Bevoegdheid tijdelijke maatregel"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000101"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "BABW art. 34 (dringende omstandigheid van voorbijgaande aard voor de duur van die omstandigheid) en art. 35 (plaatsing/maatregel kunnen geschieden zonder verkeersbesluit)."
+      },
+      {
+        "@language": "en",
+        "@value": "BABW art. 34 (urgent circumstance of a passing nature, for the duration of that circumstance) and art. 35 (placement/measure may be effected without a traffic decision)."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000101",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0006622"
+      },
+      {
+        "@value": "https://wetten.overheid.nl/BWBR0004826"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een verkeersbesluit dat ten grondslag ligt aan een tijdelijke plaatsing of tijdelijke maatregel, vereist wanneer de omstandigheden voor enkele maanden of zich regelmatig voordoen."
+      },
+      {
+        "@language": "en",
+        "@value": "A traffic decision underlying a temporary placement or temporary measure, required where the circumstances last a few months or occur on a regular basis."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Tijdelijk verkeersbesluit"
+      },
+      {
+        "@language": "en",
+        "@value": "Temporary traffic decision"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "WVW 1994 jo. BABW art. 37: in afwijking van de hoofdregel geschieden de tijdelijke plaatsing en de tijdelijke maatregel krachtens een verkeersbesluit indien de omstandigheden van langere duur zijn dan vier maanden dan wel zich regelmatig voordoen. De jurisprudentie (o.a. RvS) staat afzien van een verkeersbesluit toe bij dringende omstandigheden van voorbijgaande aard."
+      },
+      {
+        "@language": "en",
+        "@value": "WVW 1994 in conjunction with BABW art. 37: by way of derogation from the main rule, temporary placement and temporary measures are effected pursuant to a traffic decision where the circumstances last longer than four months or occur on a regular basis. Case law (including the Council of State) allows a traffic decision to be waived in the case of urgent circumstances of a passing nature."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/collections/wegwerkzaamheden",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000201"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Road works"
+      },
+      {
+        "@language": "nl",
+        "@value": "Wegwerkzaamheden"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000307",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.ndw.nu/dataformaten/datex2-v3/wwz/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een tijdelijk geplaatste verkeersregelinstallatie, bijvoorbeeld om verkeer langs een werkvak te regelen."
+      },
+      {
+        "@language": "en",
+        "@value": "A temporarily installed traffic signal control installation, for example to regulate traffic past a work zone."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Temporary traffic signals"
+      },
+      {
+        "@language": "nl",
+        "@value": "Tijdelijke verkeerslichten"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "In het NDW DATEX II v3-profiel via GeneralNetworkManagement met generalNetworkManagementType temporaryTrafficLights."
+      },
+      {
+        "@language": "en",
+        "@value": "In the NDW DATEX II v3 profile via GeneralNetworkManagement with generalNetworkManagementType temporaryTrafficLights."
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920279579",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Een expliciet vastgelegde regel die bepaalt onder welke condities een tijdelijke verkeersbeheersmaatregel wordt geactiveerd, gewijzigd of gedeactiveerd."
+      },
+      {
+        "@language": "nl",
+        "@value": "An explicitly defined rule that determines the conditions under which a temporary traffic management measure is activated, modified or deactivated."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#editorialNote": [
+      {
+        "@language": "nl",
+        "@value": "Dit concept is nog onderdeel van discussie."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Business rule"
+      },
+      {
+        "@language": "nl",
+        "@value": "Bedrijfsregel"
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000701",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.datex2.eu/"
+      },
+      {
+        "@value": "https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De begin- en eindtijd waarbinnen een tijdelijke verkeersmaatregel van kracht is."
+      },
+      {
+        "@language": "en",
+        "@value": "The start and end time within which a temporary traffic measure is in force."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000702"
+      },
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000703"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Validity period"
+      },
+      {
+        "@language": "nl",
+        "@value": "Geldigheidsperiode"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Het kenmerk dat tijdelijke maatregelen onderscheidt van permanente; in DATEX II en het NDW-profiel vastgelegd als geldigheidsperiode."
+      },
+      {
+        "@language": "en",
+        "@value": "The characteristic that distinguishes temporary measures from permanent ones; recorded in DATEX II and the NDW profile as the validity period."
+      }
+    ]
+  },
+  {
+    "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000402",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@value": "https://docs.ndw.nu/dataformaten/datex2-v3/wwz/"
+      },
+      {
+        "@value": "https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De alternatieve route die verkeer volgt zolang de gebruikelijke route is afgesloten of beperkt."
+      },
+      {
+        "@language": "en",
+        "@value": "The alternative route that traffic follows for as long as the usual route is closed or restricted."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000404"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Omleidingsroute"
+      },
+      {
+        "@language": "en",
+        "@value": "Diversion route"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000401"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Onderdeel van het omleidingsontwerp volgens de CROW-richtlijnen werk in uitvoering."
+      },
+      {
+        "@language": "en",
+        "@value": "Part of the diversion design according to the CROW work in progress guidelines."
+      }
+    ],
+    "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/isOnderdeelVan": [
+      {
+        "@id": "https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000401"
+      }
+    ]
+  },
+  {
+    "@id": "https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/relations/isOnderdeelVan",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is part of"
+      },
+      {
+        "@language": "nl",
+        "@value": "is onderdeel van"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#related"
+      }
+    ]
+  }
+]
