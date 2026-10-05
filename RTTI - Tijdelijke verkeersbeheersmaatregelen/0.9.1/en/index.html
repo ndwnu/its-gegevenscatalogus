@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>RTTI — Temporary traffic control measures</title>
+  
+  <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+  <script class="remove">
+    var respecConfig = {"specStatus": "unofficial", "title": "RTTI — Temporary traffic control measures", "shortName": "RTTI - Temporary traffic control measures", "editors": [{"name": "Nationaal Toegangspunt Mobiliteit"}], "lint": false, "edDraftURI": "", "additionalCopyrightHolders": "Nationaal Toegangspunt Mobiliteit"};
+  </script>
+  
+  
+  <script src="https://ndwnu.github.io/its-gegevenscatalogus/review.js" defer
+          data-repo="ndwnu/its-gegevenscatalogus"
+          data-model="RTTI - Tijdelijke verkeersbeheersmaatregelen"
+          data-version="0.9.1"></script>
+  
+  <style>
+    /* Opmaak afgeleid van de PDF (docpublish/pdf/styles/_base.css): dezelfde
+       huisstijl-kleuren en tabelstijl, zodat de ReSpec-pagina en de PDF op
+       elkaar aansluiten. Staat NA ReSpec's basis-stylesheet, dus dit wint. */
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: #303c54;
+      line-height: 1.5;
+    }
+    h1, h2, h3, h4, h5, h6 { color: #1e40af; font-weight: 600; }
+    p.prose { text-align: justify; }
+    p.disclaimer {
+      background: rgba(30, 64, 175, 0.06);
+      border-left: 3px solid #1e40af;
+      padding: 6px 10px;
+      font-style: italic;
+      color: #636f83;
+      margin: 8px 0;
+    }
+    table.data-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px 0 18px;
+      font-size: 0.95rem;
+    }
+    table.data-table caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 600;
+      color: #1e40af;
+      padding-bottom: 4px;
+    }
+    table.data-table th {
+      background: rgba(30, 64, 175, 0.08);
+      border-bottom: 1px solid #1e40af;
+      color: #1e40af;
+      font-weight: 600;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    table.data-table td {
+      border-bottom: 1px solid #dfe4ee;
+      padding: 6px 8px;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+    table.data-table tr:nth-child(even) td { background: rgba(30, 64, 175, 0.025); }
+
+    /* Modeloverzicht-diagram: de server-side force-directed layout geeft een
+       compacte, normaal-geproportioneerde SVG (net als de visuele editor). Schaal
+       hem responsive binnen de paginabreedte. Voor het zeldzame extreem brede
+       geval blijft het kader horizontaal scrollbaar. */
+    figure.model-figure { margin: 12px 0; width: 100%; }
+    figure.model-figure .model-figure__frame {
+      display: block;
+      overflow-x: auto;
+      border: 1px solid #dfe4ee;
+      border-radius: 6px;
+      padding: 8px;
+      background: #fff;
+      cursor: zoom-in;
+    }
+    figure.model-figure .model-figure__frame > div { width: 100%; }
+    figure.model-figure svg {
+      display: block;
+      /* Vaste breedte 100% van het kader; de hoogte volgt uit de viewBox-
+         verhouding. Alleen height:auto laten renderen faalt als de container
+         nog geen breedte heeft (chicken-egg): dan wordt de SVG 0×0. De inline
+         width/height-attributen op de root-<svg> worden hierdoor overruled. */
+      width: 100%;
+      height: auto;
+    }
+    figure.model-figure figcaption {
+      font-size: 0.85rem;
+      color: #636f83;
+      margin-top: 4px;
+    }
+
+    /* Full-size weergave zonder JS: het sluit-anker ligt normaal onzichtbaar
+       achter de figuur; pas in de vergrote (:target) staat wordt het de
+       schermvullende, klikbare achtergrond die de hash wist. */
+    figure.model-figure .model-figure__zoom-close { display: none; }
+
+    /* Vergrote staat: de figuur gaat schermvullend bovenop de pagina staan. De
+       SVG krijgt nu zijn NATUURLIJKE grootte (geen width:100% meer) en het kader
+       scrollt in beide richtingen, zodat het diagram leesbaar is. */
+    figure.model-figure:target {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      margin: 0;
+      padding: 2.5rem 1rem 1rem;
+      background: rgba(15, 23, 42, 0.75);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+    figure.model-figure:target .model-figure__zoom-close {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: -1;            /* achter de figuurinhoud, vóór de pagina */
+      cursor: zoom-out;
+    }
+    figure.model-figure:target .model-figure__frame {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: auto;        /* scroll in beide richtingen */
+      cursor: default;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+    figure.model-figure:target .model-figure__frame > div {
+      width: max-content;    /* laat de SVG groeien tot zijn natuurlijke breedte */
+      min-width: 100%;
+    }
+    figure.model-figure:target svg {
+      /* Natuurlijke afmetingen uit de viewBox i.p.v. 100% van de smalle kolom,
+         met een leesbare bodembreedte en ruimte om te groeien. */
+      width: auto;
+      min-width: min(1400px, 90vw);
+      height: auto;
+      max-height: none;
+    }
+    figure.model-figure:target figcaption {
+      flex: 0 0 auto;
+      color: #e5e9f0;
+      text-align: center;
+      padding-top: 0.5rem;
+    }
+    /* Een '× sluiten'-knop rechtsboven in de vergrote staat. */
+    figure.model-figure:target::after {
+      content: "× sluiten";
+      position: fixed;
+      top: 0.6rem;
+      right: 1rem;
+      color: #fff;
+      font-size: 0.95rem;
+      pointer-events: none;  /* klikken vangt het achterliggende sluit-anker op */
+    }
+  </style>
+  
+  
+  <style>
+    .status-banner {
+      border-left: 8px solid var(--status-color, #6b7280);
+      background: var(--status-bg, #f3f4f6);
+      padding: 0.6rem 1rem;
+      margin: 0 0 1.5rem;
+      font-family: sans-serif;
+    }
+    .status-banner .status-badge {
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--status-color, #374151);
+    }
+    .status-banner .status-version { color: #4b5563; }
+    /* Review-/consultatie-toelichting: een geaccentueerd blok binnen de banner.
+       Eigen witte kaart met een accent-rand in de statuskleur, zodat het
+       duidelijk leesbaar is én opvalt zonder de banner te overschreeuwen. */
+    .status-banner .status-note {
+      margin-top: 0.7rem;
+      background: #fff;
+      border: 1px solid var(--status-color, #2563eb);
+      border-left: 4px solid var(--status-color, #2563eb);
+      border-radius: 6px;
+      padding: 0.7rem 0.9rem;
+      max-width: 60ch;
+    }
+    .status-banner .status-note__title {
+      margin: 0 0 0.25rem;
+      font-weight: 700;
+      color: var(--status-color, #2563eb);
+    }
+    .status-banner .status-note__body {
+      margin: 0;
+      color: #303c54;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+    .status-draft       { --status-color: #d97706; --status-bg: #fffbeb; }
+    .status-under_review{ --status-color: #2563eb; --status-bg: #eff6ff; }
+    .status-published   { --status-color: #16a34a; --status-bg: #f0fdf4; }
+    .status-deprecated  { --status-color: #dc2626; --status-bg: #fef2f2; }
+    .status-withdrawn   { --status-color: #991b1b; --status-bg: #fef2f2; }
+  </style>
+  
+</head>
+<body>
+  
+  <h1 id="title">RTTI — Temporary traffic control measures</h1>
+
+  
+  <section id="abstract">
+    <p>This concept scheme describes the set of temporary traffic management measures taken by or on behalf of the road authority (for a bounded validity period), which is activated for and deactivated after one or more specific triggers or scenarios.</p>
+  </section>
+
+  
+  
+  <div id="beschikbare-talen" class="language-switch">
+    <table class="data-table">
+      <caption>Available languages</caption>
+      <thead>
+        <tr><th>Language</th><th>Document</th></tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>NL</td>
+          <td><a href="../nl/index.html">RTTI — Tijdelijke verkeersbeheersmaatregelen</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>EN</strong></td>
+          <td><strong>RTTI — Temporary traffic control measures</strong></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
+
+  
+  <div class="status-banner status-under_review">
+    <span class="status-badge">Under review</span><span class="status-version"> — Version 0.9.1</span>
+    
+    
+    <div class="status-note">
+      <p class="status-note__title">📣 Public consultation</p>
+      <p class="status-note__body">This model is available as a public consultation version. Anyone with a (free) GitHub account can leave review comments: select text on this page, click “💬 Review comment” and a pre-filled GitHub issue opens for your feedback.</p>
+    </div>
+    
+  </div>
+  
+
+  
+    
+<section>
+  <h2>Introduction to semantic modelling</h2>
+  
+    
+      <p class="prose"><p>A <strong>concept scheme</strong> (in SKOS: <em>ConceptScheme</em>) is a structured collection of concepts that carry a fixed, shared meaning within a particular domain. The goal is for everyone working with the model — people and systems alike — to use the same words for the same things. That sounds obvious, but in practice language causes a surprising amount of confusion: what one organisation calls a <em>measurement point</em>, another calls a <em>sensor</em>, a <em>location</em>, or an <em>observation station</em>.</p>
+<p>A concept scheme solves this by recording, for each concept:</p>
+<ul>
+<li>a <strong>preferred label</strong> (prefLabel) it is known by,</li>
+<li>a <strong>definition</strong> that unambiguously describes what the concept does and does not cover,</li>
+<li>and optionally a <strong>scope note</strong> or <strong>example</strong> to clarify borderline cases.</li>
+</ul>
+<p>Concepts rarely stand on their own. They are related <strong>hierarchically</strong> (a vehicle is broader than a truck) or <strong>associatively</strong> (a road user relates to a road segment). These relationships make it possible for queries and analyses to navigate between general and specific concepts, and to make connections between concepts explicit. Within SKOS we use <code>broader</code>, <code>narrower</code>, and <code>related</code> for that.</p>
+<p>When a concept also exists elsewhere — in a national or European standard, for instance — we record that as a <strong>mapping relation</strong>. This prevents reinventing the wheel: we link to the source so interoperability with external systems remains possible.</p>
+<p>This document describes the concept scheme as it is currently recorded. The following sections list the metadata, every concept, the relationships between them, and — where the model is connected to a data source — how it is linked to that source data.</p></p>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>RTTI — Temporary traffic control measures</h2>
+  
+    
+      <h3>Description</h3>
+    
+  
+    
+      <p class="prose">This concept scheme describes the set of temporary traffic management measures taken by or on behalf of the road authority (for a bounded validity period), which is activated for and deactivated after one or more specific triggers or scenarios.</p>
+    
+  
+    
+      
+<table class="data-table">
+  <caption>Metadata</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>URI</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen</td>
+      </tr>
+    
+      <tr>
+        <td>Version</td><td>0.9.1</td>
+      </tr>
+    
+      <tr>
+        <td>Publication status</td><td>Under review</td>
+      </tr>
+    
+      <tr>
+        <td>Management status</td><td>Active</td>
+      </tr>
+    
+      <tr>
+        <td>Organization</td><td>Nationaal Toegangspunt Mobiliteit</td>
+      </tr>
+    
+      <tr>
+        <td>Created on</td><td>2026-03-19</td>
+      </tr>
+    
+      <tr>
+        <td>Last modified on</td><td>2026-10-01</td>
+      </tr>
+    
+      <tr>
+        <td>Last modified by</td><td>arthur.keesen@ndw.nu</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Model overview</h2>
+  
+    
+      <p class="prose">Visual overview of the concepts and their relations. Hierarchical relations are drawn with solid arrows; associative relations are drawn with dashed arrows.</p>
+    
+  
+    
+      
+      
+      <figure class="model-figure" id="model-overview-figure">
+        <a class="model-figure__zoom-close" href="#" aria-label="Sluit vergroting"></a>
+        <a class="model-figure__frame" href="#model-overview-figure" title="Klik om op volledig formaat te bekijken">
+          <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="320.2 -373.0 1987.8 1387.0" width="1988" height="1387"><defs><marker id="arrow-hierarchy" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#475569" /></marker><marker id="arrow-related" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#8b5cf6" /></marker></defs><g class="edges"><line x1="899.0" y1="90.1" x2="537.1" y2="363.5" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="678.4" y1="-136.5" x2="468.6" y2="31.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="907.3" y1="96.5" x2="728.2" y2="525.2" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="902.7" y1="93.8" x2="612.8" y2="466.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1110.1" y1="421.0" x2="1110.8" y2="540.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="895.1" y1="76.0" x2="632.9" y2="49.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1247.4" y1="-187.5" x2="937.7" y2="59.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1273.9" y1="-183.2" x2="1536.2" y2="220.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1282.7" y1="-196.6" x2="1846.4" y2="-99.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="932.1" y1="88.3" x2="1203.1" y2="251.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="896.3" y1="85.0" x2="607.1" y2="193.8" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="916.9" y1="97.9" x2="944.2" y2="380.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1876.1" y1="361.0" x2="2003.3" y2="401.3" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="562.0" y1="212.6" x2="439.2" y2="271.5" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="674.0" y1="-149.6" x2="406.0" y2="-158.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="944.4" y1="557.0" x2="946.5" y2="438.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1853.5" y1="374.7" x2="1840.0" y2="451.4" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="439.7" y1="31.0" x2="386.1" y2="-131.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="951.8" y1="820.0" x2="951.3" y2="759.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1123.2" y1="385.9" x2="1208.9" y2="287.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1867.8" y1="602.7" x2="1842.5" y2="508.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1762.2" y1="587.4" x2="1818.7" y2="504.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1243.1" y1="-198.2" x2="722.9" y2="-151.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1282.0" y1="-193.7" x2="1885.5" y2="4.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1282.8" y1="-202.5" x2="1660.2" y2="-250.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1280.5" y1="-209.7" x2="1442.6" y2="-299.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1280.8" y1="-190.8" x2="1608.2" y2="-22.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1708.3" y1="292.2" x2="1566.0" y2="489.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1700.3" y1="272.4" x2="1580.5" y2="250.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1737.3" y1="286.0" x2="1831.9" y2="340.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="2032.5" y1="429.9" x2="2042.9" y2="571.1" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="2048.1" y1="420.4" x2="2234.2" y2="533.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1551.8" y1="265.0" x2="1549.3" y2="484.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1938.2" y1="588.5" x2="1855.0" y2="501.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="944.9" y1="597.0" x2="949.7" y2="701.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1241.1" y1="281.1" x2="1323.0" y2="376.1" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /></g><g class="nodes"><circle cx="413.0" cy="284.0" r="20" fill="#edc17d" stroke="white" stroke-width="2" /><rect x="360.2" y="308.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="413.0" y="322.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Full closure</text><circle cx="514.0" cy="381.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="410.5" y="405.0" width="207.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="514.0" y="419.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Temporary traffic signals</text><circle cx="1835.0" cy="480.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1793.9" y="504.0" width="82.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1835.0" y="518.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Unplanned</text><circle cx="717.0" cy="552.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="664.2" y="576.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="717.0" y="590.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Lane closure</text><circle cx="952.0" cy="840.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="836.8" y="864.0" width="230.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="952.0" y="878.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Temporary measure competence</text><circle cx="1228.0" cy="266.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="1186.9" y="290.0" width="82.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1228.0" y="304.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Diversion</text><circle cx="1873.0" cy="622.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1835.8" y="646.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1873.0" y="660.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Calamity</text><circle cx="1111.0" cy="569.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1007.5" y="593.0" width="207.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1111.0" y="607.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Emergency diversion route</text><circle cx="1549.0" cy="513.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1511.8" y="537.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1549.0" y="551.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Strategy</text><circle cx="604.0" cy="47.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="543.4" y="71.0" width="121.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="604.0" y="85.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Road narrowing</text><circle cx="915.0" cy="78.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="823.2" y="102.0" width="183.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="915.0" y="116.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Temporary measure type</text><circle cx="2259.0" cy="548.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="2214.0" y="572.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2259.0" y="586.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Road works</text><circle cx="1263.0" cy="-200.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1116.6" y="-176.0" width="292.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1263.0" y="-161.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Temporary traffic management measure</text><circle cx="377.0" cy="-159.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="324.2" y="-135.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="377.0" y="-120.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Deactivation</text><circle cx="694.0" cy="-149.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="629.5" y="-125.0" width="129.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="694.0" y="-110.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Validity period</text><circle cx="580.0" cy="204.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="503.8" y="228.0" width="152.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="580.0" y="242.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Road closure setup</text><circle cx="951.0" cy="730.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="843.6" y="754.0" width="214.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="951.0" y="768.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Temporary traffic decision</text><circle cx="595.0" cy="489.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="507.1" y="513.0" width="175.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="595.0" y="527.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Temporary speed limit</text><circle cx="944.0" cy="577.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="852.2" y="601.0" width="183.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="944.0" y="615.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Temporary traffic sign</text><circle cx="1110.0" cy="401.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1045.5" y="425.0" width="129.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1110.0" y="439.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Diversion route</text><circle cx="1751.0" cy="604.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1686.5" y="628.0" width="129.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1751.0" y="642.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Extreme weather</text><circle cx="446.0" cy="50.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="401.0" y="74.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="446.0" y="88.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Activation</text><circle cx="2045.0" cy="600.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="2019.0" y="624.0" width="52.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2045.0" y="638.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Event</text><circle cx="1857.0" cy="355.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1808.1" y="379.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1857.0" y="393.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Disturbance</text><circle cx="1552.0" cy="245.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1456.3" y="269.0" width="191.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1552.0" y="283.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Traffic management plan</text><circle cx="1952.0" cy="603.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1914.8" y="627.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1952.0" y="641.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Incident</text><circle cx="1720.0" cy="276.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1686.7" y="300.0" width="66.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1720.0" y="314.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Measure</text><circle cx="1342.0" cy="398.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1254.1" y="422.0" width="175.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1342.0" y="436.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Temporary signposting</text><circle cx="947.0" cy="409.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="847.4" y="433.0" width="199.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="947.0" y="447.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Temporary yellow marking</text><circle cx="1875.0" cy="-95.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1744.2" y="-71.0" width="261.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1875.0" y="-56.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Temprorary Functional Road Class</text><circle cx="1913.0" cy="14.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1856.3" y="38.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1913.0" y="52.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Business rule</text><circle cx="1634.0" cy="-9.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1569.5" y="15.0" width="129.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1634.0" y="29.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Service request</text><circle cx="1468.0" cy="-313.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1419.1" y="-289.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1468.0" y="-274.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Roadsegment</text><circle cx="2031.0" cy="410.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1997.7" y="434.0" width="66.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2031.0" y="448.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Planned</text><circle cx="1689.0" cy="-254.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1663.0" y="-230.0" width="52.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1689.0" y="-215.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Zone</text></g><g class="legend"><line x1="320.2" y1="954.0" x2="360.2" y2="954.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" /><text x="370.2" y="957.9" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">broader / narrower (hiërarchisch / Associatief)</text><line x1="320.2" y1="978.0" x2="360.2" y2="978.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" stroke-dasharray="6,4" /><text x="370.2" y="981.9" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">related (gerelateerd)</text></g><text x="320.2" y="1010.0" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#94a3b8">Bron: Ontologica — RTTI — Tijdelijke verkeersbeheersmaatregelen</text></svg></div>
+        </a>
+        <figcaption>Model overview</figcaption>
+      </figure>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Concepts</h2>
+  
+    
+      
+<table class="data-table">
+  <caption>Concepts overview</caption>
+  <thead>
+    <tr>
+      <th>Concept</th><th>Definition</th><th>Scope</th><th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Temporary traffic management measure</td><td>A set of temporary traffic management measures adopted by or on behalf of the road authority (for a limited period of validity), which is activated before and deactivated after one or more specific disruptions.</td><td>Distinguished from a permanent traffic circulation plan by the activation and deactivation characteristic: a temporary measure is deactivated as soon as the triggered scenario has been resolved (NAPCORE data dictionary).</td><td>https://eur-lex.europa.eu/eli/reg_del/2022/670/oj, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf, https://wetten.overheid.nl/BWBR0004826</td>
+      </tr>
+    
+      <tr>
+        <td>Temporary traffic decision</td><td>A traffic decision underlying a temporary placement or temporary measure, required where the circumstances last a few months or occur on a regular basis.</td><td>WVW 1994 in conjunction with BABW art. 37: by way of derogation from the main rule, temporary placement and temporary measures are effected pursuant to a traffic decision where the circumstances last longer than four months or occur on a regular basis. Case law (including the Council of State) allows a traffic decision to be waived in the case of urgent circumstances of a passing nature.</td><td>https://wetten.overheid.nl/BWBR0004826, https://wetten.overheid.nl/BWBR0006622</td>
+      </tr>
+    
+      <tr>
+        <td>Temporary measure competence</td><td>The competence of the road authority to place temporary traffic signs or take temporary measures in the case of an urgent circumstance of a passing nature, without an underlying traffic decision.</td><td>BABW art. 34 (urgent circumstance of a passing nature, for the duration of that circumstance) and art. 35 (placement/measure may be effected without a traffic decision).</td><td>https://wetten.overheid.nl/BWBR0004826</td>
+      </tr>
+    
+      <tr>
+        <td>Temporary traffic sign</td><td>A traffic sign that is placed or applied on a temporary basis and is removed or deactivated once the trigger has ended.</td><td>RVV 1990: temporarily placed or applied road surface traffic signs take precedence over other road surface markings applied at that location in so far as these are incompatible (art. 63a).</td><td>https://wetten.overheid.nl/BWBR0004825, https://wetten.overheid.nl/BWBR0004826</td>
+      </tr>
+    
+      <tr>
+        <td>Road works</td><td>Maintenance, construction or repair works on or alongside a road section that wholly or partly affect the use of the road.</td><td>NAPCORE data dictionary: road works generally affect individual lanes; where they affect all lanes, they coincide with road closures. In the Netherlands supported by the NDW DATEX II v3 road works profile.</td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf, https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/</td>
+      </tr>
+    
+      <tr>
+        <td>Temporary measure type</td><td>A category of physical or regulatory intervention by which a traffic measure is implemented with a clear start time and end time.</td><td>Collective concept for closures, lane measures, speed measures and temporary traffic signals, in line with the sub-measures in the NDW DATEX II v3 profile.</td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/</td>
+      </tr>
+    
+      <tr>
+        <td>Road closure setup</td><td>The physical closing off of a work zone or road section using delineation, barrier equipment and markings.</td><td>Elaborated in the CROW work in progress guidelines (96a/96b); terms reusable from the CROW thesaurus.</td><td>https://data.crow.nl/thesaurus/, https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/</td>
+      </tr>
+    
+      <tr>
+        <td>Full closure</td><td>The closure of a road section to all traffic, possibly with the exception of emergency services.</td><td>Modelled in the NDW DATEX II v3 profile via RoadOrCarriagewayOrLaneManagement; where the closure affects all lanes it coincides with a road closure (NAPCORE).</td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Lane closure</td><td>The temporary closure of one or more lanes while the remaining lanes stay available.</td><td>RTTI data category lane closures (planned/unplanned); in the NDW profile via RoadOrCarriagewayOrLaneManagement.</td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Road narrowing</td><td>The temporary narrowing or shifting of the carriageway or lane for the purpose of works or another scenario.</td><td>Part of lane and carriageway management for road works in the NDW DATEX II v3 profile.</td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/</td>
+      </tr>
+    
+      <tr>
+        <td>Temporary speed limit</td><td>A temporarily reduced speed limit imposed during road works or another scenario and lifted once these have ended.</td><td>Recorded in DATEX II as SpeedManagement with speedManagementType speedRestrictionInOperation, a temporarySpeedLimit and complianceOption mandatory (NDW profile). References the speed restrictions model without duplicating it.</td><td>https://docs.datex2.eu/, https://docs.ndw.nu/dataformaten/datex2-v3/wwz/</td>
+      </tr>
+    
+      <tr>
+        <td>Temporary traffic signals</td><td>A temporarily installed traffic signal control installation, for example to regulate traffic past a work zone.</td><td>In the NDW DATEX II v3 profile via GeneralNetworkManagement with generalNetworkManagementType temporaryTrafficLights.</td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/</td>
+      </tr>
+    
+      <tr>
+        <td>Temporary yellow marking</td><td>A marking applied temporarily to the road surface that takes precedence over the permanent white marking.</td><td>RVV 1990 art. 63a governs the precedence of temporary road surface signs; the colour requirement (a colour other than white, in practice yellow) follows from the BABW implementing regulations, Chapter IV, section 1. References the traffic signs model without duplication.</td><td>https://wetten.overheid.nl/BWBR0004825, https://wetten.overheid.nl/BWBR0004826</td>
+      </tr>
+    
+      <tr>
+        <td>Diversion</td><td>The temporary guidance of traffic along an alternative route because of a closure or restriction on the usual route.</td><td>Modelled in DATEX II via ReroutingManagement; in the Netherlands elaborated in the CROW work in progress guidelines.</td><td>https://docs.datex2.eu/, https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/</td>
+      </tr>
+    
+      <tr>
+        <td>Diversion route</td><td>The alternative route that traffic follows for as long as the usual route is closed or restricted.</td><td>Part of the diversion design according to the CROW work in progress guidelines.</td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/, https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/</td>
+      </tr>
+    
+      <tr>
+        <td>Temporary signposting</td><td>Temporary indications on or next to the existing signposting that indicate the diversion route.</td><td>Designed using yellow diversion signs in accordance with the CROW work in progress guidelines.</td><td>https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/</td>
+      </tr>
+    
+      <tr>
+        <td>Emergency diversion route</td><td>A predefined and numbered diversion route (Dutch: U-route) that is opened when a motorway is closed.</td><td>The Dutch U-route system is managed by Rijkswaterstaat and indicated by U-signs.</td><td>https://www.crow.nl/Onderwerpen/Arbo-en-Veiligheid/Werk-in-uitvoering/, https://www.rijkswaterstaat.nl/</td>
+      </tr>
+    
+      <tr>
+        <td>Disturbance</td><td>The event or condition that causes the activation of a set off temporary traffic measures or a strategy.</td><td>Collective concept for the situations that trigger a traffic management plan or a temporary measure (NAPCORE data dictionary).</td><td>https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Event</td><td>A planned occurrence, such as a sports fixture, market or festival, that requires temporary traffic measures.</td><td>Placed under road works and events in the NDW DATEX II v3 profile.</td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Calamity</td><td>An unexpected high-impact event, such as a natural or technological disaster, that requires temporary measures.</td><td>Falls under the scenario-driven measures activated through a traffic management plan (NAPCORE data dictionary).</td><td>https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Incident</td><td>An unexpected disruption of the traffic flow, such as an accident or a broken-down vehicle.</td><td>RTTI state-of-the-network category; triggers temporary measures and the provision of information.</td><td>https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Extreme weather</td><td>Weather conditions, such as storm, black ice or snow, that require the activation of a set of temporary traffic measures.</td><td>One of the conditions that can trigger a traffic management plan (NAPCORE data dictionary).</td><td>https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Traffic management plan</td><td>The collection of strategies, measures and actions that together constitute the plan.</td><td>The traffic management plan is a defined DATEX II data type (TrafficManagementPlan namespace, CEN/TS 16157-8) with the classes Strategy and Measure carrying activation conditions; unlike the traffic circulation plan, which has no DATEX II namespace of its own.</td><td>https://docs.datex2.eu/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Strategy</td><td>A coherent set of measures within a traffic management plan sharing a common activation condition.</td><td>Modelled in DATEX II as Strategy within the TrafficManagementPlan namespace; activation conditions may be composite (v3.6).</td><td>https://docs.datex2.eu/</td>
+      </tr>
+    
+      <tr>
+        <td>Measure</td><td>An individual traffic control measure within a traffic management plan, with its own activation condition.</td><td>Modelled in DATEX II as Measure within the TrafficManagementPlan namespace.</td><td>https://docs.datex2.eu/</td>
+      </tr>
+    
+      <tr>
+        <td>Validity period</td><td>The start and end time within which a temporary traffic measure is in force.</td><td>The characteristic that distinguishes temporary measures from permanent ones; recorded in DATEX II and the NDW profile as the validity period.</td><td>https://docs.datex2.eu/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Activation</td><td>The entry into force of a temporary traffic measure upon occurrence of the trigger.</td><td>In the NDW chain linked to the active reporting of a measure.</td><td>https://docs.datex2.eu/, https://docs.ndw.nu/dataformaten/datex2-v3/wwz/</td>
+      </tr>
+    
+      <tr>
+        <td>Deactivation</td><td>The termination of a temporary traffic measure once the scenario that triggered the measure has been resolved.</td><td>Core distinction between the traffic management plan and the traffic circulation plan according to the NAPCORE data dictionary; in the NDW chain the transition from active to idle status, whereby the associated measures are deactivated.</td><td>https://docs.ndw.nu/dataformaten/datex2-v3/wwz/, https://napcore.eu/wp-content/uploads/2025/05/DD_2022_670.pdf</td>
+      </tr>
+    
+      <tr>
+        <td>Temprorary Functional Road Class</td><td>A temporarily assigned functional road class that overrides the normal classification of a road section for as long as a temporary traffic management measure is in force.</td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>Zone</td><td>A contiguous geographic area within which a temporary traffic management measure or traffic management plan applies. Unlike a road section, which denotes a linear stretch of road, a zone delimits an areal region to which the relevant measures, rules or conditions apply.</td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>Business rule</td><td>Een expliciet vastgelegde regel die bepaalt onder welke condities een tijdelijke verkeersbeheersmaatregel wordt geactiveerd, gewijzigd of gedeactiveerd.</td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>Roadsegment</td><td>T.b.d.</td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>Service request</td><td>t.b.d.</td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>Planned</td><td>A disruption that is known and scheduled in advance.</td><td></td><td></td>
+      </tr>
+    
+      <tr>
+        <td>Unplanned</td><td>A disruption that is not scheduled in advance and occurs unexpectedly.</td><td></td><td></td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Relations per concept</h2>
+  
+    
+      <p class="prose">Outgoing relations only. Semantic relations stay inside the model; mapping relations link to concepts elsewhere.</p>
+    
+  
+    
+      
+<section>
+  <h3>Temporary traffic management measure</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Temporary measure type</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Traffic management plan</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000601</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Temprorary Functional Road Class</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920015950</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Zone</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920171026</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Validity period</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000701</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Service request</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920547796</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Roadsegment</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920438369</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Business rule</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1787920279579</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Temporary measure competence</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Temporary traffic decision</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000101</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Temporary traffic sign</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Temporary yellow marking</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000308</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Temporary traffic decision</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000101</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Temporary measure type</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Temporary traffic management measure</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000001</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Road narrowing</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000305</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Diversion</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000401</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Lane closure</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000304</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Road closure setup</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000302</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Temporary traffic signals</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000307</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Temporary speed limit</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000306</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Temporary yellow marking</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000308</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Road closure setup</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Temporary measure type</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Full closure</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000303</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Full closure</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Road closure setup</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000302</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Lane closure</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Temporary measure type</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Road narrowing</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Temporary measure type</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Temporary speed limit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Temporary measure type</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Temporary traffic signals</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Temporary measure type</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Temporary yellow marking</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Temporary measure type</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+      <tr>
+        <td>broader</td><td>Temporary traffic sign</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000103</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Diversion</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Temporary measure type</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000301</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Temporary signposting</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000403</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Diversion route</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000402</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Diversion route</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Emergency diversion route</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000404</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Diversion</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000401</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Emergency diversion route</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Diversion route</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000402</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Disturbance</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Unplanned</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Planned</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511855955</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Measure</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Calamity</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Unplanned</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Incident</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Unplanned</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Extreme weather</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Unplanned</td><td>https://nationaal-toegangspunt-mobiliteit.ontologica.nl/schemes/rtti-tijdelijke-verkeersmaatregelen/concept-1788511877986</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Traffic management plan</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Temporary traffic management measure</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000001</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Strategy</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000602</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Measure</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Strategy</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Measure</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000603</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Measure</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Traffic management plan</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000601</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Strategy</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000602</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Disturbance</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000501</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Validity period</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Deactivation</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000703</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Activation</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000702</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Activation</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Validity period</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000701</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Deactivation</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000703</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Deactivation</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Validity period</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000701</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Temprorary Functional Road Class</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Temporary traffic management measure</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000001</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Planned</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Disturbance</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000501</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Event</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000502</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Road works</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000201</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Unplanned</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Disturbance</td><td>https://gegevenscatalogus.gov/rtti-tijdelijke-verkeersmaatregelen/concept-1773250000501</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Introduction to RML mappings</h2>
+  
+    
+      <p class="prose"><p>An <strong>information description</strong> (technically: an RML mapping) describes how concrete data — records in a file, rows in a table, fields in an XML message — corresponds to the concepts in the concept scheme above. Without such a description data stands on its own; with it, every piece of data is connected to an unambiguous concept.</p>
+<p>The principle is simple: for each data source we define one or more <strong>TriplesMaps</strong>. Each TriplesMap is a recipe that says <em>"each record in this data source represents an instance of that concept, and these fields are its properties"</em>. For each field we then specify which concept describes the property (for example <code>hasStatus</code>, <code>liesOnRoadSegment</code>) and how the field should be read from the source.</p>
+<p>The essence for the reader of this document:</p>
+<ul>
+<li>the <strong>TriplesMap table</strong> below shows which data sources are linked to this model,</li>
+<li>the <strong>subject template</strong> shows how a unique URI is constructed for each record,</li>
+<li>the <strong>number of predicates</strong> gives a rough indication of how rich the mapping per source is.</li>
+</ul>
+<p>The actual mapping rules (field → concept) are managed inside the Ontologica application itself and can be inspected and edited through the mapping wizard.</p></p>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Information description</h2>
+  
+    
+      
+<table class="data-table">
+  <caption>TriplesMaps</caption>
+  <thead>
+    <tr>
+      <th>Name</th><th>Datasource</th><th>Subject template</th><th>rdf:type</th><th># predicates</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>carriageway</td><td>tijdelijke verkeersmaatregelen afsluitingen xml</td><td>https://example.org/carriageway/{carriageway}</td><td>—</td><td>2</td>
+      </tr>
+    
+      <tr>
+        <td>carriageway</td><td>tijdelijke verkeersmaatregelen maximum snelheden xml</td><td>https://example.org/carriageway/{carriageway}</td><td>—</td><td>1</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+</body>
+</html>
