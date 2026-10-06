@@ -1,0 +1,185 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000001> a skos:Concept ;
+    skos:definition "Data type within the RTTI context describing the set of concepts required to unambiguously record and exchange one-way traffic regulations on the Dutch road network. Encompasses the direction of travel, the indication, any exceptions and the legal basis."@en,
+        "Gegevenstype binnen de RTTI-context dat de verzameling van concepten beschrijft die nodig zijn om eenrichtingsverkeer op het Nederlandse wegennet eenduidig vast te leggen en uit te wisselen. Omvat de rijrichting, de aanduiding, eventuele uitzonderingen en de juridische grondslag."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "One-Way Traffic Data Type"@en,
+        "Gegevenstype Eenrichtingsverkeer"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000002> ;
+    skos:scopeNote "Dit gegevenstype is gedefinieerd als onderdeel van de Nederlandse implementatie van de ITS-richtlijn (Richtlijn 2010/40/EU) en de daaronder vallende Gedelegeerde Verordening RTTI (EU) 2022/670. De verordening noemt 'one-way streets' als subcategorie van statische en dynamische verkeersregulering (Artikel 5, Bijlage punt 2)."@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000003> a skos:Concept ;
+    skos:definition "A section of road between two consecutive junctions or intersections, or – if no side road is present – between two points to which a traffic measure applies. In the National Road Database (NWB) a road section is the smallest unit for which road attributes are registered."@en,
+        """Gedeelte van een weg tussen twee opeenvolgende knooppunten of kruispunten, of – indien geen zijweg aanwezig is – tussen twee punten waarop een verkeersmaatregel betrekking heeft.
+
+In het Nationaal Wegenbestand (NWB) is een wegvak de kleinste eenheid waarvoor wegkenmerken worden geregistreerd. Eenrichtingswegen worden in het NWB gedigitaliseerd in de rijrichting; het attribuut 'rijrichting' op het wegvak codeert het eenrichtingsregime."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "Road Section"@en,
+        "Wegvak"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000004> ;
+    skos:scopeNote "Het NWB Wegvak-ID (WVK_ID) fungeert als centrale koppelsleutel. Sinds 2022 kan het attribuut 'rijrichting' door wegbeheerders worden gemuteerd via de applicatie George."@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000015> a skos:Concept ;
+    skos:definition "A formal traffic order constituting the legal basis for imposing a one-way traffic regulation."@en,
+        """Besluit van een bevoegd gezag (gemeente, provincie of Rijk) dat de juridische grondslag vormt voor het instellen van een eenrichtingsregime.
+
+Op grond van artikel 15 lid 1 WVW 1994 geschiedt de plaatsing of verwijdering van verkeersborden krachtens een verkeersbesluit. Het verkeersbesluit wordt bekendgemaakt via de Landelijke Voorziening Bekendmakingen en Besluiten (LVBB). Voor eenrichtingswegen beschrijft het verkeersbesluit de locatie, de rijrichting en eventuele uitzonderingen."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "Traffic Order"@en,
+        "Verkeersbesluit"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000002> ;
+    skos:scopeNote "Verkeersbesluiten voor eenrichtingswegen zijn op dit moment grotendeels ongestructureerde tekst. Via KOOP/LVBB worden deze gepubliceerd, maar gestructureerde koppeling aan specifieke borden en locaties is nog niet standaard beschikbaar."@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000004> a skos:Concept ;
+    skos:definition "The direction in which traffic moves on a carriageway or lane. For one-way streets, this attribute unambiguously encodes the permitted direction of travel."@en,
+        """De richting waarin het verkeer zich op een rijbaan of rijstrook voortbeweegt.
+
+Voor eenrichtingswegen is het rijrichtingattribuut in het NWB de primaire codering van het verkeersregime. Het NWB onderscheidt eenrichtingswegen (gedigitaliseerd in de rijrichting) van tweerichtingswegen. Dit attribuut is via de applicatie George muteerbaar door wegbeheerders en vormt de kerngegevens voor ITS-diensten die eenrichtingsverkeer moeten interpreteren."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "Direction of Travel"@en,
+        "Rijrichting"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000002> ;
+    skos:scopeNote "Het rijrichtingattribuut is essentieel voor routeerbaarheid van het NWB. Een onjuiste rijrichting in het NWB leidt tot foutieve routeberekeningen en navigatie-instructies. Het attribuut wordt tevens gebruikt door de NDW WKD-bestanden om beperkingen per richting vast te leggen."@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000007> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000006> ;
+    skos:definition "A physical ('tin') traffic sign permanently placed to indicate the one-way traffic regulation."@en,
+        """Fysiek ('blikken') verkeersbord dat permanent is geplaatst ter aanduiding van het eenrichtingsregime.
+
+Bij eenrichtingswegen worden de borden C2 en C3 aan weerszijden van het weggedeelte geplaatst: C2 aan de gesloten zijde, C3 aan de open zijde."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "Static Sign"@en,
+        "Statisch bord"@nl ;
+    skos:scopeNote "Het NDW-verkeersbordenbestand (George Verkeersborden) bevat de locatie, het type (rode code) en de afbeelding van alle geregistreerde verkeersborden, gekoppeld aan NWB-wegvakken."@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000008> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000006> ;
+    skos:definition "The traffic sign indicating the point at which the one-way regulation takes effect."@en,
+        "Het verkeersteken dat het beginpunt aangeeft van het eenrichtingsregime. Vanuit de open richting is dit doorgaans bord C3; vanuit de gesloten richting bord C2."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "Start Indication"@en,
+        "Aanduiding begin"@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000009> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000006> ;
+    skos:definition "The traffic sign or point at which the one-way regulation ceases to apply."@en,
+        "Het verkeersteken of punt waarop het eenrichtingsregime ophoudt te gelden. Dit is doorgaans een kruispunt of een expliciet einde-bord."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "End Indication"@en,
+        "Aanduiding einde"@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000011> a skos:Concept ;
+    skos:definition "An advance warning sign placed upstream of the one-way street, at a junction where road users have the opportunity to choose an alternative route."@en,
+        """Informatiebord dat op afstand van de eenrichtingsweg wordt geplaatst, bij het kruispunt waar het verkeer de mogelijkheid heeft om een alternatieve route te kiezen.
+
+Voor eenrichtingswegen wordt bord L10 (vooraanduiding verkeersmaatregel voor de aangegeven richting) gebruikt om het verkeer tijdig te informeren over het naderende eenrichtingsregime."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "Advance Warning Sign"@en,
+        "Vooraanduiding"@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000012> a skos:Concept ;
+    skos:definition "A condition that modifies the standard one-way regulation, allowing certain road user categories to travel in the otherwise closed direction. Exceptions are communicated via supplementary signs."@en,
+        """Een conditie waardoor het standaard eenrichtingsregime wordt gemodificeerd, waardoor bepaalde categorieën weggebruikers wél in de afgesloten richting mogen rijden. Uitzonderingen worden kenbaar gemaakt via onderborden bij bord C2.
+
+Uitzonderingen op het eenrichtingsregime zijn in Nederland zeer gebruikelijk. De meest voorkomende zijn:
+- 'Uitgezonderd (brom)fietsers': fietsers en bromfietsers mogen in de tegengestelde richting rijden. Dit wordt vaak gecombineerd met bord C4 aan de open zijde.
+- 'Uitgezonderd lijnbussen': lijnbussen mogen de eenrichtingsweg in tegengestelde richting gebruiken.
+- 'Uitgezonderd bestemmingsverkeer': alleen verkeer met een bestemming aan de betreffende weg mag tegen de richting in.
+- Tijdvenster-uitzonderingen: het eenrichtingsregime geldt alleen op bepaalde tijden."""@nl ;
+    skos:example "Een veelvoorkomende situatie is een binnenstedelijke eenrichtingsweg met bord C2 en onderbord 'uitgezonderd fietsers', gecombineerd met bord C4 aan de andere zijde en een tegengesteld fietspad of fietsstrook."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "Exception"@en,
+        "Uitzondering"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000005> ;
+    skos:scopeNote "Uitzonderingen op het eenrichtingsregime zijn voor ITS-toepassingen van groot belang: een routeplanner voor fietsers moet weten dat de weg in beide richtingen berijdbaar is, terwijl een routeplanner voor vrachtverkeer de eenrichting moet respecteren. De uitzondering bepaalt dus per voertuigcategorie of de weg in beide richtingen beschikbaar is."@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000013> a skos:Concept ;
+    skos:definition "The time period during which the one-way regulation applies."@en,
+        """De tijdsperiode waarbinnen het eenrichtingsregime van kracht is.
+
+Statische eenrichtingswegen zijn permanent van kracht. Dynamische eenrichtingswegen zijn gebonden aan tijdvensters of omstandigheden, bijvoorbeeld: alleen eenrichting tijdens ochtendspits, of eenrichting tijdens evenementen. De geldigheid wordt aangegeven via onderborden met tijdsaanduiding."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "Validity"@en,
+        "Geldigheid"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000010> .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000014> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000002> ;
+    skos:definition "A road segment where the one-way regulation is temporary or changeable, imposed in response to time of day, events, or prevailing conditions."@en,
+        """Een weggedeelte waarop het eenrichtingsregime tijdelijk of veranderlijk is, ingesteld op basis van tijdstip, evenementen of actuele omstandigheden.
+
+Dynamische eenrichtingswegen komen in Nederland voor in binnensteden (straten die tijdens spitsuren van richting wisselen), bij evenementen (tijdelijke eenrichting voor bezoekersstromen), en incidenteel bij wegwerkzaamheden. De NAPCORE data dictionary onderscheidt binnen 'static and dynamic traffic regulations' expliciet het dynamische karakter van verkeersregelgeving die kan wijzigen op basis van omstandigheden."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "Dynamic One-Way Street"@en,
+        "Dynamische eenrichtingsweg"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000013> ;
+    skos:scopeNote "Dynamische eenrichtingswegen vormen een bijzondere uitdaging voor ITS-diensten: de rijrichting in het NWB is een statisch attribuut dat het tijdafhankelijke karakter niet direct kan representeren. Aanvullende informatie (bijv. via DATEX II of verkeersmanagementberichten) is nodig om het actuele regime te communiceren."@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000005> a skos:Concept ;
+    skos:definition "A closure declaration prohibiting traffic from entering a road segment in a specific direction. Indicated by sign C2 (RVV 1990): one-way street, closed in this direction for vehicles, riders and handlers of draught or pack animals or livestock."@en,
+        """Geslotenverklaring die het verkeer verbiedt een weggedeelte in een bepaalde richting in te rijden. Aangeduid met verkeersbord C2 (RVV 1990, Bijlage 1, Hoofdstuk C): eenrichtingsweg, in deze richting gesloten voor voertuigen, ruiters en geleiders van rij- of trekdieren of vee.
+
+Bord C2 wordt geplaatst aan de gesloten zijde van de eenrichtingsweg. Aan de open zijde kan bord C3 (eenrichtingsweg, van deze zijde opengesteld) worden geplaatst, eventueel in combinatie met bord C4 (eenrichtingsweg, ook opengesteld voor verkeer uit tegengestelde richting op het fietspad)."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "Closure Declaration"@en,
+        "Geslotenverklaring"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000006> ;
+    skos:scopeNote "Bord C2 is de primaire aanduiding van een eenrichtingsweg. De geslotenverklaring geldt voor alle voertuigen, ruiters en geleiders, tenzij via een onderbord een uitzondering is aangeduid. In de praktijk is 'uitgezonderd (brom)fietsers' de meest voorkomende uitzondering."@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000010> a skos:Concept ;
+    skos:definition "A sign mounted below a traffic sign to provide additional specification of the scope of that traffic sign."@en,
+        """Bord dat onder een verkeersbord wordt aangebracht ter nadere aanduiding van de werking van dat verkeersbord.
+
+Bij eenrichtingswegen is het onderbord van groot praktisch belang. De meest voorkomende toepassing is het aanduiden van uitzonderingen op de geslotenverklaring, zoals 'uitgezonderd (brom)fietsers', 'uitgezonderd lijnbussen' of 'uitgezonderd bestemmingsverkeer'. Onderborden kunnen ook een tijdvenster aangeven waarbinnen het eenrichtingsregime geldt."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:prefLabel "Supplementary Sign"@en,
+        "Onderbord"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000012> .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000002> a skos:Concept ;
+    skos:definition "A road segment where traffic is allowed to move in only one direction."@en,
+        """Een weggedeelte waarop het verkeer slechts in één richting mag rijden.
+
+In de Nederlandse praktijk wordt een eenrichtingsweg kenbaar gemaakt door bord C2 (eenrichtingsweg, in deze richting gesloten) aan de gesloten zijde en bord C3 (eenrichtingsweg, van deze richting opengesteld) of een equivalent aan de open zijde. Het eenrichtingsregime wordt ingesteld via een verkeersbesluit en vastgelegd als rijrichtingattribuut op het NWB-wegvak."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:narrower <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000014> ;
+    skos:prefLabel "One-Way Street"@en,
+        "Eenrichtingsweg"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000005>,
+        <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000006> ;
+    skos:scopeNote "De NAPCORE data dictionary (2025) definieert 'one-way streets' als: road segments where traffic is allowed to move in only one direction. Dit is een nieuwe datacategorie die expliciet in DR (EU) 2022/670 is opgenomen ten opzichte van de eerdere DR (EU) 2015/962."@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000006> a skos:Concept ;
+    skos:definition "The traffic sign or combination of signs by which a one-way traffic regulation is communicated to road users."@en,
+        "Het verkeersbord of de combinatie van borden waarmee een eenrichtingsregime aan de weggebruiker kenbaar wordt gemaakt."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-eenrichtingswegen> ;
+    skos:narrower <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000007>,
+        <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000008>,
+        <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000009> ;
+    skos:prefLabel "Indication"@en,
+        "Aanduiding"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000010>,
+        <https://gegevenscatalogus.gov/rtti-eenrichtingsverkeer/concept-2603010000011> ;
+    skos:scopeNote "Binnen de context van eenrichtingsverkeer betreft dit met name: bord C2 (gesloten zijde), bord C3 (open zijde), en bord C4 (eenrichtingsweg, ook opengesteld voor tegengesteld fietsverkeer), eventueel aangevuld met onderborden voor uitzonderingen en vooraanduidingen."@nl .
+
+<https://gegevenscatalogus.gov/rtti-eenrichtingswegen> a skos:ConceptScheme ;
+    dct:created "2026-02-27T08:56:32.623775+00:00"^^xsd:dateTime ;
+    dct:description """This vocabulary describes the information needed to record where traffic may travel in only one direction. The core is the permitted direction of travel for a street: on a one-way street you may only go one way. Exceptions are common — a very frequent one is 'except cyclists', allowing cyclists to travel both ways, or exceptions for line buses or local destination traffic. Sometimes the one-way rule applies only at certain times (for example during rush hour or events); this is called a dynamic one-way street.
+
+For each one-way situation, the vocabulary also records: where it applies (which stretch of road) and in which direction, how road users see it (through roadside traffic signs, supplementary signs showing exceptions or times, and advance warning signs), when it applies (always or only at certain times), who any exceptions apply to, and the official decision the rule is based on.
+
+By describing all of this in a consistent way, different parties — such as road authorities, navigation systems and travel information services — can reliably exchange and use the information. This matters especially for route planning: a cycling route needs to know a street is often usable both ways, while a car or freight route must respect the one-way rule. The vocabulary is part of the European arrangements for travel and traffic information (the ITS Directive 2010/40/EU and the RTTI Regulation (EU) 2022/670) and connects to existing Dutch sources for roads and traffic signs (NDW and the National Road Database)."""@en,
+        """Dit begrippenkader beschrijft welke informatie je nodig hebt om vast te leggen waar verkeer maar in één richting mag rijden. De kern is de toegestane rijrichting van een straat: op een eenrichtingsweg mag je er maar één kant op. Vaak gelden er uitzonderingen — heel gebruikelijk is 'uitgezonderd fietsers', waarbij fietsers wél beide kanten op mogen, of uitzonderingen voor bijvoorbeeld lijnbussen of bestemmingsverkeer. Soms geldt de eenrichting alleen op bepaalde momenten (bijvoorbeeld tijdens de spits of bij evenementen); dat heet een dynamische eenrichtingsweg.
+
+Het kader legt bij elke eenrichtingssituatie ook vast: waar die geldt (op welk stuk weg) en in welke richting, hoe de weggebruiker dit ziet (via verkeersborden langs de weg, onderborden met uitzonderingen of tijden, en waarschuwingsborden vooraf), wanneer de regel geldt (altijd of alleen op bepaalde tijden), voor wie uitzonderingen gelden, en op welk officieel besluit de regel is gebaseerd.
+
+Door al deze gegevens op dezelfde manier te beschrijven, kunnen verschillende partijen — zoals wegbeheerders, navigatiesystemen en reisinformatiediensten — de informatie betrouwbaar uitwisselen en gebruiken. Dit is bijzonder belangrijk voor routeplanning: een fietsroute moet weten dat een straat vaak in beide richtingen berijdbaar is, terwijl een auto- of vrachtroute de eenrichting moet respecteren. Het kader is opgesteld binnen de Europese afspraken over reis- en verkeersinformatie (de ITS-richtlijn 2010/40/EU en de RTTI-verordening (EU) 2022/670) en sluit aan op bestaande Nederlandse bronnen voor wegen en verkeersborden (NDW en het Nationaal Wegenbestand)."""@nl ;
+    dct:modified "2026-10-06T07:30:18.707476+00:00"^^xsd:dateTime ;
+    dct:title "RTTI - One way streets"@en,
+        "RTTI - Eenrichtingswegen"@nl ;
+    owl:versionInfo "0.5.0" .
+
