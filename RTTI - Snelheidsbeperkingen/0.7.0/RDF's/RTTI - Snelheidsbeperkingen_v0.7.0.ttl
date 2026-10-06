@@ -1,0 +1,372 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/collections/dynamische-snelheidsbeperking> a skos:OrderedCollection ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:memberList ( <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771238916868> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236172013> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236355335> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771332984137> ) ;
+    skos:prefLabel "Dynamische snelheidsbeperking"@en,
+        "Dynamische snelheidsbeperking"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/collections/geometrisch> a skos:OrderedCollection ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:memberList ( <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236944308> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235164125> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235313383> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772187859423> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235331951> ) ;
+    skos:prefLabel "Geometrisch"@en,
+        "Geometrisch"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/collections/snelheidsbeperking-borden> a skos:OrderedCollection ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:memberList ( <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771238916868> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236172013> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236355335> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772185159176> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236462476> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236446358> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186160984> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236028582> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236142216> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236090614> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237259923> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235022627> ) ;
+    skos:prefLabel "Snelheidsbeperking borden"@en,
+        "Snelheidsbeperking borden"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/collections/snelheidsbeperking-o-b-v-voertuigtype> a skos:OrderedCollection ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:memberList ( <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771238916868> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235874098> ) ;
+    skos:prefLabel "Snelheidsbeperking o.b.v. voertuigtype"@en,
+        "Snelheidsbeperking o.b.v. voertuigtype"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/collections/zonale-snelheidsbeperking> a skos:OrderedCollection ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:memberList ( <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186704395> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236944308> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235164125> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236142216> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236090614> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237259923> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235022627> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134> <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771238916868> ) ;
+    skos:prefLabel "Zonale snelheidsbeperking"@en,
+        "Zonale snelheidsbeperking"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186485225> a skos:Concept ;
+    skos:definition "to be decided"@en,
+        "nader te bepalen"@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:narrower <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235313383>,
+        <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235331951>,
+        <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772187859423> ;
+    skos:prefLabel "Road"@en,
+        "Weg"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235620358> .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772187355998> a skos:Concept ;
+    dct:source "https://wetten.overheid.nl/jci1.3:c:BWBR0006622&artikel=12",
+        "https://wetten.overheid.nl/jci1.3:c:BWBR0006622&artikel=15",
+        "https://wetten.overheid.nl/jci1.3:c:BWBR0006622&artikel=18",
+        "https://wetten.overheid.nl/jci1.3:c:BWBR0006622&artikel=1:3",
+        "https://wetten.overheid.nl/jci1.3:c:BWBR0006622&artikel=21",
+        "https://wetten.overheid.nl/jci1.3:c:BWBR0006622&artikel=26" ;
+    skos:definition "Written decision by the competent authority deciding on the placement, modification, or removal of traffic signs and supplementary signs designated by Order in Council insofar as this creates or modifies a command or prohibition, or on measures on or along the road that lead to a restriction or expansion of the number of categories of road users."@en,
+        "Schriftelijk besluit als van het bevoegde gezag waarbij wordt besloten tot plaatsing, wijziging of verwijdering van bij algemene maatregel van bestuur aangewezen verkeerstekens en onderborden voor zover daardoor een gebod of verbod ontstaat of wordt gewijzigd, dan wel tot maatregelen op of aan de weg die leiden tot een beperking of uitbreiding van het aantal categorieën weggebruikers."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Traffic decision"@en,
+        "Verkeersbesluit"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134> ;
+    skos:scopeNote "Publication takes place pursuant to Article 26 of the BABW via the KOOP Traffic Decisions application in the Government Gazette (National Government) or the local publication journal (municipality, province, water board) since the entry into force of the Electronic Publications Act on 1 July 2021. Requirements for justification follow from Article 21 of the BABW; consultation with the Chief of Police follows from Article 24 of the BABW."@en,
+        "Bekendmaking geschiedt op grond van artikel 26 BABW via de KOOP-Verkeersbesluitenapplicatie in de Staatscourant (Rijk) dan wel het eigen publicatieblad (gemeente, provincie, waterschap) sinds inwerkingtreding van de Wet elektronische publicaties op 1 juli 2021. Motiveringseisen volgen uit artikel 21 BABW; overleg met de korpschef volgt uit artikel 24 BABW."@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235085917> a skos:Concept ;
+    skos:definition """A section of road between two consecutive junctions or intersections, or – if no side road is present – between two points to which a traffic measure applies.
+
+In the National Road Database (NWB) a road section is the smallest unit for which road attributes are registered."""@en,
+        """Gedeelte van een weg tussen twee opeenvolgende knooppunten of kruispunten, of – indien geen zijweg aanwezig is – tussen twee punten waarop een verkeersmaatregel betrekking heeft. 
+
+In het Nationaal Wegenbestand (NWB) is een wegvak de kleinste eenheid waarvoor wegkenmerken worden geregistreerd."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Road section"@en,
+        "Wegvak"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235620358> a skos:Concept ;
+    skos:definition "Any part of the road intended for moving traffic, with the exception of cycle paths and cycle/moped paths."@en,
+        "Elk voor rijdend verkeer bestemd weggedeelte, met uitzondering van de fietspaden en de fiets/bromfietspaden."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Carriageway"@en,
+        "Rijbaan"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235638908>,
+        <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186214125> ;
+    skos:scopeNote "In het kader van snelheidsbeperkingen kan een aanduiding specifiek betrekking hebben op één rijbaan van een weg."@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235638908> a skos:Concept ;
+    skos:definition """Part of the carriageway, marked by continuous or broken lines, of such a width that drivers of motor vehicles on more than two wheels can make use of it.
+
+When a traffic sign is applied to specific lanes, a speed limit can be restricted to one or more lanes, for example at rush-hour lanes or matrix signs."""@en,
+        """Door doorgetrokken of onderbroken strepen gemarkeerd gedeelte van de rijbaan van zodanige breedte dat bestuurders van motorvoertuigen op meer dan twee wielen daarvan gebruik kunnen maken. 
+
+Bij toepassing van een verkeersbord op specifieke rijstroken kan een snelheidsbeperking beperkt worden tot één of meer rijstroken.
+Bijvoorbeeld bij spitsstroken of matrixborden."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Lane"@en,
+        "Rijstrook"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235085917>,
+        <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186214125> .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235874098> a skos:Concept ;
+    skos:definition """Classification of a vehicle based on the statutory categorisation in the RVV 1990 and the Vehicle Regulations.
+
+Relevant for speed limits because the law establishes special maximum speeds per vehicle category."""@en,
+        """Classificatie van een voertuig op basis van de wettelijke indeling in het RVV 1990 en het Voertuigreglement. 
+
+Relevant voor snelheidsbeperkingen omdat de wet bijzondere maximumsnelheden per voertuigcategorie vaststelt."""@nl ;
+    skos:example "T-100 bus mag maximaal 100 km/h"@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Vehicle category"@en,
+        "Voertuigcategorie"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134> .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235022627> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860> ;
+    skos:definition "A demarcated area within which a specific speed limit is in force. Zones can be nested: a zone can lie within an enclosing zone, so that multiple speed limits apply simultaneously in a cascading structure. On leaving an inner zone, the speed limit applying there lapses and the applicable speed falls back to that of the enclosing zone."@en,
+        "Een afgebakend gebied waarbinnen een specifieke snelheidsbeperking van kracht is. Zones kunnen genest zijn: een zone kan zich binnen een omsluitende zone bevinden, waardoor meerdere snelheidsbeperkingen gelijktijdig van toepassing zijn in een cascaderende structuur. Bij het verlaten van een binnenste zone vervalt de daar geldende snelheidsbeperking en valt de geldende snelheid terug op die van de omsluitende zone."@nl ;
+    skos:example "A road user enters a built-up area (50 km/h). Subsequently, they enter a residential area (15 km/h). The active speed restriction is now 15 km/h. Upon leaving the residential area, 50 km/h applies again, because the built-up area as enclosing zone is still in effect."@en,
+        "Een weggebruiker rijdt een bebouwde kom in (50 km/h). Vervolgens rijdt deze een woonerf in (15 km/h). De actieve snelheidsbeperking is nu 15 km/h. Bij het verlaten van het woonerf geldt weer 50 km/h, omdat de bebouwde kom als omsluitende zone nog steeds van kracht is."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:narrower <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237259923> ;
+    skos:prefLabel "Outer regime"@en,
+        "Omsluitend regime"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235164125> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186704395> ;
+    skos:definition "A part of the public road designated as a residential area (erf), bounded by sign G5 (start of residential area) and sign G6 (end of residential area). Within a residential area a maximum speed of 15 km/h applies."@en,
+        "Een als erf aangeduid deel van de openbare weg, begrensd door bord G5 (begin erf) en bord G6 (einde erf). Op een erf geldt een maximumsnelheid van 15 km/h."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Residential Area"@en,
+        "Woonerf"@nl ;
+    skos:scopeNote "HR 1 november 2011, ECLI:NL:HR:2011:BR5927; voorheen 'stapvoets'"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235313383> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186695677> ;
+    skos:definition """Road indicated by sign G3. Outside built-up areas a statutory maximum speed of 100 km/h applies to motor vehicles on expressways unless otherwise indicated.
+
+Only motor vehicles that are able and permitted to drive at least 50 km/h may use expressways."""@en,
+        """Weg, aangeduid door bord G3. Buiten de bebouwde kom geldt op autowegen een wettelijke maximumsnelheid van 100 km/h voor motorvoertuigen tenzij anders aangegeven.
+
+Op autowegen mogen uitsluitend motorvoertuigen rijden die minimaal 50 km/h kunnen en mogen rijden."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Expressway"@en,
+        "Autoweg"@nl ;
+    skos:scopeNote "Langs autowegen gelegen parkeerplaatsen, tankstations en bushalteplaatsen maken geen deel van de autoweg uit."@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235331951> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186695677> ;
+    skos:definition """Road indicated by sign G1. Outside built-up areas a statutory maximum speed of 130 km/h applies to motor vehicles on motorways unless otherwise indicated.
+
+Only motor vehicles that are able and permitted to drive at least 60 km/h may use motorways."""@en,
+        """Weg, aangeduid door bord G1. Buiten de bebouwde kom geldt op autosnelwegen een wettelijke maximumsnelheid van 130 km/h voor motorvoertuigen tenzij anders aangegeven.
+
+Op autosnelwegen mogen uitsluitend motorvoertuigen rijden die minimaal 60 km/h kunnen en mogen rijden."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Motorway"@en,
+        "Autosnelweg"@nl ;
+    skos:scopeNote "Langs autosnelwegen gelegen parkeerplaatsen, tankstations en bushalteplaatsen maken geen deel van de autosnelweg uit."@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236028582> a skos:Concept ;
+    skos:definition """Meteorological conditions (such as rain, fog, snow, black ice or storm) that give rise to an adjusted speed limit.
+In the Netherlands weather-dependent speed limits are mainly set dynamically via matrix signalling on motorways (RWS – Praktijkrichtlijn Dynamisch Verkeersmanagement) or indicated statically via supplementary signs (e.g. 'when the road surface is wet')."""@en,
+        """Meteorologische condities (zoals regen, mist, sneeuw, ijzel of storm) die aanleiding geven tot een aangepaste snelheidsbeperking. 
+In Nederland worden weersafhankelijke snelheidsbeperkingen met name dynamisch ingesteld via matrixsignalering op autosnelwegen (RWS – Praktijkrichtlijn Dynamisch Verkeersmanagement) of statisch aangegeven via onderborden (bijv. 'bij nat wegdek')."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Weather Conditions"@en,
+        "Weersomstandigheden"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236446358> a skos:Concept ;
+    skos:definition "A condition that modifies the standard speed limit on a road section. In Dutch practice such conditions are communicated via supplementary signs and may relate to vehicle type, time window, weather conditions or other circumstances."@en,
+        "Een conditie waardoor de standaard snelheidsbeperking op een wegvak wordt gemodificeerd. Uitzonderingen worden in de Nederlandse praktijk kenbaar gemaakt via onderborden en kunnen betrekking hebben op voertuigtype, tijdvenster, weersomstandigheden of andere voorwaarden."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Condition"@en,
+        "Conditie"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236028582>,
+        <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186160984> .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236462476> a skos:Concept ;
+    skos:definition "A sign mounted below a traffic sign to provide further specification of the effect of that traffic sign. Legislation determines which types of supplementary signs are permitted, including: an indication of the type of road user to which the sign applies, a time indication, or a distance indication."@en,
+        "Bord dat onder een verkeersbord wordt aangebracht ter nadere aanduiding van de werking van dat verkeersbord. Vanuit wetgeving is bepaald welke typen onderborden zijn toegestaan, waaronder: een aanduiding van het soort weggebruiker waarvoor het bord geldt, een tijdsaanduiding, of een afstandsaanduiding."@nl ;
+    skos:editorialNote "Bevat een onderbord altijd een conditie?"@nl ;
+    skos:example "Bij snelheidsbeperkingen kan een onderbord bijv. de geldigheid beperken tot bepaalde voertuigtypen, tijdvensters of weersomstandigheden."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Supplementary Sign"@en,
+        "Onderbord"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236446358> .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236944308> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186704395> ;
+    skos:definition """The area established as a built-up area by the municipal council.
+
+The built-up area is indicated by signs H1 (start of built-up area) and H2 (end of built-up area). A speed limit of 50 km/h applies unless otherwise indicated by traffic signs."""@en,
+        """Het gebied dat als bebouwde kom is vastgesteld door de gemeenteraad.
+
+De bebouwde kom wordt aangeduid door de borden H1 (begin bebouwde kom) en H2 (einde bebouwde kom). De snelheidsbeperking van 50 km/h is van toepassing tenzij door verkeersborden anders is aangegeven."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Built-Up Area"@en,
+        "Bebouwde kom"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772185159176> a skos:Concept ;
+    dct:source "https://wetten.overheid.nl/jci1.3:c:BWBR0004825&bijlage=1",
+        "https://wetten.overheid.nl/jci1.3:c:BWBR0009104&hoofdstuk=2" ;
+    skos:altLabel "Blikken bord"@nl,
+        "Fysiek verkeersbord"@nl,
+        "Verkeersplaat"@nl ;
+    skos:definition "The physical object — a panel (the 'plate'), normally mounted on a post or other support — bearing a traffic sign symbol, whose physical execution is legally prescribed."@en,
+        "Het fysieke object — een paneel (de 'plaat'), doorgaans bevestigd op een paal of andere drager — waarop een verkeersteken als is aangebracht, en waarvan de uitvoering wettelijk is voorgeschreven."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Traffic sign"@en,
+        "Verkeersbord"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236355335> .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186160984> a skos:Concept ;
+    dct:source "https://kennisbank.crow.nl/public/gastgebruiker/FVV/Verkeerstekens_(toepassing,_plaatsing_en_uitvoering)/Hoofdstuk_C._Geslotenverklaring/29510",
+        "https://wetten.overheid.nl/BWBR0004825/",
+        "https://wetten.overheid.nl/BWBR0004826/",
+        "https://www.rijkswaterstaat.nl/wegen/wetten-regels-en-vergunningen/verkeerswetten/maximumsnelheid" ;
+    skos:definition "The days and/or hours indicated on a supplementary sign that imply a limitation of the temporal scope of application of the indication on the overlying traffic sign; in particular, for speed limits, the period during which the maximum speed indicated on the traffic sign applies."@en,
+        "De op een onderbord vermelde dagen en/of uren die een beperking van de werkingssfeer in de tijd inhouden van de aanduiding op het bovenliggende verkeersbord; in het bijzonder, voor snelheidsbeperkingen, het tijdvak waarbinnen de op het verkeersbord aangeduide maximumsnelheid geldt."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Time window"@en,
+        "Tijdvenster"@nl ;
+    skos:scopeNote "The term 'time window' does not appear as such in the legislation; the legal basis lies in the limitation of the scope and is referred to as a 'time window' by Rijkswaterstaat and CROW. The concept has a dual realization: as a physical supplementary sign beneath a metal sign, or as a time condition within a digital/electronic sign. Not to be confused with 'window times' (loading and unloading times for urban logistics), which are incorporated into the Goods Delivery model."@en,
+        "De term 'tijdvenster' komt niet als zodanig voor in de wetgeving; de juridische grondslag ligt in de beperking van de werkingssfeer en wordt door Rijkswaterstaat en CROW als 'tijdvenster' aangeduid. Het concept kent een dubbele realisatie: als fysiek onderbord onder een blikken bord, of als tijdsconditie binnen een digitaal/elektronisch bord. Niet te verwarren met 'venstertijden' (laad- en lostijden voor stadslogistiek), dat in het model Goederenlevering is ondergebracht."@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186214125> a skos:Concept ;
+    skos:definition "The direction in which traffic moves on a carriageway or lane. Relevant for speed limits where a limit applies to only one direction of travel, e.g. at separated carriageways or at signs placed on one side of the road."@en,
+        "De richting waarin het verkeer zich op een rijbaan of rijstrook voortbeweegt. Relevant voor snelheidsbeperkingen waar een beperking slechts geldt voor één rijrichting, bijv. bij gescheiden rijbanen of bij borden die aan één zijde van de weg zijn geplaatst."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Direction of travel"@en,
+        "Rijrichting"@nl ;
+    skos:scopeNote "Er is bepaalt dat de toepassing van verkeersborden kan worden beperkt tot rijstroken, wat impliceert dat richting van belang is."@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772187859423> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186695677> ;
+    skos:definition "The area outside the built-up area established by the municipal council. Outside the built-up area the maximum speeds are 130 km/h on motorways, 100 km/h on expressways and 80 km/h on other roads, unless otherwise indicated by traffic signs."@en,
+        "Het gebied buiten de door de gemeenteraad vastgestelde bebouwde kom. Buiten de bebouwde kom gelden de maximumsnelheden  130 km/h op autosnelwegen, 100 km/h op autowegen en 80 km/h op overige wegen, tenzij door verkeersborden anders is aangegeven."@nl ;
+    skos:editorialNote "Is dit een goede toevoeging voor 'rest categorie'? RobS: RVV noemt dit \"andere wegen\" https://wetten.overheid.nl/jci1.3:c:BWBR0004825&hoofdstuk=II&paragraaf=8&artikel=21&z=2026-01-01&g=2026-01-01"@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "N-road"@en,
+        "N-weg"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236090614> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236172013> ;
+    skos:definition "The traffic sign indicating the point at which the validity of a speed limit begins."@en,
+        "Het verkeersteken dat het beginpunt aangeeft van de geldigheid van een snelheidsbeperking."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Start Indication"@en,
+        "Aanduiding begin"@nl ;
+    skos:scopeNote "Dit kan zijn: een bord A1 (maximumsnelheid) of een zonebord (bijv. A01-30-ZB voor begin 30 km/h-zone), een bord G1/G3/G5 (begin autosnelweg/autoweg/erf), of de activering van een elektronisch signaleringsbord."@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236142216> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236172013> ;
+    skos:definition "The traffic sign indicating the point at which the validity of a speed limit ends."@en,
+        "Het verkeersteken dat het eindpunt aangeeft van de geldigheid van een snelheidsbeperking."@nl ;
+    skos:example "Dit kan zijn: een bord A2 (einde maximumsnelheid), een zonebord (bijv. A01-30-ZE voor einde 30 km/h-zone), een bord G2/G4/G6 (einde autosnelweg/autoweg/erf), het deactiveren van een elektronisch signaleringsbord, of het bereiken van een kruispunt waarachter een ander regime geldt."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "End Indication"@en,
+        "Aanduiding einde"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186695677> a skos:Concept ;
+    dct:source "http://www.opengis.net/ont/sf",
+        "https://docs.geostandaarden.nl/nen3610/gimeg/",
+        "https://modellen.geostandaarden.nl/def/nen3610-2022/" ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860> ;
+    skos:definition "A one-dimensional geometric primitive representing a line: a continuous curve, measurable in length within a coordinate system, composed of one or more connected line segments in which the end point of each segment — except the last — coincides with the start point of the next. Line geometry is used to spatially represent linear features such as a road; designated GM_Curve in ISO 19107 and Curve/LineString in OGC Simple Features"@en,
+        "Een ééndimensionale geometrische primitief die een lijn representeert: een continue, in een coördinatensysteem meetbare lijn die bestaat uit één of meer onderling verbonden lijnsegmenten, waarbij het eindpunt van elk segment — op het laatste na — verbonden is met het beginpunt van het volgende. Lijngeometrie wordt gebruikt om lijnvormige objecten, zoals een weg, ruimtelijk vast te leggen; in ISO 19107 aangeduid als GM_Curve en Curve/LineString in OGC simple features."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Line geometry"@en,
+        "Lijngeometrie"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186704395> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860> ;
+    skos:definition "to be decided"@en,
+        "nader te bepalen"@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Area geometry"@en,
+        "Vlak geometrie"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236355335> a skos:Concept ;
+    skos:definition "An electronic signalling sign on which traffic signs can be displayed dynamically. A digital sign can indicate a lower speed than the static ('tin') sign; in that case the lower speed of the digital sign applies. Only when the digital sign shows an end indication or is blank does the speed limit of the static sign revive. Digital signs are used in particular on motorways via matrix signalling (RWS)."@en,
+        "Elektronisch signaleringsbord waarop verkeersborden dynamisch kunnen worden weergegeven. Een digitaal bord kan een lagere snelheid aangeven dan het statische ('blikken') bord; in dat geval geldt de lagere snelheid van het digitale bord. Pas wanneer het digitale bord een einde-aanduiding toont of blanco is, herleeft de snelheidsbeperking van het statische bord. Digitale borden worden met name ingezet op autosnelwegen via matrixsignalering (RWS)."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Actuator"@en,
+        "Actuator"@nl ;
+    skos:scopeNote """Het digitale bord heeft een hogere geldigheid indien een digitaal bord een lagere snelheid aan dan de blikken borden.
+
+Pas als als het digitale bord een einde aanduiding aangeeft, dan geld het blikken bord in. 
+
+"Zie het als een digitale zone\""""@nl,
+        "Zijnde een Matrixsignaalgeversinstallatie, Kantelwalsbord of DRIP"@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237259923> a skos:Concept ;
+    skos:broader <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860> ;
+    skos:definition "A zone nested within an enclosing zone, whose speed limit takes precedence over that of the enclosing zone for as long as the road user is within the inner zone."@en,
+        "Een zone die genest is binnen een omsluitende zone en waarvan de snelheidsbeperking voorrang heeft boven die van de omsluitende zone zolang de weggebruiker zich binnen de inliggende zone bevindt."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Inner regime"@en,
+        "Inliggend regime"@nl ;
+    skos:scopeNote "The inner zone concept describes the cascading effect of nested zones. When entering an inner zone, the speed restriction of the enclosing zone is temporarily suspended. When exiting, the speed restriction of the enclosing zone becomes active again. This mechanism works recursively: multiple levels of nesting are possible."@en,
+        "Het concept inliggende zone beschrijft het cascaderend effect van geneste zones. Bij het inrijden van een inliggende zone wordt de snelheidsbeperking van de omsluitende zone tijdelijk opgeschort. Bij het uitrijden wordt de snelheidsbeperking van de omsluitende zone weer actief. Dit mechanisme werkt recursief: meerdere niveaus van nesting zijn mogelijk."@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771238916868> a skos:Concept ;
+    skos:definition "Data type within the RTTI context describing the set of concepts required to unambiguously record and exchange a speed limit on the Dutch road network. Encompasses the value of the speed limit, the location, the validity, the indication and any exceptions."@en,
+        "Gegevenstype binnen de RTTI-context dat de verzameling van concepten beschrijft die nodig zijn om een snelheidsbeperking op het Nederlandse wegennet eenduidig vast te leggen en uit te wisselen. Omvat de waarde van de snelheidsbeperking, de locatie, de geldigheid, de aanduiding en eventuele uitzonderingen."@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Speed Limit Data Type"@en,
+        "Gegevenstype Snelheidsbeperkingen"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134> ;
+    skos:scopeNote "Dit gegevenstype is gedefinieerd als onderdeel van de Nederlandse implementatie van de ITS-richtlijn (Richtlijn 2010/40/EU) en de daaronder vallende Gedelegeerde Verordening RTTI (EU) 2022/670."@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236172013> a skos:Concept ;
+    skos:altLabel "Verkeersbord (volgens RVV-1990)"@nl ;
+    skos:definition "The tin or digital sign by which a speed limit is communicated to road users."@en,
+        "Het blikken- of digitale bord waarmee een snelheidsbeperking aan de weggebruiker kenbaar wordt gemaakt."@nl ;
+    skos:editorialNote "altLabel \"Verkeersbord\" toegevoegd"@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:narrower <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236355335>,
+        <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772185159176> ;
+    skos:prefLabel "Indication"@en,
+        "Aanduiding"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236462476>,
+        <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237259923> ;
+    skos:scopeNote "Dit omvat verkeersborden (zowel statische 'blikken borden' als dynamische elektronische signaleringsborden), matrixborden boven rijstroken en in-car systemen."@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860> a skos:Concept ;
+    skos:definition """A spatially demarcated area within which a uniform traffic regime applies, bounded by traffic signs indicating the start and end of the regime.
+
+Within the context of speed limits, a closed zone is an area whose boundaries are marked by zone signs (e.g. sign A01-30-ZB / A01-30-ZE for a 30 km/h zone, or sign G5/G6 for a residential area)."""@en,
+        """Een ruimtelijk afgebakend gebied waarbinnen een uniform verkeersregime geldt, begrensd door verkeerstekens die het begin en het einde van het regime aanduiden. 
+
+Binnen de context van snelheidsbeperkingen is een gesloten zone een gebied waarvan de grenzen worden gemarkeerd door zoneborden (bijv. bord A01-30-ZB / A01-30-ZE voor een 30 km/h-zone, of bord G5/G6 voor een erf)."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Geometry"@en,
+        "Geometrie"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236090614>,
+        <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236142216> ;
+    skos:scopeNote "Het BABW art. 9 bepaalt dat in een verkeersbesluit kan worden bepaald dat geboden of verboden gelden in een bepaald gebied (zonale toepassing)."@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134> a skos:Concept ;
+    skos:definition """The permitted speed on a road or road section, expressed in kilometres per hour (km/h). In the Netherlands the maximum speed is determined by:
+
+(1) the statutory default limits
+(2) by means of traffic signs
+(3) dynamically set limits via digital signs."""@en,
+        """De toegestane snelheid op een weg of weggedeelte, uitgedrukt in kilometers per uur (km/h). In Nederland wordt de maximumsnelheid bepaald door: 
+
+(1) de wettelijke standaardlimieten 
+(2) door middel van verkeersborden 
+(3) dynamisch ingestelde limieten via digitale borden."""@nl ;
+    skos:inScheme <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> ;
+    skos:prefLabel "Speedlimit"@en,
+        "Snelheidsbeperking"@nl ;
+    skos:related <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236172013>,
+        <https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860> ;
+    skos:scopeNote "In Nederland gaat het voornamelijk over maximum snelheden. Minimum snelheden zijn afhankelijk van het voertuigtype."@nl .
+
+<https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen> a skos:ConceptScheme ;
+    dct:created "2026-02-16T09:42:41.628000+00:00"^^xsd:dateTime ;
+    dct:description """This vocabulary describes the information needed to record how fast traffic may travel on a road. The core is the maximum speed, which may follow from the statutory default (for example 50 km/h within built-up areas, 80 km/h on other roads outside them, 100 km/h on expressways and 130 km/h on motorways), from a traffic sign, or from a digital sign that adjusts the speed on the spot.
+
+For each speed limit, the vocabulary also records: where it applies (which stretch of road, which carriageway or lane, or within which area/zone), how road users see it (through ordinary roadside signs, zone signs, supplementary signs or electronic matrix signs), when it applies (always, within a certain time window, or depending on conditions such as the weather), which vehicles it applies to (some vehicle categories have their own maximum speed), what exceptions there are, and the official decision the rule is based on. The model also accounts for zones nested within one another: entering a 30 km/h zone inside a built-up area makes 30 apply temporarily, and on leaving it the speed of the enclosing zone applies again.
+
+By describing all of this in a consistent way, different parties — such as road authorities, navigation systems and travel information services — can reliably exchange and use the information, including for in-car speed information. The vocabulary is part of the European arrangements for travel and traffic information (the ITS Directive 2010/40/EU and the RTTI Regulation (EU) 2022/670) and connects to existing Dutch rules and sources for roads and traffic signs (including the RVV 1990, NDW and the National Road Database)."""@en,
+        """Dit begrippenkader beschrijft welke informatie je nodig hebt om vast te leggen hoe hard er op een weg gereden mag worden. De kern is de maximumsnelheid: die kan voortvloeien uit de wettelijke standaard (bijvoorbeeld 50 km/h binnen de bebouwde kom, 80 km/h op overige wegen buiten de kom, 100 km/h op autowegen en 130 km/h op autosnelwegen), uit een verkeersbord, of uit een digitaal bord dat de snelheid ter plekke aanpast.
+
+Het kader legt bij elke snelheidsbeperking ook vast: waar die geldt (op welk stuk weg, welke rijbaan of rijstrook, of binnen welk gebied/zone), hoe de weggebruiker dit ziet (via gewone borden langs de weg, zoneborden, onderborden of elektronische matrixborden), wanneer de regel geldt (altijd, binnen een bepaald tijdvenster, of afhankelijk van bijvoorbeeld het weer), voor welke voertuigen hij geldt (sommige voertuigcategorieën hebben een eigen maximumsnelheid), welke uitzonderingen er zijn, en op welk officieel besluit de regel is gebaseerd. Het model houdt er bovendien rekening mee dat zones in elkaar genest kunnen zijn: rijd je een 30 km/h-zone binnen de bebouwde kom in, dan geldt tijdelijk 30, en bij het verlaten daarvan weer de snelheid van de omsluitende zone.
+
+Door al deze gegevens op dezelfde manier te beschrijven, kunnen verschillende partijen — zoals wegbeheerders, navigatiesystemen en reisinformatiediensten — de informatie betrouwbaar uitwisselen en gebruiken, onder meer voor snelheidsinformatie in de auto. Het kader is opgesteld binnen de Europese afspraken over reis- en verkeersinformatie (de ITS-richtlijn 2010/40/EU en de RTTI-verordening (EU) 2022/670) en sluit aan op bestaande Nederlandse regels en bronnen voor wegen en verkeersborden (onder meer het RVV 1990, NDW en het Nationaal Wegenbestand)."""@nl ;
+    dct:modified "2026-10-06T07:50:24.878910+00:00"^^xsd:dateTime ;
+    dct:title "RTTI - Speed limits"@en,
+        "RTTI - Snelheidsbeperkingen"@nl ;
+    owl:versionInfo "0.7.0" .
+
