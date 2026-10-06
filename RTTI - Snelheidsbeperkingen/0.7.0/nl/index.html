@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <title>RTTI - Snelheidsbeperkingen</title>
+  
+  <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+  <script class="remove">
+    var respecConfig = {"specStatus": "unofficial", "title": "RTTI - Snelheidsbeperkingen", "shortName": "RTTI - Snelheidsbeperkingen", "editors": [{"name": "Nationaal Toegangspunt Mobiliteit"}], "lint": false, "edDraftURI": "", "additionalCopyrightHolders": "Nationaal Toegangspunt Mobiliteit"};
+  </script>
+  
+  
+  <script src="https://ndwnu.github.io/its-gegevenscatalogus/review.js" defer
+          data-repo="ndwnu/its-gegevenscatalogus"
+          data-model="RTTI - Snelheidsbeperkingen"
+          data-version="0.7.0"></script>
+  
+  <style>
+    /* Opmaak afgeleid van de PDF (docpublish/pdf/styles/_base.css): dezelfde
+       huisstijl-kleuren en tabelstijl, zodat de ReSpec-pagina en de PDF op
+       elkaar aansluiten. Staat NA ReSpec's basis-stylesheet, dus dit wint. */
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: #303c54;
+      line-height: 1.5;
+    }
+    h1, h2, h3, h4, h5, h6 { color: #1e40af; font-weight: 600; }
+    p.prose { text-align: justify; }
+    p.disclaimer {
+      background: rgba(30, 64, 175, 0.06);
+      border-left: 3px solid #1e40af;
+      padding: 6px 10px;
+      font-style: italic;
+      color: #636f83;
+      margin: 8px 0;
+    }
+    table.data-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px 0 18px;
+      font-size: 0.95rem;
+    }
+    table.data-table caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 600;
+      color: #1e40af;
+      padding-bottom: 4px;
+    }
+    table.data-table th {
+      background: rgba(30, 64, 175, 0.08);
+      border-bottom: 1px solid #1e40af;
+      color: #1e40af;
+      font-weight: 600;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    table.data-table td {
+      border-bottom: 1px solid #dfe4ee;
+      padding: 6px 8px;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+    table.data-table tr:nth-child(even) td { background: rgba(30, 64, 175, 0.025); }
+
+    /* Modeloverzicht-diagram: de server-side force-directed layout geeft een
+       compacte, normaal-geproportioneerde SVG (net als de visuele editor). Schaal
+       hem responsive binnen de paginabreedte. Voor het zeldzame extreem brede
+       geval blijft het kader horizontaal scrollbaar. */
+    figure.model-figure { margin: 12px 0; width: 100%; }
+    figure.model-figure .model-figure__frame {
+      display: block;
+      overflow-x: auto;
+      border: 1px solid #dfe4ee;
+      border-radius: 6px;
+      padding: 8px;
+      background: #fff;
+      cursor: zoom-in;
+    }
+    figure.model-figure .model-figure__frame > div { width: 100%; }
+    figure.model-figure svg {
+      display: block;
+      /* Vaste breedte 100% van het kader; de hoogte volgt uit de viewBox-
+         verhouding. Alleen height:auto laten renderen faalt als de container
+         nog geen breedte heeft (chicken-egg): dan wordt de SVG 0×0. De inline
+         width/height-attributen op de root-<svg> worden hierdoor overruled. */
+      width: 100%;
+      height: auto;
+    }
+    figure.model-figure figcaption {
+      font-size: 0.85rem;
+      color: #636f83;
+      margin-top: 4px;
+    }
+
+    /* Full-size weergave zonder JS: het sluit-anker ligt normaal onzichtbaar
+       achter de figuur; pas in de vergrote (:target) staat wordt het de
+       schermvullende, klikbare achtergrond die de hash wist. */
+    figure.model-figure .model-figure__zoom-close { display: none; }
+
+    /* Visueel verborgen tekst in het sluit-anker (zie _section.html): maakt
+       textContent niet-leeg zodat ReSpec's anchor-expander het anker overslaat,
+       zonder iets zichtbaars toe te voegen. */
+    .model-figure__zoom-close .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0);
+      white-space: nowrap; border: 0;
+    }
+
+    /* Vergrote staat: de figuur gaat schermvullend bovenop de pagina staan. De
+       SVG krijgt nu zijn NATUURLIJKE grootte (geen width:100% meer) en het kader
+       scrollt in beide richtingen, zodat het diagram leesbaar is. */
+    figure.model-figure:target {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      margin: 0;
+      padding: 2.5rem 1rem 1rem;
+      background: rgba(15, 23, 42, 0.75);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+    figure.model-figure:target .model-figure__zoom-close {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: -1;            /* achter de figuurinhoud, vóór de pagina */
+      cursor: zoom-out;
+    }
+    figure.model-figure:target .model-figure__frame {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: auto;        /* scroll in beide richtingen */
+      cursor: default;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+    figure.model-figure:target .model-figure__frame > div {
+      width: max-content;    /* laat de SVG groeien tot zijn natuurlijke breedte */
+      min-width: 100%;
+    }
+    figure.model-figure:target svg {
+      /* Natuurlijke afmetingen uit de viewBox i.p.v. 100% van de smalle kolom,
+         met een leesbare bodembreedte en ruimte om te groeien. */
+      width: auto;
+      min-width: min(1400px, 90vw);
+      height: auto;
+      max-height: none;
+    }
+    figure.model-figure:target figcaption {
+      flex: 0 0 auto;
+      color: #e5e9f0;
+      text-align: center;
+      padding-top: 0.5rem;
+    }
+    /* Een '× sluiten'-knop rechtsboven in de vergrote staat. */
+    figure.model-figure:target::after {
+      content: "× sluiten";
+      position: fixed;
+      top: 0.6rem;
+      right: 1rem;
+      color: #fff;
+      font-size: 0.95rem;
+      pointer-events: none;  /* klikken vangt het achterliggende sluit-anker op */
+    }
+  </style>
+  
+  
+  <style>
+    .status-banner {
+      border-left: 8px solid var(--status-color, #6b7280);
+      background: var(--status-bg, #f3f4f6);
+      padding: 0.6rem 1rem;
+      margin: 0 0 1.5rem;
+      font-family: sans-serif;
+    }
+    .status-banner .status-badge {
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--status-color, #374151);
+    }
+    .status-banner .status-version { color: #4b5563; }
+    /* Review-/consultatie-toelichting: een geaccentueerd blok binnen de banner.
+       Eigen witte kaart met een accent-rand in de statuskleur, zodat het
+       duidelijk leesbaar is én opvalt zonder de banner te overschreeuwen. */
+    .status-banner .status-note {
+      margin-top: 0.7rem;
+      background: #fff;
+      border: 1px solid var(--status-color, #2563eb);
+      border-left: 4px solid var(--status-color, #2563eb);
+      border-radius: 6px;
+      padding: 0.7rem 0.9rem;
+      max-width: 60ch;
+    }
+    .status-banner .status-note__title {
+      margin: 0 0 0.25rem;
+      font-weight: 700;
+      color: var(--status-color, #2563eb);
+    }
+    .status-banner .status-note__body {
+      margin: 0;
+      color: #303c54;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+    .status-draft       { --status-color: #d97706; --status-bg: #fffbeb; }
+    .status-under_review{ --status-color: #2563eb; --status-bg: #eff6ff; }
+    .status-published   { --status-color: #16a34a; --status-bg: #f0fdf4; }
+    .status-deprecated  { --status-color: #dc2626; --status-bg: #fef2f2; }
+    .status-withdrawn   { --status-color: #991b1b; --status-bg: #fef2f2; }
+  </style>
+  
+</head>
+<body>
+  
+  <h1 id="title">RTTI - Snelheidsbeperkingen</h1>
+
+  
+  <section id="abstract">
+    <p>Dit begrippenkader beschrijft welke informatie je nodig hebt om vast te leggen hoe hard er op een weg gereden mag worden. De kern is de maximumsnelheid: die kan voortvloeien uit de wettelijke standaard (bijvoorbeeld 50 km/h binnen de bebouwde kom, 80 km/h op overige wegen buiten de kom, 100 km/h op autowegen en 130 km/h op autosnelwegen), uit een verkeersbord, of uit een digitaal bord dat de snelheid ter plekke aanpast.
+
+Het kader legt bij elke snelheidsbeperking ook vast: waar die geldt (op welk stuk weg, welke rijbaan of rijstrook, of binnen welk gebied/zone), hoe de weggebruiker dit ziet (via gewone borden langs de weg, zoneborden, onderborden of elektronische matrixborden), wanneer de regel geldt (altijd, binnen een bepaald tijdvenster, of afhankelijk van bijvoorbeeld het weer), voor welke voertuigen hij geldt (sommige voertuigcategorieën hebben een eigen maximumsnelheid), welke uitzonderingen er zijn, en op welk officieel besluit de regel is gebaseerd. Het model houdt er bovendien rekening mee dat zones in elkaar genest kunnen zijn: rijd je een 30 km/h-zone binnen de bebouwde kom in, dan geldt tijdelijk 30, en bij het verlaten daarvan weer de snelheid van de omsluitende zone.
+
+Door al deze gegevens op dezelfde manier te beschrijven, kunnen verschillende partijen — zoals wegbeheerders, navigatiesystemen en reisinformatiediensten — de informatie betrouwbaar uitwisselen en gebruiken, onder meer voor snelheidsinformatie in de auto. Het kader is opgesteld binnen de Europese afspraken over reis- en verkeersinformatie (de ITS-richtlijn 2010/40/EU en de RTTI-verordening (EU) 2022/670) en sluit aan op bestaande Nederlandse regels en bronnen voor wegen en verkeersborden (onder meer het RVV 1990, NDW en het Nationaal Wegenbestand).</p>
+  </section>
+
+  
+  
+  <div id="beschikbare-talen" class="language-switch">
+    <table class="data-table">
+      <caption>Beschikbare talen</caption>
+      <thead>
+        <tr><th>Taal</th><th>Document</th></tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td><strong>NL</strong></td>
+          <td><strong>RTTI - Snelheidsbeperkingen</strong></td>
+        </tr>
+        
+        <tr>
+          <td>EN</td>
+          <td><a href="../en/index.html">RTTI - Speed limits</a></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
+
+  
+  <div class="status-banner status-draft">
+    <span class="status-badge">Concept</span><span class="status-version"> — Versie 0.7.0</span>
+    
+    
+  </div>
+  
+
+  
+    
+<section>
+  <h2>Introductie op semantisch modelleren</h2>
+  
+    
+      <p class="prose"><p>Een <strong>begrippenkader</strong> (in SKOS: <em>ConceptScheme</em>) is een gestructureerde verzameling van begrippen die binnen een bepaald domein een vaste, gedeelde betekenis hebben. Het doel is dat iedereen die met het model werkt — mensen én systemen — dezelfde woorden gebruikt voor dezelfde dingen. Dat klinkt vanzelfsprekend, maar in de praktijk blijkt taal verrassend vaak voor verwarring te zorgen: wat de ene organisatie een <em>meetpunt</em> noemt, heet bij de ander een <em>sensor</em>, een <em>locatie</em>, of een <em>observatiepost</em>.</p>
+<p>Een begrippenkader lost dat op door per begrip vast te leggen:</p>
+<ul>
+<li>een <strong>voorkeursnaam</strong> (prefLabel) waaronder het begrip bekend is,</li>
+<li>een <strong>definitie</strong> die onomstotelijk beschrijft waar het begrip wel én niet op slaat,</li>
+<li>en eventueel een <strong>toelichting</strong> of <strong>voorbeeld</strong> om grensgevallen te verduidelijken.</li>
+</ul>
+<p>Begrippen staan zelden op zichzelf. Ze zijn <strong>hiërarchisch</strong> (een voertuig is breder dan een vrachtwagen) of <strong>associatief</strong> (een weggebruiker hangt samen met een wegsegment) aan elkaar gerelateerd. Die relaties maken het mogelijk om in queries en analyses te navigeren tussen algemene en specifieke concepten, en om verbanden tussen begrippen expliciet te maken. Binnen SKOS gebruiken we daarvoor <code>broader</code>, <code>narrower</code> en <code>related</code>.</p>
+<p>Wanneer een begrip ook ergens anders bestaat — bijvoorbeeld in een nationale of Europese standaard — leggen we dat vast als een <strong>mapping-relatie</strong>. Dat voorkomt dat iedereen het wiel opnieuw uitvindt: we linken naar de bron zodat interoperabiliteit met externe systemen mogelijk blijft.</p>
+<p>Dit document beschrijft het begrippenkader zoals het op dit moment is vastgelegd. De eerstvolgende secties geven de metadata, alle begrippen, hun relaties onderling en — als het model gekoppeld is aan een databron — hoe dat aan de brondata is gekoppeld.</p></p>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>RTTI - Snelheidsbeperkingen</h2>
+  
+    
+      <h3>Beschrijving</h3>
+    
+  
+    
+      <p class="prose">Dit begrippenkader beschrijft welke informatie je nodig hebt om vast te leggen hoe hard er op een weg gereden mag worden. De kern is de maximumsnelheid: die kan voortvloeien uit de wettelijke standaard (bijvoorbeeld 50 km/h binnen de bebouwde kom, 80 km/h op overige wegen buiten de kom, 100 km/h op autowegen en 130 km/h op autosnelwegen), uit een verkeersbord, of uit een digitaal bord dat de snelheid ter plekke aanpast.
+
+Het kader legt bij elke snelheidsbeperking ook vast: waar die geldt (op welk stuk weg, welke rijbaan of rijstrook, of binnen welk gebied/zone), hoe de weggebruiker dit ziet (via gewone borden langs de weg, zoneborden, onderborden of elektronische matrixborden), wanneer de regel geldt (altijd, binnen een bepaald tijdvenster, of afhankelijk van bijvoorbeeld het weer), voor welke voertuigen hij geldt (sommige voertuigcategorieën hebben een eigen maximumsnelheid), welke uitzonderingen er zijn, en op welk officieel besluit de regel is gebaseerd. Het model houdt er bovendien rekening mee dat zones in elkaar genest kunnen zijn: rijd je een 30 km/h-zone binnen de bebouwde kom in, dan geldt tijdelijk 30, en bij het verlaten daarvan weer de snelheid van de omsluitende zone.
+
+Door al deze gegevens op dezelfde manier te beschrijven, kunnen verschillende partijen — zoals wegbeheerders, navigatiesystemen en reisinformatiediensten — de informatie betrouwbaar uitwisselen en gebruiken, onder meer voor snelheidsinformatie in de auto. Het kader is opgesteld binnen de Europese afspraken over reis- en verkeersinformatie (de ITS-richtlijn 2010/40/EU en de RTTI-verordening (EU) 2022/670) en sluit aan op bestaande Nederlandse regels en bronnen voor wegen en verkeersborden (onder meer het RVV 1990, NDW en het Nationaal Wegenbestand).</p>
+    
+  
+    
+      
+<table class="data-table">
+  <caption>Metadata</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>URI</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen</td>
+      </tr>
+    
+      <tr>
+        <td>Versie</td><td>0.7.0</td>
+      </tr>
+    
+      <tr>
+        <td>Publicatiestatus</td><td>Concept</td>
+      </tr>
+    
+      <tr>
+        <td>Beheerstatus</td><td>Actief</td>
+      </tr>
+    
+      <tr>
+        <td>Organisatie</td><td>Nationaal Toegangspunt Mobiliteit</td>
+      </tr>
+    
+      <tr>
+        <td>Aangemaakt op</td><td>2026-02-16</td>
+      </tr>
+    
+      <tr>
+        <td>Laatst gewijzigd op</td><td>2026-10-06</td>
+      </tr>
+    
+      <tr>
+        <td>Laatst gewijzigd door</td><td>arthur.keesen@ndw.nu</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Modeloverzicht</h2>
+  
+    
+      <p class="prose">Visueel overzicht van de concepten en hun relaties. Hiërarchische relaties zijn getekend met doorgetrokken pijlen; associatieve relaties met stippellijnen.</p>
+    
+  
+    
+      
+      
+      <figure class="model-figure" id="model-overview-figure">
+        
+        <a class="model-figure__zoom-close" href="#" aria-label="Sluit vergroting"><span class="visually-hidden">Sluit vergroting</span></a>
+        <a class="model-figure__frame" href="#model-overview-figure" title="Klik om op volledig formaat te bekijken">
+          <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="-482.2 121.0 1796.2 1082.0" width="1796" height="1082"><defs><marker id="arrow-hierarchy" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#475569" /></marker><marker id="arrow-related" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#8b5cf6" /></marker></defs><g class="edges"><line x1="371.5" y1="673.2" x2="474.0" y2="576.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="377.0" y1="687.2" x2="550.0" y2="688.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="515.0" y1="554.8" x2="639.0" y2="547.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="595.8" y1="699.8" x2="704.6" y2="769.4" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="-227.2" y1="755.9" x2="30.3" y2="793.8" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="-262.0" y1="766.3" x2="-419.3" y2="905.8" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="-249.0" y1="772.9" x2="-272.1" y2="1000.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="341.7" y1="674.1" x2="81.2" y2="454.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="59.2" y1="456.0" x2="59.8" y2="527.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="338.7" y1="678.9" x2="86.5" y2="567.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="598.9" y1="687.3" x2="735.1" y2="675.5" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="510.6" y1="543.5" x2="575.3" y2="492.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="694.0" y1="411.9" x2="564.0" y2="417.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="707.5" y1="429.9" x2="677.4" y2="518.5" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="696.4" y1="420.5" x2="623.5" y2="460.2" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="-227.4" y1="748.9" x2="30.6" y2="694.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="500.6" y1="536.8" x2="526.9" y2="446.8" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="-116.1" y1="844.6" x2="-39.6" y2="892.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="981.6" y1="425.9" x2="899.2" y2="248.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1009.4" y1="439.0" x2="1245.9" y2="377.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="842.9" y1="350.7" x2="965.5" y2="428.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="835.2" y1="322.2" x2="873.7" y2="247.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-230.2" y1="742.2" x2="35.6" y2="571.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-230.7" y1="764.6" x2="-156.6" y2="817.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="47.4" y1="339.3" x2="-230.2" y2="729.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="71.7" y1="338.5" x2="338.6" y2="664.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="312.0" y1="326.7" x2="88.0" y2="323.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-4.0" y1="924.7" x2="41.1" y2="993.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-25.6" y1="924.9" x2="-70.6" y2="996.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="59.9" y1="201.0" x2="59.2" y2="294.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-291.9" y1="1018.4" x2="-416.4" y2="940.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="337.0" y1="687.1" x2="88.0" y2="688.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="338.3" y1="694.0" x2="86.2" y2="787.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-123.0" y1="326.6" x2="30.0" y2="323.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="730.9" y1="400.3" x2="801.5" y2="355.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /></g><g class="nodes"><circle cx="579.0" cy="689.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="518.4" y="713.0" width="121.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="579.0" y="727.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Vlak geometrie</text><circle cx="-15.0" cy="908.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-52.2" y="932.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-15.0" y="946.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Conditie</text><circle cx="-133.0" cy="834.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-174.1" y="858.0" width="82.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-133.0" y="872.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Onderbord</text><circle cx="-275.0" cy="1029.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-327.8" y="1053.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-275.0" y="1067.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Verkeersbord</text><circle cx="764.0" cy="673.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="730.7" y="697.0" width="66.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="764.0" y="711.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Woonerf</text><circle cx="535.0" cy="419.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="486.1" y="443.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="535.0" y="457.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Autosnelweg</text><circle cx="598.0" cy="474.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="572.0" y="498.0" width="52.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="598.0" y="512.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">N-weg</text><circle cx="714.0" cy="411.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="688.0" y="435.0" width="52.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="714.0" y="449.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Weg</text><circle cx="826.0" cy="340.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="792.7" y="364.0" width="66.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="826.0" y="378.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Rijbaan</text><circle cx="59.0" cy="436.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-13.3" y="460.0" width="144.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="59.0" y="474.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Omsluitend regime</text><circle cx="59.0" cy="689.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-9.4" y="713.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="59.0" y="727.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Aanduiding begin</text><circle cx="59.0" cy="798.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-9.4" y="822.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="59.0" y="836.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Aanduiding einde</text><circle cx="495.0" cy="556.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="438.3" y="580.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="495.0" y="594.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Lijngeometrie</text><circle cx="990.0" cy="444.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="948.9" y="468.0" width="82.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="990.0" y="482.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Rijstrook</text><circle cx="-143.0" cy="327.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-215.3" y="351.0" width="144.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-143.0" y="365.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Voertuigcategorie</text><circle cx="729.0" cy="785.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="676.2" y="809.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="729.0" y="823.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Bebouwde kom</text><circle cx="57.0" cy="1018.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-23.1" y="1042.0" width="160.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="57.0" y="1056.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Weersomstandigheden</text><circle cx="60.0" cy="181.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-74.7" y="205.0" width="269.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="60.0" y="219.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Gegevenstype Snelheidsbeperkingen</text><circle cx="-247.0" cy="753.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-292.0" y="777.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-247.0" y="791.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Aanduiding</text><circle cx="357.0" cy="687.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="315.9" y="711.0" width="82.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="357.0" y="725.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Geometrie</text><circle cx="668.0" cy="546.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="634.7" y="570.0" width="66.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="668.0" y="584.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Autoweg</text><circle cx="-441.0" cy="925.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-478.2" y="949.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-441.0" y="963.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Actuator</text><circle cx="60.0" cy="556.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-8.4" y="580.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="60.0" y="594.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Inliggend regime</text><circle cx="332.0" cy="327.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="267.5" y="351.0" width="129.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="332.0" y="365.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Verkeersbesluit</text><circle cx="-86.0" cy="1021.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-134.9" y="1045.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-86.0" y="1059.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Tijdvenster</text><circle cx="1274.0" cy="370.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1244.6" y="394.0" width="58.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1274.0" y="408.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Wegvak</text><circle cx="887.0" cy="222.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="838.1" y="246.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="887.0" y="260.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Rijrichting</text><circle cx="59.0" cy="323.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-17.2" y="347.0" width="152.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="59.0" y="361.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Snelheidsbeperking</text></g><g class="legend"><line x1="-482.2" y1="1143.0" x2="-442.2" y2="1143.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" /><text x="-432.2" y="1146.8" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">broader / narrower (hiërarchisch / Associatief)</text><line x1="-482.2" y1="1167.0" x2="-442.2" y2="1167.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" stroke-dasharray="6,4" /><text x="-432.2" y="1170.8" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">related (gerelateerd)</text></g><text x="-482.2" y="1199.0" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#94a3b8">Bron: Ontologica — RTTI - Snelheidsbeperkingen</text></svg></div>
+        </a>
+        <figcaption>Modeloverzicht</figcaption>
+      </figure>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Concepten</h2>
+  
+    
+      
+<section>
+  <h3>Omsluitend regime</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een afgebakend gebied waarbinnen een specifieke snelheidsbeperking van kracht is. Zones kunnen genest zijn: een zone kan zich binnen een omsluitende zone bevinden, waardoor meerdere snelheidsbeperkingen gelijktijdig van toepassing zijn in een cascaderende structuur. Bij het verlaten van een binnenste zone vervalt de daar geldende snelheidsbeperking en valt de geldende snelheid terug op die van de omsluitende zone.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Een weggebruiker rijdt een bebouwde kom in (50 km/h). Vervolgens rijdt deze een woonerf in (15 km/h). De actieve snelheidsbeperking is nu 15 km/h. Bij het verlaten van het woonerf geldt weer 50 km/h, omdat de bebouwde kom als omsluitende zone nog steeds van kracht is.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Wegvak</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Gedeelte van een weg tussen twee opeenvolgende knooppunten of kruispunten, of – indien geen zijweg aanwezig is – tussen twee punten waarop een verkeersmaatregel betrekking heeft. 
+
+In het Nationaal Wegenbestand (NWB) is een wegvak de kleinste eenheid waarvoor wegkenmerken worden geregistreerd.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Woonerf</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een als erf aangeduid deel van de openbare weg, begrensd door bord G5 (begin erf) en bord G6 (einde erf). Op een erf geldt een maximumsnelheid van 15 km/h.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>HR 1 november 2011, ECLI:NL:HR:2011:BR5927; voorheen &#x27;stapvoets&#x27;</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Snelheidsbeperking</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De toegestane snelheid op een weg of weggedeelte, uitgedrukt in kilometers per uur (km/h). In Nederland wordt de maximumsnelheid bepaald door: 
+
+(1) de wettelijke standaardlimieten 
+(2) door middel van verkeersborden 
+(3) dynamisch ingestelde limieten via digitale borden.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>In Nederland gaat het voornamelijk over maximum snelheden. Minimum snelheden zijn afhankelijk van het voertuigtype.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Autoweg</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Weg, aangeduid door bord G3. Buiten de bebouwde kom geldt op autowegen een wettelijke maximumsnelheid van 100 km/h voor motorvoertuigen tenzij anders aangegeven.
+
+Op autowegen mogen uitsluitend motorvoertuigen rijden die minimaal 50 km/h kunnen en mogen rijden.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Langs autowegen gelegen parkeerplaatsen, tankstations en bushalteplaatsen maken geen deel van de autoweg uit.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Autosnelweg</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Weg, aangeduid door bord G1. Buiten de bebouwde kom geldt op autosnelwegen een wettelijke maximumsnelheid van 130 km/h voor motorvoertuigen tenzij anders aangegeven.
+
+Op autosnelwegen mogen uitsluitend motorvoertuigen rijden die minimaal 60 km/h kunnen en mogen rijden.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Langs autosnelwegen gelegen parkeerplaatsen, tankstations en bushalteplaatsen maken geen deel van de autosnelweg uit.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Rijbaan</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Elk voor rijdend verkeer bestemd weggedeelte, met uitzondering van de fietspaden en de fiets/bromfietspaden.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>In het kader van snelheidsbeperkingen kan een aanduiding specifiek betrekking hebben op één rijbaan van een weg.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Rijstrook</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Door doorgetrokken of onderbroken strepen gemarkeerd gedeelte van de rijbaan van zodanige breedte dat bestuurders van motorvoertuigen op meer dan twee wielen daarvan gebruik kunnen maken. 
+
+Bij toepassing van een verkeersbord op specifieke rijstroken kan een snelheidsbeperking beperkt worden tot één of meer rijstroken.
+Bijvoorbeeld bij spitsstroken of matrixborden.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Voertuigcategorie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Classificatie van een voertuig op basis van de wettelijke indeling in het RVV 1990 en het Voertuigreglement. 
+
+Relevant voor snelheidsbeperkingen omdat de wet bijzondere maximumsnelheden per voertuigcategorie vaststelt.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>T-100 bus mag maximaal 100 km/h</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Weersomstandigheden</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Meteorologische condities (zoals regen, mist, sneeuw, ijzel of storm) die aanleiding geven tot een aangepaste snelheidsbeperking. 
+In Nederland worden weersafhankelijke snelheidsbeperkingen met name dynamisch ingesteld via matrixsignalering op autosnelwegen (RWS – Praktijkrichtlijn Dynamisch Verkeersmanagement) of statisch aangegeven via onderborden (bijv. &#x27;bij nat wegdek&#x27;).</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Aanduiding begin</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Het verkeersteken dat het beginpunt aangeeft van de geldigheid van een snelheidsbeperking.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Dit kan zijn: een bord A1 (maximumsnelheid) of een zonebord (bijv. A01-30-ZB voor begin 30 km/h-zone), een bord G1/G3/G5 (begin autosnelweg/autoweg/erf), of de activering van een elektronisch signaleringsbord.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Aanduiding einde</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Het verkeersteken dat het eindpunt aangeeft van de geldigheid van een snelheidsbeperking.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Dit kan zijn: een bord A2 (einde maximumsnelheid), een zonebord (bijv. A01-30-ZE voor einde 30 km/h-zone), een bord G2/G4/G6 (einde autosnelweg/autoweg/erf), het deactiveren van een elektronisch signaleringsbord, of het bereiken van een kruispunt waarachter een ander regime geldt.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Aanduiding</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Het blikken- of digitale bord waarmee een snelheidsbeperking aan de weggebruiker kenbaar wordt gemaakt.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Dit omvat verkeersborden (zowel statische &#x27;blikken borden&#x27; als dynamische elektronische signaleringsborden), matrixborden boven rijstroken en in-car systemen.</td>
+      </tr>
+    
+      <tr>
+        <td>Alternatieve labels</td><td>Verkeersbord (volgens RVV-1990)</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Actuator</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Elektronisch signaleringsbord waarop verkeersborden dynamisch kunnen worden weergegeven. Een digitaal bord kan een lagere snelheid aangeven dan het statische (&#x27;blikken&#x27;) bord; in dat geval geldt de lagere snelheid van het digitale bord. Pas wanneer het digitale bord een einde-aanduiding toont of blanco is, herleeft de snelheidsbeperking van het statische bord. Digitale borden worden met name ingezet op autosnelwegen via matrixsignalering (RWS).</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Het digitale bord heeft een hogere geldigheid indien een digitaal bord een lagere snelheid aan dan de blikken borden.
+
+Pas als als het digitale bord een einde aanduiding aangeeft, dan geld het blikken bord in. 
+
+&quot;Zie het als een digitale zone&quot;</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Conditie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een conditie waardoor de standaard snelheidsbeperking op een wegvak wordt gemodificeerd. Uitzonderingen worden in de Nederlandse praktijk kenbaar gemaakt via onderborden en kunnen betrekking hebben op voertuigtype, tijdvenster, weersomstandigheden of andere voorwaarden.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Onderbord</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Bord dat onder een verkeersbord wordt aangebracht ter nadere aanduiding van de werking van dat verkeersbord. Vanuit wetgeving is bepaald welke typen onderborden zijn toegestaan, waaronder: een aanduiding van het soort weggebruiker waarvoor het bord geldt, een tijdsaanduiding, of een afstandsaanduiding.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Bij snelheidsbeperkingen kan een onderbord bijv. de geldigheid beperken tot bepaalde voertuigtypen, tijdvensters of weersomstandigheden.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Bebouwde kom</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Het gebied dat als bebouwde kom is vastgesteld door de gemeenteraad.
+
+De bebouwde kom wordt aangeduid door de borden H1 (begin bebouwde kom) en H2 (einde bebouwde kom). De snelheidsbeperking van 50 km/h is van toepassing tenzij door verkeersborden anders is aangegeven.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Inliggend regime</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een zone die genest is binnen een omsluitende zone en waarvan de snelheidsbeperking voorrang heeft boven die van de omsluitende zone zolang de weggebruiker zich binnen de inliggende zone bevindt.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Het concept inliggende zone beschrijft het cascaderend effect van geneste zones. Bij het inrijden van een inliggende zone wordt de snelheidsbeperking van de omsluitende zone tijdelijk opgeschort. Bij het uitrijden wordt de snelheidsbeperking van de omsluitende zone weer actief. Dit mechanisme werkt recursief: meerdere niveaus van nesting zijn mogelijk.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Geometrie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een ruimtelijk afgebakend gebied waarbinnen een uniform verkeersregime geldt, begrensd door verkeerstekens die het begin en het einde van het regime aanduiden. 
+
+Binnen de context van snelheidsbeperkingen is een gesloten zone een gebied waarvan de grenzen worden gemarkeerd door zoneborden (bijv. bord A01-30-ZB / A01-30-ZE voor een 30 km/h-zone, of bord G5/G6 voor een erf).</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Het BABW art. 9 bepaalt dat in een verkeersbesluit kan worden bepaald dat geboden of verboden gelden in een bepaald gebied (zonale toepassing).</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Gegevenstype Snelheidsbeperkingen</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Gegevenstype binnen de RTTI-context dat de verzameling van concepten beschrijft die nodig zijn om een snelheidsbeperking op het Nederlandse wegennet eenduidig vast te leggen en uit te wisselen. Omvat de waarde van de snelheidsbeperking, de locatie, de geldigheid, de aanduiding en eventuele uitzonderingen.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Dit gegevenstype is gedefinieerd als onderdeel van de Nederlandse implementatie van de ITS-richtlijn (Richtlijn 2010/40/EU) en de daaronder vallende Gedelegeerde Verordening RTTI (EU) 2022/670.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Verkeersbord</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Het fysieke object — een paneel (de &#x27;plaat&#x27;), doorgaans bevestigd op een paal of andere drager — waarop een verkeersteken als is aangebracht, en waarvan de uitvoering wettelijk is voorgeschreven.</td>
+      </tr>
+    
+      <tr>
+        <td>Alternatieve labels</td><td>Blikken bord, Fysiek verkeersbord, Verkeersplaat, Verkeersplaat</td>
+      </tr>
+    
+      <tr>
+        <td>Bron</td><td>https://wetten.overheid.nl/jci1.3:c:BWBR0004825&amp;bijlage=1, https://wetten.overheid.nl/jci1.3:c:BWBR0009104&amp;hoofdstuk=2</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Tijdvenster</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De op een onderbord vermelde dagen en/of uren die een beperking van de werkingssfeer in de tijd inhouden van de aanduiding op het bovenliggende verkeersbord; in het bijzonder, voor snelheidsbeperkingen, het tijdvak waarbinnen de op het verkeersbord aangeduide maximumsnelheid geldt.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>De term &#x27;tijdvenster&#x27; komt niet als zodanig voor in de wetgeving; de juridische grondslag ligt in de beperking van de werkingssfeer en wordt door Rijkswaterstaat en CROW als &#x27;tijdvenster&#x27; aangeduid. Het concept kent een dubbele realisatie: als fysiek onderbord onder een blikken bord, of als tijdsconditie binnen een digitaal/elektronisch bord. Niet te verwarren met &#x27;venstertijden&#x27; (laad- en lostijden voor stadslogistiek), dat in het model Goederenlevering is ondergebracht.</td>
+      </tr>
+    
+      <tr>
+        <td>Bron</td><td>https://kennisbank.crow.nl/public/gastgebruiker/FVV/Verkeerstekens_(toepassing,_plaatsing_en_uitvoering)/Hoofdstuk_C._Geslotenverklaring/29510, https://wetten.overheid.nl/BWBR0004825/, https://wetten.overheid.nl/BWBR0004826/, https://www.rijkswaterstaat.nl/wegen/wetten-regels-en-vergunningen/verkeerswetten/maximumsnelheid</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Rijrichting</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De richting waarin het verkeer zich op een rijbaan of rijstrook voortbeweegt. Relevant voor snelheidsbeperkingen waar een beperking slechts geldt voor één rijrichting, bijv. bij gescheiden rijbanen of bij borden die aan één zijde van de weg zijn geplaatst.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Er is bepaalt dat de toepassing van verkeersborden kan worden beperkt tot rijstroken, wat impliceert dat richting van belang is.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Weg</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>nader te bepalen</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Lijngeometrie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een ééndimensionale geometrische primitief die een lijn representeert: een continue, in een coördinatensysteem meetbare lijn die bestaat uit één of meer onderling verbonden lijnsegmenten, waarbij het eindpunt van elk segment — op het laatste na — verbonden is met het beginpunt van het volgende. Lijngeometrie wordt gebruikt om lijnvormige objecten, zoals een weg, ruimtelijk vast te leggen; in ISO 19107 aangeduid als GM_Curve en Curve/LineString in OGC simple features.</td>
+      </tr>
+    
+      <tr>
+        <td>Bron</td><td>http://www.opengis.net/ont/sf, https://docs.geostandaarden.nl/nen3610/gimeg/, https://modellen.geostandaarden.nl/def/nen3610-2022/</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Vlak geometrie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>nader te bepalen</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Verkeersbesluit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Schriftelijk besluit als van het bevoegde gezag waarbij wordt besloten tot plaatsing, wijziging of verwijdering van bij algemene maatregel van bestuur aangewezen verkeerstekens en onderborden voor zover daardoor een gebod of verbod ontstaat of wordt gewijzigd, dan wel tot maatregelen op of aan de weg die leiden tot een beperking of uitbreiding van het aantal categorieën weggebruikers.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Bekendmaking geschiedt op grond van artikel 26 BABW via de KOOP-Verkeersbesluitenapplicatie in de Staatscourant (Rijk) dan wel het eigen publicatieblad (gemeente, provincie, waterschap) sinds inwerkingtreding van de Wet elektronische publicaties op 1 juli 2021. Motiveringseisen volgen uit artikel 21 BABW; overleg met de korpschef volgt uit artikel 24 BABW.</td>
+      </tr>
+    
+      <tr>
+        <td>Bron</td><td>https://wetten.overheid.nl/jci1.3:c:BWBR0006622&amp;artikel=12, https://wetten.overheid.nl/jci1.3:c:BWBR0006622&amp;artikel=15, https://wetten.overheid.nl/jci1.3:c:BWBR0006622&amp;artikel=18, https://wetten.overheid.nl/jci1.3:c:BWBR0006622&amp;artikel=1:3, https://wetten.overheid.nl/jci1.3:c:BWBR0006622&amp;artikel=21, https://wetten.overheid.nl/jci1.3:c:BWBR0006622&amp;artikel=26</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>N-weg</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Het gebied buiten de door de gemeenteraad vastgestelde bebouwde kom. Buiten de bebouwde kom gelden de maximumsnelheden  130 km/h op autosnelwegen, 100 km/h op autowegen en 80 km/h op overige wegen, tenzij door verkeersborden anders is aangegeven.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Relaties per concept</h2>
+  
+    
+      <p class="prose">Outgoing semantic relations only — these stay inside the model.</p>
+    
+  
+    
+      
+<section>
+  <h3>Omsluitend regime</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Geometrie</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Inliggend regime</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237259923</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Woonerf</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Vlak geometrie</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186704395</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Snelheidsbeperking</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Geometrie</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Aanduiding</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236172013</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Autoweg</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Lijngeometrie</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186695677</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Autosnelweg</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Lijngeometrie</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186695677</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Rijbaan</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Rijrichting</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186214125</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Rijstrook</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235638908</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Rijstrook</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Wegvak</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235085917</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Rijrichting</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186214125</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Voertuigcategorie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Snelheidsbeperking</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Aanduiding begin</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Aanduiding</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236172013</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Aanduiding einde</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Aanduiding</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236172013</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Aanduiding</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Actuator</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236355335</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Verkeersbord</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772185159176</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Inliggend regime</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237259923</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Onderbord</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236462476</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Conditie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Tijdvenster</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186160984</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Weersomstandigheden</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236028582</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Onderbord</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Conditie</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236446358</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Bebouwde kom</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Vlak geometrie</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186704395</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Inliggend regime</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Geometrie</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Geometrie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Aanduiding begin</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236090614</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Aanduiding einde</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236142216</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Gegevenstype Snelheidsbeperkingen</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Snelheidsbeperking</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Verkeersbord</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Actuator</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236355335</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Weg</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Autoweg</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235313383</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Autosnelweg</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235331951</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>N-weg</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772187859423</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Rijbaan</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235620358</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Lijngeometrie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Geometrie</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Vlak geometrie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Geometrie</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Verkeersbesluit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Snelheidsbeperking</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>N-weg</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Lijngeometrie</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186695677</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+</section>
+
+  
+</body>
+</html>
