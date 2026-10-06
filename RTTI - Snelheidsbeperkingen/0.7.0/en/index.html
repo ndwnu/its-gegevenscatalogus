@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>RTTI - Speed limits</title>
+  
+  <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+  <script class="remove">
+    var respecConfig = {"specStatus": "unofficial", "title": "RTTI - Speed limits", "shortName": "RTTI - Speed limits", "editors": [{"name": "Nationaal Toegangspunt Mobiliteit"}], "lint": false, "edDraftURI": "", "additionalCopyrightHolders": "Nationaal Toegangspunt Mobiliteit"};
+  </script>
+  
+  
+  <script src="https://ndwnu.github.io/its-gegevenscatalogus/review.js" defer
+          data-repo="ndwnu/its-gegevenscatalogus"
+          data-model="RTTI - Snelheidsbeperkingen"
+          data-version="0.7.0"></script>
+  
+  <style>
+    /* Opmaak afgeleid van de PDF (docpublish/pdf/styles/_base.css): dezelfde
+       huisstijl-kleuren en tabelstijl, zodat de ReSpec-pagina en de PDF op
+       elkaar aansluiten. Staat NA ReSpec's basis-stylesheet, dus dit wint. */
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: #303c54;
+      line-height: 1.5;
+    }
+    h1, h2, h3, h4, h5, h6 { color: #1e40af; font-weight: 600; }
+    p.prose { text-align: justify; }
+    p.disclaimer {
+      background: rgba(30, 64, 175, 0.06);
+      border-left: 3px solid #1e40af;
+      padding: 6px 10px;
+      font-style: italic;
+      color: #636f83;
+      margin: 8px 0;
+    }
+    table.data-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px 0 18px;
+      font-size: 0.95rem;
+    }
+    table.data-table caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 600;
+      color: #1e40af;
+      padding-bottom: 4px;
+    }
+    table.data-table th {
+      background: rgba(30, 64, 175, 0.08);
+      border-bottom: 1px solid #1e40af;
+      color: #1e40af;
+      font-weight: 600;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    table.data-table td {
+      border-bottom: 1px solid #dfe4ee;
+      padding: 6px 8px;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+    table.data-table tr:nth-child(even) td { background: rgba(30, 64, 175, 0.025); }
+
+    /* Modeloverzicht-diagram: de server-side force-directed layout geeft een
+       compacte, normaal-geproportioneerde SVG (net als de visuele editor). Schaal
+       hem responsive binnen de paginabreedte. Voor het zeldzame extreem brede
+       geval blijft het kader horizontaal scrollbaar. */
+    figure.model-figure { margin: 12px 0; width: 100%; }
+    figure.model-figure .model-figure__frame {
+      display: block;
+      overflow-x: auto;
+      border: 1px solid #dfe4ee;
+      border-radius: 6px;
+      padding: 8px;
+      background: #fff;
+      cursor: zoom-in;
+    }
+    figure.model-figure .model-figure__frame > div { width: 100%; }
+    figure.model-figure svg {
+      display: block;
+      /* Vaste breedte 100% van het kader; de hoogte volgt uit de viewBox-
+         verhouding. Alleen height:auto laten renderen faalt als de container
+         nog geen breedte heeft (chicken-egg): dan wordt de SVG 0×0. De inline
+         width/height-attributen op de root-<svg> worden hierdoor overruled. */
+      width: 100%;
+      height: auto;
+    }
+    figure.model-figure figcaption {
+      font-size: 0.85rem;
+      color: #636f83;
+      margin-top: 4px;
+    }
+
+    /* Full-size weergave zonder JS: het sluit-anker ligt normaal onzichtbaar
+       achter de figuur; pas in de vergrote (:target) staat wordt het de
+       schermvullende, klikbare achtergrond die de hash wist. */
+    figure.model-figure .model-figure__zoom-close { display: none; }
+
+    /* Visueel verborgen tekst in het sluit-anker (zie _section.html): maakt
+       textContent niet-leeg zodat ReSpec's anchor-expander het anker overslaat,
+       zonder iets zichtbaars toe te voegen. */
+    .model-figure__zoom-close .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0);
+      white-space: nowrap; border: 0;
+    }
+
+    /* Vergrote staat: de figuur gaat schermvullend bovenop de pagina staan. De
+       SVG krijgt nu zijn NATUURLIJKE grootte (geen width:100% meer) en het kader
+       scrollt in beide richtingen, zodat het diagram leesbaar is. */
+    figure.model-figure:target {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      margin: 0;
+      padding: 2.5rem 1rem 1rem;
+      background: rgba(15, 23, 42, 0.75);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+    figure.model-figure:target .model-figure__zoom-close {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: -1;            /* achter de figuurinhoud, vóór de pagina */
+      cursor: zoom-out;
+    }
+    figure.model-figure:target .model-figure__frame {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: auto;        /* scroll in beide richtingen */
+      cursor: default;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+    figure.model-figure:target .model-figure__frame > div {
+      width: max-content;    /* laat de SVG groeien tot zijn natuurlijke breedte */
+      min-width: 100%;
+    }
+    figure.model-figure:target svg {
+      /* Natuurlijke afmetingen uit de viewBox i.p.v. 100% van de smalle kolom,
+         met een leesbare bodembreedte en ruimte om te groeien. */
+      width: auto;
+      min-width: min(1400px, 90vw);
+      height: auto;
+      max-height: none;
+    }
+    figure.model-figure:target figcaption {
+      flex: 0 0 auto;
+      color: #e5e9f0;
+      text-align: center;
+      padding-top: 0.5rem;
+    }
+    /* Een '× sluiten'-knop rechtsboven in de vergrote staat. */
+    figure.model-figure:target::after {
+      content: "× sluiten";
+      position: fixed;
+      top: 0.6rem;
+      right: 1rem;
+      color: #fff;
+      font-size: 0.95rem;
+      pointer-events: none;  /* klikken vangt het achterliggende sluit-anker op */
+    }
+  </style>
+  
+  
+  <style>
+    .status-banner {
+      border-left: 8px solid var(--status-color, #6b7280);
+      background: var(--status-bg, #f3f4f6);
+      padding: 0.6rem 1rem;
+      margin: 0 0 1.5rem;
+      font-family: sans-serif;
+    }
+    .status-banner .status-badge {
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--status-color, #374151);
+    }
+    .status-banner .status-version { color: #4b5563; }
+    /* Review-/consultatie-toelichting: een geaccentueerd blok binnen de banner.
+       Eigen witte kaart met een accent-rand in de statuskleur, zodat het
+       duidelijk leesbaar is én opvalt zonder de banner te overschreeuwen. */
+    .status-banner .status-note {
+      margin-top: 0.7rem;
+      background: #fff;
+      border: 1px solid var(--status-color, #2563eb);
+      border-left: 4px solid var(--status-color, #2563eb);
+      border-radius: 6px;
+      padding: 0.7rem 0.9rem;
+      max-width: 60ch;
+    }
+    .status-banner .status-note__title {
+      margin: 0 0 0.25rem;
+      font-weight: 700;
+      color: var(--status-color, #2563eb);
+    }
+    .status-banner .status-note__body {
+      margin: 0;
+      color: #303c54;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+    .status-draft       { --status-color: #d97706; --status-bg: #fffbeb; }
+    .status-under_review{ --status-color: #2563eb; --status-bg: #eff6ff; }
+    .status-published   { --status-color: #16a34a; --status-bg: #f0fdf4; }
+    .status-deprecated  { --status-color: #dc2626; --status-bg: #fef2f2; }
+    .status-withdrawn   { --status-color: #991b1b; --status-bg: #fef2f2; }
+  </style>
+  
+</head>
+<body>
+  
+  <h1 id="title">RTTI - Speed limits</h1>
+
+  
+  <section id="abstract">
+    <p>This vocabulary describes the information needed to record how fast traffic may travel on a road. The core is the maximum speed, which may follow from the statutory default (for example 50 km/h within built-up areas, 80 km/h on other roads outside them, 100 km/h on expressways and 130 km/h on motorways), from a traffic sign, or from a digital sign that adjusts the speed on the spot.
+
+For each speed limit, the vocabulary also records: where it applies (which stretch of road, which carriageway or lane, or within which area/zone), how road users see it (through ordinary roadside signs, zone signs, supplementary signs or electronic matrix signs), when it applies (always, within a certain time window, or depending on conditions such as the weather), which vehicles it applies to (some vehicle categories have their own maximum speed), what exceptions there are, and the official decision the rule is based on. The model also accounts for zones nested within one another: entering a 30 km/h zone inside a built-up area makes 30 apply temporarily, and on leaving it the speed of the enclosing zone applies again.
+
+By describing all of this in a consistent way, different parties — such as road authorities, navigation systems and travel information services — can reliably exchange and use the information, including for in-car speed information. The vocabulary is part of the European arrangements for travel and traffic information (the ITS Directive 2010/40/EU and the RTTI Regulation (EU) 2022/670) and connects to existing Dutch rules and sources for roads and traffic signs (including the RVV 1990, NDW and the National Road Database).</p>
+  </section>
+
+  
+  
+  <div id="beschikbare-talen" class="language-switch">
+    <table class="data-table">
+      <caption>Available languages</caption>
+      <thead>
+        <tr><th>Language</th><th>Document</th></tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>NL</td>
+          <td><a href="../nl/index.html">RTTI - Snelheidsbeperkingen</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>EN</strong></td>
+          <td><strong>RTTI - Speed limits</strong></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
+
+  
+  <div class="status-banner status-draft">
+    <span class="status-badge">Draft</span><span class="status-version"> — Version 0.7.0</span>
+    
+    
+  </div>
+  
+
+  
+    
+<section>
+  <h2>Introduction to semantic modelling</h2>
+  
+    
+      <p class="prose"><p>A <strong>concept scheme</strong> (in SKOS: <em>ConceptScheme</em>) is a structured collection of concepts that carry a fixed, shared meaning within a particular domain. The goal is for everyone working with the model — people and systems alike — to use the same words for the same things. That sounds obvious, but in practice language causes a surprising amount of confusion: what one organisation calls a <em>measurement point</em>, another calls a <em>sensor</em>, a <em>location</em>, or an <em>observation station</em>.</p>
+<p>A concept scheme solves this by recording, for each concept:</p>
+<ul>
+<li>a <strong>preferred label</strong> (prefLabel) it is known by,</li>
+<li>a <strong>definition</strong> that unambiguously describes what the concept does and does not cover,</li>
+<li>and optionally a <strong>scope note</strong> or <strong>example</strong> to clarify borderline cases.</li>
+</ul>
+<p>Concepts rarely stand on their own. They are related <strong>hierarchically</strong> (a vehicle is broader than a truck) or <strong>associatively</strong> (a road user relates to a road segment). These relationships make it possible for queries and analyses to navigate between general and specific concepts, and to make connections between concepts explicit. Within SKOS we use <code>broader</code>, <code>narrower</code>, and <code>related</code> for that.</p>
+<p>When a concept also exists elsewhere — in a national or European standard, for instance — we record that as a <strong>mapping relation</strong>. This prevents reinventing the wheel: we link to the source so interoperability with external systems remains possible.</p>
+<p>This document describes the concept scheme as it is currently recorded. The following sections list the metadata, every concept, the relationships between them, and — where the model is connected to a data source — how it is linked to that source data.</p></p>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>RTTI - Speed limits</h2>
+  
+    
+      <h3>Description</h3>
+    
+  
+    
+      <p class="prose">This vocabulary describes the information needed to record how fast traffic may travel on a road. The core is the maximum speed, which may follow from the statutory default (for example 50 km/h within built-up areas, 80 km/h on other roads outside them, 100 km/h on expressways and 130 km/h on motorways), from a traffic sign, or from a digital sign that adjusts the speed on the spot.
+
+For each speed limit, the vocabulary also records: where it applies (which stretch of road, which carriageway or lane, or within which area/zone), how road users see it (through ordinary roadside signs, zone signs, supplementary signs or electronic matrix signs), when it applies (always, within a certain time window, or depending on conditions such as the weather), which vehicles it applies to (some vehicle categories have their own maximum speed), what exceptions there are, and the official decision the rule is based on. The model also accounts for zones nested within one another: entering a 30 km/h zone inside a built-up area makes 30 apply temporarily, and on leaving it the speed of the enclosing zone applies again.
+
+By describing all of this in a consistent way, different parties — such as road authorities, navigation systems and travel information services — can reliably exchange and use the information, including for in-car speed information. The vocabulary is part of the European arrangements for travel and traffic information (the ITS Directive 2010/40/EU and the RTTI Regulation (EU) 2022/670) and connects to existing Dutch rules and sources for roads and traffic signs (including the RVV 1990, NDW and the National Road Database).</p>
+    
+  
+    
+      
+<table class="data-table">
+  <caption>Metadata</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>URI</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen</td>
+      </tr>
+    
+      <tr>
+        <td>Version</td><td>0.7.0</td>
+      </tr>
+    
+      <tr>
+        <td>Publication status</td><td>Draft</td>
+      </tr>
+    
+      <tr>
+        <td>Management status</td><td>Active</td>
+      </tr>
+    
+      <tr>
+        <td>Organization</td><td>Nationaal Toegangspunt Mobiliteit</td>
+      </tr>
+    
+      <tr>
+        <td>Created on</td><td>2026-02-16</td>
+      </tr>
+    
+      <tr>
+        <td>Last modified on</td><td>2026-10-06</td>
+      </tr>
+    
+      <tr>
+        <td>Last modified by</td><td>arthur.keesen@ndw.nu</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Model overview</h2>
+  
+    
+      <p class="prose">Visual overview of the concepts and their relations. Hierarchical relations are drawn with solid arrows; associative relations are drawn with dashed arrows.</p>
+    
+  
+    
+      
+      
+      <figure class="model-figure" id="model-overview-figure">
+        
+        <a class="model-figure__zoom-close" href="#" aria-label="Sluit vergroting"><span class="visually-hidden">Sluit vergroting</span></a>
+        <a class="model-figure__frame" href="#model-overview-figure" title="Klik om op volledig formaat te bekijken">
+          <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="-482.2 121.0 1813.0 1082.0" width="1813" height="1082"><defs><marker id="arrow-hierarchy" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#475569" /></marker><marker id="arrow-related" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#8b5cf6" /></marker></defs><g class="edges"><line x1="371.5" y1="673.2" x2="474.0" y2="576.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="377.0" y1="687.2" x2="550.0" y2="688.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="515.0" y1="554.8" x2="639.0" y2="547.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="595.8" y1="699.8" x2="704.6" y2="769.4" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="-227.2" y1="755.9" x2="30.3" y2="793.8" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="-262.0" y1="766.3" x2="-419.3" y2="905.8" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="-249.0" y1="772.9" x2="-272.1" y2="1000.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="341.7" y1="674.1" x2="81.2" y2="454.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="59.2" y1="456.0" x2="59.8" y2="527.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="338.7" y1="678.9" x2="86.5" y2="567.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="598.9" y1="687.3" x2="735.1" y2="675.5" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="510.6" y1="543.5" x2="575.3" y2="492.1" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="694.0" y1="411.9" x2="564.0" y2="417.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="707.5" y1="429.9" x2="677.4" y2="518.5" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="696.4" y1="420.5" x2="623.5" y2="460.2" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="-227.4" y1="748.9" x2="30.6" y2="694.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="500.6" y1="536.8" x2="526.9" y2="446.8" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="-116.1" y1="844.6" x2="-39.6" y2="892.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="981.6" y1="425.9" x2="899.2" y2="248.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1009.4" y1="439.0" x2="1245.9" y2="377.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="842.9" y1="350.7" x2="965.5" y2="428.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="835.2" y1="322.2" x2="873.7" y2="247.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-230.2" y1="742.2" x2="35.6" y2="571.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-230.7" y1="764.6" x2="-156.6" y2="817.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="47.4" y1="339.3" x2="-230.2" y2="729.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="71.7" y1="338.5" x2="338.6" y2="664.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="312.0" y1="326.7" x2="88.0" y2="323.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-4.0" y1="924.7" x2="41.1" y2="993.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-25.6" y1="924.9" x2="-70.6" y2="996.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="59.9" y1="201.0" x2="59.2" y2="294.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-291.9" y1="1018.4" x2="-416.4" y2="940.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="337.0" y1="687.1" x2="88.0" y2="688.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="338.3" y1="694.0" x2="86.2" y2="787.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="-123.0" y1="326.6" x2="30.0" y2="323.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="730.9" y1="400.3" x2="801.5" y2="355.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /></g><g class="nodes"><circle cx="579.0" cy="689.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="522.3" y="713.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="579.0" y="727.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Area geometry</text><circle cx="-15.0" cy="908.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-56.1" y="932.0" width="82.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-15.0" y="946.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Condition</text><circle cx="-133.0" cy="834.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-209.2" y="858.0" width="152.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-133.0" y="872.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Supplementary Sign</text><circle cx="-275.0" cy="1029.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-327.8" y="1053.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-275.0" y="1067.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Traffic sign</text><circle cx="764.0" cy="673.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="695.6" y="697.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="764.0" y="711.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Residential Area</text><circle cx="535.0" cy="419.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="497.8" y="443.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="535.0" y="457.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Motorway</text><circle cx="598.0" cy="474.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="568.6" y="498.0" width="58.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="598.0" y="512.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">N-road</text><circle cx="714.0" cy="411.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="688.0" y="435.0" width="52.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="714.0" y="449.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Road</text><circle cx="826.0" cy="340.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="777.1" y="364.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="826.0" y="378.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Carriageway</text><circle cx="59.0" cy="436.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="6.2" y="460.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="59.0" y="474.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Outer regime</text><circle cx="59.0" cy="689.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-9.4" y="713.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="59.0" y="727.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Start Indication</text><circle cx="59.0" cy="798.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-1.6" y="822.0" width="121.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="59.0" y="836.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">End Indication</text><circle cx="495.0" cy="556.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="438.3" y="580.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="495.0" y="594.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Line geometry</text><circle cx="990.0" cy="444.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="964.0" y="468.0" width="52.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="990.0" y="482.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Lane</text><circle cx="-143.0" cy="327.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-211.4" y="351.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-143.0" y="365.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Vehicle category</text><circle cx="729.0" cy="785.0" r="20" fill="#eea93f" stroke="white" stroke-width="2" /><rect x="672.3" y="809.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="729.0" y="823.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Built-Up Area</text><circle cx="57.0" cy="1018.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-19.2" y="1042.0" width="152.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="57.0" y="1056.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Weather Conditions</text><circle cx="60.0" cy="181.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-27.9" y="205.0" width="175.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="60.0" y="219.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Speed Limit Data Type</text><circle cx="-247.0" cy="753.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-292.0" y="777.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-247.0" y="791.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Indication</text><circle cx="357.0" cy="687.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="319.8" y="711.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="357.0" y="725.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Geometry</text><circle cx="668.0" cy="546.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="623.0" y="570.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="668.0" y="584.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Expressway</text><circle cx="-441.0" cy="925.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="-478.2" y="949.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-441.0" y="963.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Actuator</text><circle cx="60.0" cy="556.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="7.2" y="580.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="60.0" y="594.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Inner regime</text><circle cx="332.0" cy="327.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="263.6" y="351.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="332.0" y="365.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Traffic decision</text><circle cx="-86.0" cy="1021.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="-134.9" y="1045.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="-86.0" y="1059.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Time window</text><circle cx="1274.0" cy="370.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1221.2" y="394.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1274.0" y="408.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Road section</text><circle cx="887.0" cy="222.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="806.9" y="246.0" width="160.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="887.0" y="260.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Direction of travel</text><circle cx="59.0" cy="323.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="14.0" y="347.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="59.0" y="361.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Speedlimit</text></g><g class="legend"><line x1="-482.2" y1="1143.0" x2="-442.2" y2="1143.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" /><text x="-432.2" y="1146.8" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">broader / narrower (hiërarchisch / Associatief)</text><line x1="-482.2" y1="1167.0" x2="-442.2" y2="1167.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" stroke-dasharray="6,4" /><text x="-432.2" y="1170.8" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">related (gerelateerd)</text></g><text x="-482.2" y="1199.0" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#94a3b8">Bron: Ontologica — RTTI - Snelheidsbeperkingen</text></svg></div>
+        </a>
+        <figcaption>Model overview</figcaption>
+      </figure>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Concepts</h2>
+  
+    
+      
+<section>
+  <h3>Outer regime</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A demarcated area within which a specific speed limit is in force. Zones can be nested: a zone can lie within an enclosing zone, so that multiple speed limits apply simultaneously in a cascading structure. On leaving an inner zone, the speed limit applying there lapses and the applicable speed falls back to that of the enclosing zone.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>A road user enters a built-up area (50 km/h). Subsequently, they enter a residential area (15 km/h). The active speed restriction is now 15 km/h. Upon leaving the residential area, 50 km/h applies again, because the built-up area as enclosing zone is still in effect.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Road section</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A section of road between two consecutive junctions or intersections, or – if no side road is present – between two points to which a traffic measure applies.
+
+In the National Road Database (NWB) a road section is the smallest unit for which road attributes are registered.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Residential Area</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A part of the public road designated as a residential area (erf), bounded by sign G5 (start of residential area) and sign G6 (end of residential area). Within a residential area a maximum speed of 15 km/h applies.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Speedlimit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The permitted speed on a road or road section, expressed in kilometres per hour (km/h). In the Netherlands the maximum speed is determined by:
+
+(1) the statutory default limits
+(2) by means of traffic signs
+(3) dynamically set limits via digital signs.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Expressway</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>Road indicated by sign G3. Outside built-up areas a statutory maximum speed of 100 km/h applies to motor vehicles on expressways unless otherwise indicated.
+
+Only motor vehicles that are able and permitted to drive at least 50 km/h may use expressways.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Motorway</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>Road indicated by sign G1. Outside built-up areas a statutory maximum speed of 130 km/h applies to motor vehicles on motorways unless otherwise indicated.
+
+Only motor vehicles that are able and permitted to drive at least 60 km/h may use motorways.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Carriageway</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>Any part of the road intended for moving traffic, with the exception of cycle paths and cycle/moped paths.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Lane</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>Part of the carriageway, marked by continuous or broken lines, of such a width that drivers of motor vehicles on more than two wheels can make use of it.
+
+When a traffic sign is applied to specific lanes, a speed limit can be restricted to one or more lanes, for example at rush-hour lanes or matrix signs.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Vehicle category</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>Classification of a vehicle based on the statutory categorisation in the RVV 1990 and the Vehicle Regulations.
+
+Relevant for speed limits because the law establishes special maximum speeds per vehicle category.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Weather Conditions</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>Meteorological conditions (such as rain, fog, snow, black ice or storm) that give rise to an adjusted speed limit.
+In the Netherlands weather-dependent speed limits are mainly set dynamically via matrix signalling on motorways (RWS – Praktijkrichtlijn Dynamisch Verkeersmanagement) or indicated statically via supplementary signs (e.g. &#x27;when the road surface is wet&#x27;).</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Start Indication</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The traffic sign indicating the point at which the validity of a speed limit begins.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>End Indication</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The traffic sign indicating the point at which the validity of a speed limit ends.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Indication</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The tin or digital sign by which a speed limit is communicated to road users.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Actuator</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>An electronic signalling sign on which traffic signs can be displayed dynamically. A digital sign can indicate a lower speed than the static (&#x27;tin&#x27;) sign; in that case the lower speed of the digital sign applies. Only when the digital sign shows an end indication or is blank does the speed limit of the static sign revive. Digital signs are used in particular on motorways via matrix signalling (RWS).</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Condition</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A condition that modifies the standard speed limit on a road section. In Dutch practice such conditions are communicated via supplementary signs and may relate to vehicle type, time window, weather conditions or other circumstances.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Supplementary Sign</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A sign mounted below a traffic sign to provide further specification of the effect of that traffic sign. Legislation determines which types of supplementary signs are permitted, including: an indication of the type of road user to which the sign applies, a time indication, or a distance indication.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Built-Up Area</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The area established as a built-up area by the municipal council.
+
+The built-up area is indicated by signs H1 (start of built-up area) and H2 (end of built-up area). A speed limit of 50 km/h applies unless otherwise indicated by traffic signs.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Inner regime</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A zone nested within an enclosing zone, whose speed limit takes precedence over that of the enclosing zone for as long as the road user is within the inner zone.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>The inner zone concept describes the cascading effect of nested zones. When entering an inner zone, the speed restriction of the enclosing zone is temporarily suspended. When exiting, the speed restriction of the enclosing zone becomes active again. This mechanism works recursively: multiple levels of nesting are possible.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Geometry</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A spatially demarcated area within which a uniform traffic regime applies, bounded by traffic signs indicating the start and end of the regime.
+
+Within the context of speed limits, a closed zone is an area whose boundaries are marked by zone signs (e.g. sign A01-30-ZB / A01-30-ZE for a 30 km/h zone, or sign G5/G6 for a residential area).</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Speed Limit Data Type</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>Data type within the RTTI context describing the set of concepts required to unambiguously record and exchange a speed limit on the Dutch road network. Encompasses the value of the speed limit, the location, the validity, the indication and any exceptions.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Traffic sign</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The physical object — a panel (the &#x27;plate&#x27;), normally mounted on a post or other support — bearing a traffic sign symbol, whose physical execution is legally prescribed.</td>
+      </tr>
+    
+      <tr>
+        <td>Source</td><td>https://wetten.overheid.nl/jci1.3:c:BWBR0004825&amp;bijlage=1, https://wetten.overheid.nl/jci1.3:c:BWBR0009104&amp;hoofdstuk=2</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Time window</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The days and/or hours indicated on a supplementary sign that imply a limitation of the temporal scope of application of the indication on the overlying traffic sign; in particular, for speed limits, the period during which the maximum speed indicated on the traffic sign applies.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>The term &#x27;time window&#x27; does not appear as such in the legislation; the legal basis lies in the limitation of the scope and is referred to as a &#x27;time window&#x27; by Rijkswaterstaat and CROW. The concept has a dual realization: as a physical supplementary sign beneath a metal sign, or as a time condition within a digital/electronic sign. Not to be confused with &#x27;window times&#x27; (loading and unloading times for urban logistics), which are incorporated into the Goods Delivery model.</td>
+      </tr>
+    
+      <tr>
+        <td>Source</td><td>https://kennisbank.crow.nl/public/gastgebruiker/FVV/Verkeerstekens_(toepassing,_plaatsing_en_uitvoering)/Hoofdstuk_C._Geslotenverklaring/29510, https://wetten.overheid.nl/BWBR0004825/, https://wetten.overheid.nl/BWBR0004826/, https://www.rijkswaterstaat.nl/wegen/wetten-regels-en-vergunningen/verkeerswetten/maximumsnelheid</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Direction of travel</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The direction in which traffic moves on a carriageway or lane. Relevant for speed limits where a limit applies to only one direction of travel, e.g. at separated carriageways or at signs placed on one side of the road.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Road</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>to be decided</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Line geometry</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A one-dimensional geometric primitive representing a line: a continuous curve, measurable in length within a coordinate system, composed of one or more connected line segments in which the end point of each segment — except the last — coincides with the start point of the next. Line geometry is used to spatially represent linear features such as a road; designated GM_Curve in ISO 19107 and Curve/LineString in OGC Simple Features</td>
+      </tr>
+    
+      <tr>
+        <td>Source</td><td>http://www.opengis.net/ont/sf, https://docs.geostandaarden.nl/nen3610/gimeg/, https://modellen.geostandaarden.nl/def/nen3610-2022/</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Area geometry</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>to be decided</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Traffic decision</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>Written decision by the competent authority deciding on the placement, modification, or removal of traffic signs and supplementary signs designated by Order in Council insofar as this creates or modifies a command or prohibition, or on measures on or along the road that lead to a restriction or expansion of the number of categories of road users.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Publication takes place pursuant to Article 26 of the BABW via the KOOP Traffic Decisions application in the Government Gazette (National Government) or the local publication journal (municipality, province, water board) since the entry into force of the Electronic Publications Act on 1 July 2021. Requirements for justification follow from Article 21 of the BABW; consultation with the Chief of Police follows from Article 24 of the BABW.</td>
+      </tr>
+    
+      <tr>
+        <td>Source</td><td>https://wetten.overheid.nl/jci1.3:c:BWBR0006622&amp;artikel=12, https://wetten.overheid.nl/jci1.3:c:BWBR0006622&amp;artikel=15, https://wetten.overheid.nl/jci1.3:c:BWBR0006622&amp;artikel=18, https://wetten.overheid.nl/jci1.3:c:BWBR0006622&amp;artikel=1:3, https://wetten.overheid.nl/jci1.3:c:BWBR0006622&amp;artikel=21, https://wetten.overheid.nl/jci1.3:c:BWBR0006622&amp;artikel=26</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>N-road</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The area outside the built-up area established by the municipal council. Outside the built-up area the maximum speeds are 130 km/h on motorways, 100 km/h on expressways and 80 km/h on other roads, unless otherwise indicated by traffic signs.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Relations per concept</h2>
+  
+    
+      <p class="prose">Outgoing semantic relations only — these stay inside the model.</p>
+    
+  
+    
+      
+<section>
+  <h3>Outer regime</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Geometry</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Inner regime</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237259923</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Residential Area</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Area geometry</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186704395</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Speedlimit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Geometry</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Indication</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236172013</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Expressway</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Line geometry</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186695677</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Motorway</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Line geometry</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186695677</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Carriageway</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Direction of travel</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186214125</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Lane</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235638908</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Lane</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Road section</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235085917</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Direction of travel</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186214125</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Vehicle category</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Speedlimit</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Start Indication</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Indication</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236172013</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>End Indication</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Indication</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236172013</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Indication</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Actuator</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236355335</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Traffic sign</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772185159176</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Inner regime</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237259923</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Supplementary Sign</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236462476</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Condition</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Time window</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186160984</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Weather Conditions</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236028582</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Supplementary Sign</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Condition</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236446358</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Built-Up Area</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Area geometry</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186704395</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Inner regime</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Geometry</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Geometry</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Start Indication</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236090614</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>End Indication</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236142216</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Speed Limit Data Type</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Speedlimit</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Traffic sign</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Actuator</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771236355335</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Road</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Expressway</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235313383</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Motorway</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235331951</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>N-road</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772187859423</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Carriageway</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235620358</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Line geometry</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Geometry</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Area geometry</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Geometry</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771237797860</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Traffic decision</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Speedlimit</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1771235237134</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>N-road</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Line geometry</td><td>https://gegevenscatalogus.gov/rtti-snelheidsbeperkingen/concept-1772186695677</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+</section>
+
+  
+</body>
+</html>
