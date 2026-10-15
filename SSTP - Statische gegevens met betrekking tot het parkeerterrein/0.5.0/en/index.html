@@ -1,0 +1,2478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>SSTP - Static data relating to the parking area</title>
+  
+  <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+  <script class="remove">
+    var respecConfig = {"specStatus": "unofficial", "title": "SSTP - Static data relating to the parking area", "shortName": "SSTP - Static data relating to the parking area", "editors": [{"name": "Nationaal Toegangspunt Mobiliteitsdata"}], "lint": false, "edDraftURI": "", "additionalCopyrightHolders": "Nationaal Toegangspunt Mobiliteitsdata", "thisVersion": "https://ndwnu.github.io/its-gegevenscatalogus/SSTP%20-%20Statische%20gegevens%20met%20betrekking%20tot%20het%20parkeerterrein/0.5.0/en/index.html", "latestVersion": "https://ndwnu.github.io/its-gegevenscatalogus/SSTP%20-%20Statische%20gegevens%20met%20betrekking%20tot%20het%20parkeerterrein/latest/en/index.html", "publishDate": "2026-10-15"};
+  </script>
+  
+  
+  <script src="https://ndwnu.github.io/its-gegevenscatalogus/_assets/review.js" defer
+          data-repo="ndwnu/its-gegevenscatalogus"
+          data-model="SSTP - Statische gegevens met betrekking tot het parkeerterrein"
+          data-version="0.5.0"></script>
+  
+  <style>
+    /* Opmaak afgeleid van de PDF (docpublish/pdf/styles/_base.css): dezelfde
+       huisstijl-kleuren en tabelstijl, zodat de ReSpec-pagina en de PDF op
+       elkaar aansluiten. Staat NA ReSpec's basis-stylesheet, dus dit wint. */
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: #303c54;
+      line-height: 1.5;
+    }
+    h1, h2, h3, h4, h5, h6 { color: #1e40af; font-weight: 600; }
+    p.prose { text-align: justify; }
+    p.disclaimer {
+      background: rgba(30, 64, 175, 0.06);
+      border-left: 3px solid #1e40af;
+      padding: 6px 10px;
+      font-style: italic;
+      color: #636f83;
+      margin: 8px 0;
+    }
+    table.data-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px 0 18px;
+      font-size: 0.95rem;
+    }
+    table.data-table caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 600;
+      color: #1e40af;
+      padding-bottom: 4px;
+    }
+    table.data-table th {
+      background: rgba(30, 64, 175, 0.08);
+      border-bottom: 1px solid #1e40af;
+      color: #1e40af;
+      font-weight: 600;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    table.data-table td {
+      border-bottom: 1px solid #dfe4ee;
+      padding: 6px 8px;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+    table.data-table tr:nth-child(even) td { background: rgba(30, 64, 175, 0.025); }
+
+    /* Modeloverzicht-diagram: de server-side force-directed layout geeft een
+       compacte, normaal-geproportioneerde SVG (net als de visuele editor). Schaal
+       hem responsive binnen de paginabreedte. Voor het zeldzame extreem brede
+       geval blijft het kader horizontaal scrollbaar. */
+    figure.model-figure { margin: 12px 0; width: 100%; }
+    figure.model-figure .model-figure__frame {
+      display: block;
+      overflow-x: auto;
+      border: 1px solid #dfe4ee;
+      border-radius: 6px;
+      padding: 8px;
+      background: #fff;
+      cursor: zoom-in;
+    }
+    figure.model-figure .model-figure__frame > div { width: 100%; }
+    figure.model-figure svg {
+      display: block;
+      /* Vaste breedte 100% van het kader; de hoogte volgt uit de viewBox-
+         verhouding. Alleen height:auto laten renderen faalt als de container
+         nog geen breedte heeft (chicken-egg): dan wordt de SVG 0×0. De inline
+         width/height-attributen op de root-<svg> worden hierdoor overruled. */
+      width: 100%;
+      height: auto;
+    }
+    figure.model-figure figcaption {
+      font-size: 0.85rem;
+      color: #636f83;
+      margin-top: 4px;
+    }
+
+    /* Full-size weergave zonder JS: het sluit-anker ligt normaal onzichtbaar
+       achter de figuur; pas in de vergrote (:target) staat wordt het de
+       schermvullende, klikbare achtergrond die de hash wist. */
+    figure.model-figure .model-figure__zoom-close { display: none; }
+
+    /* Visueel verborgen tekst in het sluit-anker (zie _section.html): maakt
+       textContent niet-leeg zodat ReSpec's anchor-expander het anker overslaat,
+       zonder iets zichtbaars toe te voegen. */
+    .model-figure__zoom-close .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0);
+      white-space: nowrap; border: 0;
+    }
+
+    /* Vergrote staat: de figuur gaat schermvullend bovenop de pagina staan. De
+       SVG krijgt nu zijn NATUURLIJKE grootte (geen width:100% meer) en het kader
+       scrollt in beide richtingen, zodat het diagram leesbaar is. */
+    figure.model-figure:target {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      margin: 0;
+      padding: 2.5rem 1rem 1rem;
+      background: rgba(15, 23, 42, 0.75);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+    figure.model-figure:target .model-figure__zoom-close {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: -1;            /* achter de figuurinhoud, vóór de pagina */
+      cursor: zoom-out;
+    }
+    figure.model-figure:target .model-figure__frame {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: auto;        /* scroll in beide richtingen */
+      cursor: default;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+    figure.model-figure:target .model-figure__frame > div {
+      width: max-content;    /* laat de SVG groeien tot zijn natuurlijke breedte */
+      min-width: 100%;
+    }
+    figure.model-figure:target svg {
+      /* Natuurlijke afmetingen uit de viewBox i.p.v. 100% van de smalle kolom,
+         met een leesbare bodembreedte en ruimte om te groeien. */
+      width: auto;
+      min-width: min(1400px, 90vw);
+      height: auto;
+      max-height: none;
+    }
+    figure.model-figure:target figcaption {
+      flex: 0 0 auto;
+      color: #e5e9f0;
+      text-align: center;
+      padding-top: 0.5rem;
+    }
+    /* Een '× sluiten'-knop rechtsboven in de vergrote staat. */
+    figure.model-figure:target::after {
+      content: "× sluiten";
+      position: fixed;
+      top: 0.6rem;
+      right: 1rem;
+      color: #fff;
+      font-size: 0.95rem;
+      pointer-events: none;  /* klikken vangt het achterliggende sluit-anker op */
+    }
+  </style>
+  
+  
+  <style>
+    .status-banner {
+      border-left: 8px solid var(--status-color, #6b7280);
+      background: var(--status-bg, #f3f4f6);
+      padding: 0.6rem 1rem;
+      margin: 0 0 1.5rem;
+      font-family: sans-serif;
+    }
+    .status-banner .status-badge {
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--status-color, #374151);
+    }
+    .status-banner .status-version { color: #4b5563; }
+    /* Review-/consultatie-toelichting: een geaccentueerd blok binnen de banner.
+       Eigen witte kaart met een accent-rand in de statuskleur, zodat het
+       duidelijk leesbaar is én opvalt zonder de banner te overschreeuwen. */
+    .status-banner .status-note {
+      margin-top: 0.7rem;
+      background: #fff;
+      border: 1px solid var(--status-color, #2563eb);
+      border-left: 4px solid var(--status-color, #2563eb);
+      border-radius: 6px;
+      padding: 0.7rem 0.9rem;
+      max-width: 60ch;
+    }
+    .status-banner .status-note__title {
+      margin: 0 0 0.25rem;
+      font-weight: 700;
+      color: var(--status-color, #2563eb);
+    }
+    .status-banner .status-note__body {
+      margin: 0;
+      color: #303c54;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+    .status-draft       { --status-color: #d97706; --status-bg: #fffbeb; }
+    .status-under_review{ --status-color: #2563eb; --status-bg: #eff6ff; }
+    .status-published   { --status-color: #16a34a; --status-bg: #f0fdf4; }
+    .status-deprecated  { --status-color: #dc2626; --status-bg: #fef2f2; }
+    .status-withdrawn   { --status-color: #991b1b; --status-bg: #fef2f2; }
+  </style>
+  
+</head>
+<body>
+  
+  <h1 id="title">SSTP - Static data relating to the parking area</h1>
+
+  
+  <section id="abstract">
+    <p>The Dutch perspective on the concepts representing static data related to parking areas. This data type is defined in the Safe and Secure Truck Parking regulation, which forms part of the ITS legislation.</p>
+  </section>
+
+  
+  
+  <div id="beschikbare-talen" class="language-switch">
+    <table class="data-table">
+      <caption>Available languages</caption>
+      <thead>
+        <tr><th>Language</th><th>Document</th></tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>NL</td>
+          <td><a href="../nl/index.html">SSTP - Statische gegevens met betrekking tot het parkeerterrein</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>EN</strong></td>
+          <td><strong>SSTP - Static data relating to the parking area</strong></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
+
+  
+  <div class="status-banner status-draft">
+    <span class="status-badge">Draft</span><span class="status-version"> — Version 0.5.0</span>
+    
+    
+  </div>
+  
+
+  
+    
+<section>
+  <h2>Introduction to semantic modelling</h2>
+  
+    
+      <p class="prose"><p>A <strong>concept scheme</strong> (in SKOS: <em>ConceptScheme</em>) is a structured collection of concepts that carry a fixed, shared meaning within a particular domain. The goal is for everyone working with the model — people and systems alike — to use the same words for the same things. That sounds obvious, but in practice language causes a surprising amount of confusion: what one organisation calls a <em>measurement point</em>, another calls a <em>sensor</em>, a <em>location</em>, or an <em>observation station</em>.</p>
+<p>A concept scheme solves this by recording, for each concept:</p>
+<ul>
+<li>a <strong>preferred label</strong> (prefLabel) it is known by,</li>
+<li>a <strong>definition</strong> that unambiguously describes what the concept does and does not cover,</li>
+<li>and optionally a <strong>scope note</strong> or <strong>example</strong> to clarify borderline cases.</li>
+</ul>
+<p>Concepts rarely stand on their own. They are related <strong>hierarchically</strong> (a vehicle is broader than a truck) or <strong>associatively</strong> (a road user relates to a road segment). These relationships make it possible for queries and analyses to navigate between general and specific concepts, and to make connections between concepts explicit. Within SKOS we use <code>broader</code>, <code>narrower</code>, and <code>related</code> for that.</p>
+<p>When a concept also exists elsewhere — in a national or European standard, for instance — we record that as a <strong>mapping relation</strong>. This prevents reinventing the wheel: we link to the source so interoperability with external systems remains possible.</p>
+<p>This document describes the concept scheme as it is currently recorded. The following sections list the metadata, every concept, the relationships between them, and — where the model is connected to a data source — how it is linked to that source data.</p></p>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>SSTP - Static data relating to the parking area</h2>
+  
+    
+      <h3>Description</h3>
+    
+  
+    
+      <p class="prose">The Dutch perspective on the concepts representing static data related to parking areas. This data type is defined in the Safe and Secure Truck Parking regulation, which forms part of the ITS legislation.</p>
+    
+  
+    
+      
+<table class="data-table">
+  <caption>Metadata</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>URI</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb</td>
+      </tr>
+    
+      <tr>
+        <td>Version</td><td>0.5.0</td>
+      </tr>
+    
+      <tr>
+        <td>Publication status</td><td>Draft</td>
+      </tr>
+    
+      <tr>
+        <td>Management status</td><td>Active</td>
+      </tr>
+    
+      <tr>
+        <td>Organization</td><td>Nationaal Toegangspunt Mobiliteitsdata</td>
+      </tr>
+    
+      <tr>
+        <td>Created on</td><td>2026-03-05</td>
+      </tr>
+    
+      <tr>
+        <td>Last modified on</td><td>2026-10-15</td>
+      </tr>
+    
+      <tr>
+        <td>Last modified by</td><td>arthur.keesen@ndw.nu</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Model overview</h2>
+  
+    
+      <p class="prose">Visual overview of the concepts and their relations. Hierarchical relations are drawn with solid arrows; associative relations are drawn with dashed arrows.</p>
+    
+  
+    
+      
+      
+      <figure class="model-figure" id="model-overview-figure">
+        
+        <a class="model-figure__zoom-close" href="#" aria-label="Sluit vergroting"><span class="visually-hidden">Sluit vergroting</span></a>
+        <a class="model-figure__frame" href="#model-overview-figure" title="Klik om op volledig formaat te bekijken">
+          <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="346.6 -491.0 1231.1 1173.0" width="1231" height="1173"><defs><marker id="arrow-hierarchy" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#475569" /></marker><marker id="arrow-related" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#8b5cf6" /></marker></defs><g class="edges"><line x1="1171.8" y1="179.6" x2="1359.2" y2="204.2" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="713.8" y1="-216.0" x2="716.8" y2="-290.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="918.8" y1="-119.1" x2="1149.8" y2="-34.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1161.5" y1="159.4" x2="1210.3" y2="68.5" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1170.1" y1="168.5" x2="1305.7" y2="105.3" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="711.7" y1="-176.0" x2="706.9" y2="-103.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1331.0" y1="307.8" x2="1218.0" y2="306.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1334.3" y1="297.0" x2="1176.2" y2="192.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1263.0" y1="-126.0" x2="929.0" y2="-126.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1301.3" y1="-134.1" x2="1376.5" y2="-167.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1298.5" y1="-113.4" x2="1408.5" y2="-24.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1420.0" y1="-189.6" x2="1492.4" y2="-234.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="971.8" y1="141.4" x2="1047.8" y2="276.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="957.2" y1="104.6" x2="907.0" y2="-97.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="564.4" y1="-239.9" x2="473.4" y2="-384.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="572.1" y1="-203.2" x2="550.3" y2="-56.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="594.6" y1="-219.2" x2="684.5" y2="-201.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1335.9" y1="-15.1" x2="1402.1" y2="-8.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1296.0" y1="-18.0" x2="1206.0" y2="-22.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="898.1" y1="-411.0" x2="899.8" y2="-155.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="917.2" y1="-425.4" x2="1489.2" y2="-258.1" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="655.1" y1="214.4" x2="724.3" y2="256.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="647.5" y1="221.6" x2="787.3" y2="482.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="650.4" y1="188.3" x2="882.0" y2="-103.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="698.9" y1="-181.8" x2="566.4" y2="-48.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="731.7" y1="-189.0" x2="872.8" y2="-136.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="697.7" y1="-208.8" x2="480.3" y2="-390.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1169.0" y1="305.4" x2="1091.0" y2="302.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1183.5" y1="286.8" x2="1160.0" y2="204.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="541.5" y1="-47.5" x2="464.5" y2="-380.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="919.6" y1="-129.9" x2="1488.6" y2="-244.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="892.9" y1="-107.3" x2="759.3" y2="244.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="898.5" y1="-106.1" x2="863.2" y2="347.1" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="915.8" y1="-138.2" x2="1076.1" y2="-262.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="912.8" y1="-110.6" x2="1133.5" y2="154.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1042.5" y1="306.4" x2="993.3" y2="317.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1490.0" y1="373.1" x2="890.0" y2="375.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1510.2" y1="353.0" x2="1516.7" y2="-221.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="878.9" y1="367.1" x2="939.1" y2="337.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="852.7" y1="394.2" x2="813.0" y2="481.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /></g><g class="nodes"><circle cx="1316.0" cy="-17.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1247.6" y="7.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1316.0" y="21.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Service Facility</text><circle cx="575.0" cy="-223.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="518.3" y="-199.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="575.0" y="-184.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Motorway Exit</text><circle cx="898.0" cy="-431.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="751.6" y="-407.0" width="292.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="898.0" y="-392.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">SSTP Data Type – Static Parking Data</text><circle cx="900.0" cy="-126.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="823.8" y="-102.0" width="152.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="900.0" y="-87.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Truck Parking Area</text><circle cx="1403.0" cy="-179.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1334.6" y="-155.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1403.0" y="-140.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Vehicle Category</text><circle cx="1189.0" cy="306.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1128.4" y="330.0" width="121.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1189.0" y="344.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Security Level</text><circle cx="1332.0" cy="93.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1263.6" y="117.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1332.0" y="131.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Safety Provision</text><circle cx="1152.0" cy="177.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1013.4" y="201.0" width="277.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1152.0" y="215.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Safety and Security Classification</text><circle cx="861.0" cy="376.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="823.8" y="400.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="861.0" y="414.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Operator</text><circle cx="713.0" cy="-196.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="664.1" y="-172.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="713.0" y="-157.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Entry Point</text><circle cx="965.0" cy="324.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="935.6" y="348.0" width="58.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="965.0" y="362.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Tariff</text><circle cx="1351.0" cy="308.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1294.3" y="332.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1351.0" y="346.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Certification</text><circle cx="801.0" cy="508.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="701.4" y="532.0" width="199.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="801.0" y="546.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Operator Contact Details</text><circle cx="1388.0" cy="208.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1319.6" y="232.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1388.0" y="246.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Security Feature</text><circle cx="1224.0" cy="43.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1175.1" y="67.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1224.0" y="81.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Supervision</text><circle cx="1510.0" cy="373.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1449.4" y="397.0" width="121.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1510.0" y="411.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Road Authority</text><circle cx="1283.0" cy="-126.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1214.6" y="-102.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1283.0" y="-87.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Parking Capacity</text><circle cx="749.0" cy="272.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="692.3" y="296.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="749.0" y="310.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">User Feedback</text><circle cx="1517.0" cy="-250.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1460.3" y="-226.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1517.0" y="-211.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Traffic Order</text><circle cx="705.0" cy="-75.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="667.8" y="-51.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="705.0" y="-36.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Entrence</text><circle cx="638.0" cy="204.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="612.0" y="228.0" width="52.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="638.0" y="242.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">User</text><circle cx="962.0" cy="124.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="932.6" y="148.0" width="58.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="962.0" y="162.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Status</text><circle cx="718.0" cy="-319.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="692.0" y="-295.0" width="52.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="718.0" y="-280.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Exit</text><circle cx="458.0" cy="-409.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="350.6" y="-385.0" width="214.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="458.0" y="-370.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Distance from Primary Road</text><circle cx="1099.0" cy="-280.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="917.5" y="-256.0" width="363.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1099.0" y="-241.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Truck Parking Area Identification Information</text><circle cx="546.0" cy="-28.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="493.2" y="-4.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="546.0" y="10.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Primary Road</text><circle cx="1431.0" cy="-6.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1300.2" y="18.0" width="261.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1431.0" y="32.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Refrigerated Goods Vehicle Space</text><circle cx="1062.0" cy="302.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="997.5" y="326.0" width="129.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1062.0" y="340.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Operating Hours</text><circle cx="1177.0" cy="-24.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1089.1" y="0.0" width="175.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1177.0" y="14.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Motorway Service Area</text></g><g class="legend"><line x1="346.6" y1="622.0" x2="386.6" y2="622.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" /><text x="396.6" y="625.9" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">broader / narrower (hiërarchisch / Associatief)</text><line x1="346.6" y1="646.0" x2="386.6" y2="646.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" stroke-dasharray="6,4" /><text x="396.6" y="649.9" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">related (gerelateerd)</text></g><text x="346.6" y="678.0" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#94a3b8">Bron: Ontologica — SSTP - Statische gegevens met betrekking tot het parkeerterrein</text></svg></div>
+        </a>
+        <figcaption>Model overview</figcaption>
+      </figure>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Concepts</h2>
+  
+    
+      
+<section id="concept-1773735874023">
+  <h3>User</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A person or body that makes use of the truck parking area or of the information about it.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Any truck or commercial vehicle driver, dispatcher, haulier, traffic management body, or any other body such as cargo owners, insurance companies, road authorities and police forces. They should obtain the information from the service providers.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1773736053834">
+  <h3>User Feedback</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The response from a user about a truck parking area or about the information provided on it, such as a rating, a comment or a report of incorrect data.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>User feedback may be given anonymously. The feedback can be used to improve the quality of the published static and dynamic data.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Fictitious example — a driver anonymously reports via an app that the published number of available spaces at Truckparking Voorbeeldstad does not match the actual occupancy.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1773736227821">
+  <h3>Status</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>An attribute indicating the current accessibility condition of a parking facility, expressing whether it is available, fully occupied, or not open for use.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1773737661675">
+  <h3>Exit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The exit of the truck parking area.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1773739249931">
+  <h3>Entrence</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The entrance to the truck parking area.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-afrit">
+  <h3>Motorway Exit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The exit or exits that a truck driver must take to reach the truck parking area from the primary road or to leave the area.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>The exit is indicated by the number, location code and/or name of the junction or interchange. In the Netherlands, motorway exit numbers are assigned by Rijkswaterstaat and published in the NWB.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Fictitious example — exit 99 &#x27;Voorbeeldstad&#x27; on the A99.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-afstand-primaire-weg">
+  <h3>Distance from Primary Road</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The distance between the exit to be taken and the entry point of the truck parking area.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Preferably expressed as the travel distance by road in metres, not as the straight-line distance. For truck parking areas not located along a motorway, the road of the highest order in the vicinity is regarded as the primary road; this data item may then be optional.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Fictitious example — travel distance from exit 99 to the entry point: 850 m.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-beveiligingsniveau">
+  <h3>Security Level</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The tier of security certification achieved by a truck parking area under the European classification framework established by Delegated Regulation (EU) 2022/1012, or an equivalent national classification system. The four European tiers are Bronze, Silver, Gold, and Platinum.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Bronze requires basic perimeter fencing and lighting. Silver adds CCTV coverage. Gold additionally requires 24/7 staffed or remote surveillance and a parking management system with DATEX II output capability. Platinum requires all Gold features plus active threat monitoring and an integrated security operations centre. Certification is performed by accredited conformity assessment bodies under EN ISO/IEC 17021-1. In the Netherlands, the SecureNL consortium is a relevant certification body.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Gold level: 24/7 remote CCTV surveillance, automated entry/exit barriers, DATEX II data feed to NDW, minimum 15 Lux lighting at ground level, perimeter fencing ≥ 1.8 m.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-beveiligingsvoorziening">
+  <h3>Security Feature</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A physical or technological measure installed at a truck parking area to prevent theft, cargo tampering, or unauthorised access.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Delegated Regulation 2022/1012 Annex I specifies minimum technical requirements per feature per tier (e.g. CCTV minimum HD 720p resolution at 5 fps for Silver and above).</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>CCTV covering all truck bays and entry/exit points, HD 720p minimum, 30-day recording retention; perimeter fencing 2.0 m galvanised steel mesh with anti-climb top rail.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-capaciteit">
+  <h3>Parking Capacity</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The total number of parking spaces designated for trucks and commercial vehicles at a parking area, as required by Delegated Regulation (EU) No 885/2013.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>The capacity figure refers exclusively to spaces dimensioned for articulated lorries (opleggers/semi-trailers) unless otherwise specified. 
+
+Spaces for refrigerated goods vehicles are reported separately. 
+
+The capacity can concern static and dynamic figures.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Total truck spaces: 120 (of which 8 refrigerated). The static capacity remains 120 regardless of current occupancy.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-certificering">
+  <h3>Certification</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The formal attestation by an accredited conformity assessment body that a truck parking area meets the requirements of a specified security tier under Delegated Regulation (EU) 2022/1012, including the certification name, issuing body, and date of issue.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Certification is voluntary under Delegated Regulation 2022/1012 but enables the parking area to be included in the EU&#x27;s publicly accessible list of certified SSTPAs. Certification bodies must be accredited under EN ISO/IEC 17021-1. In the Netherlands, ESPORG and the SecureNL consortium are active in this domain. 
+
+Gold and Platinum certified parking areas are required to have a functioning DATEX II data connection to the national access point.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Certificate: &#x27;SSTPA Gold&#x27;, issued by SecureNL, certification date: 2024-03-15, valid until: 2027-03-14.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-exploitant">
+  <h3>Operator</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The legal entity responsible for the day-to-day management and operation of a truck parking area, including the provision of contact information for publication, as required by Delegated Regulation (EU) No 885/2013.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>The operator&#x27;s identity can be verified against the Dutch Chamber of Commerce (Kamer van Koophandel) registration. The information records whether the operator has consented to their contact details being made publicly available via the national access point. The operator may differ from the wegbeheerder (road authority), particularly at privately operated truck parking facilities.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Fictitious example — operator: Voorbeeldparking B.V., Chamber of Commerce (KvK) number 00000000; consent to publish contact details: yes.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-faciliteit">
+  <h3>Service Facility</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>Equipment, amenities, or services available to drivers and vehicles at a truck parking area, beyond the basic parking provision, as required by Delegated Regulation (EU) No 885/2013.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>This covers approximately 60 equipment types including showers, toilets, restaurant, fuel station, AdBlue dispensers, electric vehicle charging points, weighbridge, and tyre inflation. For verzorgingsplaatsen on the national highway network, minimum facility requirements are set by the CROW KIVZP criteria as applied by Rijkswaterstaat. Facilities influence the commercial attractiveness of a truck parking area but are secondary to the mandatory static data fields.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Showers (8 cabins), toilets (24/7 accessible), restaurant (06:00–22:00), AdBlue dispenser, high-pressure truck wash, weighbridge, 8 refrigerated vehicle electrical connections (CEE 63A).</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-identificatiegegevens">
+  <h3>Truck Parking Area Identification Information</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The information by which a truck parking area can be unambiguously identified, comprising its name, its national identifier (if available) and its address, including the country and territorial unit in which it is located.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Maximum 200 characters per field. In the Netherlands, the address must be consistent with the BAG (Basisregistratie Adressen en Gebouwen) where a BAG address exists. If the area is located along a motorway without a street address, the address may be supplemented with the name or number of the road, the hectometre position and the direction of travel from which the area is accessible.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Fictitious example — name: &#x27;Truckparking Voorbeeldstad&#x27;; national identifier: NL-TP-0000; address: Fictieweg 1, 9999 ZZ Voorbeeldstad, the Netherlands.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-koelvoertuigplaats">
+  <h3>Refrigerated Goods Vehicle Space</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A parking space specifically designated and equipped for refrigerated goods vehicles (koelwagens), including provision for powered reefer units (stroomaansluitingen), reported separately from total truck capacity as required by Delegated Regulation (EU) No 885/2013.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>The number of spaces available for refrigerated goods vehicles in accordance with Delegated Regulation (EU) No 885/2013.
+
+Operators usually report this number based on installed electrical connection points (CEE 32A or CEE 63A sockets).</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>A parking area with 120 total truck spaces of which 8 are designated for refrigerated goods vehicles, each equipped with a CEE 63A connection for the reefer unit.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-naam-adres">
+  <h3>Operator Contact Details</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The information enabling users of a truck parking area to contact the parking operator or an associated company, comprising the telephone number and e-mail address of the contact point and, optionally, the name of the contact person.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>These details are only made public if the operator consents; Delegated Regulation (EU) No 885/2013 records that consent as a separate data item.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Fictitious example — contact point: reception Truckparking Voorbeeldstad; telephone: +31 00 000 0000; e-mail: contact@voorbeeldparking.example.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-parkeerterrein">
+  <h3>Truck Parking Area</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>An identifiable and designated, off-street area specifically intended for the overnight or rest-period parking of trucks and commercial vehicles, providing safe and secure conditions.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>In the Netherlands, a truck parking area is formally designated by a traffic order (verkeersbesluit), resulting in the placement of RVV 1990 sign E8a (&#x27;Parking for trucks and buses&#x27;).
+
+On the national road network (Rijkswaterstaat), truck parking is often integrated into motorway service areas (verzorgingsplaatsen). In addition, municipalities may designate truck parking areas.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>A2 Truck Parking at Eindhoven (N2 corridor); a verzorgingsplaats along the A16 near Breda equipped with dedicated truck bays and security fencing.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-primaire-weg">
+  <h3>Primary Road</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The identifier and travel direction of the road or roads (maximum two) from which the truck parking area is directly accessible.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Road identifiers follow the Dutch national numbering convention: A-wegen (autosnelwegen), N-wegen (nationale wegen), and S-wegen (stadsroutes). Road identifiers are maintained in the NWB (Nationaal Wegenbestand). The direction field indicates the main destination served, enabling drivers to identify the relevant parking area from route guidance.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Road: A2, direction: Den Haag; secondary road: N2, direction: Eindhoven-Centrum.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-sstp-gegevenstype">
+  <h3>SSTP Data Type – Static Parking Data</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>Data type within the SSTP context that describes the collection of concepts required to unambiguously record and exchange static information about safe and secure truck parking areas on the trans-European road network.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>This data type is defined as part of the Dutch implementation of the ITS Directive (2010/40/EU) and Delegated Regulation (EU) No 885/2013 on information services for safe and secure parking places for trucks and commercial vehicles. Static data must be made available via the national access point (NTM/NDW) and updated at least annually.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-tarief">
+  <h3>Tariff</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The parking fee and currency applicable at a truck parking area, or an indication that parking is free of charge, as required by Delegated Regulation (EU) No 885/2013.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Tariff information is governed by private law between the parking operator and the user (exploitatieovereenkomst). There is no Dutch public law obligation for truck parking tariff levels. The tariff published through NTM/NDW must be updated whenever the commercial tariff changes; the general minimum update frequency of annually applies.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>€ 30,00 per 24-hour period (EUR); or: free of charge (for short stops at verzorgingsplaatsen without a parking management system).</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-tijdvenster">
+  <h3>Operating Hours</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The periods during which a truck parking area is open and accessible to vehicles, including any restrictions by day of week or time of day. Relevant both to access conditions and to the validity of tariff information.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>24/7 availability is a prerequisite for Gold and Platinum certification under DR (EU) 2022/1012 Annex I. Operating hours may affect the reliability of real-time availability data: a closed parking area should be reflected in the dynamic data type as &#x27;closed&#x27;. In DATEX II this maps to OpeningTimes within the ParkingRecord structure.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Open 24/7 all year; or: Monday–Friday 06:00–22:00, Saturday 08:00–18:00, closed on Sundays and public holidays.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-toegangspunt">
+  <h3>Entry Point</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The location of the point at which vehicles enter the truck parking area.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>The position may be expressed as geographic coordinates (ETRS89 recommended) or as a location reference along the road network (point or linear reference, e.g. via the NWB). A truck parking area may have more than one entry point.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Fictitious example — coordinates: latitude 52.00000, longitude 5.00000 (ETRS89); or as a location reference: a point on an NWB road section of the N999.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-toezicht">
+  <h3>Supervision</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The type of monitoring and supervision arrangement in place at a truck parking area, indicating whether the site is staffed, remotely monitored, or unattended.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>DATEX II ParkingSupervisionEnum includes: patrolled, remoteSurveillance, staffOnSite, controlCentre, none. Gold and Platinum certification under DR 2022/1012 require at minimum remoteSurveillance with 24/7 coverage. Supervision type directly affects the real-time responsiveness to incidents and is relevant to the dynamic data type.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>staffOnSite: a security guard present at the site 24/7; remoteSurveillance: CCTV feeds monitored from a central control room in Amsterdam, with intervention capability via contracted response service.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-veiligheidsclassificatie">
+  <h3>Safety and Security Classification</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A structured description of the security measures, safety provisions, and supervision arrangements present at a truck parking area, as required by Article 4(2)(a) of DR (EU) No 885/2013, including any applicable national or European certification classification. Maps to DATEX II SafetyStandardClassification.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>The classification encompasses three sub-dimensions: security features (beveiligingsvoorzieningen), safety provisions (veiligheidsvoorzieningen), and supervision type (toezicht). DR (EU) 2022/1012 Annex I defines the European four-tier certification framework (Bronze, Silver, Gold, Platinum) that specifies minimum requirements per tier. Where a national classification system exists, it must be reported in the securityNationalClassification field.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-veiligheidsvoorziening">
+  <h3>Safety Provision</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A facility at a truck parking area that serves to protect the physical safety of drivers and occupants, as distinct from cargo security measures.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>These are distinct from security features (beveiligingsvoorzieningen) which concern crime prevention.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Emergency telephone connected to a 24/7 manned control room; fire extinguisher posts every 50 metres along the parking rows; AED (defibrillator) at the reception building.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-verkeersbesluit">
+  <h3>Traffic Order</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A formal administrative decision by the competent road authority (wegbeheerder) designating a location as a truck parking area, establishing the legal basis for placing a E8a sign and enforcing access restrictions.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>A verkeersbesluit for truck parking is taken. The procedure requires mandatory consultation with the police and publication in the Staatscourant, followed by a six-week objection and appeal period.
+
+Verkeersbesluiten are publicly accessible via officielebekendmakingen.nl and the LVBB. 
+
+Not all truck parking areas have a dedicated verkeersbesluit — areas regulated under APV use an aanwijzingsbesluit instead.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Traffic order (verkeersbesluit) by Rijkswaterstaat, reference RWS-2021/12345, published in the Staatscourant on 14 April 2021: designation of service area X as a truck parking area with sign E8a.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-verzorgingsplaats">
+  <h3>Motorway Service Area</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>A rest area alongside a national highway (Rijkswaterstaat) providing at minimum a parking zone and sanitary facilities, and often incorporating designated truck parking bays. Managed by Rijkswaterstaat under the CROW KIVZP criteria.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Verzorgingsplaatsen are formally registered by Rijkswaterstaat and appear in the NDW truck parking register. They carry the E8a sign for the truck section and are bound by Rijkswaterstaat&#x27;s concession or management agreements for service facilities. Not all verzorgingsplaatsen meet the security classification thresholds of Delegated Regulation (EU) 2022/1012.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Verzorgingsplaats De Lucht (A2, Noord-Brabant) — includes a separate fenced truck parking zone with sanitary facilities and a restaurant.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-voertuigcategorie">
+  <h3>Vehicle Category</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The category of vehicles for which a parking area or specific parking spaces are designated, based on the physical and operational characteristics of the vehicle, as defined in the RVV 1990 and EU vehicle classification standards.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>In the context of DR 885/2013, the relevant vehicle categories are trucks (vrachtauto&#x27;s), articulated lorries (opleggers), and buses (bussen). Access restrictions based on vehicle category are governed by RVV, which prohibits parking at an E4–E13 designated location for vehicles not belonging to the indicated category. 
+
+Sign E8a specifically covers lorries and buses.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>A parking area signed E8a may only be used by trucks (motor vehicles with a maximum authorised mass exceeding 3,500 kg) and buses. Passenger cars and vans up to 3,500 kg are excluded.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-wegbeheerder">
+  <h3>Road Authority</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Field</th><th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definition</td><td>The public body legally responsible for a road and any associated infrastructure, including truck parking areas on or adjacent to that road. The wegbeheerder is also the competent authority for issuing a verkeersbesluit.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Authority is determined by WVW 1994 Article 18: Rijkswaterstaat for national highways (A-wegen and certain N-wegen), the provincial executive (Gedeputeerde Staten) for provincial roads, and the municipal executive (B&amp;W) for municipal roads. On verzorgingsplaatsen, Rijkswaterstaat is both wegbeheerder and often concession grantor for the service operator.</td>
+      </tr>
+    
+      <tr>
+        <td>Example</td><td>Rijkswaterstaat (for A2 Truck Parking along the A2); Gemeente Amsterdam (for a municipally designated truck parking area within city limits).</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Relations per concept</h2>
+  
+    
+      <p class="prose">Outgoing semantic relations only — these stay inside the model.</p>
+    
+  
+    
+      
+<section>
+  <h3>User</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>User Feedback</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736053834</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Truck Parking Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Operator Contact Details</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-naam-adres</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>User Feedback</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>User</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773735874023</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Truck Parking Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Status</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Operating Hours</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tijdvenster</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Truck Parking Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Exit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Entry Point</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Entrence</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Entry Point</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Motorway Exit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Entry Point</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Primary Road</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-primaire-weg</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Distance from Primary Road</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afstand-primaire-weg</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Distance from Primary Road</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Primary Road</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-primaire-weg</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Entry Point</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Motorway Exit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afrit</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Security Level</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Operating Hours</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tijdvenster</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Certification</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-certificering</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Safety and Security Classification</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Security Feature</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Safety and Security Classification</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Parking Capacity</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Truck Parking Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Vehicle Category</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-voertuigcategorie</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Refrigerated Goods Vehicle Space</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-koelvoertuigplaats</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Certification</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Safety and Security Classification</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Security Level</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsniveau</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Operator</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Road Authority</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-wegbeheerder</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Truck Parking Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Operator Contact Details</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-naam-adres</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Tariff</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tarief</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Service Facility</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Motorway Service Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verzorgingsplaats</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Refrigerated Goods Vehicle Space</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-koelvoertuigplaats</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Truck Parking Area Identification Information</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Truck Parking Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Refrigerated Goods Vehicle Space</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Service Facility</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-faciliteit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Parking Capacity</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Operator Contact Details</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Operator</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>User</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773735874023</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Truck Parking Area</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Motorway Service Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verzorgingsplaats</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>SSTP Data Type – Static Parking Data</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-sstp-gegevenstype</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Parking Capacity</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Safety and Security Classification</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Status</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736227821</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Entry Point</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Operator</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Traffic Order</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verkeersbesluit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>User</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773735874023</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Truck Parking Area Identification Information</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-identificatiegegevens</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>User Feedback</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736053834</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Primary Road</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Distance from Primary Road</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afstand-primaire-weg</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Entry Point</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Motorway Exit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afrit</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>SSTP Data Type – Static Parking Data</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Traffic Order</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verkeersbesluit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Truck Parking Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Tariff</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Operating Hours</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tijdvenster</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Operator</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Operating Hours</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Tariff</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tarief</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Status</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736227821</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Security Level</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsniveau</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Entry Point</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Motorway Exit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afrit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Primary Road</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-primaire-weg</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Truck Parking Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Distance from Primary Road</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afstand-primaire-weg</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Supervision</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Safety and Security Classification</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Safety and Security Classification</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Safety Provision</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsvoorziening</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Supervision</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toezicht</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Security Feature</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsvoorziening</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Truck Parking Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Certification</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-certificering</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Security Level</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsniveau</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Safety Provision</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Safety and Security Classification</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Traffic Order</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>SSTP Data Type – Static Parking Data</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-sstp-gegevenstype</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Road Authority</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-wegbeheerder</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Vehicle Category</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-voertuigcategorie</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Truck Parking Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Motorway Service Area</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Truck Parking Area</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Service Facility</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-faciliteit</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Vehicle Category</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Parking Capacity</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Traffic Order</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verkeersbesluit</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Road Authority</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantic relations</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Target label</th><th>Target concept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Operator</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Traffic Order</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verkeersbesluit</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+</section>
+
+  
+</body>
+</html>
