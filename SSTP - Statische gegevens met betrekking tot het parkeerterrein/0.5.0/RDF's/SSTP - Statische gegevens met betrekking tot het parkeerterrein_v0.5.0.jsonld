@@ -1,0 +1,1763 @@
+[
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De locatie van het punt waar voertuigen het vrachtwagenparkeerterrein binnenrijden."
+      },
+      {
+        "@language": "en",
+        "@value": "The location of the point at which vehicles enter the truck parking area."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Fictief voorbeeld — coördinaten: breedtegraad 52.00000, lengtegraad 5.00000 (ETRS89); of als locatiereferentie: punt op een NWB-wegvak van de N999."
+      },
+      {
+        "@language": "en",
+        "@value": "Fictitious example — coordinates: latitude 52.00000, longitude 5.00000 (ETRS89); or as a location reference: a point on an NWB road section of the N999."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Toegangspunt"
+      },
+      {
+        "@language": "en",
+        "@value": "Entry Point"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-primaire-weg"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afrit"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afstand-primaire-weg"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "De positie kan worden uitgedrukt als geografische coördinaten (ETRS89 aanbevolen) of als locatiereferentie langs het wegennet (punt- of lineaire referentie, bijvoorbeeld via het NWB). Een vrachtwagenparkeerterrein kan meer dan één toegangspunt hebben."
+      },
+      {
+        "@language": "en",
+        "@value": "The position may be expressed as geographic coordinates (ETRS89 recommended) or as a location reference along the road network (point or linear reference, e.g. via the NWB). A truck parking area may have more than one entry point."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tarief",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De parkeervergoeding en valuta die van toepassing zijn op een vrachtwagenparkeerterrein, of een aanduiding dat parkeren kosteloos is, zoals vereist door Gedelegeerde Verordening (EU) nr. 885/2013."
+      },
+      {
+        "@language": "en",
+        "@value": "The parking fee and currency applicable at a truck parking area, or an indication that parking is free of charge, as required by Delegated Regulation (EU) No 885/2013."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "€ 30,00 per etmaal (EUR); of: gratis (voor korte stops op verzorgingsplaatsen zonder parkeermanagementsysteem)."
+      },
+      {
+        "@language": "en",
+        "@value": "€ 30,00 per 24-hour period (EUR); or: free of charge (for short stops at verzorgingsplaatsen without a parking management system)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Tarief"
+      },
+      {
+        "@language": "en",
+        "@value": "Tariff"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tijdvenster"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Tariefinformatie is geregeld door het privaatrecht tussen de parkeerexploitant en de gebruiker (exploitatieovereenkomst). Er bestaat geen Nederlandse publiekrechtelijke verplichting voor tarifering van vrachtwagenparkeren. Het via NTM/NDW gepubliceerde tarief dient te worden bijgewerkt wanneer het commerciële tarief wijzigt; de algemene minimale updatefrequentie van jaarlijks is van toepassing."
+      },
+      {
+        "@language": "en",
+        "@value": "Tariff information is governed by private law between the parking operator and the user (exploitatieovereenkomst). There is no Dutch public law obligation for truck parking tariff levels. The tariff published through NTM/NDW must be updated whenever the commercial tariff changes; the general minimum update frequency of annually applies."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsniveau",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Het niveau van beveiligingscertificering dat een vrachtwagenparkeerterrein heeft behaald onder het Europese classificatiekader van Gedelegeerde Verordening (EU) 2022/1012, of een gelijkwaardig nationaal classificatiesysteem. De vier Europese niveaus zijn Brons, Zilver, Goud en Platina."
+      },
+      {
+        "@language": "en",
+        "@value": "The tier of security certification achieved by a truck parking area under the European classification framework established by Delegated Regulation (EU) 2022/1012, or an equivalent national classification system. The four European tiers are Bronze, Silver, Gold, and Platinum."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Goud-niveau: 24/7 CCTV-bewaking op afstand, automatische inrij-/uitrijbarrières, DATEX II-datafeed naar NDW, minimale verlichting 15 lux op maaiveld, hekwerk ≥ 1,8 m."
+      },
+      {
+        "@language": "en",
+        "@value": "Gold level: 24/7 remote CCTV surveillance, automated entry/exit barriers, DATEX II data feed to NDW, minimum 15 Lux lighting at ground level, perimeter fencing ≥ 1.8 m."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Beveiligingsniveau"
+      },
+      {
+        "@language": "en",
+        "@value": "Security Level"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tijdvenster"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-certificering"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Brons vereist basishekwerk en verlichting. Zilver voegt CCTV-dekking toe. Goud vereist daarnaast 24/7 bemand of op afstand toezicht en een parkeermanagementsysteem met DATEX II-uitvoermogelijkheid. Platina vereist alle Goud-kenmerken plus actieve dreigingsbewaking en een geïntegreerd beveiligingsoperatiecentrum. Certificering wordt uitgevoerd door geaccrediteerde conformiteitsbeoordelingsinstanties onder EN ISO/IEC 17021-1. In Nederland is het SecureNL-consortium een relevante certificerende instantie."
+      },
+      {
+        "@language": "en",
+        "@value": "Bronze requires basic perimeter fencing and lighting. Silver adds CCTV coverage. Gold additionally requires 24/7 staffed or remote surveillance and a parking management system with DATEX II output capability. Platinum requires all Gold features plus active threat monitoring and an integrated security operations centre. Certification is performed by accredited conformity assessment bodies under EN ISO/IEC 17021-1. In the Netherlands, the SecureNL consortium is a relevant certification body."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-wegbeheerder",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Het publiekrechtelijk orgaan dat juridisch verantwoordelijk is voor een weg en de daarmee verbonden infrastructuur, inclusief vrachtwagenparkeerterreinen op of naast die weg. De wegbeheerder is tevens het bevoegd gezag voor het nemen van een verkeersbesluit."
+      },
+      {
+        "@language": "en",
+        "@value": "The public body legally responsible for a road and any associated infrastructure, including truck parking areas on or adjacent to that road. The wegbeheerder is also the competent authority for issuing a verkeersbesluit."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Rijkswaterstaat (voor A2 Truck Parking langs de A2); Gemeente Amsterdam (voor een gemeentelijk aangewezen vrachtwagenparkeerterrein binnen de gemeentegrenzen)."
+      },
+      {
+        "@language": "en",
+        "@value": "Rijkswaterstaat (for A2 Truck Parking along the A2); Gemeente Amsterdam (for a municipally designated truck parking area within city limits)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Wegbeheerder"
+      },
+      {
+        "@language": "en",
+        "@value": "Road Authority"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verkeersbesluit"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "De bevoegdheid is geregeld in WVW 1994 artikel 18: Rijkswaterstaat voor rijkswegen (A-wegen en bepaalde N-wegen), het college van Gedeputeerde Staten voor provinciale wegen, en het college van B&W voor gemeentelijke wegen. Op verzorgingsplaatsen is Rijkswaterstaat zowel wegbeheerder als doorgaans concessieverlener voor de serviceexploitant."
+      },
+      {
+        "@language": "en",
+        "@value": "Authority is determined by WVW 1994 Article 18: Rijkswaterstaat for national highways (A-wegen and certain N-wegen), the provincial executive (Gedeputeerde Staten) for provincial roads, and the municipal executive (B&W) for municipal roads. On verzorgingsplaatsen, Rijkswaterstaat is both wegbeheerder and often concession grantor for the service operator."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een gestructureerde beschrijving van de beveiligingsmaatregelen, veiligheidsvoorzieningen en toezichtregelingen die aanwezig zijn op een vrachtwagenparkeerterrein, zoals vereist door artikel 4 lid 2 sub a van Gedelegeerde Verordening (EU) nr. 885/2013, inclusief eventuele nationale of Europese certificeringsclassificatie. Komt overeen met DATEX II SafetyStandardClassification."
+      },
+      {
+        "@language": "en",
+        "@value": "A structured description of the security measures, safety provisions, and supervision arrangements present at a truck parking area, as required by Article 4(2)(a) of DR (EU) No 885/2013, including any applicable national or European certification classification. Maps to DATEX II SafetyStandardClassification."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsvoorziening"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsvoorziening"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toezicht"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Veiligheids- en beveiligingsclassificatie"
+      },
+      {
+        "@language": "en",
+        "@value": "Safety and Security Classification"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-certificering"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsniveau"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "De classificatie omvat drie subdimensies: beveiligingsvoorzieningen, veiligheidsvoorzieningen en toezicht. DR (EU) 2022/1012 Bijlage I definieert het Europese vierniveaucertificeringskader (Brons, Zilver, Goud, Platina) met minimumvereisten per niveau. Waar een nationaal classificatiesysteem bestaat, dient dit te worden gerapporteerd in het veld securityNationalClassification."
+      },
+      {
+        "@language": "en",
+        "@value": "The classification encompasses three sub-dimensions: security features (beveiligingsvoorzieningen), safety provisions (veiligheidsvoorzieningen), and supervision type (toezicht). DR (EU) 2022/1012 Annex I defines the European four-tier certification framework (Bronze, Silver, Gold, Platinum) that specifies minimum requirements per tier. Where a national classification system exists, it must be reported in the securityNationalClassification field."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsvoorziening",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een fysieke of technologische maatregel die is geïnstalleerd op een vrachtwagenparkeerterrein om diefstal, lading manipulatie of ongeoorloofde toegang te voorkomen."
+      },
+      {
+        "@language": "en",
+        "@value": "A physical or technological measure installed at a truck parking area to prevent theft, cargo tampering, or unauthorised access."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "CCTV met dekking van alle vrachtwagenparkeerplaatsen en toegangspunten, minimaal HD 720p, bewaarintermijn opnames 30 dagen; hekwerk 2,0 m gegalvaniseerd staalvlechtwerk met anti-klimrail."
+      },
+      {
+        "@language": "en",
+        "@value": "CCTV covering all truck bays and entry/exit points, HD 720p minimum, 30-day recording retention; perimeter fencing 2.0 m galvanised steel mesh with anti-climb top rail."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Beveiligingsvoorziening"
+      },
+      {
+        "@language": "en",
+        "@value": "Security Feature"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Gedelegeerde Verordening 2022/1012 Bijlage I specificeert minimale technische vereisten per voorziening per niveau (bijv. CCTV minimaal HD 720p resolutie bij 5 fps voor Zilver en hoger)."
+      },
+      {
+        "@language": "en",
+        "@value": "Delegated Regulation 2022/1012 Annex I specifies minimum technical requirements per feature per tier (e.g. CCTV minimum HD 720p resolution at 5 fps for Silver and above)."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773739249931",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De toegang tot het vrachtwagenparkeerterrein."
+      },
+      {
+        "@language": "en",
+        "@value": "The entrance to the truck parking area."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Ingang"
+      },
+      {
+        "@language": "en",
+        "@value": "Entrence"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-identificatiegegevens",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De gegevens waarmee een vrachtwagenparkeerterrein eenduidig kan worden geïdentificeerd, bestaande uit de naam, de nationale identificatie (indien beschikbaar) en het adres, inclusief het land en de territoriale eenheid waarin het terrein ligt."
+      },
+      {
+        "@language": "en",
+        "@value": "The information by which a truck parking area can be unambiguously identified, comprising its name, its national identifier (if available) and its address, including the country and territorial unit in which it is located."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Fictief voorbeeld — naam: 'Truckparking Voorbeeldstad'; nationale identificatie: NL-TP-0000; adres: Fictieweg 1, 9999 ZZ Voorbeeldstad, Nederland."
+      },
+      {
+        "@language": "en",
+        "@value": "Fictitious example — name: 'Truckparking Voorbeeldstad'; national identifier: NL-TP-0000; address: Fictieweg 1, 9999 ZZ Voorbeeldstad, the Netherlands."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Identificatiegegevens vrachtwagenparkeerterrein"
+      },
+      {
+        "@language": "en",
+        "@value": "Truck Parking Area Identification Information"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Maximaal 200 tekens per veld. In Nederland dient het adres te zijn afgestemd op de BAG (Basisregistratie Adressen en Gebouwen) waar een BAG-adres beschikbaar is. Ligt het terrein langs een autosnelweg zonder straatadres, dan kan het adres worden aangevuld met de naam of het nummer van de weg, de hectometerpositie en de rijrichting waarlangs het terrein bereikbaar is."
+      },
+      {
+        "@language": "en",
+        "@value": "Maximum 200 characters per field. In the Netherlands, the address must be consistent with the BAG (Basisregistratie Adressen en Gebouwen) where a BAG address exists. If the area is located along a motorway without a street address, the address may be supplemented with the name or number of the road, the hectometre position and the direction of travel from which the area is accessible."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De rechtspersoon die verantwoordelijk is voor het dagelijks beheer en de exploitatie van een vrachtwagenparkeerterrein, inclusief het verstrekken van contactgegevens voor publicatie, zoals vereist door de Gedelegeerde Verordening (EU) nr. 885/2013."
+      },
+      {
+        "@language": "en",
+        "@value": "The legal entity responsible for the day-to-day management and operation of a truck parking area, including the provision of contact information for publication, as required by Delegated Regulation (EU) No 885/2013."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Fictief voorbeeld — exploitant: Voorbeeldparking B.V., KvK 00000000; publicatietoestemming contactgegevens: ja."
+      },
+      {
+        "@language": "en",
+        "@value": "Fictitious example — operator: Voorbeeldparking B.V., Chamber of Commerce (KvK) number 00000000; consent to publish contact details: yes."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Exploitant"
+      },
+      {
+        "@language": "en",
+        "@value": "Operator"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tarief"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-wegbeheerder"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-naam-adres"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "De identiteit van de exploitant kan worden geverifieerd via de Nederlandse KvK-registratie (Kamer van Koophandel). Het registreert of de exploitant heeft ingestemd met het openbaar beschikbaar stellen van zijn contactgegevens via het nationaal toegangspunt. De exploitant kan afwijken van de wegbeheerder, met name bij particulier geëxploiteerde vrachtwagenparkeerterreinen."
+      },
+      {
+        "@language": "en",
+        "@value": "The operator's identity can be verified against the Dutch Chamber of Commerce (Kamer van Koophandel) registration. The information records whether the operator has consented to their contact details being made publicly available via the national access point. The operator may differ from the wegbeheerder (road authority), particularly at privately operated truck parking facilities."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-faciliteit",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Uitrusting, voorzieningen of diensten die beschikbaar zijn voor chauffeurs en voertuigen op een vrachtwagenparkeerterrein, buiten de basisparkeervoorziening, zoals vereist door Gedelegeerde Verordening (EU) nr. 885/2013."
+      },
+      {
+        "@language": "en",
+        "@value": "Equipment, amenities, or services available to drivers and vehicles at a truck parking area, beyond the basic parking provision, as required by Delegated Regulation (EU) No 885/2013."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Douches (8 cabines), toiletten (24/7 toegankelijk), restaurant (06:00–22:00), AdBlue-dispenser, hogedruk vrachtwagenwasstraat, weegbrug, 8 elektrische aansluitingen voor koelvoertuigen (CEE 63A)."
+      },
+      {
+        "@language": "en",
+        "@value": "Showers (8 cabins), toilets (24/7 accessible), restaurant (06:00–22:00), AdBlue dispenser, high-pressure truck wash, weighbridge, 8 refrigerated vehicle electrical connections (CEE 63A)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Faciliteit"
+      },
+      {
+        "@language": "en",
+        "@value": "Service Facility"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-koelvoertuigplaats"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verzorgingsplaats"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Dit omvat circa 60 apparatuurtypen waaronder douches, toiletten, restaurant, tankstation, AdBlue-dispensers, laadpunten voor elektrische voertuigen, weegbrug en bandenspanning. Voor verzorgingsplaatsen op het rijkswegennet stelt Rijkswaterstaat minimale voorzieningenvereisten op basis van de CROW KIVZP-criteria. Faciliteiten beïnvloeden de commerciële aantrekkelijkheid van een vrachtwagenparkeerterrein maar zijn secundair aan de verplichte statische gegevensvelden."
+      },
+      {
+        "@language": "en",
+        "@value": "This covers approximately 60 equipment types including showers, toilets, restaurant, fuel station, AdBlue dispensers, electric vehicle charging points, weighbridge, and tyre inflation. For verzorgingsplaatsen on the national highway network, minimum facility requirements are set by the CROW KIVZP criteria as applied by Rijkswaterstaat. Facilities influence the commercial attractiveness of a truck parking area but are secondary to the mandatory static data fields."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-sstp-gegevenstype",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Gegevenstype binnen de SSTP-context dat de verzameling van concepten beschrijft die nodig zijn om statische informatie over veilige en beveiligde vrachtwagenparkeerterreinen op het trans-Europees wegennet eenduidig vast te leggen en uit te wisselen."
+      },
+      {
+        "@language": "en",
+        "@value": "Data type within the SSTP context that describes the collection of concepts required to unambiguously record and exchange static information about safe and secure truck parking areas on the trans-European road network."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Gegevenstype SSTP – Statische parkeergegevens"
+      },
+      {
+        "@language": "en",
+        "@value": "SSTP Data Type – Static Parking Data"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verkeersbesluit"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Dit gegevenstype is gedefinieerd als onderdeel van de Nederlandse implementatie van de ITS-richtlijn (2010/40/EU) en Gedelegeerde Verordening (EU) nr. 885/2013 inzake informatiediensten voor veilige en beveiligde parkeerplaatsen voor vrachtwagens en bedrijfsvoertuigen. Statische gegevens moeten beschikbaar zijn via het nationaal toegangspunt (NTM/NDW) en minimaal jaarlijks worden bijgewerkt."
+      },
+      {
+        "@language": "en",
+        "@value": "This data type is defined as part of the Dutch implementation of the ITS Directive (2010/40/EU) and Delegated Regulation (EU) No 885/2013 on information services for safe and secure parking places for trucks and commercial vehicles. Static data must be made available via the national access point (NTM/NDW) and updated at least annually."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773735874023",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een persoon of instantie die gebruikmaakt van het vrachtwagenparkeerterrein of van de informatie daarover."
+      },
+      {
+        "@language": "en",
+        "@value": "A person or body that makes use of the truck parking area or of the information about it."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Gebruiker"
+      },
+      {
+        "@language": "en",
+        "@value": "User"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736053834"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-naam-adres"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Iedere chauffeur van een vrachtwagen of bedrijfsvoertuig, planner, transporteur, verkeersregelaar of andere instantie zoals ladingeigenaren, verzekeringsmaatschappijen, wegbeheerders en politie. Zij dienen de informatie te verkrijgen van de dienstverleners."
+      },
+      {
+        "@language": "en",
+        "@value": "Any truck or commercial vehicle driver, dispatcher, haulier, traffic management body, or any other body such as cargo owners, insurance companies, road authorities and police forces. They should obtain the information from the service providers."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-voertuigcategorie",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De categorie voertuigen waarvoor een parkeerterrein of specifieke parkeerplaatsen zijn bestemd, op basis van de fysieke en operationele kenmerken van het voertuig, zoals gedefinieerd in RVV en EU-voertuigclassificatienormen."
+      },
+      {
+        "@language": "en",
+        "@value": "The category of vehicles for which a parking area or specific parking spaces are designated, based on the physical and operational characteristics of the vehicle, as defined in the RVV 1990 and EU vehicle classification standards."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Een parkeerterrein aangeduid met bord E8a mag uitsluitend worden gebruikt door vrachtwagens (motorrijtuigen met een toegestane maximummassa van meer dan 3.500 kg) en bussen. Personenauto's en bestelauto's tot 3.500 kg zijn uitgesloten."
+      },
+      {
+        "@language": "en",
+        "@value": "A parking area signed E8a may only be used by trucks (motor vehicles with a maximum authorised mass exceeding 3,500 kg) and buses. Passenger cars and vans up to 3,500 kg are excluded."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Voertuigcategorie"
+      },
+      {
+        "@language": "en",
+        "@value": "Vehicle Category"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verkeersbesluit"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "In de context van DR 885/2013 zijn de relevante voertuigcategorieën vrachtauto's, opleggers en bussen. Toegangsbeperkingen op basis van voertuigcategorie worden geregeld door RVV, dat parkeren verbiedt op een E4–E13-aangewezen locatie voor voertuigen die niet tot de aangewezen categorie behoren. \n\nBord E8a betreft specifiek vrachtwagens en bussen."
+      },
+      {
+        "@language": "en",
+        "@value": "In the context of DR 885/2013, the relevant vehicle categories are trucks (vrachtauto's), articulated lorries (opleggers), and buses (bussen). Access restrictions based on vehicle category are governed by RVV, which prohibits parking at an E4–E13 designated location for vehicles not belonging to the indicated category. \n\nSign E8a specifically covers lorries and buses."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-naam-adres",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De gegevens waarmee gebruikers van een vrachtwagenparkeerterrein contact kunnen opnemen met de exploitant of een daaraan verbonden onderneming, bestaande uit het telefoonnummer en het e-mailadres van het contactpunt en optioneel de naam van de contactpersoon."
+      },
+      {
+        "@language": "en",
+        "@value": "The information enabling users of a truck parking area to contact the parking operator or an associated company, comprising the telephone number and e-mail address of the contact point and, optionally, the name of the contact person."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Fictief voorbeeld — contactpunt: receptie Truckparking Voorbeeldstad; telefoon: +31 00 000 0000; e-mail: contact@voorbeeldparking.example."
+      },
+      {
+        "@language": "en",
+        "@value": "Fictitious example — contact point: reception Truckparking Voorbeeldstad; telephone: +31 00 000 0000; e-mail: contact@voorbeeldparking.example."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Contactgegevens exploitant"
+      },
+      {
+        "@language": "en",
+        "@value": "Operator Contact Details"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773735874023"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Deze gegevens worden alleen openbaar gemaakt als de exploitant daarmee instemt; Gedelegeerde Verordening (EU) nr. 885/2013 legt die instemming als afzonderlijk gegeven vast."
+      },
+      {
+        "@language": "en",
+        "@value": "These details are only made public if the operator consents; Delegated Regulation (EU) No 885/2013 records that consent as a separate data item."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736053834",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De terugkoppeling van een gebruiker over een vrachtwagenparkeerterrein of over de verstrekte informatie daarover, zoals een beoordeling, een opmerking of een melding van onjuiste gegevens."
+      },
+      {
+        "@language": "en",
+        "@value": "The response from a user about a truck parking area or about the information provided on it, such as a rating, a comment or a report of incorrect data."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Fictief voorbeeld — een chauffeur meldt anoniem via een app dat het gepubliceerde aantal vrije plaatsen op Truckparking Voorbeeldstad niet overeenkomt met de werkelijke bezetting."
+      },
+      {
+        "@language": "en",
+        "@value": "Fictitious example — a driver anonymously reports via an app that the published number of available spaces at Truckparking Voorbeeldstad does not match the actual occupancy."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Gebruikersfeedback"
+      },
+      {
+        "@language": "en",
+        "@value": "User Feedback"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773735874023"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Gebruikersfeedback mag anoniem worden gegeven. De feedback kan worden gebruikt om de kwaliteit van de gepubliceerde statische en dynamische gegevens te verbeteren."
+      },
+      {
+        "@language": "en",
+        "@value": "User feedback may be given anonymously. The feedback can be used to improve the quality of the published static and dynamic data."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afstand-primaire-weg",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De afstand tussen de te nemen afrit en het toegangspunt van het vrachtwagenparkeerterrein."
+      },
+      {
+        "@language": "en",
+        "@value": "The distance between the exit to be taken and the entry point of the truck parking area."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Fictief voorbeeld — rijafstand van afrit 99 tot het toegangspunt: 850 m."
+      },
+      {
+        "@language": "en",
+        "@value": "Fictitious example — travel distance from exit 99 to the entry point: 850 m."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Afstand tot primaire weg"
+      },
+      {
+        "@language": "en",
+        "@value": "Distance from Primary Road"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afrit"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-primaire-weg"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Bij voorkeur uitgedrukt als rijafstand over de weg in meters, niet als hemelsbrede afstand. Voor vrachtwagenparkeerterreinen die niet langs een autosnelweg liggen, geldt de weg van de hoogste orde in de nabijheid als primaire weg; dit gegeven kan dan optioneel zijn."
+      },
+      {
+        "@language": "en",
+        "@value": "Preferably expressed as the travel distance by road in metres, not as the straight-line distance. For truck parking areas not located along a motorway, the road of the highest order in the vicinity is regarded as the primary road; this data item may then be optional."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773737661675",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De uitgang van het vrachtwagenparkeerterrein."
+      },
+      {
+        "@language": "en",
+        "@value": "The exit of the truck parking area."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Uitgang"
+      },
+      {
+        "@language": "en",
+        "@value": "Exit"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afrit",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De afrit of afritten die een vrachtwagenchauffeur moet nemen om het vrachtwagenparkeerterrein vanaf de primaire weg te bereiken of om het terrein te verlaten."
+      },
+      {
+        "@language": "en",
+        "@value": "The exit or exits that a truck driver must take to reach the truck parking area from the primary road or to leave the area."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Fictief voorbeeld — afrit 99 'Voorbeeldstad' van de A99."
+      },
+      {
+        "@language": "en",
+        "@value": "Fictitious example — exit 99 'Voorbeeldstad' on the A99."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Afrit"
+      },
+      {
+        "@language": "en",
+        "@value": "Motorway Exit"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afstand-primaire-weg"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-primaire-weg"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "De afrit wordt aangeduid met het nummer, de locatiecode en/of de naam van het knooppunt of de aansluiting. In Nederland worden afritnummers van autosnelwegen toegekend door Rijkswaterstaat en gepubliceerd in het NWB."
+      },
+      {
+        "@language": "en",
+        "@value": "The exit is indicated by the number, location code and/or name of the junction or interchange. In the Netherlands, motorway exit numbers are assigned by Rijkswaterstaat and published in the NWB."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-certificering",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De formele bevestiging door een geaccrediteerde conformiteitsbeoordelingsinstantie dat een vrachtwagenparkeerterrein voldoet aan de vereisten van een bepaald beveiligingsniveau onder Gedelegeerde Verordening (EU) 2022/1012, inclusief de certificaatnaam, uitgevende instantie en datum van afgifte."
+      },
+      {
+        "@language": "en",
+        "@value": "The formal attestation by an accredited conformity assessment body that a truck parking area meets the requirements of a specified security tier under Delegated Regulation (EU) 2022/1012, including the certification name, issuing body, and date of issue."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Certificaat: 'SSTPA Goud', afgegeven door SecureNL, certificeringsdatum: 15-03-2024, geldig tot: 14-03-2027."
+      },
+      {
+        "@language": "en",
+        "@value": "Certificate: 'SSTPA Gold', issued by SecureNL, certification date: 2024-03-15, valid until: 2027-03-14."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Certificering"
+      },
+      {
+        "@language": "en",
+        "@value": "Certification"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsniveau"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Certificering is vrijwillig onder Gedelegeerde Verordening 2022/1012 maar maakt het mogelijk dat het parkeerterrein wordt opgenomen in de EU-lijst van gecertificeerde SSTPA's. Certificeringsinstanties moeten zijn geaccrediteerd onder EN ISO/IEC 17021-1. In Nederland zijn ESPORG en het SecureNL-consortium actief op dit gebied. \n\nGoud- en Platina-gecertificeerde parkeerterreinen zijn verplicht een werkende DATEX II-dataverbinding met het nationaal toegangspunt te hebben."
+      },
+      {
+        "@language": "en",
+        "@value": "Certification is voluntary under Delegated Regulation 2022/1012 but enables the parking area to be included in the EU's publicly accessible list of certified SSTPAs. Certification bodies must be accredited under EN ISO/IEC 17021-1. In the Netherlands, ESPORG and the SecureNL consortium are active in this domain. \n\nGold and Platinum certified parking areas are required to have a functioning DATEX II data connection to the national access point."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-primaire-weg",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De identificatie en rijrichting van de weg of wegen (maximaal twee) waarvan het vrachtwagenparkeerterrein direct toegankelijk is."
+      },
+      {
+        "@language": "en",
+        "@value": "The identifier and travel direction of the road or roads (maximum two) from which the truck parking area is directly accessible."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Weg: A2, richting: Den Haag; nevenweg: N2, richting: Eindhoven-Centrum."
+      },
+      {
+        "@language": "en",
+        "@value": "Road: A2, direction: Den Haag; secondary road: N2, direction: Eindhoven-Centrum."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Primaire weg"
+      },
+      {
+        "@language": "en",
+        "@value": "Primary Road"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afstand-primaire-weg"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afrit"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Wegidentificatoren volgen de Nederlandse nationale nummeringsconventie: A-wegen (autosnelwegen), N-wegen (nationale wegen) en S-wegen (stadsroutes). Wegidentificatoren worden bijgehouden in het NWB (Nationaal Wegenbestand). Het richtingsveld geeft de hoofdbestemming aan die wordt bediend, zodat bestuurders het relevante parkeerterrein kunnen identificeren vanuit routegeleiding."
+      },
+      {
+        "@language": "en",
+        "@value": "Road identifiers follow the Dutch national numbering convention: A-wegen (autosnelwegen), N-wegen (nationale wegen), and S-wegen (stadsroutes). Road identifiers are maintained in the NWB (Nationaal Wegenbestand). The direction field indicates the main destination served, enabling drivers to identify the relevant parking area from route guidance."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/dynamisch",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#OrderedCollection"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#memberList": [
+      {
+        "@list": [
+          {
+            "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit"
+          },
+          {
+            "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736227821"
+          },
+          {
+            "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein"
+          },
+          {
+            "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-sstp-gegevenstype"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Dynamisch"
+      },
+      {
+        "@language": "en",
+        "@value": "Dynamic"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toezicht",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Het type bewakings- en toezichtregeling op een vrachtwagenparkeerterrein, die aangeeft of het terrein is bemand, op afstand wordt bewaakt of onbemand is."
+      },
+      {
+        "@language": "en",
+        "@value": "The type of monitoring and supervision arrangement in place at a truck parking area, indicating whether the site is staffed, remotely monitored, or unattended."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "staffOnSite: een beveiliger die 24/7 op het terrein aanwezig is; remoteSurveillance: CCTV-beelden worden bewaakt vanuit een centrale meldkamer in Amsterdam, met interventiemogelijkheid via een gecontracteerde responsdienst."
+      },
+      {
+        "@language": "en",
+        "@value": "staffOnSite: a security guard present at the site 24/7; remoteSurveillance: CCTV feeds monitored from a central control room in Amsterdam, with intervention capability via contracted response service."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Toezicht"
+      },
+      {
+        "@language": "en",
+        "@value": "Supervision"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "DATEX II ParkingSupervisionEnum omvat: patrolled, remoteSurveillance, staffOnSite, controlCentre, none. Goud- en Platina-certificering onder DR 2022/1012 vereisen minimaal remoteSurveillance met 24/7-dekking. Het type toezicht heeft direct invloed op de responstijd bij incidenten en is relevant voor het dynamische gegevenstype."
+      },
+      {
+        "@language": "en",
+        "@value": "DATEX II ParkingSupervisionEnum includes: patrolled, remoteSurveillance, staffOnSite, controlCentre, none. Gold and Platinum certification under DR 2022/1012 require at minimum remoteSurveillance with 24/7 coverage. Supervision type directly affects the real-time responsiveness to incidents and is relevant to the dynamic data type."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een identificeerbaar en aangewezen, niet op de rijbaan gelegen terrein dat specifiek bestemd is voor het nacht- of rustperiodeparkeren van vrachtwagens en bedrijfsvoertuigen, waarbij veilige en beveiligde omstandigheden worden geboden."
+      },
+      {
+        "@language": "en",
+        "@value": "An identifiable and designated, off-street area specifically intended for the overnight or rest-period parking of trucks and commercial vehicles, providing safe and secure conditions."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "A2 Truck Parking bij Eindhoven (N2-corridor); een verzorgingsplaats langs de A16 bij Breda voorzien van afgebakende vrachtwagenparkeerplaatsen en hekwerk."
+      },
+      {
+        "@language": "en",
+        "@value": "A2 Truck Parking at Eindhoven (N2 corridor); a verzorgingsplaats along the A16 near Breda equipped with dedicated truck bays and security fencing."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verzorgingsplaats"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Vrachtwagenparkeerterrein"
+      },
+      {
+        "@language": "en",
+        "@value": "Truck Parking Area"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verkeersbesluit"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736053834"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736227821"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-sstp-gegevenstype"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-identificatiegegevens"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773735874023"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "In Nederland wordt een vrachtwagenparkeerterrein formeel aangewezen via een verkeersbesluit, resulterend in de plaatsing van RVV 1990-bord E8a ('Parkeergelegenheid voor vrachtwagens en bussen').\n\nOp het rijkswegennet (Rijkswaterstaat) is vrachtwagenparkeren vaak geïntegreerd in verzorgingsplaatsen. Daarnaast kunnen gemeenten vrachtwagenparkeerterreinen aanwijzen."
+      },
+      {
+        "@language": "en",
+        "@value": "In the Netherlands, a truck parking area is formally designated by a traffic order (verkeersbesluit), resulting in the placement of RVV 1990 sign E8a ('Parking for trucks and buses').\n\nOn the national road network (Rijkswaterstaat), truck parking is often integrated into motorway service areas (verzorgingsplaatsen). In addition, municipalities may designate truck parking areas."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verkeersbesluit",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een formeel administratief besluit van het bevoegde gezag (wegbeheerder) waarbij een locatie wordt aangewezen als vrachtwagenparkeerterrein, dat de juridische grondslag vormt voor de plaatsing van het E8a bord en de handhaving van toegangsbeperkingen."
+      },
+      {
+        "@language": "en",
+        "@value": "A formal administrative decision by the competent road authority (wegbeheerder) designating a location as a truck parking area, establishing the legal basis for placing a E8a sign and enforcing access restrictions."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Verkeersbesluit Rijkswaterstaat, kenmerk RWS-2021/12345, gepubliceerd Staatscourant 14 april 2021: aanwijzing verzorgingsplaats X als vrachtwagenparkeerterrein met bord E8a."
+      },
+      {
+        "@language": "en",
+        "@value": "Traffic order (verkeersbesluit) by Rijkswaterstaat, reference RWS-2021/12345, published in the Staatscourant on 14 April 2021: designation of service area X as a truck parking area with sign E8a."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Verkeersbesluit"
+      },
+      {
+        "@language": "en",
+        "@value": "Traffic Order"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-wegbeheerder"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-sstp-gegevenstype"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-voertuigcategorie"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Een verkeersbesluit voor vrachtwagenparkeren wordt genomen. De procedure vereist verplichte advisering door de politie en bekendmaking in de Staatscourant, gevolgd door een bezwaar- en beroepstermijn van zes weken. \n\nVerkeersbesluiten zijn openbaar toegankelijk via officielebekendmakingen.nl en het LVBB. \n\nNiet alle vrachtwagenparkeerterreinen hebben een specifiek verkeersbesluit — terreinen die worden gereguleerd via APV gebruiken in plaats daarvan een aanwijzingsbesluit."
+      },
+      {
+        "@language": "en",
+        "@value": "A verkeersbesluit for truck parking is taken. The procedure requires mandatory consultation with the police and publication in the Staatscourant, followed by a six-week objection and appeal period.\n\nVerkeersbesluiten are publicly accessible via officielebekendmakingen.nl and the LVBB. \n\nNot all truck parking areas have a dedicated verkeersbesluit — areas regulated under APV use an aanwijzingsbesluit instead."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-koelvoertuigplaats",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een parkeerplaats die specifiek is aangewezen en ingericht voor koelvoertuigen (koelwagens), inclusief voorzieningen voor aangesloten koelunits (stroomaansluitingen), afzonderlijk gerapporteerd naast de totale vrachtwagenplaatsen zoals vereist in Gedelegeerde Verordening (EU) nr. 885/2013."
+      },
+      {
+        "@language": "en",
+        "@value": "A parking space specifically designated and equipped for refrigerated goods vehicles (koelwagens), including provision for powered reefer units (stroomaansluitingen), reported separately from total truck capacity as required by Delegated Regulation (EU) No 885/2013."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Een parkeerterrein met 120 vrachtwagenplaatsen totaal, waarvan 8 bestemd voor koelvoertuigen, elk voorzien van een CEE 63A-aansluiting voor de koelaggregaat."
+      },
+      {
+        "@language": "en",
+        "@value": "A parking area with 120 total truck spaces of which 8 are designated for refrigerated goods vehicles, each equipped with a CEE 63A connection for the reefer unit."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Koelvoertuigplaats"
+      },
+      {
+        "@language": "en",
+        "@value": "Refrigerated Goods Vehicle Space"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-faciliteit"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Het aantal beschikbare plaatsen ten behove van koelvoertuigen conform Gedelegeerde Verordening (EU) nr. 885/2013. \n\nExploitanten rapporteren dit aantal doorgaans op basis van geïnstalleerde elektrische aansluitpunten (CEE 32A of CEE 63A stopcontacten)."
+      },
+      {
+        "@language": "en",
+        "@value": "The number of spaces available for refrigerated goods vehicles in accordance with Delegated Regulation (EU) No 885/2013.\n\nOperators usually report this number based on installed electrical connection points (CEE 32A or CEE 63A sockets)."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tijdvenster",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De perioden gedurende welke een vrachtwagenparkeerterrein open en toegankelijk is voor voertuigen, inclusief eventuele beperkingen per dag van de week of tijdstip. Relevant zowel voor toegangsvoorwaarden als voor de geldigheid van tariefinformatie."
+      },
+      {
+        "@language": "en",
+        "@value": "The periods during which a truck parking area is open and accessible to vehicles, including any restrictions by day of week or time of day. Relevant both to access conditions and to the validity of tariff information."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Open 24/7 het hele jaar; of: maandag–vrijdag 06:00–22:00, zaterdag 08:00–18:00, gesloten op zondag en feestdagen."
+      },
+      {
+        "@language": "en",
+        "@value": "Open 24/7 all year; or: Monday–Friday 06:00–22:00, Saturday 08:00–18:00, closed on Sundays and public holidays."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Tijdvenster"
+      },
+      {
+        "@language": "en",
+        "@value": "Operating Hours"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736227821"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tarief"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsniveau"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "24/7-beschikbaarheid is een vereiste voor Goud- en Platina-certificering onder DR (EU) 2022/1012 Bijlage I. Openingstijden kunnen de betrouwbaarheid van real-time beschikbaarheidsgegevens beïnvloeden: een gesloten parkeerterrein dient in het dynamische gegevenstype als 'gesloten' te worden weergegeven. In DATEX II correspondeert dit met OpeningTimes binnen de ParkingRecord-structuur."
+      },
+      {
+        "@language": "en",
+        "@value": "24/7 availability is a prerequisite for Gold and Platinum certification under DR (EU) 2022/1012 Annex I. Operating hours may affect the reliability of real-time availability data: a closed parking area should be reflected in the dynamic data type as 'closed'. In DATEX II this maps to OpeningTimes within the ParkingRecord structure."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verzorgingsplaats",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een rustplaats langs een rijksweg (Rijkswaterstaat) die minimaal een parkeerzone en sanitaire voorzieningen biedt, en vaak aangewezen vrachtwagenparkeerplaatsen bevat. Beheerd door Rijkswaterstaat op basis van de CROW KIVZP-criteria."
+      },
+      {
+        "@language": "en",
+        "@value": "A rest area alongside a national highway (Rijkswaterstaat) providing at minimum a parking zone and sanitary facilities, and often incorporating designated truck parking bays. Managed by Rijkswaterstaat under the CROW KIVZP criteria."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Verzorgingsplaats De Lucht (A2, Noord-Brabant) — inclusief afzonderlijke omheinde vrachtwagenzone met sanitair en restaurant."
+      },
+      {
+        "@language": "en",
+        "@value": "Verzorgingsplaats De Lucht (A2, Noord-Brabant) — includes a separate fenced truck parking zone with sanitary facilities and a restaurant."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Verzorgingsplaats"
+      },
+      {
+        "@language": "en",
+        "@value": "Motorway Service Area"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-faciliteit"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Verzorgingsplaatsen zijn formeel geregistreerd door Rijkswaterstaat en zijn opgenomen in het NDW-truckparkingregister. De vrachtwagenzone draagt bord E8a en valt onder concessie- of beheersovereenkomsten van Rijkswaterstaat voor servicevoorzieningen. Niet alle verzorgingsplaatsen voldoen aan de beveiligingsclassificatiedrempels van Gedelegeerde Verordening (EU) 2022/1012."
+      },
+      {
+        "@language": "en",
+        "@value": "Verzorgingsplaatsen are formally registered by Rijkswaterstaat and appear in the NDW truck parking register. They carry the E8a sign for the truck section and are bound by Rijkswaterstaat's concession or management agreements for service facilities. Not all verzorgingsplaatsen meet the security classification thresholds of Delegated Regulation (EU) 2022/1012."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736227821",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een kenmerk dat de actuele toegankelijkheidstoestand van een parkeerterrein aangeeft, waarbij wordt uitgedrukt of het beschikbaar, volledig bezet of niet toegankelijk is."
+      },
+      {
+        "@language": "en",
+        "@value": "An attribute indicating the current accessibility condition of a parking facility, expressing whether it is available, fully occupied, or not open for use."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Status"
+      },
+      {
+        "@language": "en",
+        "@value": "Status"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tijdvenster"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.org/dc/terms/created": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-03-05T10:17:06.728009+00:00"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@language": "nl",
+        "@value": "De Nederlandse zienswijze van de concepten die Statische gegevens met betrekking tot het parkeerterrein weergeeft. Dit gegevenstype is vastgelegd in de Safe and Secure TruckParking regulation die onderdeel uitmaakt van de ITS wetgeving."
+      }
+    ],
+    "http://purl.org/dc/terms/modified": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-10-15T10:07:57.580659+00:00"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "nl",
+        "@value": "SSTP - Statische gegevens met betrekking tot het parkeerterrein"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+        "@value": "0.5.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Het totale aantal parkeerplaatsen dat op een parkeerterrein is bestemd voor vrachtwagens en bedrijfsvoertuigen, zoals vereist in Gedelegeerde Verordening (EU) nr. 885/2013."
+      },
+      {
+        "@language": "en",
+        "@value": "The total number of parking spaces designated for trucks and commercial vehicles at a parking area, as required by Delegated Regulation (EU) No 885/2013."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Totaal vrachtwagenplaatsen: 120 (waarvan 8 koelplaatsen). De statische capaciteit blijft 120 ongeacht de actuele bezetting."
+      },
+      {
+        "@language": "en",
+        "@value": "Total truck spaces: 120 (of which 8 refrigerated). The static capacity remains 120 regardless of current occupancy."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Parkeercapaciteit"
+      },
+      {
+        "@language": "en",
+        "@value": "Parking Capacity"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-voertuigcategorie"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-koelvoertuigplaats"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Het capaciteitscijfer betreft uitsluitend plaatsen gedimensioneerd voor vrachtwagencombinaties (opleggers/semi-trailers) tenzij anders aangegeven. \n\nPlaatsen voor koelvoertuigen worden afzonderlijk gerapporteerd. \n\nDe capaciteit kan een statisch of een dynamisch gegeven zijn."
+      },
+      {
+        "@language": "en",
+        "@value": "The capacity figure refers exclusively to spaces dimensioned for articulated lorries (opleggers/semi-trailers) unless otherwise specified. \n\nSpaces for refrigerated goods vehicles are reported separately. \n\nThe capacity can concern static and dynamic figures."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsvoorziening",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een voorziening op een vrachtwagenparkeerterrein die dient ter bescherming van de fysieke veiligheid van chauffeurs en inzittenden, onderscheiden van beveiligingsmaatregelen voor lading."
+      },
+      {
+        "@language": "en",
+        "@value": "A facility at a truck parking area that serves to protect the physical safety of drivers and occupants, as distinct from cargo security measures."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Noodtelefoon verbonden met een 24/7 bemande meldkamer; brandblusserposten elke 50 meter langs de parkeerrijen; AED (defibrillator) bij het receptiegebouw."
+      },
+      {
+        "@language": "en",
+        "@value": "Emergency telephone connected to a 24/7 manned control room; fire extinguisher posts every 50 metres along the parking rows; AED (defibrillator) at the reception building."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Veiligheidsvoorziening"
+      },
+      {
+        "@language": "en",
+        "@value": "Safety Provision"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Deze zijn te onderscheiden van beveiligingsvoorzieningen die betrekking hebben op misdaadpreventie."
+      },
+      {
+        "@language": "en",
+        "@value": "These are distinct from security features (beveiligingsvoorzieningen) which concern crime prevention."
+      }
+    ]
+  }
+]
