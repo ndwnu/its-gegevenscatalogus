@@ -1,0 +1,2820 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <title>SSTP - Statische en dynamische gegevens met betrekking tot het parkeerterrein</title>
+  
+  <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+  <script class="remove">
+    var respecConfig = {"specStatus": "unofficial", "title": "SSTP - Statische en dynamische gegevens met betrekking tot het parkeerterrein", "shortName": "SSTP - Statische en dynamische gegevens met betrekking tot het parkeerterrein", "editors": [{"name": "Nationaal Toegangspunt Mobiliteitsdata"}], "lint": false, "edDraftURI": "", "additionalCopyrightHolders": "Nationaal Toegangspunt Mobiliteitsdata", "thisVersion": "https://ndwnu.github.io/its-gegevenscatalogus/SSTP%20-%20Statische%20en%20dynamische%20gegevens%20met%20betrekking%20tot%20het%20parkeerterrein/0.5.0/nl/index.html", "latestVersion": "https://ndwnu.github.io/its-gegevenscatalogus/SSTP%20-%20Statische%20en%20dynamische%20gegevens%20met%20betrekking%20tot%20het%20parkeerterrein/latest/nl/index.html", "publishDate": "2026-10-16"};
+  </script>
+  
+  
+  <script src="https://ndwnu.github.io/its-gegevenscatalogus/_assets/review.js" defer
+          data-repo="ndwnu/its-gegevenscatalogus"
+          data-model="SSTP - Statische en dynamische gegevens met betrekking tot het parkeerterrein"
+          data-version="0.5.0"></script>
+  
+  <style>
+    /* Opmaak afgeleid van de PDF (docpublish/pdf/styles/_base.css): dezelfde
+       huisstijl-kleuren en tabelstijl, zodat de ReSpec-pagina en de PDF op
+       elkaar aansluiten. Staat NA ReSpec's basis-stylesheet, dus dit wint. */
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: #303c54;
+      line-height: 1.5;
+    }
+    h1, h2, h3, h4, h5, h6 { color: #1e40af; font-weight: 600; }
+    p.prose { text-align: justify; }
+    p.disclaimer {
+      background: rgba(30, 64, 175, 0.06);
+      border-left: 3px solid #1e40af;
+      padding: 6px 10px;
+      font-style: italic;
+      color: #636f83;
+      margin: 8px 0;
+    }
+    table.data-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px 0 18px;
+      font-size: 0.95rem;
+    }
+    table.data-table caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 600;
+      color: #1e40af;
+      padding-bottom: 4px;
+    }
+    table.data-table th {
+      background: rgba(30, 64, 175, 0.08);
+      border-bottom: 1px solid #1e40af;
+      color: #1e40af;
+      font-weight: 600;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    table.data-table td {
+      border-bottom: 1px solid #dfe4ee;
+      padding: 6px 8px;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+    table.data-table tr:nth-child(even) td { background: rgba(30, 64, 175, 0.025); }
+
+    /* Modeloverzicht-diagram: de server-side force-directed layout geeft een
+       compacte, normaal-geproportioneerde SVG (net als de visuele editor). Schaal
+       hem responsive binnen de paginabreedte. Voor het zeldzame extreem brede
+       geval blijft het kader horizontaal scrollbaar. */
+    figure.model-figure { margin: 12px 0; width: 100%; }
+    figure.model-figure .model-figure__frame {
+      display: block;
+      overflow-x: auto;
+      border: 1px solid #dfe4ee;
+      border-radius: 6px;
+      padding: 8px;
+      background: #fff;
+      cursor: zoom-in;
+    }
+    figure.model-figure .model-figure__frame > div { width: 100%; }
+    figure.model-figure svg {
+      display: block;
+      /* Vaste breedte 100% van het kader; de hoogte volgt uit de viewBox-
+         verhouding. Alleen height:auto laten renderen faalt als de container
+         nog geen breedte heeft (chicken-egg): dan wordt de SVG 0×0. De inline
+         width/height-attributen op de root-<svg> worden hierdoor overruled. */
+      width: 100%;
+      height: auto;
+    }
+    figure.model-figure figcaption {
+      font-size: 0.85rem;
+      color: #636f83;
+      margin-top: 4px;
+    }
+
+    /* Full-size weergave zonder JS: het sluit-anker ligt normaal onzichtbaar
+       achter de figuur; pas in de vergrote (:target) staat wordt het de
+       schermvullende, klikbare achtergrond die de hash wist. */
+    figure.model-figure .model-figure__zoom-close { display: none; }
+
+    /* Visueel verborgen tekst in het sluit-anker (zie _section.html): maakt
+       textContent niet-leeg zodat ReSpec's anchor-expander het anker overslaat,
+       zonder iets zichtbaars toe te voegen. */
+    .model-figure__zoom-close .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0);
+      white-space: nowrap; border: 0;
+    }
+
+    /* Vergrote staat: de figuur gaat schermvullend bovenop de pagina staan. De
+       SVG krijgt nu zijn NATUURLIJKE grootte (geen width:100% meer) en het kader
+       scrollt in beide richtingen, zodat het diagram leesbaar is. */
+    figure.model-figure:target {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      margin: 0;
+      padding: 2.5rem 1rem 1rem;
+      background: rgba(15, 23, 42, 0.75);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+    figure.model-figure:target .model-figure__zoom-close {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: -1;            /* achter de figuurinhoud, vóór de pagina */
+      cursor: zoom-out;
+    }
+    figure.model-figure:target .model-figure__frame {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: auto;        /* scroll in beide richtingen */
+      cursor: default;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+    figure.model-figure:target .model-figure__frame > div {
+      width: max-content;    /* laat de SVG groeien tot zijn natuurlijke breedte */
+      min-width: 100%;
+    }
+    figure.model-figure:target svg {
+      /* Natuurlijke afmetingen uit de viewBox i.p.v. 100% van de smalle kolom,
+         met een leesbare bodembreedte en ruimte om te groeien. */
+      width: auto;
+      min-width: min(1400px, 90vw);
+      height: auto;
+      max-height: none;
+    }
+    figure.model-figure:target figcaption {
+      flex: 0 0 auto;
+      color: #e5e9f0;
+      text-align: center;
+      padding-top: 0.5rem;
+    }
+    /* Een '× sluiten'-knop rechtsboven in de vergrote staat. */
+    figure.model-figure:target::after {
+      content: "× sluiten";
+      position: fixed;
+      top: 0.6rem;
+      right: 1rem;
+      color: #fff;
+      font-size: 0.95rem;
+      pointer-events: none;  /* klikken vangt het achterliggende sluit-anker op */
+    }
+  </style>
+  
+  
+  <style>
+    .status-banner {
+      border-left: 8px solid var(--status-color, #6b7280);
+      background: var(--status-bg, #f3f4f6);
+      padding: 0.6rem 1rem;
+      margin: 0 0 1.5rem;
+      font-family: sans-serif;
+    }
+    .status-banner .status-badge {
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--status-color, #374151);
+    }
+    .status-banner .status-version { color: #4b5563; }
+    /* Review-/consultatie-toelichting: een geaccentueerd blok binnen de banner.
+       Eigen witte kaart met een accent-rand in de statuskleur, zodat het
+       duidelijk leesbaar is én opvalt zonder de banner te overschreeuwen. */
+    .status-banner .status-note {
+      margin-top: 0.7rem;
+      background: #fff;
+      border: 1px solid var(--status-color, #2563eb);
+      border-left: 4px solid var(--status-color, #2563eb);
+      border-radius: 6px;
+      padding: 0.7rem 0.9rem;
+      max-width: 60ch;
+    }
+    .status-banner .status-note__title {
+      margin: 0 0 0.25rem;
+      font-weight: 700;
+      color: var(--status-color, #2563eb);
+    }
+    .status-banner .status-note__body {
+      margin: 0;
+      color: #303c54;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+    .status-draft       { --status-color: #d97706; --status-bg: #fffbeb; }
+    .status-under_review{ --status-color: #2563eb; --status-bg: #eff6ff; }
+    .status-published   { --status-color: #16a34a; --status-bg: #f0fdf4; }
+    .status-deprecated  { --status-color: #dc2626; --status-bg: #fef2f2; }
+    .status-withdrawn   { --status-color: #991b1b; --status-bg: #fef2f2; }
+  </style>
+  
+</head>
+<body>
+  
+  <h1 id="title">SSTP - Statische en dynamische gegevens met betrekking tot het parkeerterrein</h1>
+
+  
+  <section id="abstract">
+    <p>De Nederlandse zienswijze van de concepten die Statische gegevens met betrekking tot het parkeerterrein weergeeft. Dit gegevenstype is vastgelegd in de Safe and Secure TruckParking regulation die onderdeel uitmaakt van de ITS wetgeving.</p>
+  </section>
+
+  
+  
+  <div id="beschikbare-talen" class="language-switch">
+    <table class="data-table">
+      <caption>Beschikbare talen</caption>
+      <thead>
+        <tr><th>Taal</th><th>Document</th></tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td><strong>NL</strong></td>
+          <td><strong>SSTP - Statische en dynamische gegevens met betrekking tot het parkeerterrein</strong></td>
+        </tr>
+        
+        <tr>
+          <td>EN</td>
+          <td><a href="../en/index.html">SSTP - Static and dynamic data relating to the parking area</a></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
+
+  
+  <div class="status-banner status-draft">
+    <span class="status-badge">Concept</span><span class="status-version"> — Versie 0.5.0</span>
+    
+    
+  </div>
+  
+
+  
+    
+<section>
+  <h2>Introductie op semantisch modelleren</h2>
+  
+    
+      <p class="prose"><p>Een <strong>begrippenkader</strong> (in SKOS: <em>ConceptScheme</em>) is een gestructureerde verzameling van begrippen die binnen een bepaald domein een vaste, gedeelde betekenis hebben. Het doel is dat iedereen die met het model werkt — mensen én systemen — dezelfde woorden gebruikt voor dezelfde dingen. Dat klinkt vanzelfsprekend, maar in de praktijk blijkt taal verrassend vaak voor verwarring te zorgen: wat de ene organisatie een <em>meetpunt</em> noemt, heet bij de ander een <em>sensor</em>, een <em>locatie</em>, of een <em>observatiepost</em>.</p>
+<p>Een begrippenkader lost dat op door per begrip vast te leggen:</p>
+<ul>
+<li>een <strong>voorkeursnaam</strong> (prefLabel) waaronder het begrip bekend is,</li>
+<li>een <strong>definitie</strong> die onomstotelijk beschrijft waar het begrip wel én niet op slaat,</li>
+<li>en eventueel een <strong>toelichting</strong> of <strong>voorbeeld</strong> om grensgevallen te verduidelijken.</li>
+</ul>
+<p>Begrippen staan zelden op zichzelf. Ze zijn <strong>hiërarchisch</strong> (een voertuig is breder dan een vrachtwagen) of <strong>associatief</strong> (een weggebruiker hangt samen met een wegsegment) aan elkaar gerelateerd. Die relaties maken het mogelijk om in queries en analyses te navigeren tussen algemene en specifieke concepten, en om verbanden tussen begrippen expliciet te maken. Binnen SKOS gebruiken we daarvoor <code>broader</code>, <code>narrower</code> en <code>related</code>.</p>
+<p>Wanneer een begrip ook ergens anders bestaat — bijvoorbeeld in een nationale of Europese standaard — leggen we dat vast als een <strong>mapping-relatie</strong>. Dat voorkomt dat iedereen het wiel opnieuw uitvindt: we linken naar de bron zodat interoperabiliteit met externe systemen mogelijk blijft.</p>
+<p>Dit document beschrijft het begrippenkader zoals het op dit moment is vastgelegd. De eerstvolgende secties geven de metadata, alle begrippen, hun relaties onderling en — als het model gekoppeld is aan een databron — hoe dat aan de brondata is gekoppeld.</p></p>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>SSTP - Statische en dynamische gegevens met betrekking tot het parkeerterrein</h2>
+  
+    
+      <h3>Beschrijving</h3>
+    
+  
+    
+      <p class="prose">De Nederlandse zienswijze van de concepten die Statische gegevens met betrekking tot het parkeerterrein weergeeft. Dit gegevenstype is vastgelegd in de Safe and Secure TruckParking regulation die onderdeel uitmaakt van de ITS wetgeving.</p>
+    
+  
+    
+      
+<table class="data-table">
+  <caption>Metadata</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>URI</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb</td>
+      </tr>
+    
+      <tr>
+        <td>Versie</td><td>0.5.0</td>
+      </tr>
+    
+      <tr>
+        <td>Publicatiestatus</td><td>Concept (Under development)</td>
+      </tr>
+    
+      <tr>
+        <td>Beheerstatus</td><td>Actief</td>
+      </tr>
+    
+      <tr>
+        <td>Organisatie</td><td>Nationaal Toegangspunt Mobiliteitsdata</td>
+      </tr>
+    
+      <tr>
+        <td>Aangemaakt op</td><td>2026-03-05</td>
+      </tr>
+    
+      <tr>
+        <td>Laatst gewijzigd op</td><td>2026-10-15</td>
+      </tr>
+    
+      <tr>
+        <td>Laatst gewijzigd door</td><td>arthur.keesen@ndw.nu</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Modeloverzicht</h2>
+  
+    
+      <p class="prose">Visueel overzicht van de concepten en hun relaties. Hiërarchische relaties zijn getekend met doorgetrokken pijlen; associatieve relaties met stippellijnen.</p>
+    
+  
+    
+      
+      
+      <figure class="model-figure" id="model-overview-figure">
+        
+        <a class="model-figure__zoom-close" href="#" aria-label="Sluit vergroting"><span class="visually-hidden">Sluit vergroting</span></a>
+        <a class="model-figure__frame" href="#model-overview-figure" title="Klik om op volledig formaat te bekijken">
+          <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="628.0 -1252.0 1885.8 1695.0" width="1886" height="1695"><defs><marker id="arrow-hierarchy" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#475569" /></marker><marker id="arrow-related" viewBox="0 0 8 8" refX="8" refY="4.0" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 8 4.0 L 0 8 z" fill="#8b5cf6" /></marker></defs><g class="edges"><line x1="2259.8" y1="114.8" x2="2071.4" y2="251.9" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="974.1" y1="-781.2" x2="1132.2" y2="-733.4" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1776.0" y1="-907.0" x2="1688.3" y2="-789.3" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="2271.6" y1="122.5" x2="2245.3" y2="240.7" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="2289.4" y1="117.9" x2="2398.6" y2="239.4" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="935.0" y1="-786.7" x2="697.0" y2="-783.4" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" fill="none" /><line x1="1812.0" y1="252.9" x2="2248.4" y2="111.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1773.1" y1="257.5" x2="1372.9" y2="227.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1572.5" y1="-265.3" x2="1527.0" y2="-5.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1582.3" y1="-304.0" x2="1778.9" y2="-895.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1573.7" y1="-304.9" x2="1542.3" y2="-575.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1541.2" y1="28.7" x2="1621.2" y2="52.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1207.4" y1="-489.6" x2="813.0" y2="-333.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1243.1" y1="-486.6" x2="1551.2" y2="-300.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1214.2" y1="-513.1" x2="1164.1" y2="-581.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1241.9" y1="-509.1" x2="1764.9" y2="-905.5" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1245.2" y1="-491.3" x2="1418.2" y2="-439.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1245.9" y1="-499.2" x2="1463.2" y2="-523.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1223.3" y1="-477.2" x2="1191.9" y2="-247.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1132.5" y1="-618.8" x2="976.0" y2="-767.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1164.9" y1="-613.9" x2="1762.0" y2="-910.1" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="875.0" y1="-659.6" x2="793.9" y2="-654.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="907.2" y1="-645.1" x2="998.4" y2="-526.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="903.6" y1="-679.1" x2="942.5" y2="-760.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1625.2" y1="-714.0" x2="1651.8" y2="-744.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1599.8" y1="-683.1" x2="1556.7" y2="-627.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1785.2" y1="-1172.0" x2="1787.7" y2="-952.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="2021.5" y1="54.6" x2="1973.8" y2="74.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="2057.0" y1="36.5" x2="2117.3" y2="-0.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="2035.0" y1="27.6" x2="1795.3" y2="-894.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="938.7" y1="-775.4" x2="788.6" y2="-668.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="974.7" y1="-790.2" x2="1759.4" y2="-918.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="959.2" y1="-767.4" x2="1009.9" y2="-531.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1337.4" y1="206.1" x2="1197.6" y2="-191.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1363.8" y1="222.4" x2="2247.2" y2="106.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="782.2" y1="-641.8" x2="991.1" y2="-517.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="781.0" y1="-342.4" x2="675.2" y2="-754.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1466.4" y1="-179.8" x2="1555.1" y2="-264.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1789.0" y1="-903.0" x2="1837.5" y2="62.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1796.6" y1="-904.9" x2="2263.5" y2="76.8" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1785.2" y1="-903.2" x2="1653.1" y2="32.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1808.0" y1="-924.0" x2="2025.0" y2="-934.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1795.3" y1="-904.4" x2="2131.5" y2="-43.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1199.2" y1="-202.5" x2="1429.7" y2="137.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1733.4" y1="78.9" x2="1677.4" y2="67.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1772.9" y1="84.9" x2="1810.1" y2="88.3" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1859.0" y1="89.9" x2="1918.0" y2="86.6" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1819.3" y1="94.5" x2="1474.6" y2="155.9" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1502.4" y1="-544.1" x2="1523.9" y2="-579.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1498.6" y1="-508.1" x2="1566.5" y2="-312.4" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1483.4" y1="-509.0" x2="1458.5" y2="-457.2" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /><line x1="1459.3" y1="-416.1" x2="1556.7" y2="-306.7" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" fill="none" stroke-dasharray="6,4" /></g><g class="nodes"><circle cx="895.0" cy="-661.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="869.0" y="-637.0" width="52.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="895.0" y="-622.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Afrit</text><circle cx="1522.0" cy="23.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1449.7" y="47.0" width="144.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1522.0" y="61.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Voertuigcategorie</text><circle cx="1788.0" cy="-923.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1684.5" y="-899.0" width="207.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1788.0" y="-884.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Vrachtwagenparkeerterrein</text><circle cx="1612.0" cy="-699.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1567.0" y="-675.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1612.0" y="-660.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Faciliteit</text><circle cx="1785.0" cy="-1192.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1548.9" y="-1168.0" width="472.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1785.0" y="-1153.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Gegevenstype SSTP – Statische en dynamische parkeergegevens</text><circle cx="1649.0" cy="61.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1584.5" y="85.0" width="129.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1649.0" y="99.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Verkeersbesluit</text><circle cx="955.0" cy="-787.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="902.2" y="-763.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="955.0" y="-748.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Toegangspunt</text><circle cx="1576.0" cy="-285.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1503.7" y="-261.0" width="144.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1576.0" y="-246.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Parkeercapaciteit</text><circle cx="1947.0" cy="85.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1839.6" y="109.0" width="214.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1947.0" y="123.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Contactgegevens exploitant</text><circle cx="2418.0" cy="261.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="2326.2" y="285.0" width="183.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2418.0" y="299.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Veiligheidsvoorziening</text><circle cx="2239.0" cy="269.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="2201.8" y="293.0" width="74.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2239.0" y="307.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Toezicht</text><circle cx="1344.0" cy="225.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1267.8" y="249.0" width="152.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1344.0" y="263.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Beveiligingsniveau</text><circle cx="2048.0" cy="269.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1952.3" y="293.0" width="191.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2048.0" y="307.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Beveiligingsvoorziening</text><circle cx="1793.0" cy="259.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1736.3" y="283.0" width="113.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1793.0" y="297.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Certificering</text><circle cx="1839.0" cy="91.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1794.0" y="115.0" width="90.0" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1839.0" y="129.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Exploitant</text><circle cx="1753.0" cy="83.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1700.2" y="107.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1753.0" y="121.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Wegbeheerder</text><circle cx="2142.0" cy="-16.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="2065.8" y="8.0" width="152.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2142.0" y="22.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Gebruikersfeedback</text><circle cx="1446.0" cy="161.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1416.6" y="185.0" width="58.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1446.0" y="199.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Tarief</text><circle cx="668.0" cy="-783.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="638.6" y="-759.0" width="58.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="668.0" y="-744.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Ingang</text><circle cx="1226.0" cy="-497.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1196.6" y="-473.0" width="58.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1226.0" y="-458.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Status</text><circle cx="2040.0" cy="47.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1998.9" y="71.0" width="82.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2040.0" y="85.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Gebruiker</text><circle cx="1160.0" cy="-725.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1126.7" y="-701.0" width="66.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1160.0" y="-686.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Uitgang</text><circle cx="1016.0" cy="-503.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="916.4" y="-479.0" width="199.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1016.0" y="-464.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Afstand tot primaire weg</text><circle cx="1671.0" cy="-766.0" r="20" fill="#e68f0a" stroke="white" stroke-width="2" /><rect x="1598.7" y="-742.0" width="144.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1671.0" y="-727.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Verzorgingsplaats</text><circle cx="1539.0" cy="-604.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1462.8" y="-580.0" width="152.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1539.0" y="-565.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Koelvoertuigplaats</text><circle cx="765.0" cy="-652.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="712.2" y="-628.0" width="105.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="765.0" y="-613.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Primaire weg</text><circle cx="1188.0" cy="-219.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1139.1" y="-195.0" width="97.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1188.0" y="-180.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Tijdvenster</text><circle cx="1492.0" cy="-527.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1372.9" y="-503.0" width="238.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1492.0" y="-488.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">_Aantal vrije parkeerplaatsen</text><circle cx="1452.0" cy="-166.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1371.9" y="-142.0" width="160.2" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1452.0" y="-127.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">_Reserveringsstatus</text><circle cx="1446.0" cy="-431.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1377.6" y="-407.0" width="136.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1446.0" y="-392.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">_Bezettingsgraad</text><circle cx="786.0" cy="-323.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="694.2" y="-299.0" width="183.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="786.0" y="-284.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">_Wachttijd bij toegang</text><circle cx="2054.0" cy="-936.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1864.7" y="-912.0" width="378.6" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2054.0" y="-897.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Identificatiegegevens vrachtwagenparkeerterrein</text><circle cx="1147.0" cy="-605.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="1012.3" y="-581.0" width="269.4" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="1147.0" y="-566.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">_Tijdelijke buitengebruikstelling</text><circle cx="2276.0" cy="103.0" r="20" fill="#b26c00" stroke="white" stroke-width="2" /><rect x="2110.1" y="127.0" width="331.8" height="20" rx="4" ry="4" fill="white" stroke="#e2e8f0" stroke-width="1" /><text x="2276.0" y="141.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#334155">Veiligheids- en beveiligingsclassificatie</text></g><g class="legend"><line x1="628.0" y1="383.0" x2="668.0" y2="383.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-hierarchy)" /><text x="678.0" y="386.9" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">broader / narrower (hiërarchisch / Associatief)</text><line x1="628.0" y1="407.0" x2="668.0" y2="407.0" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-related)" stroke-dasharray="6,4" /><text x="678.0" y="410.9" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#475569">related (gerelateerd)</text></g><text x="628.0" y="439.0" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#94a3b8">Bron: Ontologica — SSTP - Statische en dynamische gegevens met betrekking tot het parkeerterrein</text></svg></div>
+        </a>
+        <figcaption>Modeloverzicht</figcaption>
+      </figure>
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Concepten</h2>
+  
+    
+      
+<section id="concept-1773735874023">
+  <h3>Gebruiker</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een persoon of instantie die gebruikmaakt van het vrachtwagenparkeerterrein of van de informatie daarover.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Iedere chauffeur van een vrachtwagen of bedrijfsvoertuig, planner, transporteur, verkeersregelaar of andere instantie zoals ladingeigenaren, verzekeringsmaatschappijen, wegbeheerders en politie. Zij dienen de informatie te verkrijgen van de dienstverleners.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1773736053834">
+  <h3>Gebruikersfeedback</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De terugkoppeling van een gebruiker over een vrachtwagenparkeerterrein of over de verstrekte informatie daarover, zoals een beoordeling, een opmerking of een melding van onjuiste gegevens.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Gebruikersfeedback mag anoniem worden gegeven. De feedback kan worden gebruikt om de kwaliteit van de gepubliceerde statische en dynamische gegevens te verbeteren.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Fictief voorbeeld — een chauffeur meldt anoniem via een app dat het gepubliceerde aantal vrije plaatsen op Truckparking Voorbeeldstad niet overeenkomt met de werkelijke bezetting.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1773736227821">
+  <h3>Status</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De actuele operationele toestand van een vrachtwagenparkeerterrein, die aangeeft of er parkeerplaatsen beschikbaar zijn, of het terrein bijna vol of vol is, of dat het gesloten is.</td>
+      </tr>
+    
+      <tr>
+        <td>Alternatieve labels</td><td>Availability, Beschikbaarheid</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+    
+      
+<table class="data-table">
+  <caption>Mappings</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Doel-URI</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>closeMatch</td><td>https://w3id.org/mobilitydcat-ap/mobility-theme/truck-parking-availability</td>
+      </tr>
+    
+      <tr>
+        <td>narrowMatch</td><td>https://docs.datex2.eu/_static/data/v3.2/umlmodel/html/index.htm?goto=3:4:2:994</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1773737661675">
+  <h3>Uitgang</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De uitgang van het vrachtwagenparkeerterrein.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1773739249931">
+  <h3>Ingang</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De toegang tot het vrachtwagenparkeerterrein.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1792132751226">
+  <h3>_Aantal vrije parkeerplaatsen</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Het actuele aantal onbezette parkeerplaatsen voor vrachtwagens op een vrachtwagenparkeerterrein.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1792132808912">
+  <h3>_Reserveringsstatus</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De actuele data over het aantal gereserveerde parkeerplaatsen op een vrachtwagenparkeerterrein en over de resterende mogelijkheid om vooraf te reserveren.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1792132848912">
+  <h3>_Tijdelijke buitengebruikstelling</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een melding van een omstandigheid die leidt tot het geheel of gedeeltelijk buiten gebruik zijn van een vrachtwagenparkeerterrein, zoals onderhoud, een incident of een noodsituatie, inclusief de reden daarvan.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1792132889371">
+  <h3>_Bezettingsgraad</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Het actuele percentage van de totale parkeercapaciteit voor vrachtwagens op een vrachtwagenparkeerterrein dat bezet is.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-1792132920747">
+  <h3>_Wachttijd bij toegang</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De geschatte tijd die een voertuig moet wachten bij de ingang of toegangscontrole van een vrachtwagenparkeerterrein voordat het kan binnenrijden.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-afrit">
+  <h3>Afrit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De afrit of afritten die een vrachtwagenchauffeur moet nemen om het vrachtwagenparkeerterrein vanaf de primaire weg te bereiken of om het terrein te verlaten.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>De afrit wordt aangeduid met het nummer, de locatiecode en/of de naam van het knooppunt of de aansluiting. In Nederland worden afritnummers van autosnelwegen toegekend door Rijkswaterstaat en gepubliceerd in het NWB.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Fictief voorbeeld — afrit 99 &#x27;Voorbeeldstad&#x27; van de A99.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-afstand-primaire-weg">
+  <h3>Afstand tot primaire weg</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De afstand tussen de te nemen afrit en het toegangspunt van het vrachtwagenparkeerterrein.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Bij voorkeur uitgedrukt als rijafstand over de weg in meters, niet als hemelsbrede afstand. Voor vrachtwagenparkeerterreinen die niet langs een autosnelweg liggen, geldt de weg van de hoogste orde in de nabijheid als primaire weg; dit gegeven kan dan optioneel zijn.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Fictief voorbeeld — rijafstand van afrit 99 tot het toegangspunt: 850 m.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-beveiligingsniveau">
+  <h3>Beveiligingsniveau</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Het niveau van beveiligingscertificering dat een vrachtwagenparkeerterrein heeft behaald onder het Europese classificatiekader van Gedelegeerde Verordening (EU) 2022/1012, of een gelijkwaardig nationaal classificatiesysteem. De vier Europese niveaus zijn Brons, Zilver, Goud en Platina.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Brons vereist basishekwerk en verlichting. Zilver voegt CCTV-dekking toe. Goud vereist daarnaast 24/7 bemand of op afstand toezicht en een parkeermanagementsysteem met DATEX II-uitvoermogelijkheid. Platina vereist alle Goud-kenmerken plus actieve dreigingsbewaking en een geïntegreerd beveiligingsoperatiecentrum. Certificering wordt uitgevoerd door geaccrediteerde conformiteitsbeoordelingsinstanties onder EN ISO/IEC 17021-1. In Nederland is het SecureNL-consortium een relevante certificerende instantie.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Goud-niveau: 24/7 CCTV-bewaking op afstand, automatische inrij-/uitrijbarrières, DATEX II-datafeed naar NDW, minimale verlichting 15 lux op maaiveld, hekwerk ≥ 1,8 m.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-beveiligingsvoorziening">
+  <h3>Beveiligingsvoorziening</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een fysieke of technologische maatregel die is geïnstalleerd op een vrachtwagenparkeerterrein om diefstal, lading manipulatie of ongeoorloofde toegang te voorkomen.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Gedelegeerde Verordening 2022/1012 Bijlage I specificeert minimale technische vereisten per voorziening per niveau (bijv. CCTV minimaal HD 720p resolutie bij 5 fps voor Zilver en hoger).</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>CCTV met dekking van alle vrachtwagenparkeerplaatsen en toegangspunten, minimaal HD 720p, bewaarintermijn opnames 30 dagen; hekwerk 2,0 m gegalvaniseerd staalvlechtwerk met anti-klimrail.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-capaciteit">
+  <h3>Parkeercapaciteit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Het totale aantal parkeerplaatsen dat op een parkeerterrein is bestemd voor vrachtwagens en bedrijfsvoertuigen, zoals vereist in Gedelegeerde Verordening (EU) nr. 885/2013.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Het capaciteitscijfer betreft uitsluitend plaatsen gedimensioneerd voor vrachtwagencombinaties (opleggers/semi-trailers) tenzij anders aangegeven. 
+
+Plaatsen voor koelvoertuigen worden afzonderlijk gerapporteerd. 
+
+De capaciteit kan een statisch of een dynamisch gegeven zijn.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Totaal vrachtwagenplaatsen: 120 (waarvan 8 koelplaatsen). De statische capaciteit blijft 120 ongeacht de actuele bezetting.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-certificering">
+  <h3>Certificering</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De formele bevestiging door een geaccrediteerde conformiteitsbeoordelingsinstantie dat een vrachtwagenparkeerterrein voldoet aan de vereisten van een bepaald beveiligingsniveau onder Gedelegeerde Verordening (EU) 2022/1012, inclusief de certificaatnaam, uitgevende instantie en datum van afgifte.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Certificering is vrijwillig onder Gedelegeerde Verordening 2022/1012 maar maakt het mogelijk dat het parkeerterrein wordt opgenomen in de EU-lijst van gecertificeerde SSTPA&#x27;s. Certificeringsinstanties moeten zijn geaccrediteerd onder EN ISO/IEC 17021-1. In Nederland zijn ESPORG en het SecureNL-consortium actief op dit gebied. 
+
+Goud- en Platina-gecertificeerde parkeerterreinen zijn verplicht een werkende DATEX II-dataverbinding met het nationaal toegangspunt te hebben.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Certificaat: &#x27;SSTPA Goud&#x27;, afgegeven door SecureNL, certificeringsdatum: 15-03-2024, geldig tot: 14-03-2027.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-exploitant">
+  <h3>Exploitant</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De rechtspersoon die verantwoordelijk is voor het dagelijks beheer en de exploitatie van een vrachtwagenparkeerterrein, inclusief het verstrekken van contactgegevens voor publicatie, zoals vereist door de Gedelegeerde Verordening (EU) nr. 885/2013.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>De identiteit van de exploitant kan worden geverifieerd via de Nederlandse KvK-registratie (Kamer van Koophandel). Het registreert of de exploitant heeft ingestemd met het openbaar beschikbaar stellen van zijn contactgegevens via het nationaal toegangspunt. De exploitant kan afwijken van de wegbeheerder, met name bij particulier geëxploiteerde vrachtwagenparkeerterreinen.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Fictief voorbeeld — exploitant: Voorbeeldparking B.V., KvK 00000000; publicatietoestemming contactgegevens: ja.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-faciliteit">
+  <h3>Faciliteit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Uitrusting, voorzieningen of diensten die beschikbaar zijn voor chauffeurs en voertuigen op een vrachtwagenparkeerterrein, buiten de basisparkeervoorziening, zoals vereist door Gedelegeerde Verordening (EU) nr. 885/2013.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Dit omvat circa 60 apparatuurtypen waaronder douches, toiletten, restaurant, tankstation, AdBlue-dispensers, laadpunten voor elektrische voertuigen, weegbrug en bandenspanning. Voor verzorgingsplaatsen op het rijkswegennet stelt Rijkswaterstaat minimale voorzieningenvereisten op basis van de CROW KIVZP-criteria. Faciliteiten beïnvloeden de commerciële aantrekkelijkheid van een vrachtwagenparkeerterrein maar zijn secundair aan de verplichte statische gegevensvelden.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Douches (8 cabines), toiletten (24/7 toegankelijk), restaurant (06:00–22:00), AdBlue-dispenser, hogedruk vrachtwagenwasstraat, weegbrug, 8 elektrische aansluitingen voor koelvoertuigen (CEE 63A).</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-identificatiegegevens">
+  <h3>Identificatiegegevens vrachtwagenparkeerterrein</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De gegevens waarmee een vrachtwagenparkeerterrein eenduidig kan worden geïdentificeerd, bestaande uit de naam, de nationale identificatie (indien beschikbaar) en het adres, inclusief het land en de territoriale eenheid waarin het terrein ligt.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Maximaal 200 tekens per veld. In Nederland dient het adres te zijn afgestemd op de BAG (Basisregistratie Adressen en Gebouwen) waar een BAG-adres beschikbaar is. Ligt het terrein langs een autosnelweg zonder straatadres, dan kan het adres worden aangevuld met de naam of het nummer van de weg, de hectometerpositie en de rijrichting waarlangs het terrein bereikbaar is.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Fictief voorbeeld — naam: &#x27;Truckparking Voorbeeldstad&#x27;; nationale identificatie: NL-TP-0000; adres: Fictieweg 1, 9999 ZZ Voorbeeldstad, Nederland.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-koelvoertuigplaats">
+  <h3>Koelvoertuigplaats</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een parkeerplaats die specifiek is aangewezen en ingericht voor koelvoertuigen (koelwagens), inclusief voorzieningen voor aangesloten koelunits (stroomaansluitingen), afzonderlijk gerapporteerd naast de totale vrachtwagenplaatsen zoals vereist in Gedelegeerde Verordening (EU) nr. 885/2013.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Het aantal beschikbare plaatsen ten behove van koelvoertuigen conform Gedelegeerde Verordening (EU) nr. 885/2013. 
+
+Exploitanten rapporteren dit aantal doorgaans op basis van geïnstalleerde elektrische aansluitpunten (CEE 32A of CEE 63A stopcontacten).</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Een parkeerterrein met 120 vrachtwagenplaatsen totaal, waarvan 8 bestemd voor koelvoertuigen, elk voorzien van een CEE 63A-aansluiting voor de koelaggregaat.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-naam-adres">
+  <h3>Contactgegevens exploitant</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De gegevens waarmee gebruikers van een vrachtwagenparkeerterrein contact kunnen opnemen met de exploitant of een daaraan verbonden onderneming, bestaande uit het telefoonnummer en het e-mailadres van het contactpunt en optioneel de naam van de contactpersoon.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Deze gegevens worden alleen openbaar gemaakt als de exploitant daarmee instemt; Gedelegeerde Verordening (EU) nr. 885/2013 legt die instemming als afzonderlijk gegeven vast.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Fictief voorbeeld — contactpunt: receptie Truckparking Voorbeeldstad; telefoon: +31 00 000 0000; e-mail: contact@voorbeeldparking.example.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-parkeerterrein">
+  <h3>Vrachtwagenparkeerterrein</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een identificeerbaar en aangewezen, niet op de rijbaan gelegen terrein dat specifiek bestemd is voor het nacht- of rustperiodeparkeren van vrachtwagens en bedrijfsvoertuigen, waarbij veilige en beveiligde omstandigheden worden geboden.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>In Nederland wordt een vrachtwagenparkeerterrein formeel aangewezen via een verkeersbesluit, resulterend in de plaatsing van RVV 1990-bord E8a (&#x27;Parkeergelegenheid voor vrachtwagens en bussen&#x27;).
+
+Op het rijkswegennet (Rijkswaterstaat) is vrachtwagenparkeren vaak geïntegreerd in verzorgingsplaatsen. Daarnaast kunnen gemeenten vrachtwagenparkeerterreinen aanwijzen.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>A2 Truck Parking bij Eindhoven (N2-corridor); een verzorgingsplaats langs de A16 bij Breda voorzien van afgebakende vrachtwagenparkeerplaatsen en hekwerk.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-primaire-weg">
+  <h3>Primaire weg</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De identificatie en rijrichting van de weg of wegen (maximaal twee) waarvan het vrachtwagenparkeerterrein direct toegankelijk is.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Wegidentificatoren volgen de Nederlandse nationale nummeringsconventie: A-wegen (autosnelwegen), N-wegen (nationale wegen) en S-wegen (stadsroutes). Wegidentificatoren worden bijgehouden in het NWB (Nationaal Wegenbestand). Het richtingsveld geeft de hoofdbestemming aan die wordt bediend, zodat bestuurders het relevante parkeerterrein kunnen identificeren vanuit routegeleiding.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Weg: A2, richting: Den Haag; nevenweg: N2, richting: Eindhoven-Centrum.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-sstp-gegevenstype">
+  <h3>Gegevenstype SSTP – Statische en dynamische parkeergegevens</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Gegevenstype binnen de SSTP-context dat de verzameling van concepten beschrijft die nodig zijn om statische en dynamische informatie over veilige en beveiligde vrachtwagenparkeerterreinen op het trans-Europees wegennet eenduidig vast te leggen en uit te wisselen. Statische informatie betreft de vaste kenmerken van een terrein; dynamische informatie betreft de actuele toestand en status ervan.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Dit gegevenstype is gedefinieerd als onderdeel van de Nederlandse implementatie van de ITS-richtlijn (2010/40/EU) en Gedelegeerde Verordening (EU) nr. 885/2013 inzake informatiediensten voor veilige en beveiligde parkeerplaatsen voor vrachtwagens en bedrijfsvoertuigen. Statische gegevens moeten beschikbaar zijn via het nationaal toegangspunt (NTM/NDW) en minimaal jaarlijks worden bijgewerkt.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-tarief">
+  <h3>Tarief</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De parkeervergoeding en valuta die van toepassing zijn op een vrachtwagenparkeerterrein, of een aanduiding dat parkeren kosteloos is, zoals vereist door Gedelegeerde Verordening (EU) nr. 885/2013.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Tariefinformatie is geregeld door het privaatrecht tussen de parkeerexploitant en de gebruiker (exploitatieovereenkomst). Er bestaat geen Nederlandse publiekrechtelijke verplichting voor tarifering van vrachtwagenparkeren. Het via NTM/NDW gepubliceerde tarief dient te worden bijgewerkt wanneer het commerciële tarief wijzigt; de algemene minimale updatefrequentie van jaarlijks is van toepassing.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>€ 30,00 per etmaal (EUR); of: gratis (voor korte stops op verzorgingsplaatsen zonder parkeermanagementsysteem).</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-tijdvenster">
+  <h3>Tijdvenster</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De perioden gedurende welke een vrachtwagenparkeerterrein open en toegankelijk is voor voertuigen, inclusief eventuele beperkingen per dag van de week of tijdstip. Relevant zowel voor toegangsvoorwaarden als voor de geldigheid van tariefinformatie.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>24/7-beschikbaarheid is een vereiste voor Goud- en Platina-certificering onder DR (EU) 2022/1012 Bijlage I. Openingstijden kunnen de betrouwbaarheid van real-time beschikbaarheidsgegevens beïnvloeden: een gesloten parkeerterrein dient in het dynamische gegevenstype als &#x27;gesloten&#x27; te worden weergegeven. In DATEX II correspondeert dit met OpeningTimes binnen de ParkingRecord-structuur.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Open 24/7 het hele jaar; of: maandag–vrijdag 06:00–22:00, zaterdag 08:00–18:00, gesloten op zondag en feestdagen.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-toegangspunt">
+  <h3>Toegangspunt</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De locatie van het punt waar voertuigen het vrachtwagenparkeerterrein binnenrijden.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>De positie kan worden uitgedrukt als geografische coördinaten (ETRS89 aanbevolen) of als locatiereferentie langs het wegennet (punt- of lineaire referentie, bijvoorbeeld via het NWB). Een vrachtwagenparkeerterrein kan meer dan één toegangspunt hebben.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Fictief voorbeeld — coördinaten: breedtegraad 52.00000, lengtegraad 5.00000 (ETRS89); of als locatiereferentie: punt op een NWB-wegvak van de N999.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-toezicht">
+  <h3>Toezicht</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Het type bewakings- en toezichtregeling op een vrachtwagenparkeerterrein, die aangeeft of het terrein is bemand, op afstand wordt bewaakt of onbemand is.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>DATEX II ParkingSupervisionEnum omvat: patrolled, remoteSurveillance, staffOnSite, controlCentre, none. Goud- en Platina-certificering onder DR 2022/1012 vereisen minimaal remoteSurveillance met 24/7-dekking. Het type toezicht heeft direct invloed op de responstijd bij incidenten en is relevant voor het dynamische gegevenstype.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>staffOnSite: een beveiliger die 24/7 op het terrein aanwezig is; remoteSurveillance: CCTV-beelden worden bewaakt vanuit een centrale meldkamer in Amsterdam, met interventiemogelijkheid via een gecontracteerde responsdienst.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-veiligheidsclassificatie">
+  <h3>Veiligheids- en beveiligingsclassificatie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een gestructureerde beschrijving van de beveiligingsmaatregelen, veiligheidsvoorzieningen en toezichtregelingen die aanwezig zijn op een vrachtwagenparkeerterrein, zoals vereist door artikel 4 lid 2 sub a van Gedelegeerde Verordening (EU) nr. 885/2013, inclusief eventuele nationale of Europese certificeringsclassificatie. Komt overeen met DATEX II SafetyStandardClassification.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>De classificatie omvat drie subdimensies: beveiligingsvoorzieningen, veiligheidsvoorzieningen en toezicht. DR (EU) 2022/1012 Bijlage I definieert het Europese vierniveaucertificeringskader (Brons, Zilver, Goud, Platina) met minimumvereisten per niveau. Waar een nationaal classificatiesysteem bestaat, dient dit te worden gerapporteerd in het veld securityNationalClassification.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-veiligheidsvoorziening">
+  <h3>Veiligheidsvoorziening</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een voorziening op een vrachtwagenparkeerterrein die dient ter bescherming van de fysieke veiligheid van chauffeurs en inzittenden, onderscheiden van beveiligingsmaatregelen voor lading.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Deze zijn te onderscheiden van beveiligingsvoorzieningen die betrekking hebben op misdaadpreventie.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Noodtelefoon verbonden met een 24/7 bemande meldkamer; brandblusserposten elke 50 meter langs de parkeerrijen; AED (defibrillator) bij het receptiegebouw.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-verkeersbesluit">
+  <h3>Verkeersbesluit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een formeel administratief besluit van het bevoegde gezag (wegbeheerder) waarbij een locatie wordt aangewezen als vrachtwagenparkeerterrein, dat de juridische grondslag vormt voor de plaatsing van het E8a bord en de handhaving van toegangsbeperkingen.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Een verkeersbesluit voor vrachtwagenparkeren wordt genomen. De procedure vereist verplichte advisering door de politie en bekendmaking in de Staatscourant, gevolgd door een bezwaar- en beroepstermijn van zes weken. 
+
+Verkeersbesluiten zijn openbaar toegankelijk via officielebekendmakingen.nl en het LVBB. 
+
+Niet alle vrachtwagenparkeerterreinen hebben een specifiek verkeersbesluit — terreinen die worden gereguleerd via APV gebruiken in plaats daarvan een aanwijzingsbesluit.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Verkeersbesluit Rijkswaterstaat, kenmerk RWS-2021/12345, gepubliceerd Staatscourant 14 april 2021: aanwijzing verzorgingsplaats X als vrachtwagenparkeerterrein met bord E8a.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-verzorgingsplaats">
+  <h3>Verzorgingsplaats</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Een rustplaats langs een rijksweg (Rijkswaterstaat) die minimaal een parkeerzone en sanitaire voorzieningen biedt, en vaak aangewezen vrachtwagenparkeerplaatsen bevat. Beheerd door Rijkswaterstaat op basis van de CROW KIVZP-criteria.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>Verzorgingsplaatsen zijn formeel geregistreerd door Rijkswaterstaat en zijn opgenomen in het NDW-truckparkingregister. De vrachtwagenzone draagt bord E8a en valt onder concessie- of beheersovereenkomsten van Rijkswaterstaat voor servicevoorzieningen. Niet alle verzorgingsplaatsen voldoen aan de beveiligingsclassificatiedrempels van Gedelegeerde Verordening (EU) 2022/1012.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Verzorgingsplaats De Lucht (A2, Noord-Brabant) — inclusief afzonderlijke omheinde vrachtwagenzone met sanitair en restaurant.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-voertuigcategorie">
+  <h3>Voertuigcategorie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>De categorie voertuigen waarvoor een parkeerterrein of specifieke parkeerplaatsen zijn bestemd, op basis van de fysieke en operationele kenmerken van het voertuig, zoals gedefinieerd in RVV en EU-voertuigclassificatienormen.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>In de context van DR 885/2013 zijn de relevante voertuigcategorieën vrachtauto&#x27;s, opleggers en bussen. Toegangsbeperkingen op basis van voertuigcategorie worden geregeld door RVV, dat parkeren verbiedt op een E4–E13-aangewezen locatie voor voertuigen die niet tot de aangewezen categorie behoren. 
+
+Bord E8a betreft specifiek vrachtwagens en bussen.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Een parkeerterrein aangeduid met bord E8a mag uitsluitend worden gebruikt door vrachtwagens (motorrijtuigen met een toegestane maximummassa van meer dan 3.500 kg) en bussen. Personenauto&#x27;s en bestelauto&#x27;s tot 3.500 kg zijn uitgesloten.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section id="concept-wegbeheerder">
+  <h3>Wegbeheerder</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Concept details</caption>
+  <thead>
+    <tr>
+      <th>Veld</th><th>Waarde</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Definitie</td><td>Het publiekrechtelijk orgaan dat juridisch verantwoordelijk is voor een weg en de daarmee verbonden infrastructuur, inclusief vrachtwagenparkeerterreinen op of naast die weg. De wegbeheerder is tevens het bevoegd gezag voor het nemen van een verkeersbesluit.</td>
+      </tr>
+    
+      <tr>
+        <td>Scope</td><td>De bevoegdheid is geregeld in WVW 1994 artikel 18: Rijkswaterstaat voor rijkswegen (A-wegen en bepaalde N-wegen), het college van Gedeputeerde Staten voor provinciale wegen, en het college van B&amp;W voor gemeentelijke wegen. Op verzorgingsplaatsen is Rijkswaterstaat zowel wegbeheerder als doorgaans concessieverlener voor de serviceexploitant.</td>
+      </tr>
+    
+      <tr>
+        <td>Voorbeeld</td><td>Rijkswaterstaat (voor A2 Truck Parking langs de A2); Gemeente Amsterdam (voor een gemeentelijk aangewezen vrachtwagenparkeerterrein binnen de gemeentegrenzen).</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+</section>
+
+  
+    
+<section>
+  <h2>Relaties per concept</h2>
+  
+    
+      <p class="prose">Outgoing semantic relations only — these stay inside the model.</p>
+    
+  
+    
+      
+<section>
+  <h3>Gebruiker</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Contactgegevens exploitant</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-naam-adres</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Gebruikersfeedback</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736053834</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Gebruikersfeedback</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Gebruiker</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773735874023</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Status</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>_Aantal vrije parkeerplaatsen</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1792132751226</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Parkeercapaciteit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>_Wachttijd bij toegang</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1792132920747</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>_Tijdelijke buitengebruikstelling</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1792132848912</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>_Bezettingsgraad</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1792132889371</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Tijdvenster</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tijdvenster</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Uitgang</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Toegangspunt</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Ingang</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Toegangspunt</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>_Aantal vrije parkeerplaatsen</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Koelvoertuigplaats</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-koelvoertuigplaats</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Parkeercapaciteit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>_Bezettingsgraad</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1792132889371</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>_Reserveringsstatus</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Parkeercapaciteit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>_Tijdelijke buitengebruikstelling</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Toegangspunt</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>_Bezettingsgraad</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Parkeercapaciteit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>_Wachttijd bij toegang</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Ingang</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773739249931</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Afrit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Toegangspunt</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Afstand tot primaire weg</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afstand-primaire-weg</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Primaire weg</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-primaire-weg</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Afstand tot primaire weg</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Primaire weg</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-primaire-weg</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Afrit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afrit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Toegangspunt</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Beveiligingsniveau</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Veiligheids- en beveiligingsclassificatie</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Tijdvenster</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tijdvenster</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Certificering</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-certificering</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Beveiligingsvoorziening</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Veiligheids- en beveiligingsclassificatie</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Parkeercapaciteit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Koelvoertuigplaats</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-koelvoertuigplaats</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Voertuigcategorie</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-voertuigcategorie</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Certificering</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Beveiligingsniveau</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsniveau</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Veiligheids- en beveiligingsclassificatie</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Exploitant</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Contactgegevens exploitant</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-naam-adres</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Wegbeheerder</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-wegbeheerder</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Tarief</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tarief</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Faciliteit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Koelvoertuigplaats</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-koelvoertuigplaats</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Verzorgingsplaats</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verzorgingsplaats</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Identificatiegegevens vrachtwagenparkeerterrein</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Koelvoertuigplaats</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Faciliteit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-faciliteit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Parkeercapaciteit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Contactgegevens exploitant</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Gebruiker</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773735874023</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Exploitant</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Vrachtwagenparkeerterrein</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Verzorgingsplaats</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verzorgingsplaats</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Gebruiker</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773735874023</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Verkeersbesluit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verkeersbesluit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Gegevenstype SSTP – Statische en dynamische parkeergegevens</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-sstp-gegevenstype</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Status</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736227821</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Veiligheids- en beveiligingsclassificatie</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Gebruikersfeedback</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736053834</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Parkeercapaciteit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Identificatiegegevens vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-identificatiegegevens</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Exploitant</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Toegangspunt</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Primaire weg</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Afrit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afrit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Afstand tot primaire weg</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afstand-primaire-weg</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Toegangspunt</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toegangspunt</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Gegevenstype SSTP – Statische en dynamische parkeergegevens</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Tarief</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Exploitant</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Tijdvenster</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tijdvenster</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Tijdvenster</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Tarief</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-tarief</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Beveiligingsniveau</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsniveau</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Status</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-1773736227821</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Toegangspunt</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Afrit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afrit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Primaire weg</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-primaire-weg</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Afstand tot primaire weg</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-afstand-primaire-weg</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Toezicht</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Veiligheids- en beveiligingsclassificatie</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Veiligheids- en beveiligingsclassificatie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>narrower</td><td>Beveiligingsvoorziening</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsvoorziening</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Toezicht</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-toezicht</td>
+      </tr>
+    
+      <tr>
+        <td>narrower</td><td>Veiligheidsvoorziening</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsvoorziening</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Certificering</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-certificering</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Beveiligingsniveau</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-beveiligingsniveau</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Veiligheidsvoorziening</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Veiligheids- en beveiligingsclassificatie</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-veiligheidsclassificatie</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Verkeersbesluit</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Voertuigcategorie</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-voertuigcategorie</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Wegbeheerder</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-wegbeheerder</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Verzorgingsplaats</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>broader</td><td>Vrachtwagenparkeerterrein</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-parkeerterrein</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Faciliteit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-faciliteit</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Voertuigcategorie</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Verkeersbesluit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verkeersbesluit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Parkeercapaciteit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-capaciteit</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+    
+      
+<section>
+  <h3>Wegbeheerder</h3>
+  
+    
+      
+<table class="data-table">
+  <caption>Semantische relaties</caption>
+  <thead>
+    <tr>
+      <th>Type</th><th>Label van doelconcept</th><th>Doelconcept</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>related</td><td>Verkeersbesluit</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-verkeersbesluit</td>
+      </tr>
+    
+      <tr>
+        <td>related</td><td>Exploitant</td><td>https://ndwnu.github.io/its-gegevenscatalogus/id/36d8ea00-746c-4f90-8753-48a891961bdb/concept-exploitant</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+    
+  
+</section>
+
+    
+  
+</section>
+
+  
+</body>
+</html>
