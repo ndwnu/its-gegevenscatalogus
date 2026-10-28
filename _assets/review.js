@@ -10,6 +10,9 @@
  *   data-template  naam van het issue form (standaard: review.yml)
  *   data-model     naam van het model (standaard: eerste padsegment na de repo)
  *   data-version   versie van het model (standaard: tweede padsegment na de repo)
+ *   data-l10n      JSON met de UI-teksten in de paginataal (standaard: Engels);
+ *                  zie docpublish/services/chrome.py:review_l10n. Eén review.js
+ *                  bedient alle taalversies, dus de pagina levert de teksten.
  *
  * Geen backend nodig: het script opent een vooraf ingevuld issue form op github.com.
  */
@@ -24,6 +27,26 @@
     version: script?.dataset.version,
   };
   const MAX_QUOTE = 500; // houd de URL beneden de limieten van GitHub/browsers
+  const t = Object.assign(
+    {
+      button: "Review comment",
+      title: "Review mode",
+      instruction: "Select text and click {button} to create a GitHub issue.",
+      view: "View comments",
+      close: "Close",
+      general: "General",
+    },
+    parseL10n(script?.dataset.l10n),
+  );
+
+  function parseL10n(raw) {
+    // Kapotte of ontbrekende JSON mag de review-knop niet breken: dan Engels.
+    try {
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      return {};
+    }
+  }
 
   function guessRepo() {
     // https://<owner>.github.io/<repo>/...
@@ -45,7 +68,7 @@
   function sectionOf(node) {
     const el = node?.nodeType === 1 ? node : node?.parentElement;
     const sec = el?.closest("section[id], [id].section, h1[id], h2[id], h3[id], dt[id], dfn[id]");
-    if (!sec) return { id: "", title: "General" };
+    if (!sec) return { id: "", title: t.general };
     const heading = sec.matches("h1,h2,h3") ? sec : sec.querySelector("h1, h2, h3, h4, h5, h6");
     const title = (heading?.textContent || sec.id).replace(/\s+/g, " ").trim();
     return { id: sec.id, title };
@@ -111,16 +134,32 @@
     const btn = document.createElement("button");
     btn.className = "rv-btn";
     btn.type = "button";
-    btn.textContent = "💬 Review comment";
+    btn.textContent = `💬 ${t.button}`;
     document.body.appendChild(btn);
 
+    // Opgebouwd met DOM-nodes i.p.v. innerHTML: de teksten komen van buiten
+    // het script (data-l10n) en mogen nooit als HTML geïnterpreteerd worden.
     const banner = document.createElement("div");
     banner.className = "rv-banner";
-    banner.innerHTML =
-      `<button type="button" aria-label="Close">×</button><b>Review mode</b>` +
-      `Select text and click <i>Review comment</i> to create a GitHub issue. ` +
-      `<a href="https://github.com/${cfg.repo}/issues?q=label%3Areview" target="_blank" rel="noopener">View comments</a>`;
-    banner.querySelector("button").onclick = () => banner.remove();
+    const close = document.createElement("button");
+    close.type = "button";
+    close.setAttribute("aria-label", t.close);
+    close.textContent = "×";
+    close.onclick = () => banner.remove();
+    const title = document.createElement("b");
+    title.textContent = t.title;
+    banner.append(close, title);
+    // {button} in de instructie wordt de cursieve knopnaam; de rest is tekst.
+    const [before, after = ""] = t.instruction.split("{button}");
+    const em = document.createElement("i");
+    em.textContent = t.button;
+    banner.append(before, em, `${after} `);
+    const view = document.createElement("a");
+    view.href = `https://github.com/${cfg.repo}/issues?q=label%3Areview`;
+    view.target = "_blank";
+    view.rel = "noopener";
+    view.textContent = t.view;
+    banner.append(view);
     document.body.appendChild(banner);
 
     let pending = null;
