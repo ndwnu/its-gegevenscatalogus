@@ -10,6 +10,16 @@
  *   data-template  naam van het issue form (standaard: review.yml)
  *   data-model     naam van het model (standaard: eerste padsegment na de repo)
  *   data-version   versie van het model (standaard: tweede padsegment na de repo)
+ *   data-l10n      JSON met de UI-teksten in de paginataal (standaard: Engels);
+ *                  zie docpublish/services/chrome.py:review_l10n. Eén review.js
+ *                  bedient alle taalversies, dus de pagina levert de teksten.
+ *
+ * Review staat alleen open op de AANTOONBAAR NIEUWSTE versie. Het script haalt
+ * de latest-pagina op (respecConfig.latestVersion) en vergelijkt diens
+ * thisVersion met die van deze pagina. Alleen bij een match (of als deze pagina
+ * de latest-pagina zelf is) verschijnt de review-knop; in ALLE andere gevallen
+ * (andere versie, latest-pagina onbereikbaar, pagina van vóór de latest-laag)
+ * is review gesloten. Geen statusbestand: de publicatie zelf is de bron.
  *
  * Geen backend nodig: het script opent een vooraf ingevuld issue form op github.com.
  */
@@ -24,6 +34,28 @@
     version: script?.dataset.version,
   };
   const MAX_QUOTE = 500; // houd de URL beneden de limieten van GitHub/browsers
+  const t = Object.assign(
+    {
+      button: "Review comment",
+      title: "Review mode",
+      instruction: "Select text and click {button} to create a GitHub issue.",
+      view: "View comments",
+      close: "Close",
+      general: "General",
+      closed: "Review is closed for this version.",
+      latest: "Go to the latest version",
+    },
+    parseL10n(script?.dataset.l10n),
+  );
+
+  function parseL10n(raw) {
+    // Kapotte of ontbrekende JSON mag de review-knop niet breken: dan Engels.
+    try {
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      return {};
+    }
+  }
 
   function guessRepo() {
     // https://<owner>.github.io/<repo>/...
@@ -45,7 +77,7 @@
   function sectionOf(node) {
     const el = node?.nodeType === 1 ? node : node?.parentElement;
     const sec = el?.closest("section[id], [id].section, h1[id], h2[id], h3[id], dt[id], dfn[id]");
-    if (!sec) return { id: "", title: "General" };
+    if (!sec) return { id: "", title: t.general };
     const heading = sec.matches("h1,h2,h3") ? sec : sec.querySelector("h1, h2, h3, h4, h5, h6");
     const title = (heading?.textContent || sec.id).replace(/\s+/g, " ").trim();
     return { id: sec.id, title };
@@ -99,28 +131,64 @@
       .rv-banner a{color:#4493f8}}
     @media print{.rv-btn,.rv-banner{display:none!important}}`;
 
-  function init() {
-    if (!cfg.repo) {
-      console.warn("[review.js] No repo known; set data-repo=\"owner/repo\" on the script tag.");
-      return;
-    }
+  function addStyle() {
     const style = document.createElement("style");
     style.textContent = css;
     document.head.appendChild(style);
+  }
+
+  // Opgebouwd met DOM-nodes i.p.v. innerHTML: de teksten komen van buiten
+  // het script (data-l10n) en mogen nooit als HTML geïnterpreteerd worden.
+  function makeBanner(heading) {
+    const banner = document.createElement("div");
+    banner.className = "rv-banner";
+    const close = document.createElement("button");
+    close.type = "button";
+    close.setAttribute("aria-label", t.close);
+    close.textContent = "×";
+    close.onclick = () => banner.remove();
+    const title = document.createElement("b");
+    title.textContent = heading;
+    banner.append(close, title);
+    return banner;
+  }
+
+  function makeLink(href, text, newTab) {
+    const a = document.createElement("a");
+    a.href = href;
+    a.textContent = text;
+    if (newTab) {
+      a.target = "_blank";
+      a.rel = "noopener";
+    }
+    return a;
+  }
+
+  // Oudere versie: geen review-knop, alleen een verwijzing naar de nieuwste
+  // (als die bekend is; pagina's van vóór de latest-laag kennen hem niet).
+  function initClosed(latestUrl) {
+    addStyle();
+    const banner = makeBanner(t.closed);
+    if (latestUrl) banner.append(makeLink(latestUrl, t.latest, false));
+    document.body.appendChild(banner);
+  }
+
+  function init() {
+    addStyle();
 
     const btn = document.createElement("button");
     btn.className = "rv-btn";
     btn.type = "button";
-    btn.textContent = "💬 Review comment";
+    btn.textContent = `💬 ${t.button}`;
     document.body.appendChild(btn);
 
-    const banner = document.createElement("div");
-    banner.className = "rv-banner";
-    banner.innerHTML =
-      `<button type="button" aria-label="Close">×</button><b>Review mode</b>` +
-      `Select text and click <i>Review comment</i> to create a GitHub issue. ` +
-      `<a href="https://github.com/${cfg.repo}/issues?q=label%3Areview" target="_blank" rel="noopener">View comments</a>`;
-    banner.querySelector("button").onclick = () => banner.remove();
+    const banner = makeBanner(t.title);
+    // {button} in de instructie wordt de cursieve knopnaam; de rest is tekst.
+    const [before, after = ""] = t.instruction.split("{button}");
+    const em = document.createElement("i");
+    em.textContent = t.button;
+    banner.append(before, em, `${after} `);
+    banner.append(makeLink(`https://github.com/${cfg.repo}/issues?q=label%3Areview`, t.view, true));
     document.body.appendChild(banner);
 
     let pending = null;
@@ -166,10 +234,73 @@
     });
   }
 
+  // ---------- alleen de nieuwste versie ----------
+  // respecConfig staat in een <script class="remove"> vóór dit script. ReSpec
+  // haalt dat element weg, maar de globale variabele blijft bestaan.
+  function versionUrls() {
+    const rc = window.respecConfig;
+    return { self: rc?.thisVersion, latest: rc?.latestVersion };
+  }
+
+  // De latest-pagina is een bytekopie van een versiepagina: diens
+  // respecConfig.thisVersion zegt welke versie nu de nieuwste is.
+  function thisVersionIn(html) {
+    const m = html.match(/"thisVersion"\s*:\s*("(?:[^"\\]|\\.)*")/);
+    if (!m) return null;
+    try {
+      return JSON.parse(m[1]);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Vergelijk zonder query, fragment en een afsluitende index.html: ".../nl/"
+  // en ".../nl/index.html" zijn dezelfde pagina.
+  function sameUrl(a, b) {
+    const norm = (u) => {
+      const url = new URL(u, location.href);
+      url.search = "";
+      url.hash = "";
+      return url.href.replace(/index\.html?$/i, "");
+    };
+    try {
+      return norm(a) === norm(b);
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // Fail-closed: review alleen als AANTOONBAAR is dat dit de nieuwste versie is.
+  // Geen latest-laag (publicatie van vóór #106), latest-pagina onbereikbaar of
+  // zonder thisVersion -> gesloten. Liever een keer te veel dicht (herladen
+  // lost een netwerkhapering op) dan een oude versie die open blijft.
+  async function isLatest() {
+    const { self, latest } = versionUrls();
+    if (!latest) return false;
+    if (sameUrl(location.href, latest)) return true; // dit ís de latest-pagina
+    if (!self) return false;
+    try {
+      const res = await fetch(latest, { cache: "no-cache" });
+      if (!res.ok) return false;
+      const current = thisVersionIn(await res.text());
+      return Boolean(current) && sameUrl(current, self);
+    } catch (e) {
+      return false;
+    }
+  }
+
   // Sectie-id's en koppen worden pas bij het selecteren uitgelezen, dus het maakt
   // niet uit of ReSpec nog aan het renderen is. Werkt ook op een statische export.
-  function start() {
-    init();
+  async function start() {
+    if (!cfg.repo) {
+      console.warn("[review.js] No repo known; set data-repo=\"owner/repo\" on the script tag.");
+      return;
+    }
+    if (await isLatest()) {
+      init();
+    } else {
+      initClosed(versionUrls().latest);
+    }
   }
 
   if (document.readyState === "loading") {
