@@ -1,0 +1,938 @@
+[
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/relations/ingesteldDoor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "establishedBy"
+      },
+      {
+        "@language": "nl",
+        "@value": "ingesteldDoor"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#related"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000014",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000002"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een weggedeelte waarop het eenrichtingsregime tijdelijk of veranderlijk is, ingesteld op basis van tijdstip, evenementen of actuele omstandigheden."
+      },
+      {
+        "@language": "en",
+        "@value": "A road segment where the one-way regime is temporary or variable, established on the basis of time of day, events or current circumstances."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Dynamische eenrichtingsweg"
+      },
+      {
+        "@language": "en",
+        "@value": "Dynamic One-Way Street"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000013"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Dynamische eenrichtingswegen komen in Nederland voor in binnensteden (straten die tijdens spitsuren van richting wisselen), bij evenementen (tijdelijke eenrichting voor bezoekersstromen) en incidenteel bij wegwerkzaamheden. De NAPCORE data dictionary onderscheidt binnen ‘static and dynamic traffic regulations’ expliciet het dynamische karakter van verkeersregelgeving die kan wijzigen op basis van omstandigheden.\n\nDynamische eenrichtingswegen vormen een bijzondere uitdaging voor ITS-diensten: de rijrichting in het NWB is een statisch attribuut dat het tijdafhankelijke karakter niet direct kan representeren. Aanvullende informatie (bijv. via DATEX II of verkeersmanagementberichten) is nodig om het actuele regime te communiceren."
+      },
+      {
+        "@language": "en",
+        "@value": "In the Netherlands, dynamic one-way streets occur in city centres (streets that change direction during rush hours), at events (temporary one-way traffic for visitor flows) and occasionally during road works. Within ‘static and dynamic traffic regulations’, the NAPCORE data dictionary explicitly distinguishes the dynamic nature of traffic regulations that can change according to circumstances.\n\nDynamic one-way streets pose a particular challenge for ITS services: the direction of travel in the NWB is a static attribute that cannot directly represent the time-dependent nature of the regime. Additional information (e.g. via DATEX II or traffic management messages) is needed to communicate the current regime."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000004",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De richting of richtingen waarin het verkeer zich over een weggedeelte mag voortbewegen."
+      },
+      {
+        "@language": "en",
+        "@value": "The direction or directions in which traffic is permitted to travel along a road segment."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Rijrichting"
+      },
+      {
+        "@language": "en",
+        "@value": "Direction of Travel"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000015"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-1793262693650"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000002"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Binnen dit kader is de rijrichting het kenmerk waarmee een eenrichtingsweg zich onderscheidt van een tweerichtingsweg. In het Nationaal Wegenbestand (NWB) wordt de rijrichting per wegvak vastgelegd, ten opzichte van de digitalisatierichting van dat wegvak: heen, terug of beide (zie Wegvak). Het attribuut is essentieel voor de routeerbaarheid van het NWB en wordt ook gebruikt in de NDW WKD-bestanden om beperkingen per richting vast te leggen.\n\nHet NWB-attribuut maakt geen onderscheid naar de grondslag van de rijrichting: wegvakken met een ingestelde rijrichting en wegvakken met een inherente rijrichting, zoals toe- en afritten, gescheiden rijbanen en rotondes, zijn op dezelfde manier als eenrichting gecodeerd. Beide vallen binnen dit kader; het onderscheid wordt vastgelegd met Grondslag rijrichting.\n\nUitzonderingen per categorie weggebruiker, zoals ‘uitgezonderd fietsers’, zijn niet in het rijrichtingattribuut opgenomen. Zie daarvoor Uitzondering."
+      },
+      {
+        "@language": "en",
+        "@value": "Within this framework, the direction of travel is the characteristic that distinguishes a one-way street from a two-way street. In the Nationaal Wegenbestand (NWB), the direction of travel is recorded per road section, relative to the digitisation direction of that section: forward, return or both (see Road Section). The attribute is essential for routing on the NWB and is also used in the NDW WKD files to record restrictions per direction.\n\nThe NWB attribute does not distinguish the basis of the direction of travel: road sections with an established direction of travel and road sections with an inherent direction of travel, such as slip roads, dual carriageways and roundabouts, are coded as one-way in the same way. Both fall within this framework; the distinction is recorded with Basis of the Direction of Travel.\n\nExemptions per road user category, such as ‘except cyclists’, are not included in the direction-of-travel attribute. See Exception."
+      }
+    ],
+    "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/relations/steltIn": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-1793262693650"
+      }
+    ],
+    "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/relations/volgtUit1": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000015"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000006",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Het verkeersbord of de combinatie van borden waarmee een eenrichtingsregime aan de weggebruiker kenbaar wordt gemaakt."
+      },
+      {
+        "@language": "en",
+        "@value": "The traffic sign or combination of signs by which a one-way regime is made known to road users."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000008"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000007"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Aanduiding"
+      },
+      {
+        "@language": "en",
+        "@value": "Indication"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000010"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000011"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Binnen de context van eenrichtingsverkeer betreft dit met name bord C2 (gesloten zijde), bord C3 (open zijde) en bord C4 (bij een zijweg of T-aansluiting), eventueel aangevuld met onderborden voor uitzonderingen en vooraanduidingen."
+      },
+      {
+        "@language": "en",
+        "@value": "In the context of one-way traffic, this mainly concerns sign C2 (closed end), sign C3 (open end) and sign C4 (at a side road or T-junction), possibly supplemented by supplementary plates for exemptions and advance warning signs."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000005",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Geslotenverklaring die het inrijden van een weg of weggedeelte in één rijrichting verbiedt."
+      },
+      {
+        "@language": "en",
+        "@value": "Closure that prohibits entering a road or road segment in one direction of travel."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Geslotenverklaring"
+      },
+      {
+        "@language": "en",
+        "@value": "Closure Declaration"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000006"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Aangeduid met bord C2 (RVV 1990, Bijlage 1, hoofdstuk C), geplaatst aan de gesloten zijde van de eenrichtingsweg. De geslotenverklaring geldt voor voertuigen (waaronder fietsen), ruiters en geleiders van rij- of trekdieren of vee, tenzij een onderbord een uitzondering aanduidt. In de praktijk is ‘uitgezonderd (brom)fietsers’ de meest voorkomende uitzondering. Bord C2 komt ook voor bij een inherente rijrichting, bijvoorbeeld aan het einde van een afrit, om inrijden tegen de rijrichting in te voorkomen."
+      },
+      {
+        "@language": "en",
+        "@value": "Indicated by sign C2 (RVV 1990, Annex 1, chapter C), placed at the closed end of the one-way street. The closure applies to vehicles (including bicycles), riders and persons leading riding or draught animals or livestock, unless a supplementary plate indicates an exemption. In practice, ‘except (moped) cyclists’ is the most common exemption. Sign C2 also occurs where a direction of travel is inherent, for example at the end of an exit ramp, to prevent entry against the direction of travel."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-1793262693650",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Kenmerk dat aangeeft waarop de toegestane rijrichting van een eenrichtingssituatie berust: een verkeersbesluit van het bevoegd gezag, of de verkeersregels in combinatie met de inrichting van de weg."
+      },
+      {
+        "@language": "en",
+        "@value": "Characteristic indicating what the permitted direction of travel of a one-way situation is based on: a traffic decree of the competent authority, or the traffic rules in combination with the road layout."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Een eenrichtingsweg in een woonwijk, ingesteld met een gemeentelijk verkeersbesluit: ingesteld bij verkeersbesluit. De rechterrijbaan van de A2: volgend uit verkeersregels en weginrichting."
+      },
+      {
+        "@language": "en",
+        "@value": "A one-way street in a residential area, established by a municipal traffic decree: established by traffic decree. The right-hand carriageway of the A2 motorway: derived from traffic rules and road layout."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Grondslag rijrichting"
+      },
+      {
+        "@language": "en",
+        "@value": "Basis of the Direction of Travel"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000004"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Bepaalt welke overige gegevens van toepassing zijn. Bij een ingestelde rijrichting zijn een verkeersbesluit en eventuele uitzonderingen vereist. Bij een rijrichting die uit verkeersregels en weginrichting volgt, ontbreekt een verkeersbesluit en gelden geen uitzonderingen; de rijrichting wordt dan ontleend aan het Nationaal Wegenbestand en de geslotenverklaring (bord C2) die het inrijden tegen de rijrichting moet voorkomen, wordt wel vastgelegd. Een wisselstrook heeft altijd een ingestelde rijrichting. Niet te verwarren met de juridische grondslag: het verkeersbesluit zelf."
+      },
+      {
+        "@language": "en",
+        "@value": "Determines which other data apply. An established direction of travel requires a traffic decree and any exemptions. Where the direction of travel derives from the traffic rules and road layout, no traffic decree exists and no exemptions apply; the direction of travel is then taken from the Nationaal Wegenbestand (NWB), and the closure declaration (sign C2) intended to prevent entry against the direction of travel is recorded. A reversible lane always has an established direction of travel. Not to be confused with the legal basis, which is the traffic decree itself."
+      }
+    ],
+    "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/relations/ingesteldDoor": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000004"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/relations/schrijftVoor1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "prescribes"
+      },
+      {
+        "@language": "nl",
+        "@value": "schrijftVoor"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#related"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/relations/steltIn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "establishes"
+      },
+      {
+        "@language": "nl",
+        "@value": "steltIn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#related"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000007",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000006"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Fysiek verkeersbord dat permanent is geplaatst ter aanduiding van een eenrichtingsregime."
+      },
+      {
+        "@language": "en",
+        "@value": "Physical traffic sign permanently placed to indicate a one-way regime."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Statisch bord"
+      },
+      {
+        "@language": "en",
+        "@value": "Static Sign"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Bij eenrichtingsverkeer gaat het vooral om bord C2 aan de gesloten zijde en bord C3 aan de open zijde; bij een zijweg of T-aansluiting geeft bord C4 de toegestane rijrichting aan. Bij een inherente rijrichting gaat het alleen om bord C2. Het NDW-verkeersbordenbestand (George Verkeersborden) bevat de locatie, het type (RVV-code) en de afbeelding van alle geregistreerde verkeersborden, gekoppeld aan NWB-wegvakken."
+      },
+      {
+        "@language": "en",
+        "@value": "For one-way traffic, this mainly concerns sign C2 at the closed end and sign C3 at the open end; at a side road or T-junction, sign C4 indicates the permitted direction of travel. For an inherent direction of travel, only sign C2 applies. The NDW traffic sign dataset (George Verkeersborden) contains the location, type (RVV code) and image of all registered traffic signs, linked to NWB road sections."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000010",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Supplementary Sign"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Bord dat onder een verkeersbord wordt aangebracht ter nadere aanduiding van de werking van dat verkeersbord."
+      },
+      {
+        "@language": "en",
+        "@value": "Plate mounted below a traffic sign to further specify the effect of that traffic sign."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Onderbord"
+      },
+      {
+        "@language": "en",
+        "@value": "Supplementary Plate"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000012"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Bij eenrichtingswegen is het onderbord van groot praktisch belang. De meest voorkomende toepassing is het aanduiden van uitzonderingen op de geslotenverklaring, zoals ‘uitgezonderd (brom)fietsers’, ‘uitgezonderd lijnbussen’ of ‘uitgezonderd bestemmingsverkeer’. Onderborden kunnen ook een tijdvenster aangeven waarbinnen het eenrichtingsregime geldt."
+      },
+      {
+        "@language": "en",
+        "@value": "For one-way streets, the supplementary plate is of great practical importance. The most common application is indicating exemptions from the closure declaration, such as ‘except (moped) cyclists’, ‘except scheduled buses’ or ‘except access traffic’. Supplementary plates can also indicate a time window during which the one-way regime applies."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000013",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "De tijdsperiode waarbinnen het eenrichtingsregime van kracht is."
+      },
+      {
+        "@language": "en",
+        "@value": "The time period during which the one-way regime is in force."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Geldigheid"
+      },
+      {
+        "@language": "en",
+        "@value": "Validity"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000010"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Statische eenrichtingswegen zijn permanent van kracht. Dynamische eenrichtingswegen zijn gebonden aan tijdvensters of omstandigheden, bijvoorbeeld: alleen eenrichting tijdens de ochtendspits, of eenrichting tijdens evenementen. De geldigheid wordt aangegeven via onderborden met tijdsaanduiding."
+      },
+      {
+        "@language": "en",
+        "@value": "Static one-way streets are permanently in force. Dynamic one-way streets are bound to time windows or circumstances, for example one-way only during the morning rush hour, or one-way during events. Validity is indicated by supplementary plates showing times."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000012",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Voorwaarde waaronder bepaalde categorieën weggebruikers in de gesloten richting van een eenrichtingsweg mogen rijden."
+      },
+      {
+        "@language": "en",
+        "@value": "Condition under which certain categories of road users are permitted to travel in the closed direction of a one-way street."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "nl",
+        "@value": "Een binnenstedelijke eenrichtingsweg met bord C2 en onderbord ‘uitgezonderd (brom)fietsers’ aan de gesloten zijde, bord C3 aan de open zijde, en een fietsstrook voor tegengesteld fietsverkeer."
+      },
+      {
+        "@language": "en",
+        "@value": "An inner-city one-way street with sign C2 and the supplementary plate ‘except (moped) cyclists’ at the closed end, sign C3 at the open end, and a cycle lane for contraflow cycling."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Uitzondering"
+      },
+      {
+        "@language": "en",
+        "@value": "Exception"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000005"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Kenbaar gemaakt met een onderbord bij bord C2; aan de open zijde kan de uitzondering ook bij bord C3 worden aangegeven. Veelvoorkomend zijn ‘uitgezonderd (brom)fietsers’, ‘uitgezonderd lijnbussen’ en ‘uitgezonderd bestemmingsverkeer’. Bij een inherente rijrichting gelden geen uitzonderingen. Voor ITS-toepassingen bepaalt de uitzondering per voertuigcategorie of de weg in beide richtingen beschikbaar is: een fietsroute kan de weg in beide richtingen gebruiken, een vrachtroute volgt de eenrichting."
+      },
+      {
+        "@language": "en",
+        "@value": "Indicated by a supplementary plate below sign C2; at the open end, the exemption may also be indicated below sign C3. Common exemptions are ‘except (moped) cyclists’, ‘except scheduled buses’ and ‘except access traffic’. No exemptions apply where the direction of travel is inherent. For ITS applications, the exemption determines, per vehicle category, whether the road is available in both directions: a cycle route may use the road in both directions, a freight route follows the one-way regime."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000001",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Gegevenstype binnen de RTTI-context dat de verzameling van begrippen beschrijft die nodig zijn om eenrichtingsverkeer op het Nederlandse wegennet eenduidig vast te leggen en uit te wisselen. Omvat de rijrichting, de grondslag van de rijrichting, de aanduiding, eventuele uitzonderingen en, waar van toepassing, het verkeersbesluit."
+      },
+      {
+        "@language": "en",
+        "@value": "Data type within the RTTI context describing the set of concepts needed to record and exchange one-way traffic on the Dutch road network unambiguously. Encompasses the direction of travel, the basis of the direction of travel, the indication, any exemptions and, where applicable, the traffic decree."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Gegevenstype eenrichtingsverkeer"
+      },
+      {
+        "@language": "en",
+        "@value": "One-Way Traffic Data Type"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000002"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Dit gegevenstype is gedefinieerd als onderdeel van de Nederlandse implementatie van de ITS-richtlijn (Richtlijn 2010/40/EU) en de daaronder vallende Gedelegeerde Verordening RTTI (EU) 2022/670. De verordening noemt ‘one-way streets’ als subcategorie van statische en dynamische verkeersregulering (artikel 5, bijlage punt 2)."
+      },
+      {
+        "@language": "en",
+        "@value": "This data type is defined as part of the Dutch implementation of the ITS Directive (Directive 2010/40/EU) and the Delegated Regulation RTTI (EU) 2022/670 adopted under it. The Regulation lists ‘one-way streets’ as a subcategory of static and dynamic traffic regulations (Article 5, Annex point 2)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#topConceptOf": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000015",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Traffic Order"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Besluit van een bevoegd gezag (gemeente, provincie of Rijk) dat de juridische grondslag vormt voor het instellen van een eenrichtingsregime."
+      },
+      {
+        "@language": "en",
+        "@value": "Decision of a competent authority (municipality, province or central government) that forms the legal basis for establishing a one-way regime."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Verkeersbesluit"
+      },
+      {
+        "@language": "en",
+        "@value": "Traffic Decree"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000004"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000002"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Op grond van artikel 15, eerste lid, WVW 1994 geschiedt de plaatsing of verwijdering van verkeersborden krachtens een verkeersbesluit. Het verkeersbesluit wordt bekendgemaakt via de Landelijke Voorziening Bekendmakingen en Besluiten (LVBB). Voor eenrichtingswegen beschrijft het verkeersbesluit de locatie, de rijrichting en eventuele uitzonderingen.\n\nVerkeersbesluiten voor eenrichtingswegen zijn op dit moment grotendeels ongestructureerde tekst. Via KOOP/LVBB worden deze gepubliceerd, maar een gestructureerde koppeling aan specifieke borden en locaties is nog niet standaard beschikbaar.\n\nAlleen van toepassing bij de grondslag rijrichting."
+      },
+      {
+        "@language": "en",
+        "@value": "Under Article 15(1) of the Road Traffic Act 1994 (WVW 1994), traffic signs are placed or removed pursuant to a traffic decree. The traffic decree is published via the national facility for official announcements and decisions (Landelijke Voorziening Bekendmakingen en Besluiten, LVBB). For one-way streets, the traffic decree describes the location, the direction of travel and any exemptions.\n\nTraffic decrees for one-way streets currently consist largely of unstructured text. They are published via KOOP/LVBB, but a structured link to specific traffic signs and locations is not yet available as standard.\n\nOnly applicable in relation to the basis of the direction of travel."
+      }
+    ],
+    "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/relations/schrijftVoor1": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000004"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000011",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Informatiebord dat op afstand van de eenrichtingsweg wordt geplaatst, bij het kruispunt waar het verkeer de mogelijkheid heeft om een alternatieve route te kiezen."
+      },
+      {
+        "@language": "en",
+        "@value": "Information sign placed at a distance from the one-way street, at the junction where traffic has the option of choosing an alternative route."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Vooraanduiding"
+      },
+      {
+        "@language": "en",
+        "@value": "Advance Warning Sign"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Voor eenrichtingswegen wordt bord L10 (vooraanduiding verkeersmaatregel voor de aangegeven richting) gebruikt om het verkeer tijdig te informeren over het naderende eenrichtingsregime."
+      },
+      {
+        "@language": "en",
+        "@value": "For one-way streets, sign L10 (advance indication of a traffic measure for the indicated direction) is used to inform traffic in good time of the upcoming one-way regime."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/relations/volgtUit1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "followsFrom"
+      },
+      {
+        "@language": "nl",
+        "@value": "volgtUit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#related"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000003",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Gedeelte van een weg tussen twee opeenvolgende knooppunten of kruispunten, of – indien geen zijweg aanwezig is – tussen twee punten waarop een verkeersmaatregel betrekking heeft."
+      },
+      {
+        "@language": "en",
+        "@value": "A section of a road between two consecutive junctions or intersections, or – if no side road is present – between two points to which a traffic measure applies."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Wegvak"
+      },
+      {
+        "@language": "en",
+        "@value": "Road Section"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000004"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Elk wegvak heeft een administratieve richting, de digitalisatierichting, die altijd loopt van het knooppunt met het laagste nummer naar het knooppunt met het hogere nummer. Het attribuut ‘rijrichting’ op het wegvak legt ten opzichte van die digitalisatierichting vast in welke richting het verkeer mag rijden: heen (met de digitalisatierichting mee), terug (tegen de digitalisatierichting in) of beide."
+      },
+      {
+        "@language": "nl",
+        "@value": "In het Nationaal Wegenbestand (NWB) is een wegvak de kleinste eenheid waarvoor wegkenmerken worden geregistreerd. Eenrichtingswegen worden in het NWB gedigitaliseerd in de rijrichting; het attribuut ‘rijrichting’ op het wegvak codeert het eenrichtingsregime.\n\nHet NWB Wegvak-ID (WVK_ID) fungeert als centrale koppelsleutel. Sinds 2022 kan het attribuut ‘rijrichting’ door wegbeheerders worden gemuteerd via de applicatie George."
+      },
+      {
+        "@language": "en",
+        "@value": "In the Nationaal Wegenbestand (NWB), a road section is the smallest unit for which road characteristics are recorded. One-way streets are digitised in the NWB in the direction of travel; the ‘direction of travel’ attribute on the road section encodes the one-way regime.\n\nThe NWB road section ID (WVK_ID) serves as the central linking key. Since 2022, road authorities can modify the ‘direction of travel’ attribute via the George application."
+      },
+      {
+        "@language": "en",
+        "@value": "Each road section has an administrative direction, the digitisation direction, which always runs from the junction with the lower number to the junction with the higher number. The ‘direction of travel’ attribute on the road section records, relative to that digitisation direction, in which direction traffic may travel: forward (with the digitisation direction), return (against the digitisation direction) or both."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.org/dc/terms/created": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-02-27T08:56:32.623775+00:00"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@language": "nl",
+        "@value": "Dit begrippenkader beschrijft welke informatie nodig is om vast te leggen waar gemotoriseerd verkeer slechts in één richting mag rijden. De kern is de toegestane rijrichting: op een eenrichtingsweg is rijden in maar één richting toegestaan. Die richting ligt vast ten opzichte van de weg zelf: heen of terug. Vaak gelden er uitzonderingen. Heel gebruikelijk is ‘uitgezonderd fietsers’, waarbij fietsers wél in beide richtingen mogen rijden. Er bestaan ook uitzonderingen voor bijvoorbeeld lijnbussen of bestemmingsverkeer. Soms geldt de eenrichting alleen op bepaalde momenten, bijvoorbeeld tijdens de spits of bij evenementen; dat heet een dynamische eenrichtingsweg. Soms wisselt zelfs de rijrichting. Een wisselstrook kan aan het begin van de dag in de heenrichting open zijn en aan het eind van de dag in de terugrichting.\n\nBij elke eenrichtingssituatie legt het kader vast:\n\nwaar de regel geldt (op welk wegvak) en in welke richting;\nhoe de weggebruiker de regel waarneemt: verkeersborden langs de weg, onderborden met uitzonderingen of tijden, en vooraanduidingen;\nwanneer de regel geldt: altijd of alleen op bepaalde tijden, en bij een wisselende rijrichting welke richting wanneer geldt;\nvoor wie uitzonderingen gelden;\nop welke grondslag de rijrichting berust en, bij een ingestelde rijrichting, op welk verkeersbesluit.\n\nHet kader omvat elke situatie waarin gemotoriseerd verkeer slechts in één richting mag rijden. Per situatie wordt de grondslag van de rijrichting vastgelegd. In veel gevallen stelt een wegbeheerder de eenrichting bewust in met een verkeersbesluit en wordt deze met verkeerstekens kenbaar gemaakt; daarbij kunnen uitzonderingen en tijden gelden. Op andere wegen volgt de rijrichting uit de verkeersregels en de inrichting van de weg, zoals op de gescheiden rijbanen van autosnelwegen en andere wegen met gescheiden rijbanen, op toe- en afritten en op rotondes. Voor zo'n inherente rijrichting bestaat geen verkeersbesluit en gelden geen uitzonderingen. Deze situaties vallen toch binnen het kader, omdat rijden tegen de rijrichting daar ernstige gevolgen kan hebben en de bebording die het inrijden moet voorkomen, zoals borden ‘verboden in te rijden’ bij afritten, van belang is voor de verkeersveiligheid. Een wisselstrook heeft altijd een ingestelde rijrichting: daar volgt de rijrichting niet uit de verkeersregels, maar wordt deze door de wegbeheerder ingesteld.\n\nEenrichtingsverkeer wordt vastgelegd omdat de toegestane rijrichting bepaalt welke verplaatsingen over het wegennet mogelijk en veilig zijn. De gegevens ondersteunen routeplanning per vervoerswijze: een auto- of vrachtroute volgt de eenrichting, terwijl een fietsroute gebruikmaakt van een uitzondering voor fietsers. De gegevens dragen bij aan verkeersveiligheid, doordat systemen in voertuigen en verkeerscentrales het rijden tegen de rijrichting kunnen signaleren en daarvoor kunnen waarschuwen. Bij wisselstroken en dynamische eenrichting maken de gegevens zichtbaar welke richting op welk moment geldt. De koppeling aan verkeersbesluit en bebording maakt controleerbaar of de situatie op straat overeenkomt met het besluit. Doordat al deze gegevens op dezelfde manier worden beschreven, kunnen wegbeheerders, navigatiesystemen en reisinformatiediensten de gegevens betrouwbaar uitwisselen en gebruiken. Het kader is opgesteld binnen de Europese afspraken over reis- en verkeersinformatie (de ITS-richtlijn 2010/40/EU en de RTTI-verordening (EU) 2022/670); de RTTI-verordening noemt eenrichtingsstraten en de rijrichting op wisselstroken als verkeersregels die beschikbaar moeten worden gesteld. Het kader sluit aan op bestaande Nederlandse bronnen voor wegen en verkeersborden: NDW en het Nationaal Wegenbestand."
+      },
+      {
+        "@language": "en",
+        "@value": "This conceptual framework describes the information needed to record where motorised traffic may travel in one direction only. The core is the permitted direction of travel: on a one-way road, travel is allowed in a single direction only. That direction is fixed relative to the road itself: forward or return. Exceptions often apply. A very common one is ‘except cyclists’, where cyclists may ride in both directions. There are also exceptions for, for example, scheduled buses or access-only traffic. Sometimes the one-way restriction applies only at certain times, for instance during rush hour or at events; this is called a dynamic one-way road. Sometimes the direction of travel even changes. A reversible lane may be open in the forward direction at the start of the day and in the return direction at the end of the day.\n\nFor each one-way situation, the framework records:\n\nwhere the rule applies (on which road section) and in which direction;\nhow road users perceive the rule: traffic signs along the road, supplementary plates showing exceptions or times, and advance warning signs;\nwhen the rule applies: always or only at certain times, and, where the direction of travel alternates, which direction applies when;\nwhich road users are exempt;\nwhat the direction of travel is based on and, for an established direction of travel, which traffic decree applies.\n\nThe framework covers every situation in which motorised traffic may travel in one direction only. For each situation, the basis of the direction of travel is recorded. In many cases, a road authority deliberately establishes the one-way restriction by traffic decree and makes the restriction known through traffic signs; exemptions and time periods may apply. On other roads, the direction of travel follows from the traffic rules and the road layout, as on the separate carriageways of motorways and other dual carriageways, on slip roads and on roundabouts. Such an inherent direction of travel has no traffic decree and no exemptions. These situations nevertheless fall within the framework, because driving against the direction of travel can have serious consequences there, and the signage intended to prevent entry, such as ‘no entry’ signs at exit ramps, matters for road safety. A reversible lane always has an established direction of travel: there, the direction of travel does not follow from the traffic rules but is set by the road authority.\n\nOne-way traffic is recorded because the permitted direction of travel determines which movements across the road network are possible and safe. The data support route planning per transport mode: a car or freight route follows the one-way restriction, whereas a cycle route makes use of an exemption for cyclists. The data contribute to road safety by enabling in-vehicle systems and traffic control centres to detect driving against the direction of travel and to issue warnings. For reversible lanes and dynamic one-way restrictions, the data show which direction applies at which moment. The link to the traffic decree and the signage makes it possible to verify whether the situation on the road matches the decree. Because all of this data is described in the same way, road authorities, navigation systems and traveller information services can exchange and use the data reliably. The framework was drawn up within the European agreements on travel and traffic information (ITS Directive 2010/40/EU and RTTI Regulation (EU) 2022/670); the RTTI Regulation lists one-way streets and the direction of travel on reversible lanes as traffic regulations to be made available. The framework aligns with existing Dutch sources for roads and traffic signs: NDW and the Nationaal Wegenbestand (NWB, the Dutch national road database)."
+      }
+    ],
+    "http://purl.org/dc/terms/modified": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-10-29T11:44:03.152566+00:00"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "nl",
+        "@value": "RTTI - Eenrichtingswegen"
+      },
+      {
+        "@language": "en",
+        "@value": "RTTI - One way streets"
+      }
+    ],
+    "http://purl.org/dc/terms/type": [
+      {
+        "@id": "http://purl.org/adms/assettype/Thesaurus"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+        "@value": "0.7.0"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000001"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+        "@id": "http://purl.org/adms/status/UnderDevelopment"
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000008",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000006"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Verkeersteken dat de plaats markeert vanaf waar een eenrichtingsregime geldt."
+      },
+      {
+        "@language": "en",
+        "@value": "Traffic sign marking the location from which a one-way regime applies."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Aanduiding begin"
+      },
+      {
+        "@language": "en",
+        "@value": "Start Indication"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "Vanuit de gesloten richting is dit bord C2; vanuit de open richting doorgaans bord C3. Eventueel aangevuld met onderborden voor uitzonderingen."
+      },
+      {
+        "@language": "en",
+        "@value": "From the closed direction, this is sign C2; from the open direction, usually sign C3. Possibly supplemented by supplementary plates for exemptions."
+      }
+    ]
+  },
+  {
+    "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000002",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "nl",
+        "@value": "Een wegvak (of een deel daarvan) waarop het verkeer slechts in één richting mag rijden."
+      },
+      {
+        "@language": "en",
+        "@value": "A road section, or part of a road section, where traffic is allowed to travel in only one direction."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#narrower": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000014"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "nl",
+        "@value": "Eenrichtingsweg"
+      },
+      {
+        "@language": "en",
+        "@value": "One-Way Street"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000005"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000006"
+      },
+      {
+        "@id": "https://ndwnu.github.io/its-gegevenscatalogus/id/758dc0d0-738b-4cff-9cf1-7f162258a064/concept-2603010000003"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "nl",
+        "@value": "De NAPCORE data dictionary (2025) definieert ‘one-way streets’ als: road segments where traffic is allowed to move in only one direction. Dit is een nieuwe datacategorie die expliciet in DR (EU) 2022/670 is opgenomen ten opzichte van de eerdere DR (EU) 2015/962."
+      },
+      {
+        "@language": "nl",
+        "@value": "Een eenrichtingsweg berust op een van twee grondslagen (zie Grondslag rijrichting). Een ingestelde eenrichtingsweg wordt vastgesteld via een verkeersbesluit en kenbaar gemaakt met bord C2 aan de gesloten zijde, bord C3 aan de open zijde en bij een zijweg of T-aansluiting bord C4, eventueel aangevuld met onderborden voor uitzonderingen of tijden (zie Aanduiding).\n\nBij een inherente rijrichting, zoals op gescheiden rijbanen, toe- en afritten en rotondes, ontbreekt een verkeersbesluit en gelden geen uitzonderingen; een geslotenverklaring (bord C2) die het inrijden tegen de rijrichting moet voorkomen, kan wel aanwezig zijn.\n\nHet eenrichtingsregime wordt vastgelegd als rijrichtingattribuut op één of meer aaneengesloten NWB-wegvakken; begin en einde volgen uit de grenzen van die wegvakken."
+      },
+      {
+        "@language": "en",
+        "@value": "A one-way street rests on one of two bases (see Basis of the direction of travel). An established one-way street is set by a traffic decree and indicated by sign C2 at the closed end, sign C3 at the open end and, at a side road or T-junction, sign C4, possibly supplemented by supplementary plates for exemptions or times (see Indication).\n\nFor an inherent direction of travel, as on dual carriageways, slip roads and roundabouts, no traffic decree exists and no exemptions apply; a closure declaration (sign C2) intended to prevent entry against the direction of travel may be present.\n\nThe one-way regulation is recorded as the direction-of-travel attribute on one or more consecutive NWB road sections; start and end follow from the boundaries of those sections."
+      },
+      {
+        "@language": "en",
+        "@value": "The NAPCORE data dictionary (2025) defines ‘one-way streets’ as: road segments where traffic is allowed to move in only one direction. This is a new data category explicitly included in DR (EU) 2022/670, compared with the earlier DR (EU) 2015/962."
+      }
+    ]
+  }
+]
