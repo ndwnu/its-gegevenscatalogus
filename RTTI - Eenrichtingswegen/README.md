@@ -21,7 +21,7 @@ Elke gepubliceerde versie heeft een eigen map (bijvoorbeeld `0.7.0/`) met een RE
 
 | Versie | Gepubliceerd | Talen |
 | --- | --- | --- |
-| **0.7.0 (nieuwste)** | 2026-11-16 | [NL](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Eenrichtingswegen/0.7.0/nl/index.html) · [EN](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Eenrichtingswegen/0.7.0/en/index.html) |
+| **0.7.0 (nieuwste)** | 2026-11-23 | [NL](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Eenrichtingswegen/0.7.0/nl/index.html) · [EN](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Eenrichtingswegen/0.7.0/en/index.html) |
 | **0.5.0** | 2026-10-12 | [NL](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Eenrichtingswegen/0.5.0/nl/index.html) · [EN](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Eenrichtingswegen/0.5.0/en/index.html) |
 
 ---
