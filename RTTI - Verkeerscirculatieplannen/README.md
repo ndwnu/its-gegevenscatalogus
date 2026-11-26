@@ -6,10 +6,12 @@ Dit is de publicatiemap van het model **RTTI — Verkeerscirculatieplannen**. De
 
 De map `latest/` bevat altijd een kopie van de nieuwste versie. De links hieronder wijzen daarnaar en blijven dus naar de nieuwste versie leiden.
 
-| Taal | Specificatie (HTML) | Wijzigingen t.o.v. 0.5.0 (vorige versie) |
-| --- | --- | --- |
-| **NL** | [RTTI — Verkeerscirculatieplannen](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/nl/index.html) | [bekijk wijzigingen](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/nl/diff.html) |
-| **EN** | [t.b.d.](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/en/index.html) | [bekijk wijzigingen](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/en/diff.html) |
+| Taal | Specificatie (HTML) | PDF | Wijzigingen t.o.v. 0.5.0 (vorige versie) |
+| --- | --- | --- | --- |
+| **NL** | [RTTI — Verkeerscirculatieplannen](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/nl/index.html) | [PDF](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/nl/RTTI%20-%20Verkeerscirculatieplannen_NL_v0.7.0.pdf) | [bekijk wijzigingen](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/nl/diff.html) |
+| **EN** | [RTTI - Traffic Circulation Plans](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/en/index.html) | [PDF](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/en/RTTI%20-%20Verkeerscirculatieplannen_EN_v0.7.0.pdf) | [bekijk wijzigingen](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/en/diff.html) |
+
+**RDF** (machineleesbaar, alle talen in één bestand): [Turtle (.ttl)](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/RDF%27s/RTTI%20-%20Verkeerscirculatieplannen_v0.7.0.ttl) · [RDF/XML (.rdf)](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/RDF%27s/RTTI%20-%20Verkeerscirculatieplannen_v0.7.0.rdf) · [JSON-LD (.jsonld)](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/RDF%27s/RTTI%20-%20Verkeerscirculatieplannen_v0.7.0.jsonld)
 
 ## Wat vind je in deze map?
 
@@ -19,7 +21,7 @@ Elke gepubliceerde versie heeft een eigen map (bijvoorbeeld `0.7.0/`) met een RE
 
 | Versie | Gepubliceerd | Talen |
 | --- | --- | --- |
-| **0.7.0 (nieuwste)** | 2026-11-16 | [NL](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/0.7.0/nl/index.html) · [EN](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/0.7.0/en/index.html) |
+| **0.7.0 (nieuwste)** | 2026-11-26 | [NL](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/0.7.0/nl/index.html) · [EN](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/0.7.0/en/index.html) |
 | **0.5.0** | 2026-10-12 | [NL](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/0.5.0/nl/index.html) · [EN](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/0.5.0/en/index.html) |
 
 ---
