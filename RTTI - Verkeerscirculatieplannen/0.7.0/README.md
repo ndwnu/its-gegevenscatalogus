@@ -42,7 +42,7 @@ De leesbare specificatie (ReSpec) is per taal beschikbaar als webpagina:
 | Taal | Deze versie (0.7.0) | Altijd de nieuwste versie | Wijzigingen t.o.v. 0.5.0 (vorige versie) |
 | --- | --- | --- | --- |
 | **NL** | [RTTI — Verkeerscirculatieplannen 0.7.0](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/0.7.0/nl/index.html) | [naar de nieuwste versie ↗](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/nl/index.html) | [bekijk wijzigingen](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/0.7.0/nl/diff.html) |
-| **EN** | [t.b.d. 0.7.0](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/0.7.0/en/index.html) | [naar de nieuwste versie ↗](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/en/index.html) | [bekijk wijzigingen](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/0.7.0/en/diff.html) |
+| **EN** | [RTTI - Traffic Circulation Plans 0.7.0](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/0.7.0/en/index.html) | [naar de nieuwste versie ↗](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/latest/en/index.html) | [bekijk wijzigingen](https://ndwnu.github.io/its-gegevenscatalogus/RTTI%20-%20Verkeerscirculatieplannen/0.7.0/en/diff.html) |
 
 _“Altijd de nieuwste versie” wijst naar de meest recente publicatie van dit model; na een volgende publicatie is dat een latere versie dan 0.7.0._
 
